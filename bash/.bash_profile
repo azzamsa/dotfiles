@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+exec 5> >(logger -t $0)
+BASH_XTRACEFD="5"
+PS4='$LINENO: '
+set -x
+
 echo "╦ ╦┌─┐┬  ┬  ┌─┐  ┌─┐┌─┐┌─┐┌─┐┌┬┐┌─┐┌─┐"
 echo "╠═╣├┤ │  │  │ │  ├─┤┌─┘┌─┘├─┤│││└─┐├─┤"
 echo "╩ ╩└─┘┴─┘┴─┘└─┘  ┴ ┴└─┘└─┘┴ ┴┴ ┴└─┘┴ ┴"
@@ -11,11 +16,10 @@ export PATH="$HOME/bin:$PATH";
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{bash_aliases,bash_prompt,exports,functions}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-    break;
+for dotfile in ~/.{bash_aliases,bash_prompt,exports,functions}; do
+    [ -r "${dotfile}" ] && [ -f "${dotfile}" ] && source "${dotfile}"
 done;
-unset file;
+unset dotfile
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
