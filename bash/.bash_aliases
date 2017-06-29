@@ -1,37 +1,32 @@
-alias copy='xclip -sel clip'
+#!/usr/bin/env bash
 
-#27.10.2015 10:33 AM
-alias e='emacsclient --alternate-editor='
-#16.04.2017 12:21 AM // new emacs conf
-#https://github.com/bbatsov/prelude
-alias e='emacsclient -t'
-alias ec='emacsclient -c'
-alias vim='emacsclient -t'
-alias vi='emacsclient -t'
+# List all files colorized in long format
+alias l="ls -lF ${colorflag}"
 
-# You may uncomment the following lines if you want `ls' to be colorized:
-export LS_OPTIONS='--color=auto'
-eval "`dircolors`"
-alias ls='ls $LS_OPTIONS'
-alias ll='ls $LS_OPTIONS -l'
-alias l='ls $LS_OPTIONS -lA'
+# List all files colorized in long format, including dot files
+alias la="ls -laF ${colorflag}"
 
-# Some more alias to avoid making mistakes:
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
 
-#Tue Nov  1 17:48:12 WIB 2016
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-#14.12.2016 6:29 AM
+#apt-get stuff
 alias in='sudo apt-get install'
 
-#pear untuk php 25.03.2017 10:33 AM
-alias pear='/home/azzamsa/pear/bin/pear'
-
-#25.03.2017 10:33 AM // ini udah ngetit pake emacsclient
-alias phbea='php_beautifier'
-
+#programming stuff
 alias sbcl='rlwrap sbcl'
+
+#emacsclient
+alias e='emacsclient -t'
+alias ec='emacsclient -c'

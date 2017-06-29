@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+#change to parent dir easily
+function cdn () {
+    pushd .; for ((i=1; i<=$1; i++)); do cd ..; done; pwd;
+}
