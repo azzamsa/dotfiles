@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
+export PATH
+
 #xterm colour(emacs support)
+#This is redundant - replaced by screen-256color-bce later
+#Which do you want?
 export TERM=xterm-256color
 
 #pbulder
@@ -8,8 +12,12 @@ export DEBFULLNAME="Azzam Syawqi Aziz"
 export DEBEMAIL="oktinastuzi@gmail.com"
 
 #Go language.
-export GOPATH=“/home/azzamsa/project”
-export PATH=$PATH:$GOPATH/bin 
+export GOPATH=“$HOME/project”
+
+#Add various entries to PATH
+PATH+=:"$GOPATH/bin"
+PATH+=:"$HOME/.config/composer/vendor/bin"
+PATH+=:"$HOME/.rvm/bin"
 
 #DB2 problems
 export DISPLAY=:0
@@ -24,30 +32,19 @@ export TERM=screen-256color-bce
 #04.05.2017 10:30 AM //java ugly font
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
-export PATH=$PATH:/home/azzamsa/.config/composer/vendor/bin
-
-
 #aliases 01.11.16 6:12 Am
 export ALTERNATE_EDITOR=""
 
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/azzamsa/.sdkman"
-[[ -s "/home/azzamsa/.sdkman/bin/sdkman-init.sh" ]] && source "/home/azzamsa/.sdkman/bin/sdkman-init.sh"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
 
 #save big history
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export HISTTIMEFORMAT="%d/%m/%y %T "
