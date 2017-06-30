@@ -1,6 +1,6 @@
-# Azzamsa's Emacs config
+# Azzamsa's dotfiles
 
-this is my emacs config.
+this is my dotfiles script
 
 ## Thanks to…
 
