@@ -1,5 +1,59 @@
 [user]
-	name = azzamsa
-	email = oktinastuzi@gmail.com
+  # Don't guess the user's identity.
+  # https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
+
+        useConfigOnly = true
+
 [credential]
 	helper = cache --timeout=3600
+
+[alias]
+        s = status
+        br = branch
+        f = fetch
+        g = log --graph --pretty=custom           # Show custom graph.
+        l = log --pretty=custom                   # Show custom log.
+        co = checkout
+        ca = !git add -A && git commit            # Commit all changes.
+
+[pretty]
+
+        custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+        #                     │        │            │            │             └─ author name
+        #                     │        │            │            └─ message
+        #                     │        │            └─ date (relative)
+        #                     │        └─ decorations (branch, heads or tags)
+        #                     └─ hash (abbreviated)
+         
+
+
+[color "branch"]
+
+    current = green bold
+    local = green
+    remote = yellow
+
+[color "diff"]
+
+    frag = magenta
+    meta = yellow
+    new = green
+    old = red
+
+[color "status"]
+
+    added = green reverse
+    changed = yellow reverse
+    untracked = red reverse
+
+
+[include]
+
+    # Load local configs.
+    # https://git-scm.com/docs/git-config#_includes
+    #
+    # [!] The following needs to remain at the end of this file in
+    #     order to allow any of the above configs to be overwritten
+    #     by the local ones
+
+path = ~/.gitconfig.local
