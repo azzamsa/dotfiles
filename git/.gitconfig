@@ -14,7 +14,7 @@
         g = log --graph --pretty=custom           # Show custom graph.
         l = log --pretty=custom                   # Show custom log.
         co = checkout
-        ca = !git add -A && git commit            # Commit all changes.
+        ac = !git add -A && git commit            # Commit all changes.
 
 [pretty]
 
