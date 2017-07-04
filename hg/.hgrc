@@ -11,3 +11,4 @@ username = azzamsa <oktinastuzi@gmail.com>
 # pager =
 # progress =
 # color =
+prompt = /media/azzamsa/Rhd/apps/hg-prompt/prompt.py
