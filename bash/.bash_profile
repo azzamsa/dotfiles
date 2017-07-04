@@ -27,7 +27,6 @@ if [[ ! "$BASHPROFILE_LOADED" ]]; then
         fi
     fi
 
-
     # Load the shell dotfiles, and then some:
     for dotfile in ~/.{bash_aliases,bash_prompt,exports,functions}; do
         [ -r "${dotfile}" ] && [ -f "${dotfile}" ] && source "${dotfile}"
