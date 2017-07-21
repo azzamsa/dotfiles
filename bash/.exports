@@ -2,6 +2,8 @@
 
 export PATH
 
+export PATH="/usr/games:$PATH"
+
 #xterm colour(emacs support)
 export TERM=xterm-256color
 
