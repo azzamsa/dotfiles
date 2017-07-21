@@ -2,44 +2,45 @@
 
 export PATH
 
-export PATH="/usr/games:$PATH"
-
-#xterm colour(emacs support)
+# xterm colour(emacs support)
 export TERM=xterm-256color
 
-#pbulder
+# pbuilder
 export DEBFULLNAME="Azzam Syawqi Aziz"
 export DEBEMAIL="oktinastuzi@gmail.com"
 
-#Go language.
+# Go language.
 export GOPATH=“$HOME/project”
 
-#Add various entries to PATH
+# Add various entries to PATH
 PATH+=:"$GOPATH/bin"
 PATH+=:"$HOME/.config/composer/vendor/bin"
 PATH+=:"$HOME/.rvm/bin"
+PATH+=:"$HOME/bin/"
+PATH+=:"/usr/games/"
 
-#DB2 problems
+
+# DB2 problems
 export DISPLAY=:0
 
-#emacs client configuration 17.10.16 10:31 AM
+# emacs client configuration 17.10.16 10:31 AM
 export VISUAL='emacsclient --alternate-editor='
 export EDITOR='emacsclient --alternate-editor='
 
-#04.05.2017 10:30 AM //java ugly font
+# 04.05.2017 10:30 AM //java ugly font
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
-#aliases 01.11.16 6:12 Am
+# aliases 01.11.16 6:12 Am
 export ALTERNATE_EDITOR=""
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-#save big history
+# save big history
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
