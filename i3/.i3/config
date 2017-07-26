@@ -81,6 +81,13 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindcode $mod+d focus child
 
+# workspace variable
+# 1:  term, 2:  net, 3:  edit, 4:  place, 5: mail
+set $ws01 "一 ichi"   
+set $ws02 "二 ni"     
+set $ws03 "三 san" 
+
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -109,10 +116,10 @@ bindsym $mod+Shift+parenright move workspace 10
 bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to
 # upgrade i3)
-bindsym $mod+Shift+R restart
+#bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+E exit
-bindsym $mod+Shift+E exec ~/.i3/i3-exit.sh
+bindsym $mod+Shift+E exec ~/.i3/i3-exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -165,8 +172,12 @@ status_command i3status
 #client.focused #4c7899 #CA226B#ffffff
 #client.unfocused #333333 #747170 #ffffff
 
-# Run unclutter when starting
-exec --no-startup-id unclutter 
+# auto start these apps when i3 launch
+exec --no-startup-id unclutter
+exec --no-startup-id wicd-gtk
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id dunst
+exec --no-startup-id klipper
 
 #i3 gaps
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -207,3 +218,27 @@ mode "$mode_gaps_outer" {
 }
 ## i3 gaps end
 
+
+# i3lock wallpaper
+bindsym $mod+Shift+Ctrl+L exec i3lock -i /home/azzamsa/Pictures/Wallpaper/lock-screen/prsz_1920x1200.png
+
+#i3 shutdown, reboot, suspend, lock
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id ~/.i3/i3exit lock, mode "default"
+    bindsym e exec --no-startup-id ~/.i3/i3exit logout, mode "default"
+    bindsym s exec --no-startup-id ~/.i3/i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.i3/i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.i3/i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id ~/.i3/i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
+# i3 screnshot
+bindsym Print exec scrot $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym Mod1+Print exec scrot -u $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym Mod1+Shift+Print exec scrot -s $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
