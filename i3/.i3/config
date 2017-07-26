@@ -26,6 +26,11 @@ bindsym $mod+Shift+Q kill
 # start dmenu (a program launcher)
 # increase size of font for readability
 bindsym $mod+d exec dmenu_run -fn -bitstream-*-*-r-*-*-*-120-*-*-*-*-*-*
+bindsym $mod+Shift+d exec rofi -show run -opacity 90
+
+# list open windows to switch to
+bindsym $mod+Tab exec rofi -show window -opacity 90
+
 
 # change focus
 # default keys altered to match those of vim
@@ -242,3 +247,6 @@ bindsym $mod+Pause mode "$mode_system"
 bindsym Print exec scrot $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym Mod1+Print exec scrot -u $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym Mod1+Shift+Print exec scrot -s $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
+
+# emacsclient
+bindsym $mod+Ctrl+Shift+E exec sh -c 'emacsclient -c'
