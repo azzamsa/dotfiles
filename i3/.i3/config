@@ -18,9 +18,9 @@ font -bitstream-*-*-r-*-*-*-120-*-*-*-*-*-*
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
-# kill focused window
+# Kill Focused window
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
@@ -88,34 +88,41 @@ bindsym $mod+a focus parent
 
 # workspace variable
 # 1:  term, 2:  net, 3:  edit, 4:  place, 5: mail
-set $ws01 "一 ichi"   
-set $ws02 "二 ni"     
-set $ws03 "三 san" 
+set $ws01 "1 term"   
+set $ws02 "2 net"     
+set $ws03 "3 code"    
+set $ws04 "4 fm"    
+set $ws05 "5 fun"     
+set $ws06 "六 roku"
+set $ws07 "七 shichi"
+set $ws08 "八 hachi"
+set $ws09 "九 kyū"
+set $ws10 "十 jū"
 
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws01
+bindsym $mod+2 workspace $ws02
+bindsym $mod+3 workspace $ws03
+bindsym $mod+4 workspace $ws04
+bindsym $mod+5 workspace $ws05
+bindsym $mod+6 workspace $ws06
+bindsym $mod+7 workspace $ws07
+bindsym $mod+8 workspace $ws08
+bindsym $mod+9 workspace $ws09
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+exclam move workspace 1
-bindsym $mod+Shift+quotedbl move workspace 2
-bindsym $mod+Shift+sterling move workspace 3
-bindsym $mod+Shift+dollar move workspace 4
-bindsym $mod+Shift+percent move workspace 5
-bindsym $mod+Shift+asciicircum move workspace 6
-bindsym $mod+Shift+ampersand move workspace 7
-bindsym $mod+Shift+asterisk move workspace 8
-bindsym $mod+Shift+parenleft move workspace 9
-bindsym $mod+Shift+parenright move workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws01
+bindsym $mod+Shift+2 move container to workspace $ws02
+bindsym $mod+Shift+3 move container to workspace $ws03
+bindsym $mod+Shift+4 move container to workspace $ws04
+bindsym $mod+Shift+5 move container to workspace $ws05
+bindsym $mod+Shift+6 move container to workspace $ws06
+bindsym $mod+Shift+7 move container to workspace $ws07
+bindsym $mod+Shift+8 move container to workspace $ws08
+bindsym $mod+Shift+9 move container to workspace $ws09
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -183,6 +190,10 @@ exec --no-startup-id wicd-gtk
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dunst
 exec --no-startup-id klipper
+exec --no-startup-id emacs --daemon
+exec --no-startup-id kmix
+exec --no-startup-id urxvtd
+exec --no-startup-id synclient VertEdgeScroll=1 TapButton1=1 TapButton2=1 TapButton3=1
 
 #i3 gaps
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -225,7 +236,7 @@ mode "$mode_gaps_outer" {
 
 
 # i3lock wallpaper
-bindsym $mod+Shift+Ctrl+L exec i3lock -i /home/azzamsa/Pictures/Wallpaper/lock-screen/prsz_1920x1200.png
+# bindsym $mod+Shift+Ctrl+L exec i3lock -i /home/azzamsa/Pictures/Wallpaper/lock-screen/prsz_1920x1200-blur-contrast.png
 
 #i3 shutdown, reboot, suspend, lock
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -243,10 +254,14 @@ mode "$mode_system" {
 }
 bindsym $mod+Pause mode "$mode_system"
 
+
 # i3 screnshot
 bindsym Print exec scrot $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym Mod1+Print exec scrot -u $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym Mod1+Shift+Print exec scrot -s $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
 
 # emacsclient
+# helped by whoaman in #emacs
 bindsym $mod+Ctrl+Shift+E exec sh -c 'emacsclient -c'
+
+smart_gaps on
