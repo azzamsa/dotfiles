@@ -1,6 +1,6 @@
 #!/bin/sh
 lock() {
-    i3lock -i /home/azzamsa/Pictures/Wallpaper/lock-screen/prsz_1920x1200.png
+    i3lock -i /home/azzamsa/Pictures/Wallpaper/lock-screen/prsz_1920x1200-blur-contrast.png
 }
 
 case "$1" in
