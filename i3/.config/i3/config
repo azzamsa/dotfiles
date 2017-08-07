@@ -12,25 +12,24 @@ set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
 # change font for readability
-font -bitstream-*-*-r-*-*-*-120-*-*-*-*-*-*
+font -*-terminus-*-*-*-*-13-*-*-*-*-*-*-13
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+# bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"
 
 # Kill Focused window
 bindsym $mod+Shift+Q kill
 
-# start dmenu (a program launcher)
-# increase size of font for readability
+# start dmenu or rofi
 bindsym $mod+d exec dmenu_run -fn -bitstream-*-*-r-*-*-*-120-*-*-*-*-*-*
 bindsym $mod+Shift+d exec rofi -show run -opacity 90
 
 # list open windows to switch to
 bindsym $mod+Tab exec rofi -show window -opacity 90
-
 
 # change focus
 # default keys altered to match those of vim
@@ -38,7 +37,6 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -87,17 +85,16 @@ bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
 # workspace variable
-# 1:  term, 2:  net, 3:  edit, 4:  place, 5: mail
-set $ws01 "1 term"   
-set $ws02 "2 net"     
-set $ws03 "3 code"    
-set $ws04 "4 fm"    
-set $ws05 "5 fun"     
-set $ws06 "六 roku"
-set $ws07 "七 shichi"
-set $ws08 "八 hachi"
-set $ws09 "九 kyū"
-set $ws10 "十 jū"
+set $ws01 "(1)term"   
+Set $ws02 "(2)net"     
+Set $ws03 "(3)code"    
+set $ws04 "4"    
+set $ws05 "5"     
+set $ws06 "6"
+set $ws07 "7"
+set $ws08 "8"
+set $ws09 "9"
+set $ws10 "10"
 
 
 # switch to workspace
@@ -126,12 +123,9 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
-# restart i3 inplace (preserves your layout/session, can be used to
-# upgrade i3)
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 #bindsym $mod+Shift+R restart
-# exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+E exit
-bindsym $mod+Shift+E exec ~/.i3/i3-exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -169,31 +163,88 @@ bindsym Return mode "default"
 bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-# Start i3bar to display a workspace bar (plus the system information # i3status
-# finds out, if available)
-bar {
-status_command i3status
-}
 
-# change colour to match root window
-#client.background #342826
+
+############
+#  Colors  #
+############
+# colours
+set $based3    #002b36
+set $based2    #073642
+set $based1    #586e75
+set $based0    #657b83
+set $base0     #839496
+set $base1     #93a1a1
+set $base2     #eee8d5
+set $base3     #fdf6e3
+set $yellow    #b58900
+set $orange    #cb4b16
+set $red       #dc322f
+set $magenta   #d33682
+set $violet    #6c71c4
+set $blue      #268bd2
+set $cyan      #2aa198
+set $green     #859900
+set_from_resource $fg	    color2 #2AA198
+set_from_resource $bg	    color0 #1F2D3A
+set_from_resource $shade    color8 #ffffff
+set_from_resource $light    color5 #ffffff
+set_from_resource $urgent   color1 #ffffff
+
 
 # changed these colours for readability
-# class border backgr. text
-#client.focused #4c7899 #CA226B#ffffff
-#client.unfocused #333333 #747170 #ffffff
+client.focused            $based3   $based2   $base3   $based3  $based2
+client.focused_inactive   $based3   $based3   $base0   $based3  $based3
+client.unfocused          $based3   $based3   $base0   $based3  $based3
+client.urgent $based3 $magenta $base3 $based3 $magenta
+
+
+################
+#  Status Bar  #
+################
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    height 28
+    position bottom
+    status_command i3status
+    font pango:DejaVu Sans Mono, FontAwesome 10
+    strip_workspace_numbers yes
+    colors {
+	background $bg
+	separator $shade
+	statusline $shade
+
+	# workspace indicators	border	backgr.	text
+	focused_workspace	$bg	$bg	$fg
+	inactive_workspace	$bg	$bg	$shade
+	urgent_workspace	$bg	$bg	$urgent
+    }
+}
+bindsym $mod+r mode "resize"
+
+
+
+
+#####################
+#  Execute Programs #
+#####################
 
 # auto start these apps when i3 launch
 exec --no-startup-id unclutter
 exec --no-startup-id wicd-gtk
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dunst
-exec --no-startup-id klipper
 exec --no-startup-id emacs --daemon
-exec --no-startup-id kmix
 exec --no-startup-id urxvtd
-exec --no-startup-id synclient VertEdgeScroll=1 TapButton1=1 TapButton2=1 TapButton3=1
+exec --no-startup-id synclient VertEdgeScroll=1 TapButton1=1 TapButton2=3 TapButton3=2
+
+
+
+#####################
+#     i3 gaps       #
+#####################
 
 #i3 gaps
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -233,20 +284,26 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 ## i3 gaps end
+smart_gaps on
+
+# set window borders
+for_window [class="^.*"] border pixel 1
+
+# set gaps (i3-gaps only)
+gaps inner 10
+gaps outer 0
 
 
-# i3lock wallpaper
-# bindsym $mod+Shift+Ctrl+L exec i3lock -i /home/azzamsa/Pictures/Wallpaper/lock-screen/prsz_1920x1200-blur-contrast.png
 
 #i3 shutdown, reboot, suspend, lock
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id ~/.i3/i3exit lock, mode "default"
-    bindsym e exec --no-startup-id ~/.i3/i3exit logout, mode "default"
-    bindsym s exec --no-startup-id ~/.i3/i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id ~/.i3/i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id ~/.i3/i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id ~/.i3/i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id ~/.config/i3/i3exit lock, mode "default"
+    bindsym e exec --no-startup-id ~/.config/i3/i3exit logout, mode "default"
+    bindsym s exec --no-startup-id ~/.config/i3/i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.config/i3/i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.config/i3/i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -254,14 +311,29 @@ mode "$mode_system" {
 }
 bindsym $mod+Pause mode "$mode_system"
 
-
 # i3 screnshot
 bindsym Print exec scrot $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym Mod1+Print exec scrot -u $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym Mod1+Shift+Print exec scrot -s $HOME/Pictures/Screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
 
 # emacsclient
-# helped by whoaman in #emacs
 bindsym $mod+Ctrl+Shift+E exec sh -c 'emacsclient -c'
 
-smart_gaps on
+
+
+##########################
+#  Special Key Bindings  #
+##########################
+
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
+bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
+
+bindsym XF86TouchpadOff exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
+
+bindsym XF86Display exec "arandr"
+
+# bindsym $mod+a exec "st -e alsamixer"
+bindsym $mod+Shift+v exec "pavucontrol"
+
