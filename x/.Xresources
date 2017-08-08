@@ -6,6 +6,12 @@ URxvt*font: xft:InconsolataGo:pixelsize=14
 URxvt.saveLines:32767
 URxvt.scrollBar: false
 
+! disable ctrl-shit
+!URxvt.keysym.C-Tab: \033{
+!URxvt.keysym.Control-Shift-ISO_Left_Tab: \033} 
+!URxvt*iso14755: False 
+!URxvt*iso14755_52: False
+
 URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: firefox
 URxvt.matcher.button: 2
