@@ -1,4 +1,4 @@
 **/.directory 
 stumpwm/
 *.html
-
+.stow-local-ignore
