@@ -239,7 +239,7 @@ exec --no-startup-id dunst
 exec --no-startup-id emacs --daemon
 exec --no-startup-id urxvtd
 exec --no-startup-id synclient VertEdgeScroll=1 TapButton1=1 TapButton2=3 TapButton3=2
-
+exec --no-startup-id i3-battery-popup
 
 
 #####################
