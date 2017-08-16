@@ -42,8 +42,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # save big history
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+# export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
-export HISTFILESIZE=100000               # big big history
-
+export HISTFILESIZE=100000               # big big history\
 export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTCONTROL="ignoreboth"
