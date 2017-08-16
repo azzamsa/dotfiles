@@ -9,8 +9,8 @@ URxvt.scrollBar: false
 ! disable ctrl-shit
 !URxvt.keysym.C-Tab: \033{
 !URxvt.keysym.Control-Shift-ISO_Left_Tab: \033} 
-!URxvt*iso14755: False 
-!URxvt*iso14755_52: False
+URxvt*iso14755: False 
+URxvt*iso14755_52: False
 
 !change size on the fly
 URxvt.keysym.M-plus:    command:\033]710;xft:InconsolataGo:pixelsize=19\007
