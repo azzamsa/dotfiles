@@ -196,7 +196,7 @@ set_from_resource $urgent   color1 #ffffff
 client.focused            $based3   $based2   $base3   $based3  $based2
 client.focused_inactive   $based3   $based3   $base0   $based3  $based3
 client.unfocused          $based3   $based3   $base0   $based3  $based3
-client.urgent $based3 $magenta $base3 $based3 $magenta
+client.urgent             $based3   $magenta  $base3   $based3  $magenta
 
 
 ################
