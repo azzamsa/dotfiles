@@ -233,7 +233,6 @@ bindsym $mod+r mode "resize"
 
 # auto start these apps when i3 launch
 exec --no-startup-id unclutter
-exec --no-startup-id wicd-gtk
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dunst
 exec --no-startup-id emacs --daemon
