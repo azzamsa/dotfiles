@@ -162,7 +162,7 @@ bindsym Shift+Right resize grow right 10 px or 10 ppt
 bindsym Return mode "default"
 bindsym Escape mode "default"
 }
-
+bindsym $mod+r mode "resize"
 
 
 ############
@@ -190,7 +190,6 @@ set_from_resource $bg	    color0 #1F2D3A
 set_from_resource $shade    color8 #ffffff
 set_from_resource $light    color5 #ffffff
 set_from_resource $urgent   color1 #ffffff
-
 
 # changed these colours for readability
 client.focused            $based3   $based2   $base3   $based3  $based2
@@ -222,9 +221,6 @@ bar {
 	urgent_workspace	$bg	$bg	$urgent
     }
 }
-bindsym $mod+r mode "resize"
-
-
 
 
 #####################
