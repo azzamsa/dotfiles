@@ -44,4 +44,4 @@ alias e='emacsclient -t'
 alias ec='emacsclient -c'
 
 # mc
-alias mc='. /usr/share/mc/bin//mc-wrapper.sh'
+alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
