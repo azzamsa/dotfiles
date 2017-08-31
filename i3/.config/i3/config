@@ -229,7 +229,7 @@ bar {
 
 # auto start these apps when i3 launch
 exec --no-startup-id unclutter
-exec --no-startup-id feh --bg-scale $HOME/Pictures/Wallpaper/wallpaper.jpg
+exec --no-startup-id feh --bg-scale $HOME/Pictures/Wallpaper/wallpaper.png
 exec --no-startup-id dunst
 exec --no-startup-id emacs --daemon
 exec --no-startup-id urxvtd
@@ -314,9 +314,38 @@ bindsym Mod1+Shift+Print exec scrot -s $HOME/Pictures/Screenshot/`date +%Y-%m-%d
 # emacsclient
 bindsym $mod+Ctrl+Shift+E exec sh -c 'emacsclient -c'
 
+#
+# silientcast
+#
+
+# define what fullscreen means for floating window - have to manually set the display size
+set $enable_floating_fullscreen  border none,fullscreen disable,floating enable,move absolute position 0 0,resize set 1366 768
+
+# more definitions (i3wm doesn't seem to support using $variables in definitions of other $variables)
+set $work_in_temp move container to workspace Silentcast,workspace Silentcast
+
+set $return_from_temp move container to workspace back_and_forth,workspace back_and_forth
+
+set $iconify move container to workspace Silentcast,workspace Silentcast,floating disable,fullscreen enable,workspace back_and_forth
+
+set $deiconify workspace Silentcast,border none,fullscreen disable,floating enable,move absolute position 0 0,resize set 1920 1080,move container to workspace back_and_forth,workspace back_and_forth
+
+# change from fullscreen to floating_fullscreen because iw3m won't show other windows under it otherwise
+bindsym $mod+Shift+s [class="Silentcast"] $work_in_temp,$enable_floating_fullscreen,$return_from_temp
+
+# "iconify"
+bindsym $mod+Shift+i [class="Silentcast"] $iconify
+
+# "deiconify" to stop ffmpeg and continue
+bindsym $mod+i [class="Silentcast"] $deiconify
+
+#
+# End of Silentcast Workaround
+#
 
 
-##########################
+
+##########################          
 #  Special Key Bindings  #
 ##########################
 
