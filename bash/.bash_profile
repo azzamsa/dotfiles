@@ -32,7 +32,7 @@ if [[ ! "$BASHPROFILE_LOADED" ]]; then
         fi
     fi
 
-    umask 002
+    # umask 002
        
     # Load the shell dotfiles, and then some:
     for dotfile in ~/.{bash_aliases,bash_prompt,exports,functions}; do
