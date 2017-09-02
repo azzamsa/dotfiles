@@ -35,6 +35,7 @@ alias sudo='sudo '
 
 #apt-get stuff
 alias in='sudo apt-get install'
+alias inn='sudo apt-get --no-install-recommends install'
 
 #programming stuff
 alias sbcl='rlwrap sbcl'
