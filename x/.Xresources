@@ -1,5 +1,6 @@
+!!! Xresources
 
-! XFT
+!! XFT
 Xft.lcdfilter : lcddefault
 Xft.hintstyle : hintslight
 Xft.hinting   : true
@@ -7,32 +8,26 @@ Xft.antialias : true
 Xft.rgba      : rgb
 
 
-! URxvt config
-
+!! fonts
 URxvt*font: xft:InconsolataGo:pixelsize=14
 
+!! interface
+URxvt.scrollBar: false
 ! save big lines
 URxvt.saveLines:32767
-URxvt.scrollBar: false
 
-! disable ctrl-shit
-!URxvt.keysym.C-Tab: \033{
-!URxvt.keysym.Control-Shift-ISO_Left_Tab: \033} 
-URxvt*iso14755: False 
-URxvt*iso14755_52: False
+URxvt*colorUL:           #c5f779
+URxvt*underlineColor:    #c5f779
 
-!change size on the fly
-URxvt.keysym.M-plus:    command:\033]710;xft:InconsolataGo:pixelsize=19\007
-URxvt.keysym.M-minus:    command:\033]710;xft:InconsolataGo:pixelsize=14\007
 
+!! extension
 URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: firefox
 URxvt.matcher.button: 2
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 
-URxvt*colorUL:           #c5f779
-URxvt*underlineColor:    #c5f779
 
+!! color scheme
 *foreground: #dcdccc
 *background: #3f3f3f
 
@@ -55,7 +50,19 @@ URxvt*underlineColor:    #c5f779
 *color15:       #ffffff
 
 
-! rofi -- dmenu clone
+!! misc
+! disable ctrl-shit
+!URxvt.keysym.C-Tab: \033{
+!URxvt.keysym.Control-Shift-ISO_Left_Tab: \033} 
+URxvt*iso14755: False 
+URxvt*iso14755_52: False
+
+!change size on the fly
+URxvt.keysym.M-plus:    command:\033]710;xft:InconsolataGo:pixelsize=19\007
+URxvt.keysym.M-minus:    command:\033]710;xft:InconsolataGo:pixelsize=14\007
+
+
+!! rofi -- dmenu clone
 rofi.opacity:  100
 rofi.width:    70
 rofi.lines:    15
