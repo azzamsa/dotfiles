@@ -229,7 +229,7 @@ bar {
 
 # auto start these apps when i3 launch
 exec --no-startup-id unclutter
-exec --no-startup-id feh --bg-scale $HOME/Pictures/Wallpaper/wallpaper.png
+exec --no-startup-id feh --bg-scale $HOME/wallpapers/wallpaper.png
 exec --no-startup-id dunst
 exec --no-startup-id emacs --daemon
 exec --no-startup-id urxvtd
