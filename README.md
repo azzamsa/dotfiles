@@ -18,3 +18,7 @@ they are my source inspiration :)
 * I love [Fabby](https://askubuntu.com/users/344926/fabby) [.inputrc](https://askubuntu.com/questions/280327/how-to-make-terminal-autocomplete-when-there-are-several-files-directory)
 * [Reindert-Jan Ekker](http://www.rjekker.nl/) for his nice low battery notification pop-up  [script](https://github.com/rjekker/i3-battery-popup)
 
+## Credits
+
+- [InconsolataGo](http://levien.com/type/myfonts/inconsolata/) by [Raph Levien](http://levien.com), SIL Open Font License.
+- [Nature image](https://pixabay.com/en/light-sunset-nature-spikes-1939673/) by [Pumuki111](https://pixabay.com/en/users/Pumuki111-4142691/), CC0 Creative Commons.
