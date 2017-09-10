@@ -50,3 +50,5 @@ alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
 # more
 alias du='du -h'
 alias lgh='light -S '
+alias "c=xclip"
+alias "v=xclip -o"
