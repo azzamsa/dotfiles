@@ -308,9 +308,8 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 # i3 screnshot
-bindsym Print exec scrot $HOME/Pictures/screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
-bindsym Mod1+Print exec scrot -u $HOME/Pictures/screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
-bindsym Mod1+Shift+Print exec scrot -s $HOME/Pictures/screenshot/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym Print exec maim $HOME/Pictures/screenshot/$(date +%F-%T).png
+bindsym $mod+Shift+Print exec maim -s $HOME/Pictures/screenshot/$(date +%F-%T).png
 
 # emacsclient
 bindsym $mod+Ctrl+Shift+E exec sh -c 'emacsclient -c'
