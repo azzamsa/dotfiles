@@ -20,7 +20,6 @@ PATH+=:"$HOME/.rvm/bin"
 PATH+=:"$HOME/bin/"
 PATH+=:"/usr/games/"
 
-
 # DB2 problems
 export DISPLAY=:0
 
