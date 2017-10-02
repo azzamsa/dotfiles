@@ -30,6 +30,8 @@ export EDITOR='emacsclient --alternate-editor='
 # 04.05.2017 10:30 AM //java ugly font
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
+export SDL_VIDEO_X11_DGAMOUSE=0
+
 # aliases 01.11.16 6:12 Am
 export ALTERNATE_EDITOR=""
 
