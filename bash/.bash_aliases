@@ -42,7 +42,9 @@ alias sbcl='rlwrap sbcl'
 
 #emacsclient
 alias e='emacsclient -t'
+alias es="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 alias ec='emacsclient -c'
+
 
 # mc
 alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
@@ -52,3 +54,4 @@ alias du='du -h'
 alias lgh='light -S '
 alias "c=xclip"
 alias "v=xclip -o"
+alias rmd='rm -rdf'
