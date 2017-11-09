@@ -55,3 +55,4 @@ alias lgh='light -S '
 alias "c=xclip"
 alias "v=xclip -o"
 alias rmd='rm -rdf'
+alias "hld=hledger"
