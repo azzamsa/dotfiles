@@ -19,6 +19,7 @@ PATH+=:"$HOME/.config/composer/vendor/bin"
 PATH+=:"$HOME/.rvm/bin"
 PATH+=:"$HOME/bin/"
 PATH+=:"/usr/games/"
+PATH+=:"$HOME/.roswell/bin"
 
 # DB2 problems
 export DISPLAY=:0
