@@ -33,7 +33,7 @@ if [[ ! "$BASHPROFILE_LOADED" ]]; then
     fi
 
     # umask 002
-       
+
     # Load the shell dotfiles, and then some:
     for dotfile in ~/.{bash_aliases,bash_prompt,exports,functions}; do
         [ -r "${dotfile}" ] && [ -f "${dotfile}" ] && source "${dotfile}"
@@ -43,5 +43,3 @@ if [[ ! "$BASHPROFILE_LOADED" ]]; then
 fi
 
 BASHPROFILE_LOADED=1
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
