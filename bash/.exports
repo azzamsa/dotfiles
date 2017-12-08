@@ -21,6 +21,9 @@ PATH+=:"$HOME/bin/"
 PATH+=:"/usr/games/"
 PATH+=:"$HOME/.roswell/bin"
 
+## andoroid
+export ANDROID_HOME="$HOME/Android/Sdk"
+
 # DB2 problems
 export DISPLAY=:0
 
