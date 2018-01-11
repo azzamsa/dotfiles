@@ -23,6 +23,8 @@ PATH+=:"$HOME/.roswell/bin"
 
 ## andoroid
 export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
+
 
 # DB2 problems
 export DISPLAY=:0
