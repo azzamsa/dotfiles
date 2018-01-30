@@ -364,4 +364,4 @@ bindsym $mod+Shift+v exec "pavucontrol"
 ##########################
 #  App Special Config    #
 ##########################
-for_window [class="Yad"] floating enable border pixel 0
+for_window [class="Yad"] floating enable border pixel 0 sticky enable
