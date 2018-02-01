@@ -85,10 +85,16 @@ get_awk_source() {
 BEGIN {
     FS="=";
 }
-\$1 ~ /ENERGY_FULL_DESIGN$/ {
+\$1 ~ /ENERGY_FULL$/ {
     f += \$2;
 }
 \$1 ~ /ENERGY_NOW\$/ {
+    n += \$2;
+}
+\$1 ~ /CHARGE_FULL$/ {
+    f += \$2;
+}
+\$1 ~ /CHARGE_NOW\$/ {
     n += \$2;
 }
 END {
@@ -108,11 +114,11 @@ get_battery_perc() {
 
 show_popup() {
     WISH_SCRIPT="wm state . withdrawn; tk_messageBox -icon warning -title \"Battery Warning\" -message \"${1}\"; exit"
-    echo "$WISH_SCRIPT" | wish
+    echo "$WISH_SCRIPT" | timeout 15s wish
 }
 
 show_nagbar(){
-    /usr/bin/i3-nagbar -m "${1}"
+    i3-msg "exec i3-nagbar -m \"${1}\""
 }
 
 show_notify(){
@@ -128,6 +134,13 @@ show_notify(){
     fi
     [[ -n $NOTIFY_ICON ]] && NOTIFY_OPT="-i ${NOTIFY_ICON}"
     notify-send -u critical ${NOTIFY_OPT} "${1}"
+}
+
+# if user asleep or away.
+force_shutdown(){
+    if (( $PERC <= 3 ));then
+        systemctl poweroff
+    fi
 }
 
 show_message(){
@@ -166,6 +179,7 @@ main (){
 
         if is_battery_discharging; then
             if [[ $PERC -lt $LIMIT ]]; then
+                force_shutdown
                 echo "showing warning" >&2
                 show_message "${MESSAGE}"
 
@@ -194,12 +208,12 @@ main (){
 } >&2
 
 
-LOCK_FILE="${HOME}/.battery_state.lock"
+LOCK_FILE="${HOME}/.i3-battery-popup.lock"
 
 release_lock() {
     # This shouldn't be necessary but it seems
     # the lock doesn't release on i3 exit
-    rm "${LOCK_FILE}"
+    flock --unlock 200
 }
 
 
