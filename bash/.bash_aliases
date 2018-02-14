@@ -34,7 +34,7 @@ alias egrep='egrep --color=auto'
 alias sudo='sudo '
 
 #apt-get stuff
-alias in='sudo apt-get install'
+alias in='sudo apt install'
 alias inn='sudo apt-get --no-install-recommends install'
 
 #programming stuff
