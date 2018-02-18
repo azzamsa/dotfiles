@@ -25,7 +25,7 @@ bindsym $mod+Return exec urxvtc -e bash -c "tmux -q has-session && exec tmux att
 bindsym $mod+Shift+Q kill
 
 # start dmenu or rofi
-bindsym $mod+d exec dmenu_run -fn -bitstream-*-*-r-*-*-*-120-*-*-*-*-*-*
+# bindsym $mod+d exec dmenu_run -fn -bitstream-*-*-r-*-*-*-120-*-*-*-*-*-*
 bindsym $mod+Shift+d exec rofi -show run -opacity 90
 
 # list open windows to switch to
@@ -238,6 +238,7 @@ exec --no-startup-id synclient VertEdgeScroll=1 TapButton1=1 TapButton2=3 TapBut
 exec --no-startup-id i3-battery-popup
 exec --no-startup-id compton
 exec --no-startup-id redshift
+exec --no-startup-id greenclip daemon
 
 #####################
 #     i3 gaps       #
@@ -361,6 +362,10 @@ bindsym XF86Display exec "arandr"
 
 # bindsym $mod+a exec "st -e alsamixer"
 bindsym $mod+Shift+v exec "pavucontrol"
+
+# greenclip
+bindsym $mod+d exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
 
 ##########################
 #  App Special Config    #
