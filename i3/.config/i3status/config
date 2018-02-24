@@ -24,7 +24,7 @@ order += "volume master"
 order += "tztime local"
 
 wireless wlan0 {
-        format_up = "  %quality, %essid"
+        format_up = "  %quality"
         format_down = "  down"
 }
 
