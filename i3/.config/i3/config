@@ -321,7 +321,7 @@ bindsym $mod+Ctrl+Shift+E exec sh -c 'emacsclient -c'
 #
 
 # define what fullscreen means for floating window - have to manually set the display size
-set $enable_floating_fullscreen  border none,fullscreen disable,floating enable,move absolute position 0 0,resize set 1366 768
+set $enable_floating_fullscreen  border none,fullscreen disable,floating enable,move absolute position 0 0,resize set 1920 1080
 
 # more definitions (i3wm doesn't seem to support using $variables in definitions of other $variables)
 set $work_in_temp move container to workspace Silentcast,workspace Silentcast
