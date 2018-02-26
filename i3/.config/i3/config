@@ -7,9 +7,6 @@
 # i3 config file (v4) #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# is this make it load first ?
-exec --no-startup-id emacs --daemon
-
 # Use Windows key as Mod
 set $mod Mod4
 
@@ -231,6 +228,7 @@ urgent_workspace	$bg	$bg	$urgent
 #####################
 
 # auto start these apps when i3 launch
+exec --no-startup-id emacs --daemon
 exec --no-startup-id unclutter
 exec --no-startup-id feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec --no-startup-id dunst
@@ -242,7 +240,7 @@ exec --no-startup-id compton
 exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
 
-exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs-client.sh'
+# exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs-client.sh'
 #####################
 #     i3 gaps       #
 #####################
