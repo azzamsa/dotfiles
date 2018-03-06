@@ -85,10 +85,10 @@ bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
 # workspace variable
-set $ws01 "(1)term"
-Set $ws02 "(2)net"
-Set $ws03 "(3)code"
-set $ws04 "4"
+set $ws01 ""
+Set $ws02 ""
+Set $ws03 ""
+set $ws04 ""
 set $ws05 "5"
 set $ws06 "6"
 set $ws07 "7"
