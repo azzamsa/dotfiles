@@ -41,10 +41,6 @@ export SDL_VIDEO_X11_DGAMOUSE=0
 # aliases 01.11.16 6:12 Am
 export ALTERNATE_EDITOR=""
 
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
@@ -61,3 +57,7 @@ export INFOPATH=$INFOPATH:/usr/local/texlive/2017/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2017/texmf-dist/doc/man
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
