@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 
-#change to parent dir easily
+# change to parent dir easily
 function cdn () {
     pushd .; for ((i=1; i<=$1; i++)); do cd ..; done; pwd;
 }
 
-#Load RVM into a shell session as a function
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-
-#adding the autojump sources
+# adding the autojump sources
 . /usr/share/autojump/autojump.sh
 . /usr/share/autojump/autojump.bash

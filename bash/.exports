@@ -25,7 +25,6 @@ PATH+=:"$HOME/.roswell/bin"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 
-
 # DB2 problems
 export DISPLAY=:0
 
@@ -36,6 +35,7 @@ export EDITOR='emacsclient --alternate-editor='
 # 04.05.2017 10:30 AM //java ugly font
 # export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
+# for qemu mouse
 export SDL_VIDEO_X11_DGAMOUSE=0
 
 # aliases 01.11.16 6:12 Am
@@ -56,7 +56,8 @@ export PATH=/usr/local/texlive/2017/bin/x86_64-linux:$PATH
 export INFOPATH=$INFOPATH:/usr/local/texlive/2017/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2017/texmf-dist/doc/man
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#Load RVM into a shell session as a function
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
