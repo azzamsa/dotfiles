@@ -56,6 +56,10 @@ export PATH=/usr/local/texlive/2017/bin/x86_64-linux:$PATH
 export INFOPATH=$INFOPATH:/usr/local/texlive/2017/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2017/texmf-dist/doc/man
 
+# GEM home
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$HOME/.gem
+
 #Load RVM into a shell session as a function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
