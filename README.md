@@ -19,7 +19,7 @@ they are my source inspiration :)
 
 ### Great thanks to
 
-* [Tom Jobbins](https://github.com/TheBloke) solved many problems and tidy up all the messes, great thanks for him.
+* [Tom Jobbins](https://github.com/TheBloke) solved many problems and tidy up all the messes.
 * [Noam Postavsky](https://github.com/npostavs) solved bash prompt to works with ansi-term.
 
 ## Credits
