@@ -56,8 +56,8 @@ URxvt*iso14755: False
 URxvt*iso14755_52: False
 
 ! change size on the fly
-URxvt.keysym.M-plus:     perl:font-size:increase
-URxvt.keysym.M-minus:   perl:font-size:decrease
+URxvt.keysym.C-plus:     perl:font-size:increase
+URxvt.keysym.C-minus:   perl:font-size:decrease
 
 !! rofi -- dmenu clone
 rofi.opacity:  100
