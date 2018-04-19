@@ -60,6 +60,11 @@ export MANPATH=$MANPATH:/usr/local/texlive/2017/texmf-dist/doc/man
 export GEM_HOME=$HOME/.gem
 export GEM_PATH=$HOME/.gem
 
+# Python
+VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
+source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+
 #Load RVM into a shell session as a function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
