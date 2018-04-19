@@ -52,8 +52,6 @@ URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 
 !! misc
 ! disable ctrl-shit
-!URxvt.keysym.C-Tab: \033{
-!URxvt.keysym.Control-Shift-ISO_Left_Tab: \033}
 URxvt*iso14755: False
 URxvt*iso14755_52: False
 
