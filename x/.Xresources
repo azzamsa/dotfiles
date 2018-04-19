@@ -21,7 +21,7 @@ URxvt*underlineColor:    #c5f779
 
 
 !! extension
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,font-size
 URxvt.urlLauncher: firefox
 URxvt.matcher.button: 2
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
@@ -53,14 +53,13 @@ URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 !! misc
 ! disable ctrl-shit
 !URxvt.keysym.C-Tab: \033{
-!URxvt.keysym.Control-Shift-ISO_Left_Tab: \033} 
-URxvt*iso14755: False 
+!URxvt.keysym.Control-Shift-ISO_Left_Tab: \033}
+URxvt*iso14755: False
 URxvt*iso14755_52: False
 
-!change size on the fly
-URxvt.keysym.M-plus:    command:\033]710;xft:InconsolataGo:pixelsize=19\007
-URxvt.keysym.M-minus:    command:\033]710;xft:InconsolataGo:pixelsize=14\007
-
+! change size on the fly
+URxvt.keysym.M-plus:     perl:font-size:increase
+URxvt.keysym.M-minus:   perl:font-size:decrease
 
 !! rofi -- dmenu clone
 rofi.opacity:  100
