@@ -63,7 +63,7 @@ URxvt.keysym.C-minus:   perl:font-size:decrease
 rofi.opacity:  100
 rofi.width:    70
 rofi.lines:    15
-rofi.font:     InconsolataGo 14
+rofi.font:     Fira Mono 12
 rofi.location: 0
 rofi.padding:  5
 
