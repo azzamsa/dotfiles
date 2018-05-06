@@ -228,7 +228,7 @@ urgent_workspace	$bg	$bg	$urgent
 #####################
 
 # auto start these apps when i3 launch
-# exec --no-startup-id emacs --daemon
+exec --no-startup-id emacs --daemon
 exec --no-startup-id unclutter
 exec --no-startup-id feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec --no-startup-id dunst
@@ -241,7 +241,7 @@ exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
 
 # exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs-client.sh'
-exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/bin/emacs25'
+# exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/bin/emacs25'
 
 #####################
 #     i3 gaps       #
@@ -317,7 +317,7 @@ bindsym Print exec maim $HOME/Pictures/screenshot/$(date +%F-%T).png
 bindsym $mod+Shift+Print exec maim -s $HOME/Pictures/screenshot/$(date +%F-%T).png
 
 # emacsclient
-bindsym $mod+Ctrl+Shift+E exec sh -c 'emacsclient -c'
+bindsym $mod+c exec sh -c 'emacsclient -c'
 
 #
 # silientcast
