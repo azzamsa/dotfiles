@@ -60,6 +60,23 @@ prompt_git() {
     fi;
 }
 
+function virtualenv_info(){
+    # Get Virtual Env
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        # Strip out the path and just leave the env name
+        venv="${VIRTUAL_ENV##*/}"
+    else
+        # In case you don't have one activated
+        venv=''
+    fi
+    [[ -n "$venv" ]] && echo "(venv:$venv) "
+}
+
+# disable the default virtualenv prompt change
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+VENV="\$(virtualenv_info)";
+
 if tput setaf 1 &> /dev/null; then
     tput sgr0; # reset colors
     bold=$(tput bold);
@@ -75,6 +92,7 @@ if tput setaf 1 &> /dev/null; then
     violet=$(tput setaf 61);
     white=$(tput setaf 15);
     yellow=$(tput setaf 136);
+    darkseagreen=$(tput setaf 115);
 else
     bold='';
     reset="\e[0m";
@@ -88,6 +106,7 @@ else
     violet="\e[1;35m";
     white="\e[1;37m";
     yellow="\e[1;33m";
+    darkseagreen="\e[1;115m";
 fi;
 
 # Highlight the user name when logged in as root.
@@ -118,6 +137,7 @@ PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory full path
 PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+PS1+="\[${darkseagreen}\] ${VENV}" # virtualenv
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 
