@@ -77,3 +77,6 @@ rofi.color-normal: #3f3f3f, #dcdccc, #383838, #4f4f4f, #ffffef
 rofi.color-active: #4c7073, #dcdccc, #366060, #5c888b, #ffffef
 !                  red-4,   fg,      red-5,   red-3,   fg+1
 rofi.color-urgent: #8c5353, #dcdccc, #7c4343, #9c6363, #ffffef
+
+!! emacs
+emacs.verticalScrollBars: false
