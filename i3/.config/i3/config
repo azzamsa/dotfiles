@@ -316,6 +316,7 @@ bindsym $mod+Pause mode "$mode_system"
 # i3 screnshot
 bindsym Print exec maim $HOME/Pictures/screenshot/$(date +%F-%T).png
 bindsym $mod+Shift+Print exec maim -s $HOME/Pictures/screenshot/$(date +%F-%T).png
+bindsym Shift+Print exec take-your-moments.sh
 
 # emacsclient
 bindsym $mod+c exec sh -c 'emacsclient -c'
