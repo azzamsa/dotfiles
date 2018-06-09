@@ -241,8 +241,8 @@ exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
 # exec --no-startup-id mpd
 
-# exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs-client.sh'
-exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/bin/emacs25'
+# exec --no-startup-id i3-msg'workspace $ws01; exec /usr/local/bin/emacs-client.sh'
+exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs'
 
 #####################
 #     i3 gaps       #
