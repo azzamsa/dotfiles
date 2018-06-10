@@ -23,6 +23,11 @@ if [[ ! "$BASHPROFILE_LOADED" ]]; then
     # append to history, don't overwrite it
     shopt -s histappend
 
+    # keyboard mapping
+    setxkbmap -option ctrl:nocaps
+    xmodmap ~/.xmodmap
+    xcape -t 10000 -e "Control_R=Return"
+
     # adding bash completion
     if ! shopt -oq posix; then
         if [ -f /usr/share/bash-completion/bash_completion ]; then
