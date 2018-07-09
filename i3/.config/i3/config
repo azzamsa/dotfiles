@@ -219,6 +219,7 @@ statusline $shade
 focused_workspace	$bg	$bg	$fg
 inactive_workspace	$bg	$bg	$shade
 urgent_workspace	$bg	$bg	$urgent
+binding_mode            $bg     $bg     $shade
 }
 }
 
