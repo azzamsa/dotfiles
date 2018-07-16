@@ -9,7 +9,7 @@ Xft.rgba      : rgb
 
 
 !! fonts
-URxvt*font: xft:Fira Mono:pixelsize=13
+URxvt*font: xft:Fira Mono:pixelsize=14
 
 !! interface
 URxvt.scrollBar: false
