@@ -9,7 +9,9 @@ Xft.rgba      : rgb
 
 
 !! fonts
-URxvt*font: xft:Fira Mono:pixelsize=14
+!URxvt*font: xft:Fira Mono:pixelsize=14
+URxvt*font: xft:Source Code Pro:pixelsize=15:foundry=adobe:weight=normal:width=normal:spacing=100:scalable=true
+URxvt*boldFont: xft:Source Code Pro:bold:pixelsize=15:foundry=adobe:width=normal:spacing=100:scalable=true
 
 !! interface
 URxvt.scrollBar: false
