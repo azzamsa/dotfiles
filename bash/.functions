@@ -10,6 +10,12 @@ function rrun () {
     rustc $1.rs && ./$1
 }
 
+# mkdir and cd
+function mkcd () {
+    mkdir $1 && cd $1
+}
+
+
 # adding the autojump sources
 . /usr/share/autojump/autojump.sh
 . /usr/share/autojump/autojump.bash
