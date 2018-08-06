@@ -5,6 +5,11 @@ function cdn () {
     pushd .; for ((i=1; i<=$1; i++)); do cd ..; done; pwd;
 }
 
+# rustrun
+function rrun () {
+    rustc $1.rs && ./$1
+}
+
 # adding the autojump sources
 . /usr/share/autojump/autojump.sh
 . /usr/share/autojump/autojump.bash
