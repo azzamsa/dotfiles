@@ -239,6 +239,10 @@ exec --no-startup-id i3-battery-popup -L 18 -t 3m -N
 exec --no-startup-id compton
 exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
+
+
+
+exec --no-startup-id light -S 10
 # exec --no-startup-id mpd
 
 # exec --no-startup-id i3-msg'workspace $ws01; exec /usr/local/bin/emacs-client.sh'
