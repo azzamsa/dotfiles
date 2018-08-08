@@ -235,13 +235,11 @@ exec --no-startup-id feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec --no-startup-id dunst
 exec --no-startup-id urxvtd
 exec --no-startup-id nm-applet
+exec rm -f $HOME/.i3-battery-popup.lock
 exec --no-startup-id i3-battery-popup -L 18 -t 3m -N
 exec --no-startup-id compton
 exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
-
-
-
 exec --no-startup-id light -S 10
 # exec --no-startup-id mpd
 
@@ -360,19 +358,28 @@ bindsym $mod+i [class="Silentcast"] $deiconify
 #  Special Key Bindings  #
 ##########################
 
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
-bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
-
-bindsym XF86TouchpadOff exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
-
-bindsym XF86Display exec "arandr"
-
+# speaker and mic
+bindsym XF86AudioRaiseVolume exec "amixer set Master '3%+'"
+bindsym XF86AudioLowerVolume exec "amixer set Master '1%-'"
+bindsym XF86AudioMute exec "amixer set Master toggle"
+bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 # bindsym $mod+a exec "st -e alsamixer"
 bindsym $mod+Shift+v exec "pavucontrol"
 
-# greenclip
+# brightness
+bindsym XF86MonBrightnessUp exec "light -A 1"
+bindsym XF86MonBrightnessDown exec "light -U 1"
+
+# touchpad
+bindsym XF86TouchpadOff exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
+
+# external screen
+# bindsym $mod+l exec "/usr/bin/arandr"
+
+# lockscreen
+# mod+l
+
+# clipboard manager (greenclip)
 bindsym $mod+d exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 
