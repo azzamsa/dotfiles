@@ -52,9 +52,9 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTCONTROL="ignoreboth"
 
 # latex
-export PATH=/usr/local/texlive/2017/bin/x86_64-linux:$PATH
-export INFOPATH=$INFOPATH:/usr/local/texlive/2017/texmf-dist/doc/info
-export MANPATH=$MANPATH:/usr/local/texlive/2017/texmf-dist/doc/man
+export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
+export INFOPATH=$INFOPATH:/usr/local/texlive/2018/texmf-dist/doc/info
+export MANPATH=$MANPATH:/usr/local/texlive/2018/texmf-dist/doc/man
 
 # GEM home
 export GEM_HOME=$HOME/.gem
