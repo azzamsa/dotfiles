@@ -33,6 +33,9 @@ alias egrep='egrep --color=auto'
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+# more sudo problem
+alias psudo='sudo env PATH="$PATH"'
+
 #apt-get stuff
 alias in='sudo apt install'
 alias inn='sudo apt-get --no-install-recommends install'
