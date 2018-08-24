@@ -228,6 +228,9 @@ binding_mode            $bg     $bg     $shade
 #  Execute Programs #
 #####################
 
+# these apps/script can only be executed from pre-defined
+# not user new defined path e.g ~/bin
+
 # auto start these apps when i3 launch
 # exec --no-startup-id emacs --daemon
 exec --no-startup-id unclutter
@@ -239,6 +242,7 @@ exec --no-startup-id compton
 exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
 exec --no-startup-id light -S 10
+exec --no-startup-id auto-suspend
 # exec --no-startup-id mpd
 
 # exec --no-startup-id i3-msg'workspace $ws01; exec /usr/local/bin/emacs-client.sh'
