@@ -47,7 +47,7 @@ alias sbcl='rlwrap sbcl'
 alias e='emacsclient -t'
 alias es="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 alias ec='emacsclient -c'
-
+alias magit='emacsclient -n -e \(magit-status\)'
 
 # mc
 alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
