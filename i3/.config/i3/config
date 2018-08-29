@@ -232,7 +232,7 @@ binding_mode            $bg     $bg     $shade
 # not user new defined path e.g ~/bin
 
 # auto start these apps when i3 launch
-# exec --no-startup-id emacs --daemon
+exec --no-startup-id emacs --daemon
 exec --no-startup-id unclutter
 exec --no-startup-id feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec --no-startup-id dunst
@@ -243,10 +243,6 @@ exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
 exec --no-startup-id light -S 10
 exec --no-startup-id auto-suspend
-# exec --no-startup-id mpd
-
-# exec --no-startup-id i3-msg'workspace $ws01; exec /usr/local/bin/emacs-client.sh'
-exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs'
 
 #####################
 #     i3 gaps       #
