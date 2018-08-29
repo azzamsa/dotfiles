@@ -7,8 +7,8 @@ function cdn () {
 
 # rustrun
 function rrun () {
-    # rustc $1.rs && ./$1
-    rustc $1.rs --out-dir ./target &&  ./target/$1
+    # slice '.rs' to allow tab completion. I am tired of typing
+    rustc $1 --out-dir ./target &&  ./target/${1:0:-3}
 }
 
 # mkdir and cd
