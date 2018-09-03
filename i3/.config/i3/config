@@ -232,7 +232,6 @@ binding_mode            $bg     $bg     $shade
 # not user new defined path e.g ~/bin
 
 # auto start these apps when i3 launch
-exec --no-startup-id emacs --daemon
 exec --no-startup-id unclutter
 exec --no-startup-id feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec --no-startup-id dunst
