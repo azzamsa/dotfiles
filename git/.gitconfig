@@ -17,6 +17,7 @@
 	l = log --pretty=custom                   # Show custom log.
 	co = checkout
 	ac = !git add -A && git commit            # Commit all changes.
+	pl = pull --rebase                        # Pull with rebase
 	lg = !"git lg1"
 	lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) \
 	- %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— \
