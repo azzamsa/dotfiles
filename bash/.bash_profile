@@ -26,7 +26,6 @@ if [[ ! "$BASHPROFILE_LOADED" ]]; then
     # keyboard mapping
     setxkbmap -option ctrl:nocaps
     xmodmap ~/.xmodmap
-    xcape -t 10000 -e "Control_R=Return"
 
     # adding bash completion
     if ! shopt -oq posix; then
