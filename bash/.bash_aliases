@@ -46,7 +46,6 @@ alias sbcl='rlwrap sbcl'
 #emacsclient
 alias e='emacsclient -t'
 alias ec='emacsclient -c'
-alias magit='emacsclient -n -e \(magit-status\)'
 
 # mc
 alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
