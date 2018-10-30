@@ -50,10 +50,13 @@ alias ec='emacsclient -c'
 # mc
 alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
 
+# hledger
+alias "hld=hledger"
+alias "hld-edit=/usr/bin/mousepad .hledger.journal"
+
 # more
 alias du='du -h'
 alias lgh='light -S '
 alias "c=xclip"
 alias "v=xclip -o"
 alias rmd='rm -rdf'
-alias "hld=hledger"
