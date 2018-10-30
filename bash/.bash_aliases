@@ -58,3 +58,4 @@ alias "hld-edit=/usr/bin/mousepad .hledger.journal"
 alias du='du -h'
 alias lgh='light -S '
 alias rmd='rm -rdf'
+alias pwdc="/bin/pwd | /usr/bin/xclip -selection clipboard"
