@@ -57,6 +57,4 @@ alias "hld-edit=/usr/bin/mousepad .hledger.journal"
 # more
 alias du='du -h'
 alias lgh='light -S '
-alias "c=xclip"
-alias "v=xclip -o"
 alias rmd='rm -rdf'
