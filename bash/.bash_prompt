@@ -57,7 +57,7 @@ prompt_git() {
     fi;
 }
 
-function virtualenv_info(){
+function prompt_venv(){
     # Get Virtual Env
     if [[ -n "$VIRTUAL_ENV" ]]; then
         # Strip out the path and just leave the env name
@@ -68,11 +68,6 @@ function virtualenv_info(){
     fi
     [[ -n "$venv" ]] && echo "<$venv> "
 }
-
-# disable the default virtualenv prompt change
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-VENV="\$(virtualenv_info)";
 
 if tput setaf 1 &> /dev/null; then
     # use all possible 256 color (8 bit)
@@ -132,7 +127,7 @@ PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${grey74}\] in ";
 PS1+="\[${green}\]\w"; # working directory full path
 PS1+="\$(prompt_git \"\[${grey74}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
-PS1+="\[${darkseagreen}\] ${VENV}" # virtualenv
+PS1+="\[${darkseagreen}\] \$(prompt_venv)" # virtualenv
 PS1+="\n";
 PS1+="\[${grey74}\]\$ \e[0m"; # `$` (and reset color)
 
