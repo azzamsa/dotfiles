@@ -124,12 +124,7 @@ else
 fi;
 
 # Set the terminal title and prompt.
-if [ -n "$INSIDE_EMACS" ]; then
-    # "base name" is not needed for Emacs ansi-term (is it needed at all?)
-    PS1="";
-else
-    PS1="\[\033]0;\W\007\]"; # working directory base name
-fi
+PS1="";
 PS1+="\[${bold}\]\n"; # newline
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\] at ";
@@ -141,7 +136,4 @@ PS1+="\[${darkseagreen}\] ${VENV}" # virtualenv
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 
-PS2="\[${yellow}\]→ \[${reset}\]";
-
 export PS1;
-export PS2;
