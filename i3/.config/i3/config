@@ -18,14 +18,12 @@ font -*-terminus-*-*-*-*-13-*-*-*-*-*-*-13
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec urxvtc
 bindsym $mod+Return exec urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"
 
 # Kill Focused window
 bindsym $mod+Shift+Q kill
 
 # start dmenu or rofi
-# bindsym $mod+d exec dmenu_run -fn -bitstream-*-*-r-*-*-*-120-*-*-*-*-*-*
 bindsym $mod+Shift+d exec rofi -show run -opacity 90
 
 # list open windows to switch to
@@ -81,8 +79,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindcode $mod+d focus child
 
 # workspace variable
 set $ws01 ""
@@ -123,9 +119,6 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-#bindsym $mod+Shift+R restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -326,9 +319,6 @@ bindsym Print exec maim $HOME/Pictures/screenshot/$(date +%F-%T).png
 bindsym $mod+Shift+Print exec maim -s --hidecursor $HOME/Pictures/screenshot/$(date +%F-%T).png
 bindsym Shift+Print exec take-your-moments.sh
 
-# emacsclient
-bindsym $mod+c exec sh -c 'emacsclient -c'
-
 #
 # silientcast
 #
@@ -359,7 +349,6 @@ bindsym $mod+i [class="Silentcast"] $deiconify
 #
 
 
-
 ##########################
 #  Special Key Bindings  #
 ##########################
@@ -377,12 +366,6 @@ bindsym XF86MonBrightnessDown exec "light -U 1"
 
 # touchpad
 bindsym XF86TouchpadOff exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
-
-# external screen
-# bindsym $mod+l exec "/usr/bin/arandr"
-
-# lockscreen
-# mod+l
 
 # clipboard manager (greenclip)
 bindsym $mod+d exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
