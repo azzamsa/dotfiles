@@ -54,7 +54,7 @@ run_watch VPN {
 }
 
 tztime local {
-        format = " %a %b %Y-%m-%d  %I:%M %p"
+        format = " %a %b %Y-%m-%d  %H:%M"
 }
 
 cpu_usage {
