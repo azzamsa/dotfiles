@@ -11,7 +11,7 @@ set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
 # change font for readability
-font pango:Source Code Pro 10
+font pango:Source Code Pro Semibold 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
