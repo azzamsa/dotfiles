@@ -199,7 +199,7 @@ client.urgent             $based3   $magenta  $base3   $based3  $magenta
 bar {
 height 28
 position bottom
-status_command i3status
+status_command exec ~/bin/net-speed.sh
 font pango:Source Code Pro, FontAwesome 10
 strip_workspace_numbers yes
 colors {
