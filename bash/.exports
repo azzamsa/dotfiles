@@ -21,15 +21,10 @@ PATH+=:"$HOME/.roswell/bin"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 
-# DB2 problems
-export DISPLAY=:0
-
 # emacs client configuration 17.10.16 10:31 AM
 export VISUAL='emacsclient --alternate-editor='
 export EDITOR='emacsclient --alternate-editor='
 
-# 04.05.2017 10:30 AM //java ugly font
-# export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
 # for qemu mouse
 export SDL_VIDEO_X11_DGAMOUSE=0
