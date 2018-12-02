@@ -41,7 +41,7 @@ alias in='sudo apt install'
 alias inn='sudo apt-get --no-install-recommends install'
 
 #programming stuff
-alias sbcl='rlwrap sbcl'
+alias rsbcl='rlwrap sbcl'
 
 #emacsclient
 alias e='emacsclient -t'
