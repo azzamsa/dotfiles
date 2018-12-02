@@ -1,4 +1,5 @@
-**/.directory 
-stumpwm/
-*.html
+# stow
 .stow-local-ignore
+
+# secrets
+.secrets

@@ -39,7 +39,7 @@ if [[ ! "$BASHPROFILE_LOADED" ]]; then
     # umask 002
 
     # Load the shell dotfiles, and then some:
-    for dotfile in ~/.{bash_aliases,bash_prompt,exports,functions}; do
+    for dotfile in ~/.{bash_aliases,bash_prompt,exports,functions,secrets}; do
         [ -r "${dotfile}" ] && [ -f "${dotfile}" ] && source "${dotfile}"
     done;
     unset dotfile

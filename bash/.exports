@@ -6,10 +6,6 @@ export PATH
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-# pbuilder
-export DEBFULLNAME="Azzam Syawqi Aziz"
-export DEBEMAIL="oktinastuzi@gmail.com"
-
 # Go language.
 export GOPATH=“$HOME/project”
 
