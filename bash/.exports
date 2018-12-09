@@ -2,16 +2,18 @@
 
 export PATH
 
-
 PATH+=:"$HOME/bin/"
 PATH+=:"/usr/games/"
 export ALTERNATE_EDITOR=""
 
-
 # Programming Languages
 ## Go
-export GOPATH="$HOME/project"
-PATH+=:"$GOPATH/bin"
+PATH+=:"/usr/local/go/bin"
+export GOPATH=$HOME/goprojects
+export PATH=$PATH:$GOPATH/bin
+
+## Go Version Manager
+[[ -s "/home/azzamsya/.gvm/scripts/gvm" ]] && source "/home/azzamsya/.gvm/scripts/gvm"
 
 ## CL
 PATH+=:"$HOME/.roswell/bin"
