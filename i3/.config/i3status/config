@@ -15,7 +15,7 @@ general {
         output_format = i3bar
 }
 
-
+order += "net_rate"
 order += "disk /"
 order += "wireless wlan0"
 order += "run_watch VPN"
@@ -74,4 +74,8 @@ volume master {
 
 disk "/" {
         format = " %avail"
+}
+
+net_rate {
+        format = "[↡{down} ↟{up}]"
 }
