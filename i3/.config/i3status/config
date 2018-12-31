@@ -15,8 +15,8 @@ general {
         output_format = i3bar
 }
 
-order += "net_rate"
 order += "disk /"
+order += "net_rate"
 order += "wireless wlan0"
 order += "run_watch VPN"
 order += "battery 0"
