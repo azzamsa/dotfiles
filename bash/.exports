@@ -7,50 +7,34 @@ PATH+=:"/usr/games/"
 export ALTERNATE_EDITOR=""
 
 # Programming Languages
-## Go
 PATH+=:"/usr/local/go/bin"
 export GOPATH=$HOME/goprojects
 export PATH=$PATH:$GOPATH/bin
 
-## Go Version Manager
-[[ -s "/home/azzamsya/.gvm/scripts/gvm" ]] && source "/home/azzamsya/.gvm/scripts/gvm"
-
-## CL
 PATH+=:"$HOME/.roswell/bin"
 
-## Ruby
-PATH+=:"$HOME/.rvm/bin"
-export GEM_HOME=$HOME/.gem
-export GEM_PATH=$HOME/.gem
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
-## Load RVM into a shell session as a function
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-## PHP
 PATH+=:"$HOME/.config/composer/vendor/bin"
 
-## Latex
+VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
+source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+# disable the default virtualenv prompt change
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+export SDKMAN_DIR="$SDKMAN_DIR"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export RUST_SRC_PATH=${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+
+# Latex
 export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
 export INFOPATH=$INFOPATH:/usr/local/texlive/2018/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2018/texmf-dist/doc/man
 
-## Python
-VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
-source /usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME=$HOME/.virtualenvs
-
-# Java
-export SDKMAN_DIR="$SDKMAN_DIR"
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
-
-## Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-export RUST_SRC_PATH=${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
-
-
-# Application
-
-## Bash history
+# Bash history
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
 export HISTTIMEFORMAT="%d/%m/%y %T "
@@ -58,21 +42,22 @@ export HISTCONTROL="ignoreboth"
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-## Emacs
-## xterm colour(emacs support)
+##Emacs
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
-## emacs client
 export VISUAL='emacsclient --alternate-editor='
 export EDITOR='emacsclient --alternate-editor='
 
-## andoroid
+# andoroid
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 
 # Fix daggling mouse in qemu
 export SDL_VIDEO_X11_DGAMOUSE=0
 
-# Virtualenv
-# disable the default virtualenv prompt change
-export VIRTUAL_ENV_DISABLE_PROMPT=1
+export GEM_HOME=$HOME/.gem/gems
+export GEM_PATH=$HOME/.gem/gems
+
+[[ -s "/home/azzamsya/.gvm/scripts/gvm" ]] && source "/home/azzamsya/.gvm/scripts/gvm"
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
