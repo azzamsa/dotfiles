@@ -15,7 +15,6 @@ they are my source inspiration :)
 * [Epsi R Nurwijayadi](http://epsi-rns.github.io) for sharing [i3 config](https://github.com/epsi-rns/dotfiles)
 * [Anthony Campbell](http://acampbell.uk/) for his detailed [i3 config](http://www.acampbell.org.uk/linux/i3.html) with comments
 * I love [Fabby](https://askubuntu.com/users/344926/fabby) [.inputrc](https://askubuntu.com/questions/280327/how-to-make-terminal-autocomplete-when-there-are-several-files-directory)
-* [Reindert-Jan Ekker](http://www.rjekker.nl/) for his nice low battery notification pop-up  [script](https://github.com/rjekker/i3-battery-popup)
 
 ### Great thanks to
 
