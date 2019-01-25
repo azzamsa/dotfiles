@@ -25,6 +25,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 export SDKMAN_DIR="$SDKMAN_DIR"
+export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH=${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
@@ -61,3 +62,6 @@ export GEM_PATH=$HOME/.gem/gems
 [[ -s "/home/azzamsya/.gvm/scripts/gvm" ]] && source "/home/azzamsya/.gvm/scripts/gvm"
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
