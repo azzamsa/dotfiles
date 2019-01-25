@@ -29,26 +29,12 @@ bindsym $mod+Shift+d exec rofi -show run -opacity 90
 bindsym $mod+Tab exec rofi -show window -opacity 90
 
 # change focus
-# default keys altered to match those of vim
-# bindsym $mod+h focus left
-# bindsym $mod+j focus down
-# bindsym $mod+k focus up
-# bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-# default keys altered to match those of vim
-# bindsym $mod+Shift+H move left
-# bindsym $mod+Shift+J move down
-# bindsym $mod+Shift+K move up
-# bindsym $mod+Shift+L move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -240,7 +226,7 @@ exec --no-startup-id auto-suspend
 
 exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs'
 exec --no-startup-id i3-msg 'workspace $ws04; exec /usr/local/bin/Telegram'
-exec --no-startup-id i3-msg 'workspace $ws02; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace $ws02; exec /usr/bin/firefox-dev'
 
 #####################
 #     i3 gaps       #
