@@ -80,5 +80,9 @@ rofi.color-active: #4c7073, #dcdccc, #366060, #5c888b, #ffffef
 !                  red-4,   fg,      red-5,   red-3,   fg+1
 rofi.color-urgent: #8c5353, #dcdccc, #7c4343, #9c6363, #ffffef
 
+! rofi keybinding
+rofi.kb-row-up:             Up,Control+h
+rofi.kb-remove-char-back:   BackSpace,
+
 !! emacs
 emacs.verticalScrollBars: false
