@@ -1,9 +1,8 @@
 # example config (see "hg help config" for more info)
 
 [ui]
-# name and email, e.g.
-# username = Jane Doe <jdoe@example.com>
-username = azzamsa <oktinastuzi@gmail.com>
+# name and email
+username = azzamsa <azzam@azzamsa.com>
 
 [extensions]
 # uncomment these lines to enable some popular extensions
@@ -11,4 +10,3 @@ username = azzamsa <oktinastuzi@gmail.com>
 # pager =
 # progress =
 # color =
-prompt = /media/azzamsa/Rhd/apps/hg-prompt/prompt.py
