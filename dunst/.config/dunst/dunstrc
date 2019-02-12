@@ -134,16 +134,16 @@
     # xev might be helpful to find names for keys
 
     # close notification
-    close = mod4+m
+    close = mod1+m
 
     # close all notifications
-    close_all = mod4+shift+m
+    close_all = mod1+shift+m
 
     # redisplay last message(s)
-    history = mod4+n
+    history = mod1+n
 
     # context menu
-    context = mod4+shift+i
+    context = mod1+shift+i
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
