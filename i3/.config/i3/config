@@ -6,8 +6,10 @@
 # i3 config file (v4) #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# Use Windows key as Mod
+# Mod keys
 set $mod Mod4
+set $amod Mod1
+set $cmod Control
 
 # font for window titles. ISO 10646 = Unicode
 # change font for readability
@@ -39,6 +41,9 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# restore window focus
+bindsym $amod+r [workspace=__focused__] move workspace restore, move workspace current
 
 # split in horiZontal orientation (Tall)
 # need to change this because "Mod+h" no longer free
@@ -365,3 +370,4 @@ bindsym $mod+d exec rofi -modi "clipboard:greenclip print" -show clipboard -run-
 ##########################
 for_window [class="Yad"] floating enable border pixel 0 sticky enable
 for_window [title="Question"] sticky enable
+for_window [class="Lupv"] floating enable
