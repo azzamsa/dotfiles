@@ -26,38 +26,38 @@ alias ls="command ls ${colorflag}"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
 
 # Enable aliases to be sudo’ed
-alias sudo='sudo '
+alias sudo="sudo "
 
 # more sudo problem
 alias psudo='sudo env PATH="$PATH"'
 
 #apt-get stuff
-alias in='sudo apt install'
-alias inn='sudo apt-get --no-install-recommends install'
-alias inb='sudo apt install -t stretch-backports'
+alias in="sudo apt install"
+alias inn="sudo apt-get --no-install-recommends install"
+alias inb="sudo apt install -t stretch-backports"
 
 #programming stuff
-alias rsbcl='rlwrap sbcl'
+alias rsbcl="rlwrap sbcl"
 
 #emacsclient
-alias e='emacsclient -t'
-alias ec='emacsclient -c'
+alias e="emacsclient -t"
+alias ec="emacsclient -c"
 
 # mc
-alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
+alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
 
 # hledger
 alias hld="hledger"
-alias hld-edit="/usr/bin/mousepad .hledger.journal"
-alias hld-fill="hledger -I print"
+alias hlde="/usr/bin/mousepad .hledger.journal"
+alias hldf="hledger -f- -I print"
 
 # more
-alias du='du -h'
-alias lgh='light -S '
-alias rmd='rm -rdf'
+alias du="du -h"
+alias lgh="light -S "
+alias rmd="rm -rdf"
 alias pwdc="/bin/pwd | /usr/bin/xclip -selection clipboard"
