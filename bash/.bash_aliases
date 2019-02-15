@@ -56,6 +56,10 @@ alias hld="hledger"
 alias hlde="/usr/bin/mousepad .hledger.journal"
 alias hldf="hledger -f- -I print"
 
+# yt
+alias ytaudio="youtube-dl -f bestaudio[ext=m4a]"
+alias ytvideo="youtube-dl -f 18"
+
 # more
 alias du="du -h"
 alias lgh="light -S "
