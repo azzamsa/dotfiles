@@ -1,0 +1,4 @@
+# keyboard mapping. .bash_profile not sourced by lightdm
+setxkbmap -option ctrl:nocaps
+xmodmap ~/.xmodmap
+xrdb ~/.Xresources
