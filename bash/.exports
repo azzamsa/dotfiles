@@ -59,6 +59,9 @@ export SDL_VIDEO_X11_DGAMOUSE=0
 export GEM_HOME=$HOME/.gem/gems
 export GEM_PATH=$HOME/.gem/gems
 
+# OCaml
+. /home/azzamsya/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
 [[ -s "/home/azzamsya/.gvm/scripts/gvm" ]] && source "/home/azzamsya/.gvm/scripts/gvm"
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
