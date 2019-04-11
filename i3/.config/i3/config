@@ -313,6 +313,7 @@ bindsym $mod+Pause mode "$mode_system"
 # i3 screnshot
 bindsym Print exec maim $HOME/Pictures/screenshot/$(date +%F-%T).png & exec echo $HOME/Pictures/screenshot/$(date +%F-%T).png | xclip -selection clipboard
 bindsym $mod+Shift+Print exec maim -s --hidecursor $HOME/Pictures/screenshot/$(date +%F-%T).png & exec echo $HOME/Pictures/screenshot/$(date +%F-%T).png | xclip -selection clipboard
+bindsym $mod+Print exec  maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshot/$(date +%F-%T).png & exec echo $HOME/Pictures/screenshot/$(date +%F-%T).png | xclip -selection clipboard
 bindsym Shift+Print exec take-your-moments.sh
 
 #
