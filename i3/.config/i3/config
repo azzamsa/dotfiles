@@ -313,12 +313,12 @@ bindsym $mod+Pause mode "$mode_system"
 # i3 screnshot
 set $screenshot (m) moment, (t) temp, (f) full, (c) focus, (s) selection, a (anotate)
 mode "$screenshot" {
-bindsym m exec take-your-moments.sh
-bindsym t exec maim -s | xclip -selection clipboard -t image/png
-bindsym f exec maim $HOME/Pictures/screenshot/$(date +%F-%T).png
-bindsym c exec maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshot/$(date +%F-%T).png
-bindsym s exec maim -s --hidecursor $HOME/Pictures/screenshot/$(date +%F-%T).png
-bindsym a exec flameshot gui
+bindsym m exec take-your-moments.sh, mode "default"
+bindsym t exec maim -s | xclip -selection clipboard -t image/png, mode "default"
+bindsym f exec maim $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
+bindsym c exec maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
+bindsym s exec maim -s --hidecursor $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
+bindsym a exec flameshot gui, mode "default"
 
 bindsym Return mode "default"
 bindsym Escape mode "default"
