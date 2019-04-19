@@ -118,38 +118,37 @@ bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode #
-# They resize the border in the direction you pressed, e.g.
-# when pressing left, the window is resized so that it has
-# more space on its left
-bindsym h resize shrink left 10 px or 10 ppt
-bindsym Shift+H resize grow left 10 px or 10 ppt
+     # They resize the border in the direction you pressed, e.g.
+     # when pressing left, the window is resized so that it has
+     # more space on its left
+     bindsym h resize shrink left 10 px or 10 ppt
+     bindsym Shift+H resize grow left 10 px or 10 ppt
 
-bindsym j resize shrink down 10 px or 10 ppt
-bindsym Shift+J resize grow down 10 px or 10 ppt
+     bindsym j resize shrink down 10 px or 10 ppt
+     bindsym Shift+J resize grow down 10 px or 10 ppt
 
-bindsym k resize shrink up 10 px or 10 ppt
-bindsym Shift+K resize grow up 10 px or 10 ppt
+     bindsym k resize shrink up 10 px or 10 ppt
+     bindsym Shift+K resize grow up 10 px or 10 ppt
 
-bindsym l resize shrink right 10 px or 10 ppt
-bindsym Shift+L resize grow right 10 px or 10 ppt
+     bindsym l resize shrink right 10 px or 10 ppt
+     bindsym Shift+L resize grow right 10 px or 10 ppt
 
-# same bindings, but for the arrow keys
-bindsym Left resize shrink left 10 px or 10 ppt
-bindsym Shift+Left resize grow left 10 px or 10 ppt
+     # same bindings, but for the arrow keys
+     bindsym Left resize shrink left 10 px or 10 ppt
+     bindsym Shift+Left resize grow left 10 px or 10 ppt
 
-bindsym Down resize shrink down 10 px or 10 ppt
-bindsym Shift+Down resize grow down 10 px or 10 ppt
+     bindsym Down resize shrink down 10 px or 10 ppt
+     bindsym Shift+Down resize grow down 10 px or 10 ppt
 
-bindsym Up resize shrink up 10 px or 10 ppt
-bindsym Shift+Up resize grow up 10 px or 10 ppt
+     bindsym Up resize shrink up 10 px or 10 ppt
+     bindsym Shift+Up resize grow up 10 px or 10 ppt
 
-bindsym Right resize shrink right 10 px or 10 ppt
-bindsym Shift+Right resize grow right 10 px or 10 ppt
+     bindsym Right resize shrink right 10 px or 10 ppt
+     bindsym Shift+Right resize grow right 10 px or 10 ppt
 
-# back to normal: Enter or Escape
-bindsym Return mode "default"
-bindsym Escape mode "default"
+     # back to normal: Enter or Escape
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
 
@@ -194,22 +193,22 @@ client.urgent             $based3   $magenta  $base3   $based3  $magenta
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-height 28
-position bottom
-status_command py3status -c ~/dotfiles/i3/.config/i3status/config
-font pango:Source Code Pro, FontAwesome 10
-strip_workspace_numbers yes
-colors {
-background $bg
-separator $shade
-statusline $shade
+    height 28
+    position bottom
+    status_command py3status -c ~/dotfiles/i3/.config/i3status/config
+    font pango:Source Code Pro, FontAwesome 10
+    strip_workspace_numbers yes
+    colors {
+       background $bg
+       separator $shade
+       statusline $shade
 
-# workspace indicators	border	backgr.	text
-focused_workspace	$bg	$bg	$fg
-inactive_workspace	$bg	$bg	$shade
-urgent_workspace	$bg	$bg	$urgent
-binding_mode            $bg     $bg     $shade
-}
+       # workspace indicators	border	backgr.	text
+       focused_workspace	$bg	$bg	$fg
+       inactive_workspace	$bg	$bg	$shade
+       urgent_workspace	$bg	$bg	$urgent
+       binding_mode            $bg     $bg     $shade
+       }
 }
 
 
@@ -260,36 +259,36 @@ set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+     bindsym o      mode "$mode_gaps_outer"
+     bindsym i      mode "$mode_gaps_inner"
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+     bindsym plus  gaps inner current plus 5
+     bindsym minus gaps inner current minus 5
+     bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+     bindsym Shift+plus  gaps inner all plus 5
+     bindsym Shift+minus gaps inner all minus 5
+     bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
+     bindsym plus  gaps outer current plus 5
+     bindsym minus gaps outer current minus 5
+     bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+     bindsym Shift+plus  gaps outer all plus 5
+     bindsym Shift+minus gaps outer all minus 5
+     bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
 }
 
 
@@ -297,31 +296,31 @@ mode "$mode_gaps_outer" {
 #i3 shutdown, reboot, suspend, lock
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-bindsym l exec --no-startup-id ~/.config/i3/i3exit lock, mode "default"
-bindsym e exec --no-startup-id ~/.config/i3/i3exit logout, mode "default"
-bindsym s exec --no-startup-id ~/.config/i3/i3exit suspend, mode "default"
-bindsym h exec --no-startup-id ~/.config/i3/i3exit hibernate, mode "default"
-bindsym r exec --no-startup-id ~/.config/i3/i3exit reboot, mode "default"
-bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit shutdown, mode "default"
+     bindsym l exec --no-startup-id ~/.config/i3/i3exit lock, mode "default"
+     bindsym e exec --no-startup-id ~/.config/i3/i3exit logout, mode "default"
+     bindsym s exec --no-startup-id ~/.config/i3/i3exit suspend, mode "default"
+     bindsym h exec --no-startup-id ~/.config/i3/i3exit hibernate, mode "default"
+     bindsym r exec --no-startup-id ~/.config/i3/i3exit reboot, mode "default"
+     bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit shutdown, mode "default"
 
-# back to normal: Enter or Escape
-bindsym Return mode "default"
-bindsym Escape mode "default"
+     # back to normal: Enter or Escape
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
 }
 bindsym $mod+Pause mode "$mode_system"
 
 # i3 screnshot
 set $screenshot (m) moment, (t) temp, (f) full, (c) focus, (s) selection, a (anotate)
 mode "$screenshot" {
-bindsym m exec take-your-moments.sh, mode "default"
-bindsym t exec maim -s | xclip -selection clipboard -t image/png, mode "default"
-bindsym f exec maim $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
-bindsym c exec maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
-bindsym s exec maim -s --hidecursor $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
-bindsym a exec flameshot gui, mode "default"
+     bindsym m exec take-your-moments.sh, mode "default"
+     bindsym t exec maim -s | xclip -selection clipboard -t image/png, mode "default"
+     bindsym f exec maim $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
+     bindsym c exec maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
+     bindsym s exec maim -s --hidecursor $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
+     bindsym a exec flameshot gui, mode "default"
 
-bindsym Return mode "default"
-bindsym Escape mode "default"
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
 }
 bindsym Print mode "$screenshot"
 
