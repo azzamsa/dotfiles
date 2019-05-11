@@ -8,24 +8,11 @@ if [[ ! "$BASHPROFILE_LOADED" ]]; then
         *) return;;
         esac
 
-    #echo "╦ ╦┌─┐┬  ┬  ┌─┐  ┌─┐┌─┐┌─┐┌─┐┌┬┐┌─┐┌─┐"
-    #echo "╠═╣├┤ │  │  │ │  ├─┤┌─┘┌─┘├─┤│││└─┐├─┤"
-    #echo "╩ ╩└─┘┴─┘┴─┘└─┘  ┴ ┴└─┘└─┘┴ ┴┴ ┴└─┘┴ ┴"
-    #echo "Welcome $USER! It's now $(date '+%A %B %d %Y %r'), be a good hacker, I LOVE U azzamsa"
-
-    # Add ~/bin and .local/bin to PATH
-    PATH+=$HOME/bin:
-    [[ -d "$HOME/.local/bin" ]] && PATH+=$HOME/.local/bin
-
     # Autocorrect typos in path names when using `cd`
     shopt -s cdspell;
 
     # append to history, don't overwrite it
     shopt -s histappend
-
-    # keyboard mapping
-    setxkbmap -option ctrl:nocaps
-    xmodmap ~/.xmodmap
 
     # adding bash completion
     if ! shopt -oq posix; then
@@ -36,9 +23,7 @@ if [[ ! "$BASHPROFILE_LOADED" ]]; then
         fi
     fi
 
-    # umask 002
-
-    # Load the shell dotfiles, and then some:
+    # Load the shell dotfiles, and others
     for dotfile in ~/.{bash_aliases,bash_prompt,exports,functions,secrets}; do
         [ -r "${dotfile}" ] && [ -f "${dotfile}" ] && source "${dotfile}"
     done;
