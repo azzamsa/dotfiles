@@ -314,9 +314,9 @@ set $screenshot (m) moment-f, (o) moment-s, (t) temp, (f) full, (c) focus, (s) s
 mode "$screenshot" {
      bindsym m exec take-your-moments.sh full, mode "default"
      bindsym o exec take-your-moments.sh selection, mode "default"
-     bindsym t exec maim -s | xclip -selection clipboard -t image/png, mode "default"
-     bindsym f exec maim $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
-     bindsym c exec maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
+     bindsym t exec maim -s --hidecursor | xclip -selection clipboard -t image/png, mode "default"
+     bindsym f exec maim --hidecursor $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
+     bindsym c exec maim --hidecursor -i $(xdotool getactivewindow) $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
      bindsym s exec maim -s --hidecursor $HOME/Pictures/screenshot/$(date +%F-%T).png, mode "default"
      bindsym a exec flameshot gui, mode "default"
 
