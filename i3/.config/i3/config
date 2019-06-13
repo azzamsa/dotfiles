@@ -50,10 +50,10 @@ bindsym $mod+t [workspace=__focused__] move workspace restore, move workspace cu
 
 # split in horiZontal orientation (Tall)
 # need to change this because "Mod+h" no longer free
-bindsym $mod+z split h
+# bindsym $mod+z split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
