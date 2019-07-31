@@ -26,8 +26,8 @@ order += "volume master"
 order += "tztime local"
 
 wireless wlan0 {
-        format_up = "  %quality"
-        format_down = "  down"
+        format_up = " %quality"
+        format_down = " down"
 }
 
 ethernet eth0 {
@@ -62,7 +62,7 @@ tztime local {
 cpu_usage {
 	max_threshold = 95
 	degraded_threshold = 80
-        format = "   %usage"
+        format = " %usage"
 }
 
 sysdata {
@@ -71,8 +71,8 @@ sysdata {
 }
 
 volume master {
-	format = "   %volume"
-        format_muted = "   (muted) %volume"
+	format = " %volume"
+        format_muted = "(muted) %volume"
         device = "default"
         mixer = "Master"
         mixer_idx = 0

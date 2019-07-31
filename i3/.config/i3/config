@@ -76,7 +76,7 @@ bindsym $mod+a focus parent
 # workspace variable
 set $ws01 ""
 Set $ws02 ""
-Set $ws03 ""
+Set $ws03 ""
 set $ws04 ""
 set $ws05 "5"
 set $ws06 "6"
@@ -196,7 +196,7 @@ bar {
     height 28
     position bottom
     status_command py3status -c ~/dotfiles/i3/.config/i3status/config
-    font pango:Source Code Pro, FontAwesome 10
+    font pango:Source Code Pro, Font Awesome 5 Free Regular 10
     strip_workspace_numbers yes
     colors {
        background $bg
