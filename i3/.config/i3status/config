@@ -21,6 +21,7 @@ order += "wireless wlan0"
 order += "run_watch VPN"
 order += "battery 0"
 order += "cpu_usage"
+order += "sysdata"
 order += "volume master"
 order += "tztime local"
 
@@ -62,6 +63,11 @@ cpu_usage {
 	max_threshold = 95
 	degraded_threshold = 80
         format = "   %usage"
+}
+
+sysdata {
+        thresholds = [(80, "degraded"), (90, "bad")]
+        format = "[ {mem_used_percent}%]"
 }
 
 volume master {
