@@ -22,7 +22,7 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"
 
 # Kill Focused window
-bindsym $mod+Shift+Q kill
+bindsym $mod+Shift+Q [con_id="__focused__" instance="^(?!Thunar).*$"] kill
 
 # start dmenu or rofi
 bindsym $mod+Shift+d exec rofi -show run -opacity 90
