@@ -67,6 +67,8 @@ export GEM_PATH=$HOME/.gem/gems
 . /home/azzamsya/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 # guix
+. "$GUIX_PROFILE/etc/profile"
+export GUIX_PROFILE="/home/azzamsya/.guix-profile"
 export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale
 export PATH="/home/azzamsya/.config/guix/current/bin${PATH:+:}$PATH"
 export PATH="/home/azzamsya/.guix-profile/bin:/home/azzamsya/.guix-profile/sbin${PATH:+:}$PATH"
