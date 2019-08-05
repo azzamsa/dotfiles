@@ -173,6 +173,7 @@ set $violet    #6c71c4
 set $blue      #268bd2
 set $cyan      #2aa198
 set $green     #859900
+set $cwhite    #d3dae3
 set_from_resource $fg	    color2 #2AA198
 set_from_resource $bg	    color0 #1F2D3A
 set_from_resource $shade    color8 #ffffff
@@ -204,7 +205,7 @@ bar {
        statusline $shade
 
        # workspace indicators	border	backgr.	text
-       focused_workspace	$bg	$bg	$magenta
+       focused_workspace	$bg	$bg	$cwhite
        inactive_workspace	$bg	$bg	$shade
        urgent_workspace	        $bg	$bg	$urgent
        binding_mode             $bg     $bg     $shade
