@@ -66,17 +66,6 @@ export GEM_PATH=$HOME/.gem/gems
 # OCaml
 . /home/azzamsya/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-# guix
-. "$GUIX_PROFILE/etc/profile"
-export GUIX_PROFILE="/home/azzamsya/.guix-profile"
-export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale
-export PATH="/home/azzamsya/.config/guix/current/bin${PATH:+:}$PATH"
-export PATH="/home/azzamsya/.guix-profile/bin:/home/azzamsya/.guix-profile/sbin${PATH:+:}$PATH"
-export GUIX_GTK3_PATH="/home/azzamsya/.guix-profile/lib/gtk-3.0${GUIX_GTK3_PATH:+:}$GUIX_GTK3_PATH"
-export XDG_DATA_DIRS="/home/azzamsya/.guix-profile/share${XDG_DATA_DIRS:+:}$XDG_DATA_DIRS"
-export GIO_EXTRA_MODULES="/home/azzamsya/.guix-profile/lib/gio/modules${GIO_EXTRA_MODULES:+:}$GIO_EXTRA_MODULES"
-
-
 [[ -s "/home/azzamsya/.gvm/scripts/gvm" ]] && source "/home/azzamsya/.gvm/scripts/gvm"
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
