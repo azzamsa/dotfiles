@@ -197,7 +197,7 @@ bar {
     height 28
     position bottom
     status_command py3status -c ~/dotfiles/i3/.config/i3status/config
-    font pango:Source Code Pro, Font Awesome 5 Free Regular 10
+    font pango:Source Code Pro, Font Awesome 5 Free Regular 9
     strip_workspace_numbers yes
     colors {
        background $bg
