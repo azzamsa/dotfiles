@@ -3,7 +3,6 @@
 export PATH
 
 # Add ~/bin and .local/bin to PATH
-PATH+=$HOME/bin:
 [[ -d "$HOME/.local/bin" ]] && PATH+=$HOME/.local/bin
 
 PATH+=:"$HOME/bin/"
