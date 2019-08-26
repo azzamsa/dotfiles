@@ -23,6 +23,7 @@ order += "battery 0"
 order += "cpu_usage"
 order += "sysdata"
 order += "volume master"
+order += "volume mic"
 order += "tztime local"
 
 wireless wlan0 {
@@ -76,6 +77,14 @@ volume master {
         device = "default"
         mixer = "Master"
         mixer_idx = 0
+}
+
+volume mic {
+    format = ":%volume"
+    format_muted = "(muted) %volume"
+    device = "default"
+    mixer = "Capture"
+    mixer_idx = 0
 }
 
 disk "/" {
