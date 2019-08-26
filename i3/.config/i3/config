@@ -231,10 +231,11 @@ exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
 exec --no-startup-id light -S 10
 exec --no-startup-id auto-suspend
+exec --no-startup-id xcape -t 10000 -e "Control_R=Return"
 
-exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs'
+exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/bin/emacs'
 exec --no-startup-id i3-msg 'workspace $ws04; exec /usr/local/bin/Telegram'
-exec --no-startup-id i3-msg 'workspace $ws02; exec /usr/bin/firefox-dev'
+exec --no-startup-id i3-msg 'workspace $ws02; exec /usr/local/bin/firefox-dev'
 
 #####################
 #     i3 gaps       #
@@ -313,8 +314,8 @@ bindsym $mod+Pause mode "$mode_system"
 # i3 screnshot
 set $screenshot (m) moment-f, (o) moment-s, (u) temp-f, (t) temp-s, (f) full, (c) focus, (s) selection, a (anotate)
 mode "$screenshot" {
-     bindsym m exec take-your-moments.sh full, mode "default"
-     bindsym o exec take-your-moments.sh selection, mode "default"
+     bindsym m exec take-your-moments full, mode "default"
+     bindsym o exec take-your-moments selection, mode "default"
      bindsym u exec maim --hidecursor | xclip -selection clipboard -t image/png, mode "default"
      bindsym t exec maim -s --hidecursor | xclip -selection clipboard -t image/png, mode "default"
      bindsym f exec maim --hidecursor $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png, mode "default"
@@ -367,6 +368,11 @@ bindsym XF86AudioLowerVolume exec "amixer set Master '1%-'"
 bindsym XF86AudioMute exec "amixer set Master toggle"
 bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 bindsym $mod+Shift+v exec "pavucontrol"
+
+# misc
+# XF86Bluetooth
+# XF86WLAN
+bindsym XF86Display exec "arandr"
 
 # brightness
 bindsym XF86MonBrightnessUp exec "light -A 1"
