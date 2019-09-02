@@ -19,7 +19,8 @@ font pango:Source Code Pro Semibold 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"
+bindsym $mod+Return exec stterm -e bash \
+        -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"
 
 # Kill Focused window
 bindsym $mod+Shift+Q [con_id="__focused__" instance="^(?!Thunar).*$"] kill
