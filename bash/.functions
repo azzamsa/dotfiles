@@ -15,8 +15,3 @@ function rrun () {
 function mkcd () {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
-
-
-# adding the autojump sources
-. /usr/share/autojump/autojump.sh
-. /usr/share/autojump/autojump.bash

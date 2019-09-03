@@ -40,16 +40,8 @@ alias inb="sudo apt install -t ${codename}-backports"
 #programming stuff
 alias rsbcl="rlwrap sbcl"
 
-#emacsclient
-alias e="emacsclient -t"
-alias ec="emacsclient -c"
-
-# mc
-alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
-
 # hledger
 alias hld="hledger"
-alias hlde="/usr/bin/mousepad .hledger.journal"
 alias hldf="hledger -f- -I print"
 
 # yt
