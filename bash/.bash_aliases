@@ -32,7 +32,10 @@ alias psudo='sudo env PATH="$PATH"'
 #apt-get stuff
 alias in="sudo apt install"
 alias inn="sudo apt-get --no-install-recommends install"
-alias inb="sudo apt install -t stretch-backports"
+
+. /etc/os-release
+codename=$VERSION_CODENAME
+alias inb="sudo apt install -t ${codename}-backports"
 
 #programming stuff
 alias rsbcl="rlwrap sbcl"
