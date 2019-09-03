@@ -7,26 +7,8 @@ Xft.hinting   : true
 Xft.antialias : true
 Xft.rgba      : rgb
 
-
-!! fonts
-URxvt*font: xft:Source Code Pro:pixelsize=19:foundry=adobe:weight=normal:width=normal:spacing=100:scalable=true,\
-            xft:Symbola:pixelsize=19:style=medium:antialias=true
-URxvt*boldFont: xft:Source Code Pro:bold:pixelsize=19:foundry=adobe:width=normal:spacing=100:scalable=true
-
-!! interface
-URxvt.scrollBar: false
-! save big lines
-URxvt.saveLines:32767
-
-URxvt*colorUL:           #c5f779
-URxvt*underlineColor:    #c5f779
-
-
-!! extension
-URxvt.perl-ext-common: default,matcher,font-size
-URxvt.urlLauncher: firefox
-URxvt.matcher.button: 2
-URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+!! st (simple terminal)
+st.font: Monospace-13;
 
 
 !! color scheme
@@ -50,16 +32,6 @@ URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 *color13:       #ec93d3
 *color14:       #93e0e3
 *color15:       #ffffff
-
-
-!! misc
-! disable ctrl-shit
-URxvt*iso14755: False
-URxvt*iso14755_52: False
-
-! change size on the fly
-URxvt.keysym.C-plus:     perl:font-size:increase
-URxvt.keysym.C-minus:   perl:font-size:decrease
 
 !! rofi -- dmenu clone
 rofi.opacity:  100
