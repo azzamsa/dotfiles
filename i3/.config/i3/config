@@ -230,7 +230,14 @@ exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
 exec --no-startup-id light -S 6
 exec --no-startup-id auto-suspend
+
+exec --no-startup-id setxkbmap -option ctrl:nocaps
+exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id xcape -t 10000 -e "Control_R=Return"
+
+exec --no-startup-id xautolock -notify 30 \
+     -notifier "notify-send -u critical -t 10000 'LOCKING in 30s'" \
+     -time 15 -locker "/opt/xautolock-suspend" -corners "--00"
 
 exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/bin/emacs'
 exec --no-startup-id i3-msg 'workspace $ws04; exec /usr/local/bin/Telegram'
@@ -250,7 +257,7 @@ smart_gaps on
 smart_borders on
 
 # Set inner/outer gaps
-gaps inner 12
+gaps inner 6
 gaps outer -2
 
 # Gaps mode
@@ -317,9 +324,15 @@ mode "$screenshot" {
      bindsym o exec take-your-moments selection, mode "default"
      bindsym u exec maim --hidecursor | xclip -selection clipboard -t image/png, mode "default"
      bindsym t exec maim -s --hidecursor | xclip -selection clipboard -t image/png, mode "default"
-     bindsym f exec maim --hidecursor $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png, mode "default"
-     bindsym c exec maim --hidecursor -i $(xdotool getactivewindow) $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png, mode "default"
-     bindsym s exec maim -s --hidecursor $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png, mode "default"
+     bindsym f exec maim --hidecursor \
+             $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png, \
+             mode "default"
+     bindsym c exec maim --hidecursor \
+             -i $(xdotool getactivewindow) $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png,\
+             mode "default"
+     bindsym s exec maim -s \
+             --hidecursor $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png, \
+             mode "default"
      bindsym a exec flameshot gui, mode "default"
 
      bindsym Return mode "default"
