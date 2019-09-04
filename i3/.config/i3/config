@@ -233,7 +233,7 @@ exec --no-startup-id auto-suspend
 exec --no-startup-id . ~/.keymap
 
 exec --no-startup-id xautolock -notify 30 \
-     -notifier "notify-send -u critical -t 10000 'LOCKING in 30s'" \
+     -notifier "notify-send -u critical -t 10000 'Locking in 30s'" \
      -time 15 -locker "/opt/xautolock-suspend" -corners "--00"
 
 exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/bin/emacs'
