@@ -230,10 +230,7 @@ exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
 exec --no-startup-id light -S 6
 exec --no-startup-id auto-suspend
-
-exec --no-startup-id setxkbmap -option ctrl:nocaps
-exec --no-startup-id xmodmap ~/.Xmodmap
-exec --no-startup-id xcape -t 10000 -e "Control_R=Return"
+exec --no-startup-id . ~/.keymap
 
 exec --no-startup-id xautolock -notify 30 \
      -notifier "notify-send -u critical -t 10000 'LOCKING in 30s'" \
