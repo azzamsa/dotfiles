@@ -3,7 +3,8 @@
 # Shortcuts
 alias g="git"
 
-colorflag="--color=auto"
+colorflag="--color"
+export LS_COLORS="$(vivid generate molokai)"
 
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
