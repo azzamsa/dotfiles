@@ -316,20 +316,16 @@ bindsym $mod+Pause mode "$mode_system"
 
 # i3 screnshot
 set $screenshot (m) moment-f, (o) moment-s, (u) temp-f, (t) temp-s, (f) full, (c) focus, (s) selection, a (anotate)
+set $img_path $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png
 mode "$screenshot" {
      bindsym m exec take-your-moments full, mode "default"
      bindsym o exec take-your-moments selection, mode "default"
-     bindsym u exec maim --hidecursor | xclip -selection clipboard -t image/png, mode "default"
-     bindsym t exec maim -s --hidecursor | xclip -selection clipboard -t image/png, mode "default"
-     bindsym f exec maim --hidecursor \
-             $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png, \
-             mode "default"
-     bindsym c exec maim --hidecursor \
-             -i $(xdotool getactivewindow) $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png,\
-             mode "default"
-     bindsym s exec maim -s \
-             --hidecursor $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png, \
-             mode "default"
+     bindsym u exec maim --hidecursor | xclip -se c -t image/png, mode "default"
+     bindsym t exec maim -s --hidecursor | xclip -se c -t image/png, mode "default"
+
+     bindsym f exec maim --hidecursor $img_path, mode "default"
+     bindsym c exec maim --hidecursor -i $img_path, mode "default"
+     bindsym s exec maim -s --hidecursor $img_path, mode "default"
      bindsym a exec flameshot gui, mode "default"
 
      bindsym Return mode "default"
