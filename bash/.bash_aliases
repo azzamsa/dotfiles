@@ -3,8 +3,14 @@
 # Shortcuts
 alias g="git"
 
-colorflag="--color"
-export LS_COLORS="$(vivid generate molokai)"
+if [ -n "$INSIDE_EMACS" ]; then
+    colorflag="--color"
+    # export LS_COLORS="$(vivid generate ayu)"
+    export LS_COLORS="$(vivid generate snazzy)"
+else
+    colorflag="--color"
+    export LS_COLORS="$(vivid generate molokai)"
+fi
 
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
