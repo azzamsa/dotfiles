@@ -122,8 +122,10 @@ fi;
 PS1="";
 PS1+="\[${bold}\]\n"; # newline
 PS1+="\[${userStyle}\]\u"; # username
+# PS1+="\[${userStyle}\]screen"; # for screencast username
 PS1+="\[${grey74}\] at ";
 PS1+="\[${hostStyle}\]\h"; # host
+# PS1+="\[${hostStyle}\]cast"; # for sreencast host
 PS1+="\[${grey74}\] in ";
 PS1+="\[${green}\]\w"; # working directory full path
 PS1+="\$(prompt_git \"\[${grey74}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
