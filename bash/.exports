@@ -9,6 +9,9 @@ PATH+=:"$HOME/bin/"
 PATH+=:"/usr/games/"
 export ALTERNATE_EDITOR=""
 
+# KDE app theme & icon
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 # Programming Languages
 PATH+=:"/usr/local/go/bin"
 export GOPATH=$HOME/goprojects
