@@ -71,6 +71,15 @@ export GEM_PATH=$HOME/.gem/gems
 # autojump sources
 . /usr/share/autojump/autojump.bash
 
+# my app
+if [[ -n "$VIRTUAL_ENV" ]]; then
+    venv="${VIRTUAL_ENV##*/}"
+    if [[ "$venv" == "neo-obs" ]]; then
+        eval "$(_OBS_COMPLETE=source obs)"
+        echo "$venv completion activated"
+    fi
+fi
+
 [[ -s "/home/azzamsya/.gvm/scripts/gvm" ]] && source "/home/azzamsya/.gvm/scripts/gvm"
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
