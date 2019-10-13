@@ -1,0 +1,38 @@
+servercmd=/usr/bin/unison
+
+
+# Roots
+root = /
+root = ssh://0.0.0.0//
+
+# Prefer allows the newer file to be synchronized.
+prefer = newer
+
+# Don't prompt us, just do the right thing.
+batch = true
+
+# Paths to keep synchronized.
+path = media/user/bar/
+path = media/user/baz/
+path = home/user/foo/
+path = home/user/.faa/
+path = home/user/.ssh/
+
+# Ignore these files/paths
+ignore = Path .gnupg/S.*
+ignore = Name __pycache__
+ignore = Name *.pyc
+
+# Permissions should be retained.
+owner = true
+group = true
+
+# Backups.
+backuplocation = central
+backupdir = /home/user/.unisonbackups/
+backup = Name *
+backupprefix = $VERSION.
+maxbackups = 7
+
+# Log
+log = true
