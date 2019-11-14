@@ -15,6 +15,7 @@ general {
         output_format = i3bar
 }
 
+order += "year_progress"
 order += "disk /"
 order += "net_rate"
 order += "wireless wlan0"
@@ -92,4 +93,11 @@ disk "/" {
 
 net_rate {
         format = "[{down} {up}]"
+}
+
+year_progress {
+    format = "{progress_bar} {ratio}%"
+    progress_block = '▓'
+    remain_block = '░'
+    progress_width = 5
 }
