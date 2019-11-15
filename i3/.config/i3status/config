@@ -15,6 +15,7 @@ general {
         output_format = i3bar
 }
 
+order += "salaah_time"
 order += "year_progress"
 order += "disk /"
 order += "net_rate"
@@ -96,8 +97,22 @@ net_rate {
 }
 
 year_progress {
-    format = "{progress_bar} {ratio}%"
-    progress_block = '▓'
-    remain_block = '░'
+    format = "{progress_bar} {ratio}%{mode}"
+    progress_block = '█'
+    remain_block = '▒'
     progress_width = 5
+    # ctime = ["2019-11-28 00:00", "%Y-%m-%d %H:%S"]
+    # need time to test more
+}
+
+salaah_time {
+   format = "{salaah_name} {salaah_time}"
+   format_time = "%I:%M %p"
+   longitude = 106.834091
+   latitude = -6.186486
+   timezone = 7
+   fajr_isha_method = 3
+   asr_fiqh = 1
+   chache_timeout = 900
+   thresholds = 1800
 }
