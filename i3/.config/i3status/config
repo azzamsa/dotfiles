@@ -24,7 +24,7 @@ order += "run_watch VPN"
 order += "battery 0"
 order += "cpu_usage"
 order += "sysdata"
-order += "volume master"
+order += "volume_status speakers"
 order += "volume_status mic"
 order += "tztime local"
 
@@ -73,12 +73,11 @@ sysdata {
         format = "[ {mem_used_percent}%]"
 }
 
-volume master {
-	format = " %volume"
-        format_muted = "(muted) %volume"
-        device = "default"
-        mixer = "Master"
-        mixer_idx = 0
+volume_status speakers {
+    format = ' {percentage}%'
+    format_muted = ' {percentage}%'
+    thresholds = [(0, 'bad'), (5, 'degraded'), (10, 'good')]
+    max_volume = 200
 }
 
 volume_status mic {
