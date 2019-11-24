@@ -101,8 +101,8 @@ year_progress {
     progress_block = '█'
     remain_block = '▒'
     progress_width = 5
-    # ctime = ["2019-11-28 00:00", "%Y-%m-%d %H:%S"]
-    # need time to test more
+    # ctime = ["2020-12-16 20:59:00", "%Y-%m-%d %H:%M:%S"]
+    thresholds = 90
 }
 
 salaah_time {
