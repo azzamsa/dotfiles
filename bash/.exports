@@ -87,7 +87,8 @@ export PATH=$PATH:$GOPATH/bin
 
 # Ruby
 export PATH="$PATH:$HOME/.rvm/bin"
-export GEM_HOME=$HOME/.gem
+export PATH=$PATH:$HOME/.gem/gems/bin
+export GEM_HOME=$HOME/.gem/gems
 export GEM_PATH=$HOME/.gem/gems
 
 # PHP
