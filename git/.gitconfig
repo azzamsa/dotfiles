@@ -5,6 +5,7 @@
 	#useConfigOnly = true
 	name = azzamsa
 	email = azzamsa@protonmail.com
+	signingKey = B4AE909BCB05AD4B!
 
 
 [credential]
@@ -67,3 +68,5 @@
 	#     by the local ones
 
 	path = ~/.gitconfig.local
+[gpg]
+	program = gpg
