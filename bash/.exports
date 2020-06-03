@@ -9,6 +9,9 @@ export PATH
 # Add ~/bin and .local/bin to PATH
 [[ -d "$HOME/.local/bin" ]] && PATH+=$HOME/.local/bin
 
+# break after fixing f5 installation (playing with xdg-open and mimetype)
+export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
+
 PATH+=:"$HOME/bin/"
 PATH+=:"/usr/games/"
 export ALTERNATE_EDITOR=""
