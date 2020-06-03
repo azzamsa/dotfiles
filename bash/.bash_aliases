@@ -47,10 +47,6 @@ alias inb="sudo apt install -t ${codename}-backports"
 #programming stuff
 alias rsbcl="rlwrap sbcl"
 
-# hledger
-alias hld="hledger"
-alias hldf="hledger -f- -I print"
-
 # yt
 alias ytaudio="youtube-dl -f bestaudio[ext=m4a]"
 alias ytvideo="youtube-dl -f 18"
