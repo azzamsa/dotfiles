@@ -228,7 +228,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id compton
 exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
-exec --no-startup-id light -S 6
+exec --no-startup-id light -S 13
 exec --no-startup-id auto-suspend
 exec --no-startup-id . ~/.keymap
 
