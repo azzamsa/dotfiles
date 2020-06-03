@@ -53,6 +53,5 @@ alias ytvideo="youtube-dl -f 18"
 
 # more
 alias du="du -h"
-alias lgh="light -S "
 alias rmd="rm -rdf"
 alias pwdc="/bin/pwd | /usr/bin/xclip -selection clipboard"
