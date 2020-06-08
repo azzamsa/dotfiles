@@ -44,9 +44,9 @@ if [[ -n "$VIRTUAL_ENV" ]]; then
 fi
 
 # Guix
-GUIX_PROFILE="$HOME/.guix-profile"
-GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
-. "$GUIX_PROFILE/etc/profile"
+#GUIX_PROFILE="$HOME/.guix-profile"
+#GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+#. "$GUIX_PROFILE/etc/profile"
 
 # Emacs
 export TERM=xterm-256color
