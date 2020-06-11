@@ -6,14 +6,9 @@
 
 export PATH
 
-# Add ~/bin and .local/bin to PATH
-[[ -d "$HOME/.local/bin" ]] && PATH+=$HOME/.local/bin
+export PATH="$HOME/.local/bin:$PATH"
+export XDG_DATA_DIRS=/usr/local/share/:/usr/share/ # for icons
 
-# break after fixing f5 installation (playing with xdg-open and mimetype)
-export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
-
-PATH+=:"$HOME/bin/"
-PATH+=:"/usr/games/"
 export ALTERNATE_EDITOR=""
 
 # ############
@@ -77,25 +72,20 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NVM_DIR="$HOME/.nvm"
 
 # Common Lisp
-PATH+=:"$HOME/.roswell/bin"
+export PATH="$HOME/.roswell/bin:$PATH"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 #export RUST_SRC_PATH=${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
 # GO
-PATH+=:"/usr/local/go/bin"
+export PATH="/usr/local/go/bin:$PATH"
 export GOPATH=$HOME/goprojects
-export PATH=$PATH:$GOPATH/bin
+export PATH="$GOPATH/bin:$PATH"
 
 # Ruby
 export PATH="$PATH:$HOME/.rvm/bin"
-export PATH=$PATH:$HOME/.gem/gems/bin
-export GEM_HOME=$HOME/.gem/gems
 export GEM_PATH=$HOME/.gem/gems
-
-# PHP
-PATH+=:"$HOME/.config/composer/vendor/bin"
 
 # Java
 export SDKMAN_DIR="$SDKMAN_DIR"
