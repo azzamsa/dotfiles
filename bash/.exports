@@ -84,7 +84,8 @@ export GOPATH=$HOME/goprojects
 export PATH="$GOPATH/bin:$PATH"
 
 # Ruby
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$HOME/.rvm/bin:$PATH"
+export PATH="$HOME/.gem/gems/bin:$PATH"
 export GEM_PATH=$HOME/.gem/gems
 
 # Java
