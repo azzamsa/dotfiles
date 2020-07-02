@@ -1,0 +1,26 @@
+IMAPAccount <account-name>
+Host imap.<mailserver>.com
+Port 993
+User <my-awesome-email-address>
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/Email/.mbsyncpass.gpg"
+SSLType IMAPS
+AuthMechs Login
+
+IMAPStore remote
+Account <account-name>
+
+MaildirStore local
+Path ~/Email/<account-name>/
+Inbox ~/Email/<account-name>/INBOX/
+
+Channel Inbox
+Master :remote:
+Slave :local:
+# Include every folder
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+SyncState *
+
+Group <account-name>
+Channel Inbox
