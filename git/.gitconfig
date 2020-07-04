@@ -10,6 +10,16 @@
 
 [credential]
 	helper = cache --timeout=14400
+
+[credential "https://gitlab.com"]
+	username = azzamsa
+
+[credential "https://github.com"]
+	username = azzamsa
+
+[credential "https://git.sr.ht.com"]
+	username = azzamsa
+
 [alias]
 	s = status
 	br = branch
@@ -70,3 +80,9 @@
 	path = ~/.gitconfig.local
 [gpg]
 	program = gpg
+
+[sendemail]
+	smtpserver = box.azzamsa.com
+	smtpuser = me@azzamsa.com
+	smtpencryption = tls
+	smtpserverport = 587

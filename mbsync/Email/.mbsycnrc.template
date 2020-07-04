@@ -16,8 +16,10 @@ Inbox ~/Email/<account-name>/INBOX/
 Channel Inbox
 Master :remote:
 Slave :local:
-# Include every folder
-Patterns *
+# Don't include unencrypted draft email
+# Devcot use "INBOX", not "Inbox"
+# https://github.com/mail-in-a-box/mailinabox/blob/0c0a0793543005bd2471d79d811a244863e73109/conf/dovecot-mailboxes.conf#L29
+Patterns "INBOX" "Sent" "Archive"
 # Automatically create missing mailboxes, both locally and on the server
 Create Both
 SyncState *
