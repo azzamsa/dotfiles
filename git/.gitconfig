@@ -10,6 +10,7 @@
 
 [credential]
 	helper = cache --timeout=14400
+	username = azzamsa
 
 
 [alias]
@@ -80,5 +81,5 @@
 	path = ~/.gitconfig.local
 	path = ~/.gitconfig.bgn
 
-[includeIf "gitdir:/media/azzamsya/rhd/azzamsa/references/masterpiece/softwares/code/office/bgn/monorepo-services/"]
+[includeIf "gitdir:**/office/bgn/**"]
 	path = ~/.gitconfig.bgn
