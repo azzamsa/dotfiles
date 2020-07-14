@@ -11,14 +11,6 @@
 [credential]
 	helper = cache --timeout=14400
 
-[credential "https://gitlab.com"]
-	username = azzamsa
-
-[credential "https://github.com"]
-	username = azzamsa
-
-[credential "https://git.sr.ht.com"]
-	username = azzamsa
 
 [alias]
 	s = status
@@ -67,6 +59,14 @@
 	changed = yellow reverse
 	untracked = red reverse
 
+[gpg]
+	program = gpg
+
+[sendemail]
+	smtpserver = box.azzamsa.com
+	smtpuser = me@azzamsa.com
+	smtpencryption = tls
+	smtpserverport = 587
 
 [include]
 
@@ -78,11 +78,7 @@
 	#     by the local ones
 
 	path = ~/.gitconfig.local
-[gpg]
-	program = gpg
+	path = ~/.gitconfig.bgn
 
-[sendemail]
-	smtpserver = box.azzamsa.com
-	smtpuser = me@azzamsa.com
-	smtpencryption = tls
-	smtpserverport = 587
+[includeIf "gitdir:/media/azzamsya/rhd/azzamsa/references/masterpiece/softwares/code/office/bgn/monorepo-services/"]
+	path = ~/.gitconfig.bgn
