@@ -231,6 +231,7 @@ exec --no-startup-id greenclip daemon
 exec --no-startup-id light -S 20
 exec --no-startup-id auto-suspend
 exec --no-startup-id . ~/.keymap
+exec --no-startup-id aza-login
 
 exec --no-startup-id xautolock -notify 30 \
      -notifier "notify-send -t 10000 'Locking in 30s'" \

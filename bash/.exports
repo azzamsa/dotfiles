@@ -29,6 +29,8 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 # autojump sources
 . /usr/share/autojump/autojump.bash
 
+eval $(keychain --eval --quiet)
+
 # obs
 if [[ -n "$VIRTUAL_ENV" ]]; then
     venv="${VIRTUAL_ENV##*/}"
