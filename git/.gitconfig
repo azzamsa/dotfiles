@@ -79,7 +79,6 @@
 	#     by the local ones
 
 	path = ~/.gitconfig.local
-	path = ~/.gitconfig.bgn
 
 [includeIf "gitdir:**/office/bgn/**"]
 	path = ~/.gitconfig.bgn
