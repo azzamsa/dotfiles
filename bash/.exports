@@ -27,8 +27,8 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # KDE app theme & icon
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-# autojump sources
-. /usr/share/autojump/autojump.bash
+# z sources
+. /opt/z/z.sh
 
 eval $(keychain --eval --quiet)
 
