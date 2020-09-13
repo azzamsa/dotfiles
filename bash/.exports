@@ -80,6 +80,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 #export RUST_SRC_PATH=${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
 # GO
+export GO111MODULE=on
 export PATH="/usr/local/go/bin:$PATH"
 export GOPATH=$HOME/goprojects
 export PATH="$GOPATH/bin:$PATH"
