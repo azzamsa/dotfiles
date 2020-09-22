@@ -8,8 +8,7 @@ Xft.antialias : true
 Xft.rgba      : rgb
 
 !! st (simple terminal)
-st.font: Monospace-13;
-
+st.font: Fira Code:pixelsize=16:antialias=true:autohint=true;
 
 !! color scheme
 *foreground: #dcdccc
