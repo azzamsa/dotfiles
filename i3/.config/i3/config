@@ -13,7 +13,7 @@ set $cmod Control
 
 # font for window titles. ISO 10646 = Unicode
 # change font for readability
-font pango:Source Code Pro Semibold 10
+font pango:Fira Sans Medium 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -198,7 +198,7 @@ bar {
     height 28
     position bottom
     status_command py3status -c ~/dotfiles/i3/.config/i3status/config
-    font pango:Source Code Pro, Font Awesome 5 Free Regular 9
+    font pango:Fira Sans, Font Awesome 5 Free Regular 10
     strip_workspace_numbers yes
     colors {
        background $bg
