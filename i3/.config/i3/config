@@ -364,5 +364,6 @@ bindsym $mod+d exec rofi -modi "clipboard:greenclip print" -show clipboard -run-
 ##########################
 for_window [class="^.*"] border normal
 for_window [class="Yad"] floating enable border pixel 0 sticky enable
+for_window [class="Nextcloud"] floating enable border pixel 0 sticky enable
 for_window [title="Question"] sticky enable
 for_window [title="Lupv"] floating enable
