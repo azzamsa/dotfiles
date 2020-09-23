@@ -225,7 +225,7 @@ bar {
 exec --no-startup-id feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
-exec --no-startup-id compton
+exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id redshift
 exec --no-startup-id greenclip daemon
 exec --no-startup-id light -S 20
