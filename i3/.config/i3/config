@@ -197,8 +197,9 @@ client.urgent             $based3   $magenta  $base3   $based3  $magenta
 bar {
     height 28
     position bottom
-    status_command py3status -c ~/dotfiles/i3/.config/i3status/config
-    font pango:Fira Sans, Font Awesome 5 Free Regular 10
+    status_command i3status-rs ~/dotfiles/i3/.config/i3status/config.toml
+    font pango:Fira Code, Font Awesome 5 Free Regular 9
+    tray_padding 0
     strip_workspace_numbers yes
     colors {
        background $bg
