@@ -9,6 +9,12 @@ net_wireless = ""
 net_wired = ""
 
 [[block]]
+block = "custom"
+cycle = ["bilal -c", "bilal -n"]
+on_click = "<command>"
+interval = 300
+
+[[block]]
 block = "disk_space"
 path = "/"
 alias = "/"
