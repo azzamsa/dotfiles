@@ -34,6 +34,7 @@ use_bits = false
 [[block]]
 block = "battery"
 interval = 10
+critical = 10
 format = "{percentage}% {time}"
 
 [[block]]
