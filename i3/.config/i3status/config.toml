@@ -50,4 +50,4 @@ interval = 1
 [[block]]
 block = "time"
 interval = 60
-format = "%a %d/%m %I:%M %p"
+format = "%a %Y-%m-%d %I:%M %p"
