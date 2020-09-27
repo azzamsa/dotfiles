@@ -10,7 +10,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/ # for icons
 
-export ALTERNATE_EDITOR=""
+export VISUAL='emacs'
+export EDITOR='emacs'
 
 # ############
 # Apps
