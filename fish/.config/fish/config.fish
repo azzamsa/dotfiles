@@ -27,3 +27,9 @@ alias l "ls -lF $colorflag"
 alias la "ls -AltGhF --group-directories-first $colorflag"
 alias lsd "ls -lF $colorflag | grep --color=never '^d'"
 alias ls "command ls $colorflag"
+
+## expand !! such `sudo !!` bash equivalent
+function sudobangbang --on-event fish_postexec
+    abbr !! sudo $argv[1]
+end
+
