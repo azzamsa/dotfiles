@@ -10,9 +10,10 @@ net_wired = ""
 
 [[block]]
 block = "custom"
-cycle = ["bilal -c", "bilal -n"]
+cycle = ["bilal -c -j", "bilal -n -j"]
 on_click = "<command>"
 interval = 300
+json = true
 
 [[block]]
 block = "disk_space"
