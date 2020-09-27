@@ -38,7 +38,3 @@ function vterm_printf(){
 function docker_ip(){
     docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1
 }
-
-function docker_ip(){
-    docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1
-}
