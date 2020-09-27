@@ -52,6 +52,7 @@ alias ytaudio="youtube-dl -f bestaudio[ext=m4a]"
 alias ytvideo="youtube-dl -f 18"
 
 # more
+alias c="clear"
 alias du="du -h"
 alias rmd="rm -rdf"
 alias pwdc="/bin/pwd | /usr/bin/xclip -selection clipboard"
