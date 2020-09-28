@@ -33,31 +33,6 @@ function sudobangbang --on-event fish_postexec
     abbr !! sudo $argv[1]
 end
 
-
-# Color Scheme
-# set -U fish_color_autosuggestion      d79921
-# set -U fish_color_cancel              FF9400
-# set -U fish_color_command             fabd2f
-# set -U fish_color_comment             BF8330
-# set -U fish_color_end                 brmagenta
-# set -U fish_color_error               brred
-# set -U fish_color_escape              brcyan
-# set -U fish_color_history_current     --bold
-# set -U fish_color_match               b8bb26
-# set -U fish_color_normal              normal
-# set -U fish_color_operator            cyan
-# set -U fish_color_param               83a598
-# set -U fish_color_quote               yellow
-# set -U fish_color_redirection         bryellow
-# set -U fish_color_search_match        'bryellow' '--background=brblack'
-# set -U fish_color_selection           'white' '--bold' '--background=brblack'
-# set -U fish_color_status              red
-# set -U fish_color_valid_path          --underline
-# set -U fish_pager_color_completion    normal
-# set -U fish_pager_color_description   yellow
-# set -U fish_pager_color_prefix        'white' '--bold' '--underline'
-# set -U fish_pager_color_progress      'brwhite' '--background=cyan'
-
 # Color Scheme (Zenburn)
 # https://github.com/jnurmine/Zenburn/blob/master/colors/zenburn.vim
 set -U fish_color_autosuggestion      f0dfaf
