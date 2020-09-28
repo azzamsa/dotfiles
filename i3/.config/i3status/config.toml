@@ -10,6 +10,13 @@ net_wired = ""
 
 [[block]]
 block = "custom"
+cycle = ["zman -y -j -d 10", "zman -m -j -d 10"]
+on_click = "<command>"
+interval = 300
+json = true
+
+[[block]]
+block = "custom"
 cycle = ["bilal -c -j", "bilal -n -j"]
 on_click = "<command>"
 interval = 300
