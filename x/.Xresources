@@ -9,6 +9,7 @@ Xft.rgba      : rgb
 
 !! st (simple terminal)
 st.font: Fira Code:pixelsize=18:antialias=true:autohint=true;
+st.alpha: 1
 
 !! color scheme (paperclip light)
 *background: #EEEEEE
