@@ -3,6 +3,11 @@ name = "bad-wolf"
 [theme.overrides]
 idle_bg = "#EEEEEE"
 idle_fg = "#4D4D4C"
+warning_bg = "#ffd787"
+critical_bg = "#ffafd7"
+good_bg = "#EEEEEE"
+info_bg = "#EEEEEE"
+info_fg = "#4D4D4C"
 
 [icons]
 name = "awesome"
