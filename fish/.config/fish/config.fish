@@ -9,9 +9,9 @@ set -g fish_user_paths ~/.cargo/bin ~/bin $fish_user_paths
 set -gx EDITOR emacs
 
 if test -n "$INSIDE_EMACS"
-    set -x LS_COLORS (vivid generate molokai)
+    set -x LS_COLORS (vivid generate ayu)
 else
-    set -x LS_COLORS (vivid generate molokai)
+    set -x LS_COLORS (vivid generate ayu)
 end
 
 
@@ -33,27 +33,27 @@ function sudobangbang --on-event fish_postexec
     abbr !! sudo $argv[1]
 end
 
-# Color Scheme (Zenburn)
-# https://github.com/jnurmine/Zenburn/blob/master/colors/zenburn.vim
-set -U fish_color_autosuggestion      f0dfaf
-set -U fish_color_cancel              dfdfdf
-set -U fish_color_command             f0dfaf
-set -U fish_color_comment             7f9f7f
-set -U fish_color_end                 brmagenta
-set -U fish_color_error               brred
-set -U fish_color_escape              brcyan
-set -U fish_color_history_current     --bold
-set -U fish_color_match               b8bb26
+# Scheme (Paper Color)
+# https://github.com/NLKNguyen/papercolor-theme/blob/master/colors/PaperColor.vim
+set -U fish_color_autosuggestion      005f87
+set -U fish_color_cancel              af0000
+set -U fish_color_command             008700
+set -U fish_color_comment             5f8700
+set -U fish_color_end                 0087af
+set -U fish_color_error               878787
+set -U fish_color_escape              444444
+set -U fish_color_history_current     bcbcbc
+set -U fish_color_match               d70000
 set -U fish_color_normal              normal
-set -U fish_color_operator            cyan
-set -U fish_color_param               83a598
-set -U fish_color_quote               cc9393
-set -U fish_color_redirection         bryellow
-set -U fish_color_search_match        dca3a3
+set -U fish_color_operator            d70087
+set -U fish_color_param               8700af
+set -U fish_color_quote               d75f00
+set -U fish_color_redirection         005faf
+set -U fish_color_search_match        005f87
 set -U fish_color_selection           'white' '--bold' '--background=brblack'
 set -U fish_color_status              red
 set -U fish_color_valid_path          --underline
-set -U fish_pager_color_completion    normal
+set -U fish_pager_color_completion    0087af
 set -U fish_pager_color_description   yellow
 set -U fish_pager_color_prefix        'white' '--bold' '--underline'
 set -U fish_pager_color_progress      'brwhite' '--background=cyan'

@@ -1,4 +1,4 @@
-gtk-icon-theme-name = "Papirus-Dark"
-gtk-theme-name = "Arc-Dark"
+gtk-icon-theme-name = "Papirus-Light"
+gtk-theme-name = "Arc"
 gtk-font-name= "Fira Sans"
 gtk-cursor-theme-name="capitaine-cursors"

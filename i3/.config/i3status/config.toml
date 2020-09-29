@@ -1,5 +1,8 @@
 [theme]
 name = "bad-wolf"
+[theme.overrides]
+idle_bg = "#EEEEEE"
+idle_fg = "#4D4D4C"
 
 [icons]
 name = "awesome"

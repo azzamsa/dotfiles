@@ -10,27 +10,27 @@ Xft.rgba      : rgb
 !! st (simple terminal)
 st.font: Fira Code:pixelsize=18:antialias=true:autohint=true;
 
-!! color scheme
-*foreground: #dcdccc
-*background: #3f3f3f
+!! color scheme (paperclip light)
+*background: #EEEEEE
+*foreground: #4D4D4C
 
-*color0:	#3f3f3f
-*color1:        #705050
-*color2:        #60b48a
-*color3:        #dfaf8f
-*color4:        #506070
-*color5:        #dc8cc3
-*color6:        #8cd0d3
-*color7:        #DCDCCC
+*color0:	#EDEDED
+*color1:        #D7005F
+*color2:        #718C00
+*color3:        #D75F00
+*color4:        #4271AE
+*color5:        #8959A8
+*color6:        #3E999F
+*color7:        #4D4D4C
 
-*color8:        #709080
-*color9:        #cc9393
-*color10:       #7f9f7f
-*color11:       #f0dfaf
-*color12:       #94bff3
-*color13:       #ec93d3
-*color14:       #93e0e3
-*color15:       #ffffff
+*color8:        #969694
+*color9:        #D7005F
+*color10:       #718C00
+*color11:       #D75F00
+*color12:       #4271AE
+*color13:       #8959A8
+*color14:       #3E999F
+*color15:       #4D4D4C
 
 !! rofi -- dmenu clone
 rofi.opacity:  100
