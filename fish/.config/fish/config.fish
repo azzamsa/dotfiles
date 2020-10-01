@@ -1,12 +1,13 @@
 set fish_greeting # no greeting
 
-# Utilities
-zoxide init fish | source
-starship init fish | source
-
 # Exports
 set -g fish_user_paths ~/.cargo/bin ~/bin $fish_user_paths
 set -gx EDITOR emacs
+set -gx QT_QPA_PLATFORMTHEME qt5ct
+
+# Utilities
+zoxide init fish | source
+starship init fish | source
 
 if test -n "$INSIDE_EMACS"
     set -x LS_COLORS (vivid generate ayu)
