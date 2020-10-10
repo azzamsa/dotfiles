@@ -1,7 +1,7 @@
 set fish_greeting # no greeting
 
 # Exports
-set -g fish_user_paths ~/.cargo/bin ~/bin $fish_user_paths
+set -g fish_user_paths ~/.cargo/bin ~/bin ~/.local/bin $fish_user_paths
 set -gx EDITOR emacs
 set -gx QT_QPA_PLATFORMTHEME qt5ct
 
