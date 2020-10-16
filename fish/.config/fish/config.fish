@@ -34,6 +34,17 @@ function sudobangbang --on-event fish_postexec
     abbr !! sudo $argv[1]
 end
 
+# Fix Emacs TRAMP hangs
+if test "$TERM" = "dumb"
+  function fish_prompt
+    echo "\$ "
+  end
+
+  function fish_right_prompt; end
+  function fish_greeting; end
+  function fish_title; end
+end
+
 # Scheme (Paper Color)
 # https://github.com/NLKNguyen/papercolor-theme/blob/master/colors/PaperColor.vim
 set -U fish_color_autosuggestion      005f87
