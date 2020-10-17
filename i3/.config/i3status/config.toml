@@ -10,11 +10,12 @@ info_bg = "#EEEEEE"
 info_fg = "#4D4D4C"
 
 [icons]
-name = "awesome"
-
+name = "awesome5"
 [icons.overrides]
 net_wireless = ""
 net_wired = ""
+net_up = "  "
+net_down = "  "
 
 [[block]]
 block = "custom"
@@ -43,7 +44,7 @@ alert = 10.0
 [[block]]
 block = "net"
 device = "wlp0s20f3"
-format = "{speed_down}:{speed_up}"
+format = "{speed_down}{speed_up}"
 interval = 5
 use_bits = false
 
