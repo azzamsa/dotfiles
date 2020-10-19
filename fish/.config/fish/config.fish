@@ -9,12 +9,7 @@ set -gx QT_QPA_PLATFORMTHEME qt5ct
 zoxide init fish | source
 starship init fish | source
 
-if test -n "$INSIDE_EMACS"
-    set -x LS_COLORS (vivid generate ayu)
-else
-    set -x LS_COLORS (vivid generate ayu)
-end
-
+set -x LS_COLORS (vivid generate ayu)
 
 # Alias
 alias in "sudo apt install"
