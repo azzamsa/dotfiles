@@ -4,6 +4,7 @@ set fish_greeting # no greeting
 set -g fish_user_paths ~/.cargo/bin ~/bin ~/.local/bin $fish_user_paths
 set -gx EDITOR emacs
 set -gx QT_QPA_PLATFORMTHEME qt5ct
+set -gx  BAT_THEME gruvbox-white
 
 # Utilities
 zoxide init fish | source
@@ -17,6 +18,7 @@ alias inn "sudo apt-get --no-install-recommends install"
 
 alias c 'clear'
 alias rmd 'rm -rdf'
+alias g "git"
 
 set colorflag "--color"
 alias l "ls -lF $colorflag"
