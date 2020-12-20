@@ -14,6 +14,7 @@ st.alpha: 1
 !! color scheme (paperclip light)
 *background: #EEEEEE
 *foreground: #4D4D4C
+*.cursorColor: #0096c7
 
 *color0:	#EDEDED
 *color1:        #D7005F
