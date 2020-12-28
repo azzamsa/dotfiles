@@ -73,6 +73,9 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# scratchpad move / show
+bindsym $mod+minus move scratchpad
+bindsym $mod+Shift+minus scratchpad show
 
 # workspace variable
 set $ws01 ""
