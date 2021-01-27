@@ -242,7 +242,6 @@ exec --no-startup-id xautolock -notify 30 \
      -time 15 -locker "/opt/xautolock-suspend" -corners "--00"
 
 exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/bin/emacs'
-exec --no-startup-id i3-msg 'workspace $ws04; exec /usr/local/bin/Telegram'
 exec --no-startup-id i3-msg 'workspace $ws02; exec /usr/local/bin/firefox-dev'
 
 #####################
