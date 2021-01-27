@@ -15,6 +15,7 @@ set -x LS_COLORS (vivid generate ayu)
 # Alias
 alias in "sudo apt install"
 alias inn "sudo apt-get --no-install-recommends install"
+alias inb "sudo apt install -t buster-backports"
 
 alias c 'clear'
 alias rmd 'rm -rdf'
