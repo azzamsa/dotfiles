@@ -82,3 +82,5 @@
 
 [includeIf "gitdir:**/office/bgn/**"]
 	path = ~/.gitconfig.bgn
+[core]
+	excludesfile = ~/.gitignore
