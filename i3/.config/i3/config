@@ -241,7 +241,7 @@ exec --no-startup-id xautolock -notify 30 \
      -notifier "notify-send -t 10000 'Locking in 30s'" \
      -time 15 -locker "/opt/xautolock-suspend" -corners "--00"
 
-exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/bin/emacs'
+exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs'
 exec --no-startup-id i3-msg 'workspace $ws02; exec /usr/local/bin/firefox-dev'
 
 #####################
