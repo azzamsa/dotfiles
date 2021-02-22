@@ -20,6 +20,9 @@ alias inb "sudo apt install -t buster-backports"
 alias c 'clear'
 alias rmd 'rm -rdf'
 alias g "git"
+alias ytdl "youtube-dl"
+alias rrepl "evcxr" # I can't remember evcxr
+
 
 set colorflag "--color"
 alias l "ls -lF $colorflag"
