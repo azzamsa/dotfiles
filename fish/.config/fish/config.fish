@@ -9,6 +9,8 @@ set -gx  BAT_THEME gruvbox-white
 # Utilities
 zoxide init fish | source
 starship init fish | source
+fnm env | source
+fnm completions --shell fish
 
 set -x LS_COLORS (vivid generate ayu)
 
