@@ -319,22 +319,7 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 # i3 screnshot
-set $screenshot (m) moment-f, (o) moment-s, t (timer), a (anotate)
-set $img_path $HOME/Pictures/screenshot/"$(xdotool getwindowfocus getwindowname)_$(date +%F-%T)".png
-mode "$screenshot" {
-     bindsym m exec take-your-moments full, mode "default"
-     bindsym o exec take-your-moments selection, mode "default"
-
-     bindsym t exec maim -d 5 -s --hidecursor | xclip -se c -t image/png, mode "default"
-
-     bindsym f exec maim --hidecursor $img_path, mode "default"
-     bindsym a exec flameshot gui, mode "default"
-
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
-}
-bindsym Print mode "$screenshot"
-
+bindsym Print exec flameshot gui
 
 ##########################
 #  Special Key Bindings  #
