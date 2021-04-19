@@ -1,5 +1,6 @@
 [theme]
 name = "bad-wolf"
+
 [theme.overrides]
 idle_bg = "#EEEEEE"
 idle_fg = "#4D4D4C"
@@ -19,14 +20,14 @@ net_down = "  "
 
 [[block]]
 block = "custom"
-cycle = ["zman -y -j -d 10", "zman -m -j -d 10"]
+cycle = ["zman year -J -d 10", "zman month -J -d 10"]
 on_click = "<command>"
 interval = 300
 json = true
 
 [[block]]
 block = "custom"
-cycle = ["bilal -c -j", "bilal -n -j"]
+cycle = ["bilal current -J", "bilal next -J"]
 on_click = "<command>"
 interval = 300
 json = true
