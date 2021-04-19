@@ -1,7 +1,7 @@
 set fish_greeting # no greeting
 
 # Exports
-set -g fish_user_paths ~/.cargo/bin ~/bin ~/.local/bin $fish_user_paths
+set -g fish_user_paths ~/.cargo/bin ~/bin ~/.local/bin ~/.yarn/bin $fish_user_paths
 set -gx EDITOR emacs
 set -gx QT_QPA_PLATFORMTHEME qt5ct
 set -gx  BAT_THEME gruvbox-white
@@ -10,7 +10,6 @@ set -gx  BAT_THEME gruvbox-white
 zoxide init fish | source
 starship init fish | source
 fnm env | source
-fnm completions --shell fish
 
 set -x LS_COLORS (vivid generate ayu)
 
@@ -75,11 +74,3 @@ set -U fish_pager_color_progress      'brwhite' '--background=cyan'
 
 
 # Plugins
-set -g fisher_path /opt/fisher
-
-set -p fish_function_path fish_function_path[1] $fisher_path/functions
-set -p fish_complete_path fish_complete_path[1] $fisher_path/completions
-
-for file in $fisher_path/conf.d/*.fish
-    builtin source $file 2>/dev/null
-end
