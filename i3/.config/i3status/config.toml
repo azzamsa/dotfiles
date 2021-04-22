@@ -17,17 +17,26 @@ net_wireless = ""
 net_wired = ""
 net_up = "  "
 net_down = "  "
+zman = "  "
+bilal = "  "
 
 [[block]]
 block = "custom"
-cycle = ["zman year -J -d 10", "zman month -J -d 10"]
+cycle = [
+        "zman year -J",
+        "zman month -J",
+        "zman week -J",
+        ]
 on_click = "<command>"
 interval = 300
 json = true
 
 [[block]]
 block = "custom"
-cycle = ["bilal current -J", "bilal next -J"]
+cycle = [
+        "bilal current -J",
+        "bilal next -J",
+        ]
 on_click = "<command>"
 interval = 300
 json = true
