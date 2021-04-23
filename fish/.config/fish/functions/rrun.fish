@@ -1,4 +1,8 @@
 function rrun
-    # slice '.rs' to allow tab completion. I am tired of typing
-    rustc $argv[1] --out-dir ./target &&  ./target/${1:0:-3}
+    # a filename such `foo.rs`
+    set filename $argv[1]
+    # a executable name such `foo`
+    set executable_name (string split "." $filename)[1]
+
+    rustc $filename --out-dir ./target && ./target/$executable_name
 end
