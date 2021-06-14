@@ -4,5 +4,5 @@ function rrun
     # a executable name such `foo`
     set executable_name (string split "." $filename)[1]
 
-    rustc $filename --out-dir ./target && ./target/$executable_name
+    rustc $filename --out-dir target && target/$executable_name
 end
