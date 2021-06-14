@@ -8,7 +8,6 @@
 
 # Mod keys
 # super: Mod4, alt: Mod1, ctrl: Control
-
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
@@ -21,11 +20,19 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec stterm-tmux
 
-# Kill Focused window
-bindsym $mod+Shift+Q [con_id="__focused__" instance="^(?!Thunar).*$"] kill
+mode "$menu" {
+     # start dmenu or rofi
+     bindsym r exec rofi -show run -opacity 90, mode "default"
+     # clipboard manager (greenclip)
+     bindsym w exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}', mode "default"
+     # Kill Focused window
+     bindsym k [con_id="__focused__" instance="^(?!Thunar).*$"] kill, mode "default"
 
-# start dmenu or rofi
-bindsym $mod+Shift+d exec rofi -show run -opacity 90
+     # back to normal
+     bindsym Escape mode "default"
+}
+set $menu Menu: (r) run, (w) clipboard, (k) kill window
+bindsym $mod+d mode "$menu"
 
 # list open windows to switch to
 bindsym $mod+Tab exec rofi -show window -opacity 90
@@ -344,10 +351,6 @@ bindsym XF86MonBrightnessDown exec "light -U 1"
 
 # touchpad
 bindsym XF86TouchpadOff exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
-
-# clipboard manager (greenclip)
-bindsym $mod+d exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
-
 
 ##########################
 #  App Special Config    #
