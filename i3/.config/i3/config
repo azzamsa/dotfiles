@@ -7,9 +7,9 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Mod keys
+# super: Mod4, alt: Mod1, ctrl: Control
+
 set $mod Mod4
-set $amod Mod1
-set $cmod Control
 
 # font for window titles. ISO 10646 = Unicode
 # change font for readability
