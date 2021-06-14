@@ -11,6 +11,8 @@ xmodmap -e "remove Control = Control_R"
 xmodmap -e "keycode 0x69 = Return"
 xmodmap -e "keycode 0x24 = Control_R"
 xmodmap -e "add Control = Control_R"
+# map context key to super
+xmodmap -e "keysym Menu = Super_R"
 xcape -t 10000 -e "Control_R=Return"
 
 
