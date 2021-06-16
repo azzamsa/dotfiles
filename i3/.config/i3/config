@@ -166,9 +166,9 @@ bindsym $mod+r mode "resize"
 ############
 #  Colors  #
 ############
-# colours
-set $based3    #002b36
-set $based2    #073642
+# referece https://tailwindcss.com/docs/customizing-colors#color-palette-reference
+set $based3    #312E81
+set $based2    #3730A3
 set $based1    #586e75
 set $based0    #657b83
 set $base0     #839496
@@ -176,13 +176,13 @@ set $base1     #93a1a1
 set $base2     #eee8d5
 set $base3     #fdf6e3
 set $yellow    #b58900
-set $orange    #cb4b16
+set $orange    #F59E0B
 set $red       #dc322f
 set $magenta   #d33682
-set $violet    #6c71c4
+set $indigo    #4338CA
 set $blue      #268bd2
 set $cyan      #2aa198
-set $green     #859900
+set $green     #4D7C0F
 set $cwhite    #d3dae3
 set_from_resource $fg	    color2 #2AA198
 set_from_resource $bg	    color0 #1F2D3A
@@ -216,10 +216,10 @@ bar {
        statusline $shade
 
        # workspace indicators	border	backgr.	text
-       focused_workspace	$bg	$bg	$cwhite
+       focused_workspace	$bg	$bg	$indigo
        inactive_workspace	$bg	$bg	$shade
        urgent_workspace	        $bg	$bg	$urgent
-       binding_mode             $bg     $bg     $based1
+       binding_mode             $bg     $bg     $indigo
        }
 }
 

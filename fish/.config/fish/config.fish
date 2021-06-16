@@ -48,10 +48,9 @@ if test "$TERM" = "dumb"
 end
 
 # Scheme (Paper Color)
-# https://github.com/NLKNguyen/papercolor-theme/blob/master/colors/PaperColor.vim
 set -U fish_color_autosuggestion      005f87
 set -U fish_color_cancel              af0000
-set -U fish_color_command             008700
+set -U fish_color_command             312E81
 set -U fish_color_comment             5f8700
 set -U fish_color_end                 0087af
 set -U fish_color_error               878787
