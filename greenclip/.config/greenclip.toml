@@ -8,5 +8,5 @@
   enable_image_support = true
   image_cache_directory = "/tmp/greenclip"
   static_history = [
- '''⚠''',
+ '''⚠️''',
 ]
