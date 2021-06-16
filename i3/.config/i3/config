@@ -38,34 +38,26 @@ bindsym $mod+d mode "$menu"
 bindsym $mod+Tab exec rofi -show window -opacity 90
 
 # change focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# cyle window (next..next)
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+# cyle window (next..next). I don't need up and down
+# I just use no more than window all the time
 bindsym $mod+n focus up
 
 # move focused window
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # restore window focus
 bindsym $mod+t [workspace=__focused__] move workspace restore, move workspace current
-
-# split in horiZontal orientation (Tall)
-# need to change this because "Mod+h" no longer free
-# bindsym $mod+z split h
-
-# split in vertical orientation
-# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, default)
+workspace_layout stacking # default
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
@@ -79,50 +71,26 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# scratchpad move / show
-bindsym $mod+minus move scratchpad
-bindsym $mod+Shift+minus scratchpad show
-
 # workspace variable
 set $ws01 ""
 Set $ws02 ""
 Set $ws03 ""
 set $ws04 ""
-set $ws05 "5"
-set $ws06 "6"
-set $ws07 "7"
-set $ws08 "8"
-set $ws09 "9"
-set $ws10 "10"
-
 
 # switch to workspace
 bindsym $mod+1 workspace $ws01
 bindsym $mod+2 workspace $ws02
 bindsym $mod+3 workspace $ws03
 bindsym $mod+4 workspace $ws04
-bindsym $mod+5 workspace $ws05
-bindsym $mod+6 workspace $ws06
-bindsym $mod+7 workspace $ws07
-bindsym $mod+8 workspace $ws08
-bindsym $mod+9 workspace $ws09
-bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws01
 bindsym $mod+Shift+2 move container to workspace $ws02
 bindsym $mod+Shift+3 move container to workspace $ws03
 bindsym $mod+Shift+4 move container to workspace $ws04
-bindsym $mod+Shift+5 move container to workspace $ws05
-bindsym $mod+Shift+6 move container to workspace $ws06
-bindsym $mod+Shift+7 move container to workspace $ws07
-bindsym $mod+Shift+8 move container to workspace $ws08
-bindsym $mod+Shift+9 move container to workspace $ws09
-bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
-
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
@@ -142,19 +110,6 @@ mode "resize" {
 
      bindsym l resize shrink right 10 px or 10 ppt
      bindsym Shift+L resize grow right 10 px or 10 ppt
-
-     # same bindings, but for the arrow keys
-     bindsym Left resize shrink left 10 px or 10 ppt
-     bindsym Shift+Left resize grow left 10 px or 10 ppt
-
-     bindsym Down resize shrink down 10 px or 10 ppt
-     bindsym Shift+Down resize grow down 10 px or 10 ppt
-
-     bindsym Up resize shrink up 10 px or 10 ppt
-     bindsym Shift+Up resize grow up 10 px or 10 ppt
-
-     bindsym Right resize shrink right 10 px or 10 ppt
-     bindsym Shift+Right resize grow right 10 px or 10 ppt
 
      # back to normal: Enter or Escape
      bindsym Return mode "default"
@@ -235,22 +190,14 @@ bar {
 exec --no-startup-id feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
-# compton doesn't add any value to my workflow
-# exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id redshift -m vidmode
 exec --no-startup-id greenclip daemon
 exec --no-startup-id light -S 30
 exec --no-startup-id auto-suspend
 exec --no-startup-id . ~/.keymap
 exec --no-startup-id workrave
-
-# disabled for now
-# exec --no-startup-id xautolock -notify 30 \
-#      -notifier "notify-send -t 10000 'Locking in 30s'" \
-#      -time 15 -locker "/opt/xautolock-suspend" -corners "--00"
-
 exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs'
-exec --no-startup-id i3-msg 'workspace $ws02; exec /usr/local/bin/firefox'
+exec --no-startup-id i3-msg 'workspace $ws02; exec /usr/bin/firefox'
 
 #####################
 #     i3 gaps       #
@@ -268,47 +215,6 @@ smart_borders on
 # Set inner/outer gaps
 gaps inner 6
 gaps outer -2
-
-# Gaps mode
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-     bindsym o      mode "$mode_gaps_outer"
-     bindsym i      mode "$mode_gaps_inner"
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
-}
-
-mode "$mode_gaps_inner" {
-     bindsym plus  gaps inner current plus 5
-     bindsym minus gaps inner current minus 5
-     bindsym 0     gaps inner current set 0
-
-     bindsym Shift+plus  gaps inner all plus 5
-     bindsym Shift+minus gaps inner all minus 5
-     bindsym Shift+0     gaps inner all set 0
-
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
-}
-
-mode "$mode_gaps_outer" {
-     bindsym plus  gaps outer current plus 5
-     bindsym minus gaps outer current minus 5
-     bindsym 0     gaps outer current set 0
-
-     bindsym Shift+plus  gaps outer all plus 5
-     bindsym Shift+minus gaps outer all minus 5
-     bindsym Shift+0     gaps outer all set 0
-
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
-}
-
-
 
 #i3 shutdown, reboot, suspend, lock
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
