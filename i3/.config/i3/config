@@ -73,8 +73,8 @@ bindsym $mod+a focus parent
 
 # workspace variable
 set $ws01 ""
-Set $ws02 ""
-Set $ws03 ""
+set $ws02 ""
+set $ws03 ""
 set $ws04 ""
 
 # switch to workspace
