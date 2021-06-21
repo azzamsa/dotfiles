@@ -161,7 +161,7 @@ client.urgent             $based3   $magenta  $base3   $based3  $magenta
 bar {
     position bottom
     status_command i3status-rs ~/dotfiles/i3/.config/i3status/config.toml
-    font pango:Fira Code, Font Awesome 5 Free Regular 9
+    font pango:Fira Code, FontAwesome5Free, FontAwesome5Brands 10
     tray_padding 0
     strip_workspace_numbers yes
     colors {
