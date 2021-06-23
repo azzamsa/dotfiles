@@ -76,7 +76,7 @@ mode "$menu1" {
      # Kill Focused window
      bindsym k [con_id="__focused__" instance="^(?!Thunar).*$"] kill, mode "default"
      # toggle tiling / floating
-     bindsym s floating toggle, mode "default"
+     bindsym s floating toggle
      # change container layout (stacked, tabbed)
      bindsym s layout stacking, mode "default"
      bindsym w layout tabbed, mode "default"
