@@ -40,14 +40,13 @@ mode "resize" {
 }
 
 #i3 shutdown, reboot, suspend, lock
-set $exit System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $exit System: (l) lock, (e) logout, (s) suspend, (r) reboot, (p) poweroff
 mode "$exit" {
      bindsym l exec --no-startup-id ~/.config/i3/i3exit lock, mode "default"
      bindsym e exec --no-startup-id ~/.config/i3/i3exit logout, mode "default"
      bindsym s exec --no-startup-id ~/.config/i3/i3exit suspend, mode "default"
-     bindsym h exec --no-startup-id ~/.config/i3/i3exit hibernate, mode "default"
      bindsym r exec --no-startup-id ~/.config/i3/i3exit reboot, mode "default"
-     bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit shutdown, mode "default"
+     bindsym p exec --no-startup-id ~/.config/i3/i3exit shutdown, mode "default"
 
      # back to normal: Enter or Escape
      bindsym Return mode "default"
