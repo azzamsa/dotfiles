@@ -13,7 +13,7 @@ floating_modifier $mod
 workspace_layout stacking
 
 # start a terminal
-bindsym $mod+Return exec stterm-tmux
+bindsym $mod+Return exec st-tmux
 # focus the parent container
 bindsym $mod+a focus parent
 
