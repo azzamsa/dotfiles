@@ -139,21 +139,10 @@ bindsym $mod+Shift+4 move container to workspace $ws04
 # referece https://tailwindcss.com/docs/customizing-colors#color-palette-reference
 set $based3    #312E81
 set $based2    #3730A3
-set $based1    #586e75
-set $based0    #657b83
 set $base0     #839496
-set $base1     #93a1a1
-set $base2     #eee8d5
 set $base3     #fdf6e3
-set $yellow    #b58900
-set $orange    #F59E0B
-set $red       #dc322f
 set $magenta   #d33682
 set $indigo    #4338CA
-set $blue      #268bd2
-set $cyan      #2aa198
-set $green     #4D7C0F
-set $cwhite    #d3dae3
 set_from_resource $fg	    color2 #2AA198
 set_from_resource $bg	    color0 #1F2D3A
 set_from_resource $shade    color8 #ffffff
