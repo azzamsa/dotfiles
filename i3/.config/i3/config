@@ -143,11 +143,14 @@ set $gray      #839496
 set $yellow    #fdf6e3
 set $magenta   #d33682
 set $indigo    #4338CA
-set_from_resource $fg	    color2 #2AA198
-set_from_resource $bg	    color0 #1F2D3A
-set_from_resource $shade    color8 #ffffff
-set_from_resource $light    color5 #ffffff
-set_from_resource $urgent   color1 #ffffff
+
+# take the value from Xresources
+# set_from_resource $<name> <resource_name> <fallback>
+set_from_resource   $fg	     color2         #2AA198
+set_from_resource   $bg	     color0         #1F2D3A
+set_from_resource   $shade   color8         #ffffff
+set_from_resource   $light   color5         #ffffff
+set_from_resource   $urgent  color1         #ffffff
 
 # changed these colours for readability
 client.focused            $base0   $base1   $yellow $base0  $base1
