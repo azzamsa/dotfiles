@@ -137,10 +137,10 @@ bindsym $mod+Shift+4 move container to workspace $ws04
 #  Colors  #
 ############
 # referece https://tailwindcss.com/docs/customizing-colors#color-palette-reference
-set $based3    #312E81
-set $based2    #3730A3
-set $base0     #839496
-set $base3     #fdf6e3
+set $base0     #312E81
+set $base1     #3730A3
+set $gray      #839496
+set $yellow    #fdf6e3
 set $magenta   #d33682
 set $indigo    #4338CA
 set_from_resource $fg	    color2 #2AA198
@@ -150,10 +150,10 @@ set_from_resource $light    color5 #ffffff
 set_from_resource $urgent   color1 #ffffff
 
 # changed these colours for readability
-client.focused            $based3   $based2   $base3   $based3  $based2
-client.focused_inactive   $based3   $based3   $base0   $based3  $based3
-client.unfocused          $based3   $based3   $base0   $based3  $based3
-client.urgent             $based3   $magenta  $base3   $based3  $magenta
+client.focused            $base0   $base1   $yellow $base0  $base1
+client.focused_inactive   $base0   $base0   $gray   $base0  $base0
+client.unfocused          $base0   $base0   $gray   $base0  $base0
+client.urgent             $base0   $magenta $yellow $base0  $magenta
 
 
 ################
