@@ -211,8 +211,7 @@ exec --no-startup-id auto-suspend
 exec --no-startup-id workrave
 exec --no-startup-id i3-msg 'workspace $ws01; exec /usr/local/bin/emacs'
 exec --no-startup-id i3-msg 'workspace $ws02; exec /usr/bin/firefox'
-exec --no-startup-id Telegram
-exec --no-startup-id Thunar
+exec --no-startup-id i3-msg 'workspace $ws04; exec /usr/local/bin/Telegram'
 
 ##########################
 #  Special Key Bindings  #
