@@ -80,11 +80,12 @@ mode "$menu1" {
      # change container layout (stacked, tabbed)
      bindsym s layout stacking, mode "default"
      bindsym w layout tabbed, mode "default"
+     bindsym e layout default
 
      # back to normal
      bindsym Escape mode "default"
 }
-set $menu1 Menu: (k) , (s) float, (s) stack, (w) tab
+set $menu1 Menu: (k) , (s) , (s) , (w) , (e) 
 
 mode "$menu" {
      # clipboard manager (greenclip)
