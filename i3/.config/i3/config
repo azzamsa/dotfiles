@@ -76,16 +76,16 @@ mode "$menu1" {
      # Kill Focused window
      bindsym k [con_id="__focused__" instance="^(?!Thunar).*$"] kill, mode "default"
      # toggle tiling / floating
-     bindsym s floating toggle
+     bindsym f floating toggle
      # change container layout (stacked, tabbed)
      bindsym s layout stacking, mode "default"
      bindsym w layout tabbed, mode "default"
-     bindsym e layout default
+     bindsym e layout default, mode "default"
 
      # back to normal
      bindsym Escape mode "default"
 }
-set $menu1 Menu: (k) , (s) , (s) , (w) , (e) 
+set $menu1 Menu: (k) , (f) , (s) , (w) , (e) 
 
 mode "$menu" {
      # clipboard manager (greenclip)
