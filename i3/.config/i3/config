@@ -12,10 +12,6 @@ floating_modifier $mod
 # default workspace position
 workspace_layout stacking
 
-# start a terminal
-bindsym $mod+Return exec st-tmux
-# focus the parent container
-bindsym $mod+a focus parent
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
