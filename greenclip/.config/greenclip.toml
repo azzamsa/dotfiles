@@ -9,4 +9,5 @@
   image_cache_directory = "/tmp/greenclip"
   static_history = [
  '''⚠️''',
+ '''🥗''',
 ]
