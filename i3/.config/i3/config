@@ -49,55 +49,55 @@ mode "$exit" {
      bindsym Escape mode "default"
 }
 
-mode "$menu2" {     
+mode "$setting" {
      # i3-exit 
      bindsym e mode "$exit"
-     # list open windows to switch to
-     bindsym l exec rofi -show window -opacity 90, mode "default"
      # restore window focus
      bindsym r [workspace=__focused__] move workspace restore, move workspace current, mode "default"
-     # enter fullscreen mode for the focused container
-     bindsym f fullscreen, mode "default"
      # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
      bindsym x restart, mode "default"
+
+     # back to normal
+     bindsym Escape mode "default"
+}
+set $setting Menu: (e) , (r) restore, (x) i3-restart
+
+mode "$window" {
+     # Kill Focused window
+     bindsym k [con_id="__focused__" instance="^(?!Thunar).*$"] kill, mode "default"
+     # toggle tiling / floating
+     bindsym t floating toggle
+     # change container layout (stacked, tabbed)
+     bindsym s layout stacking, mode "default"
+     bindsym w layout tabbed, mode "default"
+     bindsym e layout default, mode "default"
+     # list open windows to switch to
+     bindsym l exec rofi -show window -opacity 90, mode "default"
+     # enter fullscreen mode for the focused container
+     bindsym f fullscreen, mode "default"
      # resize
      bindsym r mode "resize"
 
      # back to normal
      bindsym Escape mode "default"
 }
-set $menu2 Menu: (e) , (l) list, (r) restore, (f) full, (x) i3-restart, (r) resize
-
-mode "$menu1" {
-     # Kill Focused window
-     bindsym k [con_id="__focused__" instance="^(?!Thunar).*$"] kill, mode "default"
-     # toggle tiling / floating
-     bindsym f floating toggle
-     # change container layout (stacked, tabbed)
-     bindsym s layout stacking, mode "default"
-     bindsym w layout tabbed, mode "default"
-     bindsym e layout default, mode "default"
-
-     # back to normal
-     bindsym Escape mode "default"
-}
-set $menu1 Menu: (k) , (f) , (s) , (w) , (e) 
+set $window Menu: (k) , (t) , (s) , (w) , (e) , (l) , (f) full, (r) resize
 
 mode "$menu" {
      # clipboard manager (greenclip)
-     bindsym w exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}', mode "default"
+     bindsym c exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}', mode "default"
      # start dmenu or rofi
      bindsym r exec rofi -show run -opacity 90, mode "default"
      # screnshot
      bindsym p exec flameshot gui, mode "default"
      # menus
-     bindsym 1 mode "$menu1"
-     bindsym 2 mode "$menu2"
+     bindsym w mode "$window"
+     bindsym s mode "$setting"
      
      # back to normal
      bindsym Escape mode "default"
 }
-set $menu Menu: (w) , (r) , (p)  (1) 1, (2) 2
+set $menu Menu: (c) , (r) , (p) , (w) , (s) 
 bindsym $mod+d mode "$menu"
 
 # change focus using cyling style (next..next)
