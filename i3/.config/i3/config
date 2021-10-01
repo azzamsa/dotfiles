@@ -232,3 +232,4 @@ bindsym XF86TouchpadOff exec "synclient TouchpadOff=$(synclient | awk '/Touchpad
 ##########################
 for_window [class="Nextcloud"] floating enable border pixel 0 sticky enable
 for_window [class="Workrave"] floating enable sticky enable
+for_window [class="(?i)Wezterm"] title_format "~"
