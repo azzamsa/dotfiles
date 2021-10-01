@@ -106,14 +106,15 @@ bindsym $mod+d mode "$menu"
 
 # change focus using cyling style (next..next)
 # I use no more than two windows in given workspace
-bindsym $mod+l focus right
-bindsym $mod+k focus up
+bindsym $mod+i focus right
+bindsym $mod+e focus up
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+# I am using colemak, otherwise it is hjkl
+bindsym $mod+Shift+m move left
+bindsym $mod+Shift+n move down
+bindsym $mod+Shift+e move up
+bindsym $mod+Shift+i move right
 
 # workspace variable
 set $ws01 ""
