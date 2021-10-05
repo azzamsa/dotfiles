@@ -71,8 +71,10 @@ return {
 	},
 	-- keybindings
 	disable_default_key_bindings = true,
+	quick_select_alphabet = "colemak",
 	leader = { key = "`", mods = "NONE", timeout_milliseconds = 2000 },
 	keys = {
+		{ key = "`", mods = "LEADER", action = wezterm.action({ SendString = "`" }) },
 		{ key = "r", mods = "LEADER", action = "ReloadConfiguration" },
 		--
 		{
@@ -85,6 +87,8 @@ return {
 		{ key = "X", mods = "LEADER", action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
 		{ key = "x", mods = "LEADER", action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
 		{ key = "z", mods = "LEADER", action = "TogglePaneZoomState" },
+		{ key = "f", mods = "LEADER", action = "QuickSelect" },
+                { key = "w", mods = "LEADER", action = "ActivateCopyMode" },
 		--
 		-- I am using colemak, otherwise it's hjkl
 		{ key = "i", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
