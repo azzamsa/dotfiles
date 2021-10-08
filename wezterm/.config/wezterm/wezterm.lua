@@ -99,6 +99,9 @@ return {
 		{ key = "m", mods = "CTRL", action = wezterm.action({ ActivateTabRelative = 1 }) },
 		{ key = "i", mods = "CTRL", action = wezterm.action({ ActivateTabRelative = -1 }) },
 		--
+		{ key = "m", mods = "CTRL|SHIFT", action = wezterm.action({ MoveTabRelative = 1 }) },
+		{ key = "i", mods = "CTRL|SHIFT", action = wezterm.action({ MoveTabRelative = -1 }) },
+		--
 		{ key = "0", mods = "ALT", action = "ResetFontSize" },
 		{ key = "8", mods = "ALT", action = "DecreaseFontSize" },
 		{ key = "9", mods = "ALT", action = "IncreaseFontSize" },
