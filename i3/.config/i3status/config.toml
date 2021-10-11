@@ -1,80 +1,52 @@
 [theme]
-name = "bad-wolf"
+name = "gruvbox-light"
 
 [theme.overrides]
-idle_bg = "#EEEEEE"
-idle_fg = "#4D4D4C"
-warning_bg = "#ffd787"
-critical_bg = "#ffafd7"
-good_bg = "#EEEEEE"
-info_bg = "#EEEEEE"
-info_fg = "#4D4D4C"
+idle_bg = "#312E81"
+info_bg = "#312E81"
+good_bg = "#312E81"
+
+idle_fg = "#E0E7FF"
+info_fg = "#E0E7FF"
+
+warning_bg = "#d33682"
+critical_bg = "#d33682"
 
 [icons]
 name = "awesome5"
+
 [icons.overrides]
 net_wireless = ""
 net_wired = ""
-net_up = "  "
-net_down = "  "
-zman = "  "
-bilal = "  "
-
-[[block]]
-block = "custom"
-cycle = [
-        "zman year -J",
-        "zman month -J",
-        "zman week -J",
-        ]
-on_click = "<command>"
-interval = 300
-json = true
-
-[[block]]
-block = "custom"
-cycle = [
-        "bilal current -J",
-        "bilal next -J",
-        ]
-on_click = "<command>"
-interval = 300
-json = true
-
-[[block]]
-block = "disk_space"
-path = "/"
-alias = "/"
-info_type = "available"
-unit = "GB"
-interval = 20
-warning = 20.0
-alert = 10.0
+net_up = ""
+net_down = ""
+zman = ""
+bilal = ""
 
 [[block]]
 block = "net"
 device = "wlp0s20f3"
 format = "{speed_down}{speed_up}"
 interval = 5
-use_bits = false
 
 [[block]]
 block = "battery"
 interval = 10
 critical = 10
-format = "{percentage}% {time}"
-
-[[block]]
-block = "memory"
-display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
+format = "{percentage}{time}"
 
 [[block]]
 block = "cpu"
 interval = 1
 
 [[block]]
-block = "time"
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_used_percents}"
+
+[[block]]
+# time block can't cycle echo.
+# I need both 12 and 24 hour format.
+block = "custom"
+cycle = ["echo  (date +'%a %Y-%m-%d %I:%M %p')", "echo  (date +'%a %Y-%m-%d %H:%M')"]
 interval = 60
-format = "%a %Y-%m-%d %I:%M %p"
