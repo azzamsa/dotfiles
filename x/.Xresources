@@ -7,33 +7,6 @@ Xft.hinting   : true
 Xft.antialias : true
 Xft.rgba      : rgb
 
-!! st (simple terminal)
-st.font: Fira Code:pixelsize=18:antialias=true:autohint=true;
-st.alpha: 1
-
-!! color scheme (paperclip light)
-*background: #EEEEEE
-*foreground: #4D4D4C
-*.cursorColor: #0096c7
-
-*color0:	#EDEDED
-*color1:        #D7005F
-*color2:        #718C00
-*color3:        #D75F00
-*color4:        #4271AE
-*color5:        #8959A8
-*color6:        #3E999F
-*color7:        #4D4D4C
-
-*color8:        #969694
-*color9:        #D7005F
-*color10:       #718C00
-*color11:       #D75F00
-*color12:       #4271AE
-*color13:       #8959A8
-*color14:       #3E999F
-*color15:       #4D4D4C
-
 !! rofi -- dmenu clone
 rofi.opacity:  100
 rofi.width:    70
@@ -52,6 +25,3 @@ rofi.color-normal: #3f3f3f, #dcdccc, #383838, #4f4f4f, #ffffef
 rofi.color-active: #4c7073, #dcdccc, #366060, #5c888b, #ffffef
 !                  red-4,   fg,      red-5,   red-3,   fg+1
 rofi.color-urgent: #8c5353, #dcdccc, #7c4343, #9c6363, #ffffef
-
-!! emacs
-emacs.verticalScrollBars: false
