@@ -137,18 +137,11 @@ bindsym $mod+Shift+4 move container to workspace $ws04
 # referece https://tailwindcss.com/docs/customizing-colors#color-palette-reference
 set $base0     #312E81
 set $base1     #3730A3
+set $base2     #6366F1
+set $base3     #E0E7FF
 set $gray      #839496
 set $yellow    #fdf6e3
 set $magenta   #d33682
-set $indigo    #4338CA
-
-# take the value from Xresources
-# set_from_resource $<name> <resource_name> <fallback>
-set_from_resource   $fg	     color2         #2AA198
-set_from_resource   $bg	     color0         #1F2D3A
-set_from_resource   $shade   color8         #ffffff
-set_from_resource   $light   color5         #ffffff
-set_from_resource   $urgent  color1         #ffffff
 
 # changed these colours for readability
 client.focused            $base0   $base1   $yellow $base0  $base1
@@ -170,15 +163,15 @@ bar {
     tray_padding 0
     strip_workspace_numbers yes
     colors {
-       background $bg
+       background $base0
        separator $shade
        statusline $shade
 
        # workspace indicators	border	backgr.	text
-       focused_workspace	$bg	$bg	$indigo
-       inactive_workspace	$bg	$bg	$shade
-       urgent_workspace	        $bg	$bg	$urgent
-       binding_mode             $bg     $bg     $indigo
+       focused_workspace	$base0	$base0	$base3
+       inactive_workspace	$base0	$base0	$base2
+       urgent_workspace	        $base0	$base0	$magenta
+       binding_mode             $base0  $base0  $base3
        }
 }
 
