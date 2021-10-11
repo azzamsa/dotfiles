@@ -2,12 +2,13 @@
 name = "gruvbox-light"
 
 [theme.overrides]
-idle_bg = "#312E81"
-info_bg = "#312E81"
-good_bg = "#312E81"
+idle_bg = "#F9FAFB"
+info_bg = "#F9FAFB"
+good_bg = "#F9FAFB"
 
-idle_fg = "#E0E7FF"
-info_fg = "#E0E7FF"
+idle_fg = "#4338CA"
+info_fg = "#4338CA"
+good_fg = "#4338CA"
 
 warning_bg = "#d33682"
 critical_bg = "#d33682"

@@ -135,19 +135,17 @@ bindsym $mod+Shift+4 move container to workspace $ws04
 #  Colors  #
 ############
 # referece https://tailwindcss.com/docs/customizing-colors#color-palette-reference
-set $base0     #312E81
-set $base1     #3730A3
-set $base2     #6366F1
-set $base3     #E0E7FF
+set $base0     #F9FAFB
+set $base1     #4338CA
 set $gray      #839496
 set $yellow    #fdf6e3
 set $magenta   #d33682
 
-# changed these colours for readability
-client.focused            $base0   $base1   $yellow $base0  $base1
-client.focused_inactive   $base0   $base0   $gray   $base0  $base0
-client.unfocused          $base0   $base0   $gray   $base0  $base0
-client.urgent             $base0   $magenta $yellow $base0  $magenta
+# class                   border  backgr.  text    indicator child_border
+client.focused            $base1  $base0   $base1  $base0    $base1
+client.focused_inactive   $gray   $base0   $gray   $base0    $gray
+client.unfocused          $gray   $base0   $gray   $base0    $gray
+client.urgent             $gray   $magenta $yellow $base0    $magenta
 
 
 ################
@@ -168,10 +166,10 @@ bar {
        statusline $shade
 
        # workspace indicators	border	backgr.	text
-       focused_workspace	$base0	$base0	$base3
-       inactive_workspace	$base0	$base0	$base2
+       focused_workspace	$base0	$base0	$base1
+       inactive_workspace	$base0	$base0	$gray
        urgent_workspace	        $base0	$base0	$magenta
-       binding_mode             $base0  $base0  $base3
+       binding_mode             $base0  $base0  $base1
        }
 }
 
