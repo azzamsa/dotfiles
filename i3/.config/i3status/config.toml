@@ -38,11 +38,12 @@ format = "{percentage}{time}"
 [[block]]
 block = "cpu"
 interval = 1
+format = "{utilization:1}"
 
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{mem_used_percents}"
+format_mem = "{mem_used_percents:1}"
 
 [[block]]
 # time block can't cycle echo.
