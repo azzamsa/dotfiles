@@ -16,11 +16,11 @@ rofi.location: 0
 rofi.padding:  5
 
 rofi.color-enabled: true
-rofi.color-window: #3f3f3f, #000000, #000000
+!                  bg,      border,  header border
+rofi.color-window: #F9FAFB, #4338CA, #4338CA
 
 ! State:           bg,      fg,      bgalt    hlbg,    hlfg
-! zenburn:         bg,      fg,      bg-05,   bg+1,    fg+1
-rofi.color-normal: #3f3f3f, #dcdccc, #383838, #4f4f4f, #ffffef
+rofi.color-normal: #F9FAFB, #4338CA, #e0e1e1, #4338CA, #F9FAFB
 !                  blue-4,  fg,      blue-5,  blue-3,  fg+1
 rofi.color-active: #4c7073, #dcdccc, #366060, #5c888b, #ffffef
 !                  red-4,   fg,      red-5,   red-3,   fg+1
