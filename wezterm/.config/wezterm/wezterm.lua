@@ -6,7 +6,7 @@ local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 -- The filled in variant of the > symbol
 local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
-local COLOR0 = "#FFFFFF"
+local COLOR0 = "#F9FAFB"
 local COLOR1 = "#4338CA"
 local COLOR2 = "#6366F1"
 local COLOR3 = "#9CA3AF"
