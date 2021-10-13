@@ -87,7 +87,7 @@ mode "$menu" {
      # clipboard manager (greenclip)
      bindsym c exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}', mode "default"
      # start dmenu or rofi
-     bindsym r exec rofi -show run -opacity 90, mode "default"
+     bindsym r exec rofi -show drun -opacity 90, mode "default"
      # screnshot
      bindsym p exec flameshot gui, mode "default"
      # menus
