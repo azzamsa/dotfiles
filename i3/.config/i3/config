@@ -187,9 +187,9 @@ exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -m vidmode
 exec --no-startup-id greenclip daemon
-exec --no-startup-id light -S 30
+exec --no-startup-id light -S 10
 exec --no-startup-id auto-suspend
-exec --no-startup-id stretchly
+exec --no-startup-id workrave
 exec --no-startup-id aw-qt
 exec --no-startup-id wezterm
 
