@@ -48,6 +48,12 @@ return {
 	default_cursor_style = "BlinkingBar",
 	font_size = 16.0,
 	font = wezterm.font("Fira Code"),
+	font = wezterm.font_with_fallback({
+		"Fira Code",
+		"Font Awesome 5 Free",
+		"Symbola",
+	}),
+	warn_about_missing_glyphs = true,
 	-- Tab Bar Options
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,
