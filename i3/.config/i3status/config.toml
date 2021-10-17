@@ -34,7 +34,7 @@ interval = 5
 block = "battery"
 interval = 10
 critical = 10
-format = "{percentage}{time}"
+format = "{percentage}"
 
 [[block]]
 block = "cpu"
