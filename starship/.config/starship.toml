@@ -1,2 +1,6 @@
 [character]
 success_symbol = "[❯](bold #4338CA)"
+
+[nodejs]
+symbol = "⬢ "
+
