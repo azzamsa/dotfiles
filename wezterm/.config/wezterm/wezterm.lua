@@ -94,7 +94,8 @@ return {
 		{ key = "x", mods = "LEADER", action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
 		{ key = "z", mods = "LEADER", action = "TogglePaneZoomState" },
 		{ key = "f", mods = "LEADER", action = "QuickSelect" },
-                { key = "w", mods = "LEADER", action = "ActivateCopyMode" },
+		{ key = "w", mods = "LEADER", action = "ActivateCopyMode" },
+		{ key = "s", mods = "LEADER", action = wezterm.action({ Search = { CaseInSensitiveString = "" } }) },
 		--
 		-- I am using colemak, otherwise it's hjkl
 		{ key = "i", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
