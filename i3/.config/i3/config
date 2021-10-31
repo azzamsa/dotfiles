@@ -98,7 +98,7 @@ mode "$menu" {
      bindsym Escape mode "default"
 }
 set $menu Menu: (c) , (r) , (p) , (w) , (s) 
-bindsym $mod+d mode "$menu"
+bindsym $mod+n mode "$menu"
 
 # change focus using cyling style (next..next)
 # I use no more than two windows in given workspace
