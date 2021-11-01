@@ -91,6 +91,8 @@ return {
 		{ key = "f", mods = "LEADER", action = "QuickSelect" },
 		{ key = "w", mods = "LEADER", action = "ActivateCopyMode" },
 		{ key = "s", mods = "LEADER", action = wezterm.action({ Search = { CaseInSensitiveString = "" } }) },
+		{ key = "PageUp", mods = "NONE", action = wezterm.action({ ScrollByPage = -1 }) },
+		{ key = "PageDown", mods = "NONE", action = wezterm.action({ ScrollByPage = 1 }) },
 		--
 		-- I am using colemak, otherwise it's hjkl
 		{ key = "i", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
