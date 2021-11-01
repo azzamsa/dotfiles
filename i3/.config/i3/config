@@ -119,16 +119,16 @@ set $ws03 ""
 set $ws04 ""
 
 # switch to workspace
-bindsym $mod+1 workspace $ws01
-bindsym $mod+2 workspace $ws02
-bindsym $mod+3 workspace $ws03
-bindsym $mod+4 workspace $ws04
+bindsym $mod+4 workspace $ws01
+bindsym $mod+5 workspace $ws02
+bindsym $mod+6 workspace $ws03
+bindsym $mod+7 workspace $ws04
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws01
-bindsym $mod+Shift+2 move container to workspace $ws02
-bindsym $mod+Shift+3 move container to workspace $ws03
-bindsym $mod+Shift+4 move container to workspace $ws04
+bindsym $mod+Shift+4 move container to workspace $ws01
+bindsym $mod+Shift+5 move container to workspace $ws02
+bindsym $mod+Shift+6 move container to workspace $ws03
+bindsym $mod+Shift+7 move container to workspace $ws04
 
 
 ############
