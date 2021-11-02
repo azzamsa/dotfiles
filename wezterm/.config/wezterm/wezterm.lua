@@ -73,9 +73,9 @@ return {
 	-- keybindings
 	disable_default_key_bindings = true,
 	quick_select_alphabet = "colemak",
-	leader = { key = "`", mods = "NONE", timeout_milliseconds = 2000 },
+	leader = { key = "n", mods = "CTRL", timeout_milliseconds = 2000 },
 	keys = {
-		{ key = "`", mods = "LEADER", action = wezterm.action({ SendString = "`" }) },
+		{ key = "n", mods = "LEADER|CTRL", action = wezterm.action({ SendString = "\x14" }) },
 		{ key = "r", mods = "LEADER", action = "ReloadConfiguration" },
 		--
 		{
