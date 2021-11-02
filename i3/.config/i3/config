@@ -18,17 +18,17 @@ mode "resize" {
      # They resize the border in the direction you pressed, e.g.
      # when pressing left, the window is resized so that it has
      # more space on its left
-     bindsym h resize shrink left 10 px or 10 ppt
-     bindsym Shift+H resize grow left 10 px or 10 ppt
+     bindsym Left resize shrink left 10 px or 10 ppt
+     bindsym Shift+Left resize grow left 10 px or 10 ppt
 
-     bindsym j resize shrink down 10 px or 10 ppt
-     bindsym Shift+J resize grow down 10 px or 10 ppt
+     bindsym Down resize shrink down 10 px or 10 ppt
+     bindsym Shift+Down resize grow down 10 px or 10 ppt
 
-     bindsym k resize shrink up 10 px or 10 ppt
-     bindsym Shift+K resize grow up 10 px or 10 ppt
+     bindsym Up resize shrink up 10 px or 10 ppt
+     bindsym Shift+Up resize grow up 10 px or 10 ppt
 
-     bindsym l resize shrink right 10 px or 10 ppt
-     bindsym Shift+L resize grow right 10 px or 10 ppt
+     bindsym Rigth resize shrink right 10 px or 10 ppt
+     bindsym Shift+Right resize grow right 10 px or 10 ppt
 
      # back to normal: Enter or Escape
      bindsym Return mode "default"
@@ -102,15 +102,16 @@ bindsym $mod+n mode "$menu"
 
 # change focus using cyling style (next..next)
 # I use no more than two windows in given workspace
-bindsym $mod+i focus right
-bindsym $mod+e focus up
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Rigth focus right
 
 # move focused window
-# I am using colemak, otherwise it is hjkl
-bindsym $mod+Shift+m move left
-bindsym $mod+Shift+n move down
-bindsym $mod+Shift+e move up
-bindsym $mod+Shift+i move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # workspace variable
 set $ws01 ""
