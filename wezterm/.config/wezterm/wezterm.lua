@@ -94,14 +94,13 @@ return {
 		{ key = "PageUp", mods = "NONE", action = wezterm.action({ ScrollByPage = -1 }) },
 		{ key = "PageDown", mods = "NONE", action = wezterm.action({ ScrollByPage = 1 }) },
 		--
-		-- I am using colemak, otherwise it's hjkl
-		{ key = "i", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
-		{ key = "m", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
-		{ key = "e", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
-		{ key = "n", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
+		{ key = "RightArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
+		{ key = "LeftArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
+		{ key = "UpArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
+		{ key = "DownArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
 		--
-		{ key = "m", mods = "CTRL", action = wezterm.action({ ActivateTabRelative = 1 }) },
-		{ key = "i", mods = "CTRL", action = wezterm.action({ ActivateTabRelative = -1 }) },
+		{ key = "RightArrow", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = 1 }) },
+		{ key = "LeftArrow", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = -1 }) },
 		--
 		{ key = "m", mods = "CTRL|SHIFT", action = wezterm.action({ MoveTabRelative = 1 }) },
 		{ key = "i", mods = "CTRL|SHIFT", action = wezterm.action({ MoveTabRelative = -1 }) },
