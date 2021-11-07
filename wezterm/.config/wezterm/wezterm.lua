@@ -70,6 +70,33 @@ return {
 		foreground = COLOR0,
 		selection_bg = COLOR2,
 	},
+	hyperlink_rules = {
+		-- Linkify things that look like URLs
+		-- This is actually the default if you don't specify any hyperlink_rules
+		{
+			regex = "\\b\\w+://(?:[\\w.-]+)\\.[a-z]{2,15}\\S*\\b",
+			format = "$0",
+		},
+
+		-- match the URL with a PORT
+		-- such 'http://localhost:3000/index.html'
+		{
+			regex = "\\b\\w+://(?:[\\w.-]+):\\d+\\S*\\b",
+			format = "$0",
+		},
+
+		-- linkify email addresses
+		{
+			regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
+			format = "mailto:$0",
+		},
+
+		-- file:// URI
+		{
+			regex = "\\bfile://\\S*\\b",
+			format = "$0",
+		},
+	},
 	-- keybindings
 	disable_default_key_bindings = true,
 	quick_select_alphabet = "colemak",
