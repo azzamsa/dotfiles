@@ -70,6 +70,10 @@ return {
 		foreground = COLOR0,
 		selection_bg = COLOR2,
 	},
+	inactive_pane_hsb = {
+		saturation = 0.5,
+		brightness = 0.5,
+	},
 	hyperlink_rules = {
 		-- Linkify things that look like URLs
 		-- This is actually the default if you don't specify any hyperlink_rules
