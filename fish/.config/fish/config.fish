@@ -24,12 +24,16 @@ alias g "git"
 alias ytdl "youtube-dl"
 alias rrepl "evcxr" # I can't remember evcxr
 
-
 set colorflag "--color"
 alias l "ls -lF $colorflag"
 alias la "ls -AltGhF --group-directories-first $colorflag"
 alias lsd "ls -lF $colorflag | grep --color=never '^d'"
 alias ls "command ls $colorflag"
+
+# Abbrev
+abbr crg "cargo"
+abbr mk "make"
+abbr pn "pnpm"
 
 ## expand !! such `sudo !!` bash equivalent
 function sudobangbang --on-event fish_postexec
