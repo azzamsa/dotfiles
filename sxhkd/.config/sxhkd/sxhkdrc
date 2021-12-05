@@ -1,0 +1,49 @@
+#! /bin/sh
+
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	wezterm
+
+## program launcher
+super + n
+    rofi -modi run,drun,window -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font "Fira Code 14"
+
+super + h
+    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+	
+## take a screenshot
+super + p
+    flameshot gui
+
+#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+## focus or send to the given desktop
+super + {_,shift + }{1-8}
+	bspc {desktop -f,node -d} '^{1-8}'
+	
+## jump to another workspace
+super + {1-8}
+	bspc desktop --focus^{1-8}
+
+## set window style
+super + w; {t, p, f}
+	bspc node -t {tiled, pseudo_tiled, floating}

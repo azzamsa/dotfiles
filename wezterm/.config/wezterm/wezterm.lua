@@ -6,22 +6,25 @@ local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 -- The filled in variant of the > symbol
 local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
-local COLOR0 = "#F9FAFB"
-local COLOR1 = "#4338CA"
-local COLOR2 = "#6366F1"
-local COLOR3 = "#9CA3AF"
+local COL_BG = "#e5e9f0"
+local COL_BG_ALT = "#4f545f"
+local COL_FG = "#3b4252"
+local COL_FG_ALT = "#8fbcbb"
+local COL_ACCENT = "#5e81ac"
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local edge_background = COLOR0
-	local background = COLOR2
-	local foreground = COLOR3
+              -- edge icon
+	local edge_background = COL_BG
+	-- inactive tab
+	local background = COL_FG_ALT
+	local foreground = COL_BG
 
 	if tab.is_active then
-		background = COLOR1
-		foreground = COLOR0
+		background = COL_ACCENT
+		foreground = COL_FG
 	elseif hover then
-		background = COLOR2
-		foreground = COLOR0
+		background = COL_ACCENT
+		foreground = COL_FG
 	end
 
 	local edge_foreground = background
@@ -44,31 +47,33 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 end)
 
 return {
-	color_scheme = "ayu_light",
+	--color_scheme = "ayu_light",
 	default_cursor_style = "BlinkingBar",
 	font_size = 16.0,
 	font = wezterm.font("Fira Code"),
 	warn_about_missing_glyphs = false,
+	check_for_updates = false,
 	-- Tab Bar Options
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,
 	show_tab_index_in_tab_bar = false,
 	tab_max_width = 25,
 	-- Padding
-	window_padding = { left = 10, right = 10, top = 10, bottom = 10 },
+	window_padding = { left = 10, right = 10, top = 0, bottom = 10 },
 	-- Misc
 	adjust_window_size_when_changing_font_size = false,
 	-- Theme
 	colors = {
+		background = COL_BG,
+		foreground = COL_FG,
+		selection_bg = COL_ACCENT,
 		tab_bar = {
-			background = COLOR0,
+			background = COL_BG,
 			new_tab = {
-				bg_color = COLOR1,
-				fg_color = COLOR0,
+				bg_color = COL_BG,
+				fg_color = COL_FG,
 			},
 		},
-		foreground = COLOR0,
-		selection_bg = COLOR2,
 	},
 	inactive_pane_hsb = {
 		saturation = 0.5,
@@ -125,13 +130,17 @@ return {
 		{ key = "PageUp", mods = "NONE", action = wezterm.action({ ScrollByPage = -1 }) },
 		{ key = "PageDown", mods = "NONE", action = wezterm.action({ ScrollByPage = 1 }) },
 		--
+		{ key = "4", mods = "LEADER", action = wezterm.action({ ActivateTab = 0 }) },
+		{ key = "5", mods = "LEADER", action = wezterm.action({ ActivateTab = 1 }) },
+		{ key = "6", mods = "LEADER", action = wezterm.action({ ActivateTab = 2 }) },
+		{ key = "7", mods = "LEADER", action = wezterm.action({ ActivateTab = 3 }) },
+		{ key = "RightArrow", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = 1 }) },
+		{ key = "LeftArrow", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = -1 }) },
+		--
 		{ key = "RightArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
 		{ key = "LeftArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
 		{ key = "UpArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
 		{ key = "DownArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
-		--
-		{ key = "RightArrow", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = 1 }) },
-		{ key = "LeftArrow", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = -1 }) },
 		--
 		{ key = "m", mods = "CTRL|SHIFT", action = wezterm.action({ MoveTabRelative = 1 }) },
 		{ key = "i", mods = "CTRL|SHIFT", action = wezterm.action({ MoveTabRelative = -1 }) },

@@ -1,0 +1,113 @@
+[colors]
+background = #d8dee9
+background-alt = #4f545f
+foreground =  #3b4252
+foreground-alt = #787e68
+accent = #5e81ac
+alert = #ebcb8b
+
+[bar/bar1]
+monitor = ${env:MONITOR:HDMI-1}
+height = 27
+width = 99.5%
+offset-y = 0.5%
+offset-x = 0.3%
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 1
+padding-right = 1
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "Fira Code SemiBold:pixelsize=10"
+
+# fc-list | grep -i "Awesome 6"
+font-1 = "Font Awesome 6 Free Regular:pixelsize=10"
+font-2 = "Font Awesome 6 Free Solid:pixelsize=10"
+font-3 = "Font Awesome 6 Free Brands Regular:pixelsize=10"
+
+# fc-list | grep -i "Awesome 5"
+font-4 = "Font Awesome 5 Free Regular:pixelsize=10"
+font-5 = "Font Awesome 5 Free Solid:pixelsize=10"
+font-6 = "Font Awesome 5 Brands Regular:pixelsize=10"
+
+tray-position = right
+tray-padding = 1
+tray-background = ${colors.background}
+
+wm-restack = bspwm
+modules-left = bspwm
+modules-center = xwindow
+modules-right =  cpu memory battery status
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+enable-ipc = true
+
+[module/bspwm]
+type = internal/bspwm
+label-focused = %name%
+label-focused-background= ${colors.accent}
+label-focused-padding = 1
+label-occupied = %name%
+label-occupied-padding = 1
+label-occupied-foreground= ${colors.foreground}
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+label-empty = %name%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %percentage_used%%
+
+[module/battery]
+type = internal/battery
+full-at = 98
+battery = BAT0
+adapter = ACAD
+poll-interval = 60
+format-charging = <ramp-capacity>  <label-charging>
+label-charging =  %percentage%%
+label-full = Full
+format-discharging = <ramp-capacity>  <label-discharging>
+label-discharging = %percentage%%
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.accent}
+
+[module/status]
+type = custom/ipc
+hook-0 = date +'%a %Y-%m-%d %I:%M %p'
+hook-1 = date +'%a %Y-%m-%d %H:%M'
+hook-2 = hostname
+initial = 1
+click-left = polybar-msg -p %pid% hook status 1
+click-right = polybar-msg -p %pid% hook status 2
+double-click-left = polybar-msg -p %pid% hook status 3
+format-prefix = " "
+format-prefix-foreground = ${colors.accent}

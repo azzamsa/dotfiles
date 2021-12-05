@@ -1,5 +1,18 @@
 [character]
-success_symbol = "[❯](bold #4338CA)"
+success_symbol = "[❯](bold #5e81ac)"
+error_symbol = "[✗](#bf616a)"
+
+[directory]
+format = "[$path]($style fg:#5e81ac) "
+read_only = " "
+
+[git_branch]
+format = "[on]($style fg:#d08770) [$symbol$branch]($style fg:#a3be8c) "
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style fg:#d08770))'
+
+[golang]
 
 [nodejs]
 symbol = "⬢ "
