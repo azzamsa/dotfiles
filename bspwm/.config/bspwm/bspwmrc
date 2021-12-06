@@ -33,7 +33,8 @@ bspc rule -a Thunar desktop='^3' focus=on
 
 ## multimedia
 bspc rule -a Pavucontrol desktop='^4' state=floating
-bspc rule -a Arandr desktop='^4' state=floating
+# Don't specify Arandr workspace. I need to invoke it from anywehere
+bspc rule -a Arandr state=floating
 bspc rule -a "Screen Layout Editor" desktop='^4' state=floating
 bspc rule -a mpv desktop='^4' focus=on
 
