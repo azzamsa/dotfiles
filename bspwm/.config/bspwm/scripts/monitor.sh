@@ -1,5 +1,31 @@
 #!/usr/bin/bash
-# credits:  criswell/meh
+
+#
+# workspaces
+#
+
+# Need to move all the workspace to second montior
+# Otherwise, I can't invoke `super-4` to get to workspsace 1.
+# credits: https://github.com/ericmurphyxyz/archrice/blob/6e85165338a6e35503ece16025850412bc4768b2/.local/bin/startup
+move_workspace_to_external_monitor() {
+    internal_monitor=eDP-1
+    external_monitor=HDMI-1
+
+    desktops=1 # How many desktops to move to the second monitor
+
+    for desktop in $(bspc query -D -m $internal_monitor | sed "$desktops"q)
+    do
+        bspc desktop $desktop --to-monitor $external_monitor
+    done
+
+    # Remove "Desktop" created by bspwm
+    bspc desktop Desktop --remove
+}
+
+
+#
+# brightness
+#
 
 is_night(){
     hour=`date +%H`
@@ -17,7 +43,9 @@ is_night(){
 
 #
 # monitors
-# 
+#
+# credits: https://github.com/criswell/meh/blob/0745d064c2219d22d98f8a6502846698938156ff/bijaz-theme/.config/bspwm/monitor.sh
+
 active_monitors=$(xrandr | awk '/\ connected/ && /[[:digit:]]x[[:digit:]].*+/{print $1}')
 
 unset DISPLAY_LAPTOP DISPLAY_HDMI || true
@@ -44,7 +72,7 @@ layout_laptop_only() {
 
 layout_external_hdmi_only() {
     # bspc monitor HDMI-1 -d 4 5 6 7
-    # TODO How to start at specific monitor? 
+    # TODO How to start at specific monitor?
     bspc monitor HDMI-1 -d 1 2 3 4 5 6 7
 
     if is_night; then
@@ -79,6 +107,7 @@ if [ -n "$DISPLAY_LAPTOP" ] && [ -n "$DISPLAY_HDMI" ]; then
 elif [ -n "$DISPLAY_HDMI" ]; then
     echo "::: Only HDMI is active"
     layout_external_hdmi_only
+    move_workspace_to_external_monitor
 else
     echo "::: Only LAPTOP is active"
     layout_laptop_only
