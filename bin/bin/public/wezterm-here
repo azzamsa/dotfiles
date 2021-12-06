@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cwd=$HOME
+
+if [ -n "$1" ]; then
+    cwd="$1"
+fi
+
+for socket in /run/user/1000/wezterm/gui-sock-*
+do
+  [ -S "$socket" ] && break;
+done
+
+if [ -n "$socket" ]
+then
+    echo "::: Socket found: $socket"
+    env WEZTERM_UNIX_SOCKET="$socket" wezterm cli spawn --window-id 0 --cwd "$cwd"
+fi

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+res=$(echo -e "lock\nsuspend\nlogout\nreboot\nshutdown" | rofi -dmenu -i -lines 5 -width -20 -hide-scrollbar -font "Fira Code 14")
+
+lock() {
+    i3lock -i $HOME/Desktop/lockscreen.png
+}
+
+
+case "$res" in
+    lock)
+        lock
+        ;;
+    logout)
+        bspc quit
+        ;;
+    suspend)
+        lock && systemctl suspend
+        ;;
+    reboot)
+        systemctl reboot
+        ;;
+    shutdown)
+        systemctl poweroff
+        ;;
+    *)
+        echo "Usage: $0 {lock|logout|suspend|reboot|shutdown}"
+        exit 2
+esac
+
+exit 0
