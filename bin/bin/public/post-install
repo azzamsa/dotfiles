@@ -83,6 +83,12 @@ fnm use $node_version
 # starship
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
+# js
+# fixed version global packages
+mkdir nodebin && cd nodebin && npm init --yes
+npm install --prefix $HOME/nodebin/ typescript-language-server svelte-language-server bash-language-server
+mv nodebin/ .nodebin
+
 # rust
 # cargo install cargo-make
 
