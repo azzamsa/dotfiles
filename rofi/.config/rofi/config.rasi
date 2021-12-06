@@ -9,15 +9,15 @@ configuration {
 
 //  https://www.w3schools.com/colors/colors_converter.asp
 * {
-    background:                  #f9fafb;
-    foreground:                  #3b4252;
+    background:                  #eceff4;
+    foreground:                  #2e3440;
 
-    background-color:            #d8dee9;
+    background-color:            #eceff4;
 
-    normal-background:           #f9fafb;
+    normal-background:           #eceff4;
     normal-foreground:           var(foreground);
     
-    selected-normal-foreground:  #2e3440;
+    selected-normal-foreground:  #4c566a;
     selected-normal-background:  #88c0d0;
 
     active-foreground:           #eceff4; 

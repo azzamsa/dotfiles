@@ -6,18 +6,18 @@ local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 -- The filled in variant of the > symbol
 local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
-local COL_BG = "#e5e9f0"
-local COL_BG_ALT = "#4f545f"
-local COL_FG = "#3b4252"
-local COL_FG_ALT = "#8fbcbb"
-local COL_ACCENT = "#5e81ac"
+local COL_BG = "#eceff4"
+local COL_BG_ALT = "#d8dee9"
+local COL_FG = "#2e3440"
+local COL_FG_ALT = "#81a1c1"
+local COL_ACCENT = "#88c0d0"
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
               -- edge icon
 	local edge_background = COL_BG
 	-- inactive tab
-	local background = COL_FG_ALT
-	local foreground = COL_BG
+	local background = COL_BG_ALT
+	local foreground = COL_FG
 
 	if tab.is_active then
 		background = COL_ACCENT

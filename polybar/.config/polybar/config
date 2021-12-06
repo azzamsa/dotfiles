@@ -1,9 +1,9 @@
 [colors]
-background = #d8dee9
-background-alt = #4f545f
-foreground =  #3b4252
-foreground-alt = #787e68
-accent = #5e81ac
+background = #eceff4
+background-alt = #d8dee9
+foreground =  #2e3440
+foreground-alt = #81a1c1
+accent = #88c0d0
 alert = #ebcb8b
 
 [bar/bar1]
