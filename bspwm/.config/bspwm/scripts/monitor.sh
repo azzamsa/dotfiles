@@ -15,16 +15,20 @@ do
 done
 
 layout_laptop_only() {
-    bspc monitor -d 1 2 3 4
+    # bspc monitor -d 4 5 6 7
+    bspc monitor -d 1 2 3 4 6 7
 }
 
 layout_external_hdmi_only() {
-    bspc monitor HDMI-1 -d 1 2 3 4
+    # bspc monitor HDMI-1 -d 4 5 6 7
+    # TODO How to start at specific monitor? 
+    bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 
 }
 
 layout_external_all() {
-    bspc monitor eDP-1 -d  1
-    bspc monitor HDMI-1 -d 2 3 4 5
+    # bspwm always assing to source monitor first
+    bspc monitor eDP-1 -d 1
+    bspc monitor HDMI-1 -d 2 3 4 5 6 7
 }
 
 if [ -n "$DISPLAY_LAPTOP" ] && [ -n "$DISPLAY_HDMI" ]; then

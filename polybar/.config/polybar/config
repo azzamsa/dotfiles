@@ -49,6 +49,8 @@ enable-ipc = true
 
 [module/bspwm]
 type = internal/bspwm
+pin-workspaces = true
+
 label-focused = %name%
 label-focused-background= ${colors.accent}
 label-focused-padding = 1
