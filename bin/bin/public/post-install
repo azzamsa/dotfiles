@@ -206,13 +206,9 @@ inn libgccjit-9-dev
 
 
 # setup dotfiles
-# create directory first, otherwise stow will create top directory as symlink
-# and apps will put uninteresting files under dotfiles directory
-mkdir ~/.screenlayout
-cd ~/.config/ && mkdir compton dunst fish gtk-3.0 i3 i3status mpv wezterm rofi
 git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
 for d in ~/dotfiles/*/ ; do
-    stow "$d"
+    stow "$d" --no-folding
 done
 
 # setup mu4e
