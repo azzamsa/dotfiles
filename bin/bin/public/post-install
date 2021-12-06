@@ -41,14 +41,12 @@ sudo apt-get install -y --no-install-recommends \
      fish fuse git etckeeper gnupg2 ssh ssh-agent curl stow rsync \
      keychain
 
-echo "exec i3" | tee -a ~/.xinitrc
-
 # utilities
 # xclip required by pass to copy to clipboard
 # gvfs-fuse gvfs-backends adds support for sftp in thunar
 # mu4e needs w3m
 sudo apt-get install -y --no-install-recommends \
-     i3 i3lock rofi light dunst unclutter \
+     bspwm sxhkd polybar i3lock rofi light dunst unclutter \
      pass light xclip network-manager-gnome \
      flameshot feh ristretto peek file-roller mousepad workrave \
      thunar thunar-archive-plugin gvfs-fuse gvfs-backends \
