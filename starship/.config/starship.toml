@@ -12,7 +12,8 @@ format = "[on]($style fg:#d08770) [$symbol$branch]($style fg:#a3be8c) "
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style fg:#d08770))'
 
-[golang]
+[cmd_duration]
+format = '[⏱ $duration ]($style fg:#4c566a)'
 
 [nodejs]
 symbol = "⬢ "

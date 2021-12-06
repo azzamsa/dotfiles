@@ -8,20 +8,21 @@ local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
 local COL_BG = "#eceff4"
 local COL_BG_ALT = "#d8dee9"
-local COL_FG = "#2e3440"
-local COL_FG_ALT = "#81a1c1"
+local COL_FG = "#4c566a"
+local COL_FG_ALT = "#5e81ac"
 local COL_ACCENT = "#88c0d0"
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
               -- edge icon
-	local edge_background = COL_BG
+	local edge_background = "red"
+	local edge_background = COL_ACCENT
 	-- inactive tab
 	local background = COL_BG_ALT
 	local foreground = COL_FG
 
 	if tab.is_active then
-		background = COL_ACCENT
-		foreground = COL_FG
+		background = COL_FG_ALT
+		foreground = COL_BG
 	elseif hover then
 		background = COL_ACCENT
 		foreground = COL_FG
@@ -36,13 +37,14 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	return {
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
+		-- { Text = "<<" },
 		{ Text = SOLID_LEFT_ARROW },
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
 		{ Text = title },
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_RIGHT_ARROW },
+		{ Text =  SOLID_RIGHT_ARROW },
 	}
 end)
 
@@ -76,8 +78,8 @@ return {
 		},
 	},
 	inactive_pane_hsb = {
-		saturation = 0.5,
-		brightness = 0.5,
+		saturation = 0.85,
+		brightness = 0.85,
 	},
 	hyperlink_rules = {
 		-- Linkify things that look like URLs
