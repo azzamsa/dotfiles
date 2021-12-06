@@ -11,11 +11,6 @@ super + n
 super + h
     rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
-
-	
 ## take a screenshot
 super + shift + p
     flameshot gui
@@ -33,36 +28,24 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 ## focus or send to the given desktop
-super + {_,shift + }{1-8}
-	bspc {desktop -f,node -d} '^{1-8}'
-	
+super + {_,shift + }{4,5,6,7,8}
+	bspc {desktop -f,node -d} '{1,2,3,4,5}'
+
 ## jump to another workspace
-super + {1-8}
-	bspc desktop --focus^{1-8}
+super + {4,5,6,7,8}
+	bspc desktop --focus {1,2,3,4,5}
 
 # Using chain in bspwm is hard.
 # it has no visible mode feedback such i3
 # ## set window style
 # super + w; {t, p, f}
-    # 	bspc node -t {tiled, pseudo_tiled, floating}
+    #   bspc node -t {tiled, pseudo_tiled, floating}
 
-## fullscreen
-super + f
-    bspc desktop -l next
+#window state
+super + {t, shift + t, s, f}
+    bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
 
-## toggle beetwen pseudo-tiled & tiled
-super + p
-    bspc node -t pseudo_tiled
-
-## toggle beetwen floating & tiled
-super + space
-    bspc node -t floating
-    
-## just in case you want to go back to tiled mode but the toggle keybind doesn't work
-super + t
-	bspc node -t tiled
-
-## focus the next node in the current desktop
-# super + Tab
-super + Return
-	bspc node -f next.local
+# focus
+# next window, next workspace
+super + {Return, Tab}
+    bspc {node -f next.local, desktop -f next.occupied.local}
