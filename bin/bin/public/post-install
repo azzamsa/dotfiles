@@ -45,6 +45,7 @@ sudo apt-get install -y --no-install-recommends \
 # xclip required by pass to copy to clipboard
 # gvfs-fuse gvfs-backends adds support for sftp in thunar
 # mu4e needs w3m
+# `libnotify-bin` provide `notify-send` command
 sudo apt-get install -y --no-install-recommends \
      bspwm sxhkd polybar i3lock rofi light dunst unclutter \
      pass light xclip network-manager-gnome \
@@ -54,7 +55,7 @@ sudo apt-get install -y --no-install-recommends \
      mpv gimp inkscape libreoffice libreoffice-gtk3 audacity \
      okular okular-extra-backends evince system-config-printer \
      maildir-utils isync w3m aspell aspell-en \
-     zoxide ripgrep arc-theme
+     zoxide ripgrep arc-theme libnotify-bin
 
 # additional packages
 sudo apt-get install -y --no-install-recommends \
