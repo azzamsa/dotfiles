@@ -53,3 +53,16 @@ super + e; {h,v}
 # next window, next workspace
 super + {Return, Tab}
     bspc {node -f next.local, desktop -f next.occupied.local}
+
+# cancel
+super + Escape
+	bspc node -p cancel
+
+# expanding windows
+# looks odd?. I am using colemak.
+super + alt + {r,t,f,s}
+	bspc node -z {left -10 0,right 10 0,top 0 -10,bottom 0 10}
+
+# shrinking windows
+super + alt + {n,i,u,e}
+  bspc node -z {left 10 0,right -10 0,top 0 10,bottom 0 -10}
