@@ -17,7 +17,6 @@ icon_apps_link="https://www.dropbox.com/s/l7q1uhgempo7g6a/icon-apps.zip?dl=0"
 
 firefox_desktop="https://www.dropbox.com/s/207r2bstxf82on1/firefox.desktop?dl=0"
 insomnia_desktop="https://www.dropbox.com/s/em9frkyxoq91ffb/insomnia.desktop?dl=0"
-wezterm_desktop="https://www.dropbox.com/s/x1vbw950h87ojla/wezterm.desktop?dl=0"
 
 node_version="v16.12"
 
@@ -231,7 +230,6 @@ echo "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 mkdir -p ~/.local/share/applications
 curl -Lo ~/.local/share/applications/firefox.desktop "$firefox_desktop"
 curl -Lo ~/.local/share/applications/insomnia.desktop "$insomnia_desktop"
-curl -Lo ~/.local/share/applications/wezterm.desktop "$wezterm_desktop"
 
 # set default python to python3
 # in Debian, it points to python2
