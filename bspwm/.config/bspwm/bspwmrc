@@ -24,7 +24,7 @@ bspc config normal_border_color "#d8dee9"
 ##  labs
 # bspc rule -a Wezterm desktop='^1' follow=on focus=on
 bspc rule -a Wezterm desktop='^1' focus=on
-bspc rule -a Emacs desktop='^1' focus=on
+bspc rule -a Emacs desktop='^1' focus=on state=tiled
 
 ## web browsers
 bspc rule -a Firefox desktop='^2' focus=on
