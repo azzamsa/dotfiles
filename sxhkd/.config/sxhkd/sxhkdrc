@@ -49,10 +49,9 @@ super + e; {t, shift + t, s, f}
 super + e; {h,v}
     bspc node -p {east,south}
 
-# focus
-# next window, next workspace
+# focus to next window, next workspace
 super + {Return, Tab}
-    bspc {node -f next.local, desktop -f next.occupied.local}
+    bspc {node -f next.local.window, desktop -f next.occupied.local}
 
 # cancel
 super + Escape
