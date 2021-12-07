@@ -51,8 +51,11 @@ super + e; {t, shift + t, s, f}
 #
 
 # focus to next window, next workspace
-super + {Return, Tab}
-    bspc {node -f next.local.window, desktop -f next.occupied.local}
+super + {_, shift+}Return
+    bspc node -f {next.local.window, prev.local.window}
+
+super + {_, shift+}Tab
+    bspc desktop -f {next.occupied.local, prev.occupied.local}
 
 # focus or send to the given desktop
 super + {_,shift + }{4,5,6,7,8}
