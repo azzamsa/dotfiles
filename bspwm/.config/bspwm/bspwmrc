@@ -47,9 +47,6 @@ bspc rule -a feh state=floating follow=on
 # autostart
 #
 
-# bitmap fonts
-xset fp+ ~/.local/share/fonts &
-
 ## window compositor
 pkill picom
 picom &
