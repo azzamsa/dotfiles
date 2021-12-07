@@ -5,10 +5,10 @@
 #
 
 ## program launcher
-super + n
+super + n; n
     rofi -modi run,drun,window -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font "Fira Code 14"
 
-super + h
+super + n; e
     rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 ## take a screenshot
@@ -42,7 +42,7 @@ super + {4,5,6,7,8}
     #   bspc node -t {tiled, pseudo_tiled, floating}
 
 #window state
-super + {t, shift + t, s, f}
+super + e; {t, shift + t, s, f}
     bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
 
 # focus
