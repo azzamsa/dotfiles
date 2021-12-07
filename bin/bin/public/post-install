@@ -46,7 +46,7 @@ sudo apt-get install -y --no-install-recommends \
 # mu4e needs w3m
 # `libnotify-bin` provide `notify-send` command
 sudo apt-get install -y --no-install-recommends \
-     bspwm sxhkd polybar i3lock rofi light dunst unclutter \
+     bspwm sxhkd polybar picom i3lock rofi light dunst unclutter \
      pass light xclip network-manager-gnome \
      flameshot feh ristretto peek file-roller mousepad workrave \
      thunar thunar-archive-plugin gvfs-fuse gvfs-backends \
