@@ -39,7 +39,7 @@ sudo apt-get install -y --no-install-recommends \
      sudo firmware-iwlwifi x11-xserver-utils libssl-dev \
      pavucontrol pulseaudio gstreamer1.0-pulseaudio\
      fish fuse git etckeeper gnupg2 ssh ssh-agent curl stow rsync \
-     keychain
+     gnome-keyring
 
 # utilities
 # xclip required by pass to copy to clipboard
@@ -103,11 +103,6 @@ pip3 install --user black flake8 flake8-isort grip
 python3 -m pip install virtualfish
 vf install
 vf new -p /usr/bin/python3 global3
-
-# setting up `ssh-agent` in fish shell is nightmare
-# I can use plain `eval (ssh-agent -c)` or `systemd --user`
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher install danhper/fish-ssh-agent
 
 # setup
 echo "Installed base app. I will setup them for you."
