@@ -8,7 +8,7 @@
 super + n; n
     rofi -modi run,drun,window -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font "Fira Code 14"
 
-super + n; h
+super + n; e
     rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 ## take a screenshot
@@ -28,7 +28,7 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
-super + e; m
+super + n; m
     bspc desktop -l next
 
 #
@@ -42,7 +42,7 @@ super + e; m
     #   bspc node -t {tiled, pseudo_tiled, floating}
 
 # window state
-super + e; {t, shift + t, s, f}
+super + n; {t, shift + t, s, f}
     bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
 
 
@@ -70,11 +70,11 @@ super + {4,5,6,7,8}
 #
 
 # spit horizontal & split vertical, like in i3
-super + e; {h,v}
+super + y; {h,v}
     bspc node -p {east,south}
 
 # cancel
-super + e; Escape
+super + y; Escape
 	bspc node -p cancel
 
 #
@@ -83,9 +83,9 @@ super + e; Escape
 
 # expand a window by moving one of its side outward
 # looks odd?. I am using colemak.
-super + alt + {r,t,f,s}
-	bspc node -z {left -10 0,right 10 0,top 0 -10,bottom 0 10}
+super + alt + {n,e,u,r}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + {n,i,u,e}
-  bspc node -z {left 10 0,right -10 0,top 0 10,bottom 0 -10}
+super + alt + shift + {n,e,u,r}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
