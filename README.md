@@ -17,7 +17,6 @@ My personal .dotfiles 🗃️
 - Bright, clean, minimalist design.
 - Keep your anonymity. No credential is shown anywhere.
 - uniformity color of the terminal, window manager, status, and command runner.
-- All commands are sticky. Easy for your muscle. No more strain.
 - More ...
 
 ## Usage
@@ -28,9 +27,13 @@ $ git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
 
 $ # let GNU stow handle the symlink
 $ for d in ~/dotfiles/*/ ; do
-    stow "$d"
+    stow "$d" --no-folding
 done
 ```
+
+## Notes
+
+This repo only hold currently used config. For old config visit the `archive` branc.
 
 ## Contribution
 
@@ -38,7 +41,5 @@ I don't plan to accept any contribution that adds new functionality. But it is O
 
 ### Credits
 
-- [Tom Jobbins](https://github.com/TheBloke) solved many problems and tidies up all the messes.
-- [Noam Postavsky](https://github.com/npostavs) solved bash prompt to work with ANSI-term.
+- [Nord Theme](https://www.nordtheme.com/)
 - [Noto Emoji](https://github.com/googlefonts/noto-emoji) by Google
-
