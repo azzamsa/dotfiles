@@ -13,9 +13,8 @@ local COL_FG_ALT = "#5e81ac"
 local COL_ACCENT = "#88c0d0"
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-              -- edge icon
-	local edge_background = "red"
-	local edge_background = COL_ACCENT
+    -- edge icon
+	local edge_background = COL_BG
 	-- inactive tab
 	local background = COL_BG_ALT
 	local foreground = COL_FG
@@ -37,7 +36,6 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	return {
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
-		-- { Text = "<<" },
 		{ Text = SOLID_LEFT_ARROW },
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
@@ -61,7 +59,7 @@ return {
 	show_tab_index_in_tab_bar = false,
 	tab_max_width = 25,
 	-- Padding
-	window_padding = { left = 10, right = 10, top = 0, bottom = 10 },
+	window_padding = { left = 10, right = 10, top = 10, bottom = 10 },
 	-- Misc
 	adjust_window_size_when_changing_font_size = false,
 	-- Theme
