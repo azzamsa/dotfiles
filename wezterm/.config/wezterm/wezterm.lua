@@ -13,7 +13,7 @@ local COL_FG_ALT = "#5e81ac"
 local COL_ACCENT = "#88c0d0"
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-    -- edge icon
+	-- edge icon
 	local edge_background = COL_BG
 	-- inactive tab
 	local background = COL_BG_ALT
@@ -42,7 +42,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		{ Text = title },
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
-		{ Text =  SOLID_RIGHT_ARROW },
+		{ Text = SOLID_RIGHT_ARROW },
 	}
 end)
 
@@ -109,9 +109,8 @@ return {
 	-- keybindings
 	disable_default_key_bindings = true,
 	quick_select_alphabet = "colemak",
-	leader = { key = "n", mods = "CTRL", timeout_milliseconds = 2000 },
+	leader = { key = "l", mods = "SUPER", timeout_milliseconds = 2000 },
 	keys = {
-		{ key = "n", mods = "LEADER|CTRL", action = wezterm.action({ SendString = "\x14" }) },
 		{ key = "r", mods = "LEADER", action = "ReloadConfiguration" },
 		--
 		{
@@ -130,24 +129,18 @@ return {
 		{ key = "PageUp", mods = "NONE", action = wezterm.action({ ScrollByPage = -1 }) },
 		{ key = "PageDown", mods = "NONE", action = wezterm.action({ ScrollByPage = 1 }) },
 		--
-		{ key = "4", mods = "LEADER", action = wezterm.action({ ActivateTab = 0 }) },
-		{ key = "5", mods = "LEADER", action = wezterm.action({ ActivateTab = 1 }) },
-		{ key = "6", mods = "LEADER", action = wezterm.action({ ActivateTab = 2 }) },
-		{ key = "7", mods = "LEADER", action = wezterm.action({ ActivateTab = 3 }) },
-		{ key = "RightArrow", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = 1 }) },
-		{ key = "LeftArrow", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = -1 }) },
+		{ key = "Tab", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = 1 }) },
+		{ key = "Tab", mods = "LEADER|SHIFT", action = wezterm.action({ ActivateTabRelative = -1 }) },
 		--
-		{ key = "RightArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
-		{ key = "LeftArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
-		{ key = "UpArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
-		{ key = "DownArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
+		{ key = "i", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
+		{ key = "n", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
+		{ key = "u", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
+		{ key = "e", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
 		--
-		{ key = "m", mods = "CTRL|SHIFT", action = wezterm.action({ MoveTabRelative = 1 }) },
-		{ key = "i", mods = "CTRL|SHIFT", action = wezterm.action({ MoveTabRelative = -1 }) },
-		--
-		{ key = "0", mods = "ALT", action = "ResetFontSize" },
-		{ key = "8", mods = "ALT", action = "DecreaseFontSize" },
-		{ key = "9", mods = "ALT", action = "IncreaseFontSize" },
+		-- 5 and 8 map to my arrow keys
+		{ key = "2", mods = "ALT", action = "ResetFontSize" },
+		{ key = "5", mods = "ALT", action = "DecreaseFontSize" },
+		{ key = "8", mods = "ALT", action = "IncreaseFontSize" },
 		--
 		{ key = "w", mods = "ALT", action = wezterm.action({ CopyTo = "Clipboard" }) },
 		{ key = "y", mods = "CTRL", action = wezterm.action({ PasteFrom = "Clipboard" }) },
