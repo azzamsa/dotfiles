@@ -50,7 +50,15 @@ return {
 	--color_scheme = "ayu_light",
 	default_cursor_style = "BlinkingBar",
 	font_size = 16.0,
-	font = wezterm.font("Fira Code"),
+	font = wezterm.font_with_fallback({
+		"Fira Code",
+		"Font Awesome 6 Free Regular",
+		"Font Awesome 6 Free Solid",
+		"Font Awesome 6 Free Brands Regular",
+		"Font Awesome 5 Free Regular",
+		"Font Awesome 5 Free Solid",
+		"Font Awesome 5 Brands Regular",
+	}),
 	warn_about_missing_glyphs = false,
 	check_for_updates = false,
 	-- Tab Bar Options
