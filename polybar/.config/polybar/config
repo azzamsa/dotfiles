@@ -41,7 +41,7 @@ tray-background = ${colors.background}
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right =  cpu memory battery status
+modules-right =  cpu memory battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -61,7 +61,7 @@ label-urgent = %name%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 label-empty =
-label-empty-padding = 
+label-empty-padding =
 
 [module/xwindow]
 type = internal/xwindow
@@ -101,14 +101,28 @@ ramp-capacity-3 = 
 ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.accent}
 
-[module/status]
-type = custom/ipc
-hook-0 = date +'%a %Y-%m-%d %I:%M %p'
-hook-1 = date +'%a %Y-%m-%d %H:%M'
-hook-2 = hostname
-initial = 1
-click-left = polybar-msg -p %pid% hook status 1
-click-right = polybar-msg -p %pid% hook status 2
-double-click-left = polybar-msg -p %pid% hook status 3
-format-prefix = " "
+[module/date]
+type = internal/date
+interval = 30
+label = " %date% %time%"
+date =
+date-alt = %a %d
+time = %H:%M
+time-alt =
+format-prefix = 
 format-prefix-foreground = ${colors.accent}
+
+# wait until `internal` supported in ipc module
+# https://github.com/polybar/polybar/issues/1127
+# [module/status]
+# type = custom/ipc
+# interval = 1  # in second
+# hook-0 = date +'%a %Y-%m-%d %I:%M %p'
+# hook-1 = "while true; do date +'%a %Y-%m-%d %H:%M'; sleep 1; done"
+# hook-2 = hostname
+# initial = 1
+# click-left = polybar-msg -p %pid% hook status 1
+# click-right = polybar-msg -p %pid% hook status 2
+# double-click-left = polybar-msg -p %pid% hook status 3
+# format-prefix = " "
+# format-prefix-foreground = ${colors.accent}
