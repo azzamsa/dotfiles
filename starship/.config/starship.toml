@@ -7,7 +7,7 @@ format = "[$path]($style fg:#5e81ac) "
 read_only = " "
 
 [cmd_duration]
-format = '[⏱ $duration ]($style fg:#4c566a)'
+format = '[ $duration ]($style fg:#4c566a)'
 
 [git_branch]
 format = "[on]($style fg:#d08770) [$symbol$branch ]($style fg:#a3be8c)"
