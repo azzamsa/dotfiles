@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-res=$(echo -e "lock\nsuspend\nlogout\nreboot\nshutdown" | rofi -dmenu -i -lines 5 -width -20 -hide-scrollbar -font "Fira Code 14")
+res=$(printf "lock\nsuspend\nlogout\nreboot\nshutdown" | rofi -dmenu -i -lines 5 -width -20 -hide-scrollbar)
 
 lock() {
-    i3lock -i $HOME/Desktop/lockscreen.png
+    i3lock -i "$HOME"/Desktop/lockscreen.png
 }
 
 
@@ -24,7 +24,6 @@ case "$res" in
         systemctl poweroff
         ;;
     *)
-        echo "Usage: $0 {lock|logout|suspend|reboot|shutdown}"
         exit 2
 esac
 

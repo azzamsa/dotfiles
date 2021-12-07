@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 wezterm_link="https://github.com/wez/wezterm/releases/download/20211204-082213-a66c61ee9/wezterm-20211204-082213-a66c61ee.Debian11.deb"
 activitywatch_link="https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip"
@@ -87,7 +87,7 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 # js
 # fixed version global packages
 mkdir nodebin && cd nodebin && npm init --yes
-npm install --prefix $HOME/nodebin/ typescript-language-server svelte-language-server bash-language-server
+npm install --prefix "$HOME"/nodebin/ typescript-language-server svelte-language-server bash-language-server
 mv nodebin/ .nodebin
 
 # rust

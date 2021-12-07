@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 
 active_monitors=$(xrandr | awk '/ connected/ && /[[:digit:]]x[[:digit:]].*+/{print $1}')
 echo "::: active monitors: $active_monitors"
@@ -73,11 +73,11 @@ unset DISPLAY_LAPTOP DISPLAY_HDMI || true
 
 for monitor in $active_monitors
 do
-    if [[ "$monitor" == "eDP-1" ]]; then
+    if [ "$monitor" = "eDP-1" ]; then
         DISPLAY_LAPTOP=yes
-    elif [[ "$monitor" == "HDMI-1" ]]; then
+    elif [ "$monitor" = "HDMI-1" ]; then
         DISPLAY_HDMI=yes
-    elif [[ "$monitor" == "HDMI-2" ]]; then
+    elif [ "$monitor" = "HDMI-2" ]; then
         # HDMI-2 is when both my laptop connected
         # to one external monitor
         DISPLAY_HDMI=yes
@@ -114,3 +114,5 @@ else
     layout_laptop_only
 fi
 
+
+echo "Bars launched..."
