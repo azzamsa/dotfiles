@@ -8,7 +8,9 @@ bspc config window_gap            5
 bspc config split_ratio           0.5
 bspc config borderless_monocle    true
 bspc config gapless_monocle       false
-bspc config focus_follows_pointer true
+# If set to `true`, I can't use keybindings to
+# change focus
+bspc config focus_follows_pointer false
 bspc config top_padding           24
 
 ## color settings
