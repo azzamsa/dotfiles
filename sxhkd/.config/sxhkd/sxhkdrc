@@ -5,10 +5,10 @@
 #
 
 ## program launcher
-super + n; n
+super + h; n
     rofi -modi run,drun,window -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font "Fira Code 14"
 
-super + n; e
+super + h; e
     rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 ## take a screenshot
@@ -28,7 +28,7 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
-super + n; m
+super + h; m
     bspc desktop -l next
 
 #
@@ -42,7 +42,7 @@ super + n; m
     #   bspc node -t {tiled, pseudo_tiled, floating}
 
 # window state
-super + n; {t, shift + t, s, f}
+super + h; {t, shift + t, s, f}
     bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
 
 
