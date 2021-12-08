@@ -1,9 +1,34 @@
 #!/bin/sh
 
-cwd=$HOME
+: '
+Wezterm Here (wezterm-here)
+~~~~~~~~~~~~~~~~~~~~~
+Open wezterm terminal in given directory.
 
+Usage:
+
+```
+$ wezterm-here "/opt"
+  ::: Socket found: /run/user/1000/wezterm/gui-sock-15163
+  2
+```
+
+Usage from other application:
+
+``` lisp
+(defun terminal-here ()
+  (interactive)
+  (message "Opening terminal in %s" default-directory)
+  (start-process "" nil "wezterm-here" default-directory))
+```
+'
+
+# takes the path as an argument (e.g. /opt)
 if [ -n "$1" ]; then
-    cwd="$1"
+    path="$1"
+else
+    echo "::: No path passed. Use '$HOME' as default"
+    path="$HOME"
 fi
 
 for socket in /run/user/1000/wezterm/gui-sock-*
@@ -14,5 +39,6 @@ done
 if [ -n "$socket" ]
 then
     echo "::: Socket found: $socket"
-    env WEZTERM_UNIX_SOCKET="$socket" wezterm cli spawn --window-id 0 --cwd "$cwd"
+    echo "::: Open terminal in: '$path'"
+    env WEZTERM_UNIX_SOCKET="$socket" wezterm cli spawn --window-id 0 --cwd "$path"
 fi
