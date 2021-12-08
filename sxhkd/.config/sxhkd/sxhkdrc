@@ -4,14 +4,14 @@
 # wm independent hotkeys
 #
 
-## program launcher
+# program launcher
 super + h; n
     rofi -modi run,drun,window -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font "Fira Code 14"
 
 super + h; e
     rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
-## take a screenshot
+# take a screenshot
 super + shift + p
     flameshot gui
 
@@ -21,71 +21,97 @@ super + shift + p
 
 # quit/restart bspwm
 super + alt + {q,r}
-	bspc {quit,wm -r}
+  bspc {quit,wm --restart}
 
 # close and kill
 super + {_,shift + }q
-	bspc node -{c,k}
+  bspc node --{close, kill}
 
 # alternate between the tiled and monocle layout
 super + h; m
-    bspc desktop -l next
+    bspc desktop --layout next
 
 #
-# state/flags
+# state
 #
-
-# Using chain in bspwm is hard.
-# it has no visible mode feedback such i3
-# ## set window style
-# super + w; {t, p, f}
-    #   bspc node -t {tiled, pseudo_tiled, floating}
 
 # window state
 super + h; {t, shift + t, s, f}
-    bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
+    bspc node --state {tiled, pseudo_tiled, floating, fullscreen}
 
 
 #
-# focus/swap
+# flags
+#
+
+# set the node flags
+super + h; {l,u,y,i}
+  bspc node --flag {marked,locked,sticky,private}
+
+#
+# focus
 #
 
 # focus to next window, next workspace
 super + {_, shift+}Return
-    bspc node -f {next.local.window, prev.local.window}
+    bspc node --focus {next.local.window, prev.local.window}
 
 super + {_, shift+}Tab
-    bspc desktop -f {next.occupied.local, prev.occupied.local}
+    bspc desktop --focus {next.occupied.local, prev.occupied.local}
 
 # focus or send to the given desktop
 super + {_,shift + }{4,5,6,7,8}
-	bspc {desktop -f,node -d} '{1,2,3,4,5}'
+  bspc {desktop --focus,node --to-desktop} '{1,2,3,4,5}'
 
 # jump to another workspace
 super + {4,5,6,7,8}
-	bspc desktop --focus {1,2,3,4,5}
+  bspc desktop --focus {1,2,3,4,5}
 
 #
 # preselect
 #
 
 # spit horizontal & split vertical, like in i3
-super + y; {h,v}
-    bspc node -p {east,south}
+super + h; {h,v}
+    bspc node --presel-dir {east,south}
 
 # cancel
-super + y; Escape
-	bspc node -p cancel
+super + h; Escape
+  bspc node --presel-dir cancel
 
 #
-# move/resize
+# resize
 #
 
 # expand a window by moving one of its side outward
 # looks odd?. I am using colemak.
-super + alt + {n,e,u,r}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+super + alt + {n,e,u,i}
+  bspc node --resize {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {n,e,u,r}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+super + alt + shift + {n,e,u,i}
+  bspc node --resize {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+
+#
+# move
+#
+
+# send the newest marked node to the newest preselected node
+super + h; a
+  # bspc node newest.marked.local -n newest.!automatic.local
+  bspc node --to-node newest.\!automatic.local
+
+# swap the current node and the biggest window
+super + h; g
+  bspc node --swap biggest.window
+
+#
+# Documentation
+#
+
+# To move window to pre-select area:
+# 1. Pre-select the area using `s-h; v` or `s-h; h`
+# 2. Move the focus to the target window
+# 3. Tell bspwm to move current window to pre-selected area using `s-h; a`
+
