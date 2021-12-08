@@ -1,0 +1,244 @@
+#!/bin/sh
+
+wezterm_link="https://github.com/wez/wezterm/releases/download/20211204-082213-a66c61ee9/wezterm-20211204-082213-a66c61ee.Debian11.deb"
+activitywatch_link="https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip"
+nextcloud_link="https://github.com/nextcloud/desktop/releases/download/v3.3.5/Nextcloud-3.3.5-x86_64.AppImage"
+insomnia_link="https://github.com/Kong/insomnia/releases/download/core%402021.5.3/Insomnia.Core-2021.5.3.AppImage"
+aspell_link="https://ftp.gnu.org/gnu/aspell/dict/id/aspell5-id-1.2-0.tar.bz2"
+firefox_link="https://download-installer.cdn.mozilla.net/pub/firefox/releases/92.0.1/linux-x86_64/en-US/firefox-92.0.1.tar.bz2"
+telegram_link="https://updates.tdesktop.com/tlinux/tsetup.3.1.1.tar.xz"
+greenclip_link="https://github.com/erebe/greenclip/releases/download/v4.2/greenclip"
+
+wallpapers_link="https://www.dropbox.com/s/o5gvczc3ymgg8vv/wallpapers.tar.gz?dl=0"
+sounds_link="https://www.dropbox.com/s/whao1ljkd26n3nw/sounds.tar.gz?dl=0"
+fonts_link="https://www.dropbox.com/s/jp7s95ihd48edar/fonts.tar.gz?dl=0"
+icons_link="https://www.dropbox.com/s/4wn1fczsx050gvl/.icons.tar.gz?dl=0"
+icon_apps_link="https://www.dropbox.com/s/l7q1uhgempo7g6a/icon-apps.zip?dl=0"
+
+firefox_desktop="https://www.dropbox.com/s/207r2bstxf82on1/firefox.desktop?dl=0"
+insomnia_desktop="https://www.dropbox.com/s/em9frkyxoq91ffb/insomnia.desktop?dl=0"
+
+node_version="v16.12"
+
+# Add repository
+echo "deb http://ftp.au.debian.org/debian/ bullseye main contrib non-free" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ftp.au.debian.org/debian/ bullseye main contrib non-free" | sudo tee -a /etc/apt/sources.list
+
+# Keep Debian up to date
+sudo apt -y update
+
+# main package
+# fuse required by AppImage
+# libssl-dev provides certificates for culr
+# libdbus-1-dev and pkg-config required by i3status-rust and other apps, such as mousepad
+# audio won't work without pulseaudio
+# without `gstreamer1.0-pulseaudio` apps can't play sound (such workrave can't play .wav notification sound)
+sudo apt-get install -y --no-install-recommends \
+     xserver-xorg xinit libdbus-1-dev pkg-config \
+     sudo firmware-iwlwifi x11-xserver-utils libssl-dev \
+     pavucontrol pulseaudio gstreamer1.0-pulseaudio\
+     fish fuse git etckeeper gnupg2 ssh ssh-agent curl stow rsync \
+     gnome-keyring
+
+# utilities
+# xclip required by pass to copy to clipboard
+# gvfs-fuse gvfs-backends adds support for sftp in thunar
+# mu4e needs w3m
+# `libnotify-bin` provide `notify-send` command
+sudo apt-get install -y --no-install-recommends \
+     bspwm sxhkd polybar picom i3lock rofi light dunst unclutter \
+     pass light xclip network-manager-gnome \
+     flameshot feh ristretto peek file-roller mousepad workrave \
+     thunar thunar-archive-plugin gvfs-fuse gvfs-backends \
+     htop tar zip unzip unar unrar-free ncdu mat2 borgbackup gparted arandr \
+     mpv gimp inkscape libreoffice libreoffice-gtk3 audacity \
+     okular okular-extra-backends evince system-config-printer \
+     maildir-utils isync w3m aspell aspell-en \
+     zoxide ripgrep arc-theme libnotify-bin
+
+# additional packages
+sudo apt-get install -y --no-install-recommends \
+     docker.io docker-compose
+sudo usermod -aG docker "$USER"
+su - "$USER"
+
+# keyboards
+python3 -m pip install --user qmk
+sudo apt-get install -y --no-install-recommends libhidapi-dev
+# qmk setup -H /media/$USER/exts1/source/qmk_firmware
+# qmk config user.keyboard=sofle/rev1 user.keymap=$USER user.name=$USER
+
+# fish
+chsh -s "$(which fish)" # change default shell to fish
+
+# work
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+sudo apt-get install -y --no-install-recommends \
+     python3 python3-dev python3-venv python3-pip python3-setuptools
+
+cargo install vivid fnm
+fnm use $node_version
+
+# starship
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+
+# js
+# fixed version global packages
+mkdir nodebin && cd nodebin && npm init --yes
+npm install --prefix "$HOME"/nodebin/ typescript-language-server svelte-language-server bash-language-server
+mv nodebin/ .nodebin
+
+# rust
+# cargo install cargo-make
+
+# python
+# these app need to be installed inside the project's venv
+# pip3 install python-language-server pyls-black pyls-isort pyls-mypy
+
+# `grip` is handy tool to render md file locally
+pip3 install --user black flake8 flake8-isort grip
+
+python3 -m pip install virtualfish
+vf install
+vf new -p /usr/bin/python3 global3
+
+# setup
+echo "Installed base app. I will setup them for you."
+
+# auto-suspend
+git clone --depth=1 https://github.com/azzamsa/scripts/ /tmp/scripts
+sudo mv /tmp/scripts/auto-suspend/ /opt/
+sudo chown -R "$USER:$USER" /opt/auto-suspend
+sudo ln -s /opt/auto-suspend/auto-suspend /usr/local/bin/auto-suspend
+
+# wezterm
+curl -Lo /tmp/wezterm $wezterm_link
+sudo dpkg -i /tmp/wezterm
+
+# aw-qt
+curl -Lo /tmp/activitywatch.zip $activitywatch_link
+unzip /tmp/activitywatch.zip
+sudo mv /tmp/activitywatch /opt/
+sudo chown -R "$USER:$USER" /opt/activitywatch
+sudo ln -s /opt/activitywatch/aw-qt /usr/local/bin/aw-qt
+
+# nextcloud
+curl -Lo /tmp/nextcloud $nextcloud_link
+chmod +x /tmp/nextcloud
+sudo mv /tmp/nextcloud /opt/
+sudo chown -R "$USER:$USER" /opt/nextcloud
+sudo ln -s /opt/nextcloud /usr/local/bin/nextcloud
+
+# insomnia
+curl -Lo /tmp/insomnia $insomnia_link
+chmod +x /tmp/insomnia
+mv /tmp/insomnia /opt/
+sudo chown -R "$USER:$USER" /opt/insomnia
+sudo ln -s /opt/insomnia /usr/local/bin/insomnia
+
+# aspell
+curl -Lo /tmp/aspell5-id.tar.bz2 $aspell_link
+tar -xf /tmp/aspell5-id.tar.bz2
+./tmp/aspell5-id-1.2-0/configure
+sudo make -C /tmp/aspell5-id-1.2-0/ install
+
+## firefox
+curl -Lo /tmp/firefox.tar.bz2 $firefox_link
+tar -xf /tmp/firefox.tar.bz2
+sudo mv /tmp/firefox/ /opt/
+sudo chown -R "$USER:$USER" /opt/firefox
+sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
+
+## telegram
+curl -Lo /tmp/tsetup.tar.xz $telegram_link
+tar -xf /tmp/tsetup.tar.xz
+sudo mv /tmp/Telegram/ /opt/
+sudo chown -R "$USER:$USER" /opt/Telegram
+sudo ln -s /opt/Telegram/Telegram /usr/local/bin/Telegram
+
+## greenclip
+curl -Lo /tmp/greenclip $greenclip_link
+chmod +x /tmp/greenclip
+sudo mv /tmp/greenclip /opt/
+sudo ln -s /opt/greenclip /usr/local/bin/greenclip
+
+## pass-otp
+git clone https://github.com/tadfisher/pass-otp /tmp/pass-otp
+sudo make -C /tmp/pass-otp install
+
+# wallpaper, sounds, fonts, and icons
+mkdir ~/sounds ~/wallpapers
+
+curl -Lo ~/wallpapers/wallpapers.tar.gz "$wallpapers_link"
+tar -xf ~/wallpapers/wallpapers.tar.gz
+rm ~/wallpapers/wallpapers.tar.gz
+
+curl -Lo ~/sounds/sounds.tar.gz "$sounds_link"
+tar -xf ~/sounds/sounds.tar.gz
+rm ~/sounds/sounds.tar.gz
+
+# fonts
+mkdir -p ~/.local/share/fonts
+curl -Lo ~/.local/share/fonts/fonts.tar.gz "$fonts_link"
+tar -xf ~/.local/share/fonts/fonts.tar.gz
+rm ~/.local/share/fonts/fonts.tar.gz
+fc-cache -fv
+
+# icons
+mkdir ~/.icons
+curl -Lo ~/.icons/.icons.tar.gz "$icons_link"
+tar -xf ~/.icons/.icons.tar.gz
+rm ~/.icons/.icons.tar.gz
+
+# global icons
+sudo mkdir -p /usr/share/icons/apps/
+sudo chown -R "$USER:$USER" /usr/share/icons/apps
+curl -Lo /usr/share/icons/apps/icons.tar.gz "$icon_apps_link"
+tar -xf /usr/share/icons/apps/icons.tar.gz
+rm /usr/share/icons/apps/icons.tar.gz
+
+# emacs
+sudo apt-get build-dep emacs
+inn libgccjit-9-dev
+# ./configure --with-native-compilation
+# make
+# sudo make install
+
+
+# setup dotfiles
+git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
+for d in ~/dotfiles/*/ ; do
+    stow "$d" --no-folding
+done
+
+# setup mu4e
+# mu init --maildir=~/Email/secret --my-address=secret
+
+# dual-monitor
+# keep the laptot alive even if no HDMI connection
+echo "
+HandleSuspendKey=ignore
+HandleLidSwitch=ignore
+HandleLidSwitchDocked=ignore
+"  | sudo tee -a /etc/systemd/logind.conf
+
+# disable pc speaker
+echo "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
+
+# .desktop files
+mkdir -p ~/.local/share/applications
+curl -Lo ~/.local/share/applications/firefox.desktop "$firefox_desktop"
+curl -Lo ~/.local/share/applications/insomnia.desktop "$insomnia_desktop"
+
+# set default python to python3
+# in Debian, it points to python2
+update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+
+echo "Setup finished"
+cat <<- EOF
+Your next TODO:
+  1. change BIOS setting for beep
+  2. copy .authinfo.gpg and Email
+  3. build emacs
+EOF

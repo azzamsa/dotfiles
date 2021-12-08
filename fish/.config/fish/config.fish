@@ -1,22 +1,22 @@
 set fish_greeting # no greeting
 
 # Exports
-set -g fish_user_paths ~/.cargo/bin ~/bin ~/.local/bin $fish_user_paths
+set -g fish_user_paths ~/bin/private ~/bin/public ~/.local/bin ~/.cargo/bin ~/.nodebin/node_modules/.bin ~/localbin $fish_user_paths
 set -gx EDITOR emacs
 set -gx QT_QPA_PLATFORMTHEME qt5ct
-set -gx  BAT_THEME gruvbox-white
+set -gx SXHKD_SHELL sh
 
 # Utilities
 zoxide init fish | source
 starship init fish | source
 fnm env | source
 
-set -x LS_COLORS (vivid generate ayu)
+set -x LS_COLORS (vivid generate nord)
 
 # Alias
 alias in "sudo apt install"
 alias inn "sudo apt-get --no-install-recommends install"
-alias inb "sudo apt install -t buster-backports"
+alias inb "sudo apt install -t bustera-backports"
 
 alias c 'clear'
 alias rmd 'rm -rdf'
@@ -53,22 +53,22 @@ if test "$TERM" = "dumb"
 end
 
 # Color scheme
-set -U fish_color_error               4338CA # #4338CA default color when typing suggestion
+set -U fish_color_error               81a1c1 # #81a1c1 default color when typing suggestion
 set -U fish_color_autosuggestion      6B7280 # #6B7280 suggestion
-set -U fish_color_command             D97706 # #D97706 binary command
-set -U fish_color_quote               5f8700 # #5f8700 text color inside the quote
-set -U fish_color_comment             5f8700 # #5f8700 comment color
+set -U fish_color_command             5e81ac # #5e81ac binary command
+set -U fish_color_quote               a3be8c # #a3be8c text color inside the quote
+set -U fish_color_comment             a3be8c # #a3be8c comment color
 set -U fish_color_valid_path          --underline # attribute for a valid path
-set -U fish_color_param               8700af # #8700af paremeter color such `--version`
-set -U fish_color_cancel              af0000 # #af0000
+set -U fish_color_param               88c0d0 # #88c0d0 paremeter color such `--version`
+set -U fish_color_cancel              bf616a # #bf616a
 set -U fish_color_end                 0087af # #0087af
 set -U fish_color_escape              444444 # #444444
-set -U fish_color_history_current     F59E0B # #F59E0B
-set -U fish_color_match               d70000 # #d70000
-set -U fish_color_normal              normal
-set -U fish_color_operator            d70087 # #d70087
+set -U fish_color_history_current     d08770 # #d08770
+set -U fish_color_match               bf616a # #bf616a
+set -U fish_color_normal              eceff4 # #eceff4
+set -U fish_color_operator            b48ead # #b48ead
 set -U fish_color_redirection         005faf # #005faf
-set -U fish_color_search_match        005f87 # #005f87
+set -U fish_color_search_match        5e81ac # #5e81ac
 set -U fish_color_selection           'white' '--bold' '--background=brblack'
 set -U fish_color_status              red
 set -U fish_pager_color_completion    0087af # #0087af
