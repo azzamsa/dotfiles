@@ -12,6 +12,27 @@ local COL_FG = "#4c566a"
 local COL_FG_ALT = "#5e81ac"
 local COL_ACCENT = "#88c0d0"
 
+function strip_home_name(text)
+	local username = os.getenv("USER")
+	clean_text = text:gsub("/home/" .. username, "~")
+	return clean_text
+end
+
+wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
+	local zoomed = ""
+	if tab.active_pane.is_zoomed then
+		zoomed = "[Z] "
+	end
+
+	local index = ""
+	if #tabs > 1 then
+		index = string.format("[%d/%d] ", tab.tab_index + 1, #tabs)
+	end
+
+	local clean_title = strip_home_name(tab.active_pane.title)
+	return zoomed .. index .. clean_title
+end)
+
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	-- edge icon
 	local edge_background = COL_BG
@@ -28,10 +49,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 
 	local edge_foreground = background
-	local title = tab.active_pane.title
-	local username = os.getenv("USER")
-	title = title:gsub(username, "🥗")
-	title = title:gsub("/home", "~")
+    clean_title = strip_home_name(tab.active_pane.title)
 
 	return {
 		{ Background = { Color = edge_background } },
@@ -39,7 +57,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		{ Text = SOLID_LEFT_ARROW },
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
-		{ Text = title },
+		{ Text = clean_title },
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
 		{ Text = SOLID_RIGHT_ARROW },
@@ -117,7 +135,7 @@ return {
 	-- keybindings
 	disable_default_key_bindings = true,
 	quick_select_alphabet = "colemak",
-	leader = { key = "l", mods = "SUPER", timeout_milliseconds = 2000 },
+	leader = { key = "n", mods = "SUPER", timeout_milliseconds = 2000 },
 	keys = {
 		{ key = "r", mods = "LEADER", action = "ReloadConfiguration" },
 		--

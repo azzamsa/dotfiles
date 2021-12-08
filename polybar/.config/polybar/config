@@ -40,7 +40,7 @@ tray-background = ${colors.background}
 
 wm-restack = bspwm
 modules-left = bspwm
-modules-center = xwindow
+modules-center = cwindow
 modules-right =  cpu memory battery date
 
 cursor-click = pointer
@@ -63,9 +63,15 @@ label-urgent-padding = 1
 label-empty =
 label-empty-padding =
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
+[module/cwindow]
+# cwindow is clean window title.
+# It strips any of your credentials.
+type = custom/script
+
+interval = 3
+format = <label>
+exec = "cwindow"
+
 
 [module/cpu]
 type = internal/cpu
