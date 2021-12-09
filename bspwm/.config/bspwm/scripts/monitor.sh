@@ -17,31 +17,32 @@ workspace_count=1 # How many desktops to move to the second monitor
 # brightness
 #
 
-is_night(){
+is_daytime(){
     hour=$(date +%H)
+    echo "::: Current hour: $hour"
 
-    if [ "$hour" -gt 6 -a "$hour" -le 17 ];then
+    if [ "$hour" -gt 6 ] && [ "$hour" -le 17 ];then
         echo "::: It is a day time"
-        return 1
+        return 0
     else
         echo "::: It is a night time"
-        return 0
+        return 1
     fi
 }
 
 set_hdmi_brightness(){
-    if is_night; then
-        xrandr --output "$active_hdmi_monitor" --brightness 0.60 --gamma 1.1:0.8:0.7
-    else
+    if is_daytime; then
         xrandr --output "$active_hdmi_monitor" --brightness 0.75 --gamma 0:0:0
+    else
+        xrandr --output "$active_hdmi_monitor" --brightness 0.60 --gamma 1.1:0.8:0.7
     fi
 }
 
 set_builtin_brightness(){
-    if is_night; then
-        light -S 15
-    else
+    if is_daytime; then
         light -S 30
+    else
+        light -S 15
     fi
 }
 
