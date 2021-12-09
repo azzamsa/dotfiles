@@ -27,4 +27,5 @@ style = "bold fg:#bf616a"
 
 [nodejs]
 symbol = "⬢ "
-format = '[$symbol($version)]($style fg:#a3be8c)'
+# Can't display the symbol correctly without overriding format
+format = '[$symbol($version) ]($style fg:#a3be8c)'
