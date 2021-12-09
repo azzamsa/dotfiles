@@ -73,7 +73,7 @@ set -U fish_color_selection           'white' '--bold' '--background=brblack'
 set -U fish_color_status              red
 set -U fish_pager_color_completion    0087af # #0087af
 set -U fish_pager_color_description   yellow
-set -U fish_pager_color_prefix        'white' '--bold' '--underline'
+set -U fish_pager_color_prefix        d08770 # #d08770 # completion color such when doing `cd dotfiles/bspwm/.`
 set -U fish_pager_color_progress      'brwhite' '--background=cyan'
 
 
