@@ -112,11 +112,19 @@ do
 done
 
 layout_laptop_only() {
-    bspc monitor -d 4 5 6 7
+    bspc monitor -d 1 2 3 4 5 6 7
     set_builtin_brightness
 }
 
 layout_external_hdmi_only() {
+    # bspwm does not work with workspace starting from non 1.
+    # It all must start sequentially from 1.
+    # So the idea here is to provide all the available desktop numbers
+    # but map 4 to 1, 5 to 2, 6 to 3, and 7 to 4.
+    # It keeps the hand in the home-row.
+    # The mapping is done is sxhkd configuration.
+    # Other important thing is hiding empty desktop number via Polybar
+    # So it does not clutter our screen
     bspc monitor "$active_hdmi_monitor" -d 1 2 3 4 5 6 7
     set_hdmi_brightness
 }
@@ -139,6 +147,7 @@ elif [ -n "$DISPLAY_HDMI" ]; then
 else
     echo "::: Only LAPTOP is active"
     layout_laptop_only
+    # move_workspace_to_internal_monitor
 fi
 
 
