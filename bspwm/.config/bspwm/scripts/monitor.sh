@@ -20,7 +20,7 @@ workspace_count=1 # How many desktops to move to the second monitor
 is_night(){
     hour=$(date +%H)
 
-    if [ "$hour" -lt 17 ]; then
+    if [ "$hour" -gt 6 -a "$hour" -le 17 ];then
         echo "::: It is a day time"
         return 1
     else
