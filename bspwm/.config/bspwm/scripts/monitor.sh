@@ -11,7 +11,8 @@ active_hdmi_monitor=$(echo "$active_monitors" |  awk '/HDMI-[[:digit:]]/ {print 
 echo "::: active HDMI monitors: $active_hdmi_monitor"
 
 builtin_monitor=eDP-1
-workspace_count=1 # How many desktops to move to the second monitor
+# `desktop`` is bspwm word of workspace in other window manager
+desktop_count=1 # How many desktops to move to the second monitor
 
 #
 # brightness
@@ -48,7 +49,7 @@ set_builtin_brightness(){
 
 
 #
-# workspaces
+# desktops
 #
 
 get_desktops(){
@@ -56,11 +57,11 @@ get_desktops(){
     echo "$desktops"
 }
 
-# Need to move all the workspace to second montior
+# Need to move all the desktop to second montior
 # Otherwise, I can't invoke `super-4` to get to workspsace 1.
 # Credit  @ericmurphyxyz/archrice
-move_workspace_to_external_monitor() {
-    desktops_in_builtin_monitor=$(get_desktops "$builtin_monitor" | sed "$workspace_count"q)
+move_desktop_to_external_monitor() {
+    desktops_in_builtin_monitor=$(get_desktops "$builtin_monitor" | sed "$desktop_count"q)
 
     for desktop in $desktops_in_builtin_monitor; do
         bspc desktop "$desktop" --to-monitor "$active_hdmi_monitor"
@@ -70,7 +71,7 @@ move_workspace_to_external_monitor() {
     bspc desktop Desktop --remove
 }
 
-move_workspace_to_internal_monitor() {
+move_desktop_to_internal_monitor() {
     # Temp desktop because one desktop required per monitor
     bspc monitor "$builtin_monitor" --add-desktops Desktop
 
@@ -117,7 +118,7 @@ layout_laptop_only() {
 }
 
 layout_external_hdmi_only() {
-    # bspwm does not work with workspace starting from non 1.
+    # bspwm does not work with desktop starting from non 1.
     # It all must start sequentially from 1.
     # So the idea here is to provide all the available desktop numbers
     # but map 4 to 1, 5 to 2, 6 to 3, and 7 to 4.
@@ -143,11 +144,11 @@ if [ -n "$DISPLAY_LAPTOP" ] && [ -n "$DISPLAY_HDMI" ]; then
 elif [ -n "$DISPLAY_HDMI" ]; then
     echo "::: Only HDMI is active"
     layout_external_hdmi_only
-    move_workspace_to_external_monitor
+    move_desktop_to_external_monitor
 else
     echo "::: Only LAPTOP is active"
     layout_laptop_only
-    # move_workspace_to_internal_monitor
+    # move_desktop_to_internal_monitor
 fi
 
 
