@@ -152,4 +152,3 @@ else
 fi
 
 
-echo "Bars launched..."
