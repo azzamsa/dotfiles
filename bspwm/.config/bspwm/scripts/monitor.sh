@@ -50,10 +50,16 @@ set_builtin_brightness(){
 # workspaces
 #
 
+get_desktops(){
+    desktops=$(bspc query --desktops --monitor "$1")
+    echo "$desktops"
+}
+
 # Need to move all the workspace to second montior
 # Otherwise, I can't invoke `super-4` to get to workspsace 1.
+# Credit  @ericmurphyxyz/archrice
 move_workspace_to_external_monitor() {
-    desktops_in_builtin_monitor=$(bspc query -D -m "$builtin_monitor" | sed "$workspace_count"q)
+    desktops_in_builtin_monitor=$(get_desktops "$builtin_monitor" | sed "$workspace_count"q)
 
     for desktop in $desktops_in_builtin_monitor; do
         bspc desktop "$desktop" --to-monitor "$active_hdmi_monitor"
@@ -63,6 +69,26 @@ move_workspace_to_external_monitor() {
     bspc desktop Desktop --remove
 }
 
+move_workspace_to_internal_monitor() {
+    # Temp desktop because one desktop required per monitor
+    bspc monitor "$builtin_monitor" --add-desktops Desktop
+
+	# Move everything to external monitor to reorder desktops
+	for desktop in $(get_desktops "$builtin_monitor")
+	do
+		bspc desktop "$desktop" --to-monitor "active_hdmi_monitor"
+	done
+
+	# Now move everything back to internal monitor
+	bspc monitor "active_hdmi_monitor" --add-desktops Desktop # Temp desktop
+
+	for desktop in $(get_desktops "active_hdmi_monitor")
+	do
+		bspc desktop "$desktop" --to-monitor "$builtin_monitor"
+	done
+
+	bspc desktop Desktop --remove # Remove temp desktops
+}
 
 
 #
