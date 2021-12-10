@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 # gnome keyring
-eval $(gnome-keyring-daemon --start)
+eval $(gnome-keyring-daemon --start --daemonize)
 export SSH_AUTH_SOCK
 
 # Tell sxhd to use `sh`. Otherwise it will use `fish
