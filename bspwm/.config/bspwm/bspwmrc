@@ -1,6 +1,16 @@
 #! /bin/sh
 
-"$HOME"/.config/bspwm/scripts/monitor.sh
+"$HOME"/.config/bspwm/scripts/brightness.sh
+
+# Monitor naming and switching now fully managed by bspwm
+# Using these there configuration. It solved the unordered,
+# duplicate, and overrides window number.
+# Handling them manually is painful.
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 ## common bspwm configuration
 bspc config border_width          2
@@ -74,10 +84,9 @@ nm-applet &
 pkill greenclip
 greenclip daemon &
 
-## reload the cursor theme
+# reload the cursor theme
+# otherwise the cursor will looks odd
 xsetroot -cursor_name left_ptr &
-
-light -S 10 &
 
 pkill auto-suspend
 auto-suspend &

@@ -49,6 +49,7 @@ enable-ipc = true
 
 [module/bspwm]
 type = internal/bspwm
+# Only show the desktop/workspace in current monitor
 pin-workspaces = true
 
 label-focused = %name%
@@ -60,6 +61,7 @@ label-occupied-foreground= ${colors.foreground}
 label-urgent = %name%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
+# Hide empy workspaces
 label-empty =
 label-empty-padding =
 

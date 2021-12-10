@@ -18,4 +18,5 @@ else
     polybar --reload bar1 &
 fi
 
-echo "Bars launched..."
+echo "::: bars launched"
+

@@ -46,11 +46,11 @@ sudo apt-get install -y --no-install-recommends \
 # mu4e needs w3m
 # `libnotify-bin` provide `notify-send` command
 sudo apt-get install -y --no-install-recommends \
-     bspwm sxhkd polybar picom i3lock rofi light dunst unclutter \
+     bspwm sxhkd polybar picom autorandr arandr i3lock rofi light dunst unclutter \
      pass light xclip network-manager-gnome \
      flameshot feh ristretto peek file-roller mousepad workrave \
      thunar thunar-archive-plugin gvfs-fuse gvfs-backends \
-     htop tar zip unzip unar unrar-free ncdu mat2 borgbackup gparted arandr \
+     htop tar zip unzip unar unrar-free ncdu mat2 borgbackup gparted \
      mpv gimp inkscape libreoffice libreoffice-gtk3 audacity \
      okular okular-extra-backends evince system-config-printer \
      maildir-utils isync w3m aspell aspell-en \
@@ -67,6 +67,13 @@ python3 -m pip install --user qmk
 sudo apt-get install -y --no-install-recommends libhidapi-dev
 # qmk setup -H /media/$USER/exts1/source/qmk_firmware
 # qmk config user.keyboard=sofle/rev1 user.keymap=$USER user.name=$USER
+
+# screen
+# - Prepare the desired screen layout using arandr
+# - Save the layout using `autorandr --save docked`
+# - The common layouts are: `docked`, `mobile`, and `demo`
+# - To load the layout use `autorandr --load demo`
+# Docked for work, mobile while on the go, demo for presentation
 
 # fish
 chsh -s "$(which fish)" # change default shell to fish
