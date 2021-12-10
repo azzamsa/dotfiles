@@ -1,7 +1,9 @@
 #!/usr/bin/sh
 
-ACTIVE_MONITORS=$(xrandr | awk '/ connected/ && /[[:digit:]]x[[:digit:]].*+/{print $1}')
-ACTIVE_HDMI_MONITOR=$(echo "$ACTIVE_MONITORS" |  awk '/HDMI-[[:digit:]]/ {print $1}' )
+# Active monitor example output: `eDP-1 HDMI-2`
+ACTIVE_MONITORS=$(xrandr --listactivemonitors | grep -v Monitors | grep -Eo '[^ ]+$')
+# Currently active HDMI monitor will always be in the last position of `$ACTIVE_MONITORS` output
+ACTIVE_HDMI_MONITOR=$(echo $ACTIVE_MONITORS | awk '{print $NF}')
 
 #
 # brightness
