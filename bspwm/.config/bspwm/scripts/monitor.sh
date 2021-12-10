@@ -139,13 +139,16 @@ layout_external_all() {
 }
 
 if [ -n "$DISPLAY_LAPTOP" ] && [ -n "$DISPLAY_HDMI" ]; then
+    # Presentation mode
     echo "::: All monitors are active"
     layout_external_all
 elif [ -n "$DISPLAY_HDMI" ]; then
+    # Labs mode
     echo "::: Only HDMI is active"
     layout_external_hdmi_only
     move_desktop_to_external_monitor
 else
+    # On the Go mode
     echo "::: Only LAPTOP is active"
     layout_laptop_only
     # move_desktop_to_internal_monitor
