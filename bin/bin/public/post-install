@@ -37,6 +37,7 @@ sudo apt-get install -y --no-install-recommends \
      xserver-xorg xinit libdbus-1-dev pkg-config \
      sudo firmware-iwlwifi x11-xserver-utils libssl-dev \
      pavucontrol pulseaudio gstreamer1.0-pulseaudio\
+     blueman bluez pulseaudio-module-bluetooth \
      fish fuse git etckeeper gnupg2 ssh ssh-agent curl stow rsync \
      gnome-keyring
 
@@ -74,6 +75,13 @@ sudo apt-get install -y --no-install-recommends libhidapi-dev
 # - The common layouts are: `docked`, `mobile`, and `demo`
 # - To load the layout use `autorandr --load demo`
 # Docked for work, mobile while on the go, demo for presentation
+
+# bluetooth
+# Start the GUI manager using `bluetooth` in rofi drun
+# Then manage using PavuControl GUI.
+sudo modprobe btusb
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
 
 # fish
 chsh -s "$(which fish)" # change default shell to fish
