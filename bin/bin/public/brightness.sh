@@ -12,7 +12,7 @@ ACTIVE_HDMI_MONITOR=$(echo $ACTIVE_MONITORS | awk '{print $NF}')
 is_night(){
     hour=$(date +%H)
 
-    if [ "$hour" -gt 6 ] && [ "$hour" -le 17 ];then
+    if [ "$hour" -gt 6 ] && [ "$hour" -le 16 ];then
         echo "::: It is a day time"
         return 1
     else
