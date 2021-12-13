@@ -81,22 +81,18 @@ interval = 2
 format = <label> <ramp-load>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
 label =  %percentage-sum%
 
-rapm-load-0-foreground = #ff5555
-rapm-load-1-foreground = #557755
-rapm-load-2-foreground = #f5a70a
-rapm-load-3-foreground = #ff5555
-
-ramp-load-0 = ▁
-ramp-load-1 = ▂
-ramp-load-2 = ▃
-ramp-load-3 = ▄
-ramp-load-4 = ▅
-ramp-load-5 = ▆
-ramp-load-6 = ▇
-ramp-load-7 = █
+# Using `ramp-used-<num>-foreground` does not work here
+# https://github.com/polybar/polybar/issues/1299
+ramp-load-0 = %{F#5e81ac}▁%{F-}
+ramp-load-1 = %{F#5e81ac}▂%{F-}
+ramp-load-2 = %{F#5e81ac}▃%{F-}
+ramp-load-3 = %{F#ebcb8b}▄%{F-}
+ramp-load-4 = %{F#d08770}▅%{F-}
+ramp-load-5 = %{F#d08770}▆%{F-}
+ramp-load-6 = %{F#bf616a}▇%{F-}
+ramp-load-7 = %{F#bf616a}█%{F-}
 
 [module/memory]
 type = internal/memory
@@ -104,40 +100,18 @@ interval = 2
 format = <label> <ramp-used>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
 label = %percentage_used%%
 
-ramp-used-0 = ▁
-ramp-used-1 = ▂
-ramp-used-2 = ▃
-ramp-used-3 = ▄
-ramp-used-4 = ▅
-ramp-used-5 = ▆
-ramp-used-6 = ▇
-ramp-used-7 = █
-
-rapm-used-foreground = ${colors.accent}
-rapm-used-1-foreground = ${colors.accent}
-rapm-used-2-foreground = ${colors.accent}
-rapm-used-3-foreground = ${colors.accent}
-rapm-used-4-foreground = ${colors.accent}
-rapm-used-5-foreground = ${colors.accent}
-rapm-used-6-foreground = ${colors.accent}
-rapm-used-7-foreground = ${colors.accent}
-
-
-# rapm-used-7-foreground = ${colors.foreground-alt}
-
-# bar-used-indicator =
-# bar-used-width = 10
-# bar-used-foreground-0 = ${colors.foreground-alt}
-# bar-used-foreground-1 = ${colors.alert}
-# bar-used-foreground-2 = ${colors.foreground-alt}
-# bar-used-foreground-3 = ${colors.foreground-alt}
-# bar-used-fill = "▐"
-# bar-used-empty = "▐"
-# bar-used-empty-foreground = ${colors.nord3}
-
+# Using `ramp-used-<num>-foreground` does not work here
+# https://github.com/polybar/polybar/issues/1299
+ramp-used-0 = %{F#5e81ac}▁%{F-}
+ramp-used-1 = %{F#5e81ac}▂%{F-}
+ramp-used-2 = %{F#5e81ac}▃%{F-}
+ramp-used-3 = %{F#ebcb8b}▄%{F-}
+ramp-used-4 = %{F#d08770}▅%{F-}
+ramp-used-5 = %{F#d08770}▆%{F-}
+ramp-used-6 = %{F#bf616a}▇%{F-}
+ramp-used-7 = %{F#bf616a}█%{F-}
 
 [module/battery]
 type = internal/battery
