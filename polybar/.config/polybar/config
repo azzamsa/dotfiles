@@ -69,15 +69,6 @@ label-empty-padding =
 type = internal/xwindow
 label = %title:0:30:...%
 
-[module/cwindow]
-# cwindow is clean window title.
-# It strips any of your credentials.
-type = custom/script
-
-interval = 3
-format = <label>
-exec = "cwindow"
-
 [module/network]
 type = internal/network
 interface = wlp0s20f3
