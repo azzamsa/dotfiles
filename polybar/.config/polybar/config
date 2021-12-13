@@ -41,7 +41,7 @@ tray-background = ${colors.background}
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right = network cpu memory battery date
+modules-right = wireless-network cpu memory battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -69,10 +69,9 @@ label-empty-padding =
 type = internal/xwindow
 label = %title:0:30:...%
 
-[module/network]
+[module/wireless-network]
 type = internal/network
-interface = wlp0s20f3
-interval = 1.0
+interface = ${env:WLAN_INTERFACE}
 label-connected = %downspeed%  %upspeed%
 
 [module/cpu]
