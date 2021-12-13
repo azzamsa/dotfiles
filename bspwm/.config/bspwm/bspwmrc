@@ -2,6 +2,7 @@
 
 # local binaries
 brightness.sh
+"$HOME"/.config/bspwm/scripts/monitor.sh
 
 # Monitor naming and switching now fully managed by bspwm
 # Using these there configuration. It solved the unordered,
