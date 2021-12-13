@@ -1,7 +1,6 @@
 #! /bin/sh
 
 # local binaries
-brightness.sh
 "$HOME"/.config/bspwm/scripts/monitor.sh
 
 # Monitor naming and switching now fully managed by bspwm
@@ -58,6 +57,10 @@ bspc rule -a feh state=floating follow=on
 #
 # autostart
 #
+
+## brightness
+pkill auto-brightness
+auto-brightness &
 
 ## window compositor
 pkill picom

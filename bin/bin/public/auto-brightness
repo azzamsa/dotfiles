@@ -1,0 +1,6 @@
+#!/usr/bin/sh
+
+while true; do
+    brightness.sh
+    sleep 30m
+done
