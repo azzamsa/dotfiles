@@ -6,8 +6,8 @@ pkill polybar
 # Wait until the processes have been shut down
 # while pgrep -u "$(UID)" -x polybar >/dev/null; do sleep 1; done
 
-# https://wiki.archlinux.org/title/xrandr
-ACTIVE_MONITORS=$(xrandr | awk '/ connected/ && /[[:digit:]]x[[:digit:]].*+/{print $1}')
+# Active monitor example output: `eDP-1 HDMI-2`
+ACTIVE_MONITORS=$(xrandr --listactivemonitors | grep -v Monitors | grep -Eo '[^ ]+$')
 
 WLAN_INTERFACE=$(ip -o link show | awk '/wl/ {print substr($2, 0, length($2)-1)}')
 
