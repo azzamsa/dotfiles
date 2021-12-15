@@ -44,8 +44,6 @@ sudo apt-get install -y --no-install-recommends \
 # utilities
 # xclip required by pass to copy to clipboard
 # gvfs-fuse gvfs-backends adds support for sftp in thunar
-# mu4e needs w3m
-# `libnotify-bin` provide `notify-send` command
 sudo apt-get install -y --no-install-recommends \
      bspwm sxhkd polybar picom autorandr arandr i3lock rofi light dunst unclutter \
      pass light xclip network-manager-gnome \
@@ -54,8 +52,8 @@ sudo apt-get install -y --no-install-recommends \
      htop tar zip unzip unar unrar-free ncdu mat2 borgbackup gparted \
      mpv gimp inkscape libreoffice libreoffice-gtk3 audacity \
      okular okular-extra-backends evince system-config-printer \
-     maildir-utils isync w3m aspell aspell-en \
-     zoxide ripgrep arc-theme libnotify-bin
+     aspell aspell-en \
+     zoxide ripgrep arc-theme
 
 # additional packages
 sudo apt-get install -y --no-install-recommends \
@@ -152,7 +150,7 @@ mv /tmp/insomnia /opt/
 sudo chown -R "$USER:$USER" /opt/insomnia
 sudo ln -s /opt/insomnia /usr/local/bin/insomnia
 
-# aspell
+# additional aspell dictionaries
 curl -Lo /tmp/aspell5-id.tar.bz2 $aspell_link
 tar -xf /tmp/aspell5-id.tar.bz2
 ./tmp/aspell5-id-1.2-0/configure
