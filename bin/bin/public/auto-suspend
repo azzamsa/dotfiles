@@ -5,7 +5,7 @@ lock() {
 }
 
 notify_user() {
-    notify-send -u critical -t 4000 "battery warning" "\n$USER, your battery is low"
+    dunstify -u critical -t 4000 "battery warning" "\n$USER, your battery is low"
 }
 
 main(){
