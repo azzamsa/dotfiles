@@ -7,4 +7,7 @@ export SSH_AUTH_SOCK
 # Tell sxhd to use `sh`. Otherwise it will use `fish
 export SXHKD_SHELL=/usr/bin/sh
 
+"$HOME"/.config/bspwm/scripts/monitor.sh &
+
 dbus-run-session bspwm
+
