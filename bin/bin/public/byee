@@ -3,7 +3,7 @@
 res=$(printf "lock\nsuspend\nlogout\nreboot\nshutdown" | rofi -dmenu -i -lines 5 -width -20 -hide-scrollbar)
 
 lock() {
-    i3lock -i "$HOME"/Desktop/lockscreen.png
+    i3lock -i "$HOME"/wallpapers/lockscreen.png
 }
 
 
