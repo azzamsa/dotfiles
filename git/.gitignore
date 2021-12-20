@@ -1,3 +1,5 @@
+# This is a global .gitignore
+
 # Emacs
 .projectile
 .dir-locals.el

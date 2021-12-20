@@ -80,6 +80,8 @@
 
 	path = ~/.gitconfig.local
 
+# The `**/office/name/**` path must points
+# to specific office directory
 [includeIf "gitdir:**/office/bgn/**"]
 	path = ~/.gitconfig.bgn
 [core]
