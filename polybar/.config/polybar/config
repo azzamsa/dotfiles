@@ -80,7 +80,7 @@ interval = 2
 format = <label> <ramp-load>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-label =  %percentage-sum%%
+label =  %percentage%%
 
 # Using `ramp-used-<num>-foreground` does not work here
 # https://github.com/polybar/polybar/issues/1299
