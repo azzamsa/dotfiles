@@ -31,35 +31,32 @@ bspc config normal_border_color "#d8dee9"
 # window rules
 #
 
-##  labs
-# bspc rule -a Wezterm desktop='^1' follow=on focus=on
-bspc rule -a Wezterm desktop='^1' focus=on
-bspc rule -a Emacs desktop='^1' focus=on state=tiled
+# Use cases:
+# - `follow=on` if you click a link from other workspace, the workspace will be switched
+# to the workspace where the web browser is running or opened.
 
-## web browsers
-bspc rule -a Firefox desktop='^2' focus=on
-bspc rule -a 'firefox:*:Mozilla Firefox'  desktop='^2' focus=on
+bspc rule --add Wezterm desktop='^1'
+# Emacs is floating by default
+bspc rule --add Emacs desktop='^1' state=tiled
 
-## file managers
-bspc rule -a Thunar desktop='^3' focus=on
+# `follow=on` I want the desktop to switch to the browser
+# after I open the link from other app in different desktop
+bspc rule --add Firefox follow=on
 
-## multimedia
-bspc rule -a Pavucontrol desktop='^4' state=floating
 # Don't specify Arandr workspace. I need to invoke it from anywehere
-bspc rule -a Arandr state=floating
-bspc rule -a "Screen Layout Editor" desktop='^4' state=floating
-bspc rule -a mpv desktop='^4' focus=on
+bspc rule --add Arandr
 
-## need to be floating
-bspc rule -a feh state=floating follow=on
+bspc rule --add "Screen Layout Editor" desktop='^4'
+bspc rule --add mpv desktop='^4'
+
 
 #
 # autostart
 #
 
 ## brightness
-pkill auto-brightness
-auto-brightness &
+# pkill auto-brightness
+# auto-brightness &
 
 ## window compositor
 pkill picom
@@ -92,8 +89,11 @@ greenclip daemon &
 # otherwise the cursor will looks odd
 xsetroot -cursor_name left_ptr &
 
-pkill auto-suspend
-auto-suspend &
+# Nowadays, I charge my laptop all the time
+# and stop the charge using tlp
+
+# pkill auto-suspend
+# auto-suspend &
 
 pkill workrave
 workrave &
