@@ -6,14 +6,14 @@
 
 # Program launcher
 super + h; n
-    rofi -modi run,drun,window -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font "Fira Code 14"
+  rofi -modi run,drun,window -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font "Fira Code 14"
 
 super + h; e
-    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+  rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # Take a screenshot
 super + shift + p
-    flameshot gui
+  flameshot gui
 
 #
 # bspwm hotkeys
@@ -29,7 +29,7 @@ super + {_,shift + }q
 
 # Alternate between the tiled and monocle layout
 super + h; m
-    bspc desktop --layout next
+  bspc desktop --layout next
 
 #
 # State
@@ -37,7 +37,7 @@ super + h; m
 
 # window state
 super + h; {t, shift + t, s, f}
-    bspc node --state {tiled, pseudo_tiled, floating, fullscreen}
+  bspc node --state {tiled, pseudo_tiled, floating, fullscreen}
 
 
 #
@@ -62,11 +62,11 @@ super + h; {l,u,y,i}
 # `local` instruct bspwm to operate only in current desktop
 # `window` instruct bspwm to skip the empty node
 super + {_, shift+}Return
-    bspc node --focus {next.local.!sticky.window, prev.local.!sticky.window}
+  bspc node --focus {next.local.!sticky.window, prev.local.!sticky.window}
 
 # Focus to next workspace
 super + {_, shift+}Tab
-    bspc desktop --focus {next.occupied.local, prev.occupied.local}
+  bspc desktop --focus {next.occupied.local, prev.occupied.local}
 
 # Focus or send to the given desktop
 super + {_,shift + }{4,5,6,7}
@@ -82,7 +82,7 @@ super + {4,5,6,7}
 
 # Spit horizontal & split vertical, like in i3
 super + h; {h,v}
-    bspc node --presel-dir {east,south}
+  bspc node --presel-dir {east,south}
 
 # Cancel
 super + h; Escape
