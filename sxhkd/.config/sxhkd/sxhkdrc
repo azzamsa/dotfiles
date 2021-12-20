@@ -53,8 +53,16 @@ super + h; {l,u,y,i}
 #
 
 # Focus to next window
+
+# I don't bspwm to focus to Workrave's applet
+# It is floating in every desktop and I don't want to
+# trip over it while switching windows
+# Using `manage=off` disables everything. So I can't easily move it around.
+
+# `local` instruct bspwm to operate only in current desktop
+# `window` instruct bspwm to skip the empty node
 super + {_, shift+}Return
-    bspc node --focus {next.local.window, prev.local.window}
+    bspc node --focus {next.local.!sticky.window, prev.local.!sticky.window}
 
 # Focus to next workspace
 super + {_, shift+}Tab
