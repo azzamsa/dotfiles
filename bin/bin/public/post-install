@@ -246,7 +246,7 @@ curl -Lo ~/.local/share/applications/insomnia.desktop "$insomnia_desktop"
 
 # set default python to python3
 # in Debian, it points to python2
-update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 echo "Setup finished"
 cat <<- EOF
