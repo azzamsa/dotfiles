@@ -18,7 +18,7 @@ set -x LS_COLORS (vivid generate nord)
 # Alias
 alias in "sudo apt install"
 alias inn "sudo apt-get --no-install-recommends install"
-alias inb "sudo apt install -t bustera-backports"
+alias inb "sudo apt install -t bullseye-backports"
 
 alias c 'clear'
 alias rmd 'rm -rdf'
