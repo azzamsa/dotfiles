@@ -217,9 +217,10 @@ rm /usr/share/icons/apps/icons.tar.gz
 
 # Emacs
 sudo apt-get build-dep emacs
-inn libgccjit-9-dev
-# ./configure --with-native-compilation
-# make
+inn libgccjit-10-dev
+# ./autogen.sh
+# ./configure --with-native-compilation --with-pgtk
+# make or # make -j$(nproc)
 # sudo make install
 
 
