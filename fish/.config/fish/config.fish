@@ -5,6 +5,8 @@ set -g fish_user_paths ~/bin/private ~/bin/public ~/.local/bin ~/.cargo/bin ~/.n
 set -gx EDITOR emacs
 set -gx QT_QPA_PLATFORMTHEME qt5ct
 set -gx SXHKD_SHELL sh
+# Java applications menus immediately closing after the click
+set -gx _JAVA_AWT_WM_NONREPARENTING 1
 
 # Utilities
 zoxide init fish | source
