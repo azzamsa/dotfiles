@@ -27,7 +27,8 @@ echo "deb-src http://ftp.au.debian.org/debian/ bullseye main contrib non-free" |
 # Keep Debian up to date
 sudo apt -y update
 
-# main package
+# Main package
+
 # fuse required by AppImage
 # libssl-dev provides certificates for culr
 # libdbus-1-dev and pkg-config required by i3status-rust and other apps, such as mousepad
@@ -41,7 +42,8 @@ sudo apt-get install -y --no-install-recommends \
      fish fuse git etckeeper gnupg2 ssh ssh-agent curl stow rsync \
      gnome-keyring
 
-# utilities
+# Utilities
+
 # xclip required by pass to copy to clipboard
 # gvfs-fuse gvfs-backends adds support for sftp in thunar
 sudo apt-get install -y --no-install-recommends \
@@ -55,26 +57,28 @@ sudo apt-get install -y --no-install-recommends \
      aspell aspell-en \
      zoxide ripgrep arc-theme
 
-# additional packages
+# Additional packages
 sudo apt-get install -y --no-install-recommends \
      docker.io docker-compose
 sudo usermod -aG docker "$USER"
 su - "$USER"
 
-# keyboards
+# Keyboards
 python3 -m pip install --user qmk
 sudo apt-get install -y --no-install-recommends libhidapi-dev
 # qmk setup -H /media/$USER/exts1/source/qmk_firmware
 # qmk config user.keyboard=sofle/rev1 user.keymap=$USER user.name=$USER
 
-# screen
+# Screen
+
 # - Prepare the desired screen layout using arandr
 # - Save the layout using `autorandr --save docked`
 # - The common layouts are: `docked`, `mobile`, and `demo`
 # - To load the layout use `autorandr --load demo`
 # Docked for work, mobile while on the go, demo for presentation
 
-# bluetooth
+# Bluetooth
+
 # Start the GUI manager using `bluetooth` in rofi drun
 # Then manage using PavuControl GUI.
 sudo modprobe btusb
@@ -84,7 +88,7 @@ sudo systemctl start bluetooth.service
 # fish
 chsh -s "$(which fish)" # change default shell to fish
 
-# work
+# Work
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 sudo apt-get install -y --no-install-recommends \
@@ -93,19 +97,19 @@ sudo apt-get install -y --no-install-recommends \
 cargo install vivid fnm
 fnm use $node_version
 
-# starship
+# Starship
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
-# js
-# fixed version global packages
+# Js
+# Fixed version global packages
 mkdir nodebin && cd nodebin && npm init --yes
 npm install --prefix "$HOME"/nodebin/ typescript-language-server svelte-language-server bash-language-server
 mv nodebin/ .nodebin
 
-# rust
+# Rust
 # cargo install cargo-make
 
-# python
+# Python
 # these app need to be installed inside the project's venv
 # pip3 install python-language-server pyls-black pyls-isort pyls-mypy
 
@@ -116,7 +120,7 @@ python3 -m pip install virtualfish
 vf install
 vf new -p /usr/bin/python3 global3
 
-# setup
+# Setup
 echo "Installed base app. I will setup them for you."
 
 # auto-suspend
@@ -125,7 +129,7 @@ sudo mv /tmp/scripts/auto-suspend/ /opt/
 sudo chown -R "$USER:$USER" /opt/auto-suspend
 sudo ln -s /opt/auto-suspend/auto-suspend /usr/local/bin/auto-suspend
 
-# wezterm
+# Wezterm
 curl -Lo /tmp/wezterm $wezterm_link
 sudo dpkg -i /tmp/wezterm
 
@@ -136,34 +140,34 @@ sudo mv /tmp/activitywatch /opt/
 sudo chown -R "$USER:$USER" /opt/activitywatch
 sudo ln -s /opt/activitywatch/aw-qt /usr/local/bin/aw-qt
 
-# nextcloud
+# Nextcloud
 curl -Lo /tmp/nextcloud $nextcloud_link
 chmod +x /tmp/nextcloud
 sudo mv /tmp/nextcloud /opt/
 sudo chown -R "$USER:$USER" /opt/nextcloud
 sudo ln -s /opt/nextcloud /usr/local/bin/nextcloud
 
-# insomnia
+# Insomnia
 curl -Lo /tmp/insomnia $insomnia_link
 chmod +x /tmp/insomnia
 mv /tmp/insomnia /opt/
 sudo chown -R "$USER:$USER" /opt/insomnia
 sudo ln -s /opt/insomnia /usr/local/bin/insomnia
 
-# additional aspell dictionaries
+# Additional aspell dictionaries
 curl -Lo /tmp/aspell5-id.tar.bz2 $aspell_link
 tar -xf /tmp/aspell5-id.tar.bz2
 ./tmp/aspell5-id-1.2-0/configure
 sudo make -C /tmp/aspell5-id-1.2-0/ install
 
-## firefox
+## Firefox
 curl -Lo /tmp/firefox.tar.bz2 $firefox_link
 tar -xf /tmp/firefox.tar.bz2
 sudo mv /tmp/firefox/ /opt/
 sudo chown -R "$USER:$USER" /opt/firefox
 sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
 
-## telegram
+## Telegram
 curl -Lo /tmp/tsetup.tar.xz $telegram_link
 tar -xf /tmp/tsetup.tar.xz
 sudo mv /tmp/Telegram/ /opt/
@@ -191,27 +195,27 @@ curl -Lo ~/sounds/sounds.tar.gz "$sounds_link"
 tar -xf ~/sounds/sounds.tar.gz
 rm ~/sounds/sounds.tar.gz
 
-# fonts
+# Fonts
 mkdir -p ~/.local/share/fonts
 curl -Lo ~/.local/share/fonts/fonts.tar.gz "$fonts_link"
 tar -xf ~/.local/share/fonts/fonts.tar.gz
 rm ~/.local/share/fonts/fonts.tar.gz
 fc-cache -fv
 
-# icons
+# Icons
 mkdir ~/.icons
 curl -Lo ~/.icons/.icons.tar.gz "$icons_link"
 tar -xf ~/.icons/.icons.tar.gz
 rm ~/.icons/.icons.tar.gz
 
-# global icons
+# Global icons
 sudo mkdir -p /usr/share/icons/apps/
 sudo chown -R "$USER:$USER" /usr/share/icons/apps
 curl -Lo /usr/share/icons/apps/icons.tar.gz "$icon_apps_link"
 tar -xf /usr/share/icons/apps/icons.tar.gz
 rm /usr/share/icons/apps/icons.tar.gz
 
-# emacs
+# Emacs
 sudo apt-get build-dep emacs
 inn libgccjit-9-dev
 # ./configure --with-native-compilation
@@ -225,18 +229,18 @@ for d in ~/dotfiles/*/ ; do
     stow "$d" --no-folding
 done
 
-# setup mu4e
+# Setup mu4e
 # mu init --maildir=~/Email/secret --my-address=secret
 
-# dual-monitor
-# keep the laptot alive even if no HDMI connection
+# Dual-monitor
+# Keep the laptot alive even if no HDMI connection
 echo "
 HandleSuspendKey=ignore
 HandleLidSwitch=ignore
 HandleLidSwitchDocked=ignore
 "  | sudo tee -a /etc/systemd/logind.conf
 
-# disable pc speaker
+# Disable pc speaker
 echo "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 
 # .desktop files
@@ -244,7 +248,7 @@ mkdir -p ~/.local/share/applications
 curl -Lo ~/.local/share/applications/firefox.desktop "$firefox_desktop"
 curl -Lo ~/.local/share/applications/insomnia.desktop "$insomnia_desktop"
 
-# set default python to python3
+# Set default python to python3
 # in Debian, it points to python2
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
