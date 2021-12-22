@@ -38,11 +38,11 @@ print_current_internal_brigthness(){
 # Default
 #
 
-set_hdmi_brightness_default(){
+set_hdmi_brightness(){
     if is_night; then
-        xrandr --output "$ACTIVE_HDMI_MONITOR" --brightness 0.60 --gamma 1.1:0.8:0.7
+        xrandr --output "$ACTIVE_HDMI_MONITOR" --brightness "$1" --gamma 1.1:0.8:0.7
     else
-        xrandr --output "$ACTIVE_HDMI_MONITOR" --brightness 0.75 --gamma 0:0:0
+        xrandr --output "$ACTIVE_HDMI_MONITOR" --brightness "$1" --gamma 0:0:0
     fi
 }
 
@@ -60,8 +60,8 @@ set_builtin_brightness_default(){
 
 brighten_hdmi_monitor(){
     current_brightness=$(current_hdmi_brightness)
-    increment=$(echo "$current_brightness + $1" | bc)
-    xrandr --output "$ACTIVE_HDMI_MONITOR" --brightness "$increment"
+    target_brightness=$(echo "$current_brightness + $1" | bc)
+    set_hdmi_brightness "$target_brightness"
 }
 
 brighten_internal_monitor(){
@@ -75,8 +75,9 @@ brighten_internal_monitor(){
 
 dim_hdmi_monitor(){
     current_brightness=$(current_hdmi_brightness)
-    decrement=$(echo "$current_brightness - $1" | bc)
-    xrandr --output "$ACTIVE_HDMI_MONITOR" --brightness "$decrement"
+    target_brightness=$(echo "$current_brightness - $1" | bc)
+    set_hdmi_brightness "$target_brightness"
+
 }
 
 dim_internal_monitor(){
