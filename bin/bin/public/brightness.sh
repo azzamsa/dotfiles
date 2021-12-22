@@ -113,7 +113,7 @@ dim(){
 
 default(){
     if [ -n "$ACTIVE_HDMI_MONITOR" ]; then
-        set_hdmi_brightness_default
+        set_hdmi_brightness 0.60
         print_current_hdmi_brightness
     else
         set_builtin_brightness_default
