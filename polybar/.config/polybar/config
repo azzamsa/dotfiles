@@ -142,9 +142,8 @@ format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 
 [module/mic]
-type = custom/script
-tail = true
-label-foreground = ${colors.foreground-alt}
-interval = 2
-exec = $HOME/.config/polybar/scripts/mic.sh
-click-left = amixer set Capture toggle
+type = custom/ipc
+hook-0 = amixer set Capture toggle && $HOME/.config/polybar/scripts/mic.sh && dunstify -t 1000 "Mic" "mic toggled"
+initial = 1
+click-left = polybar-msg -p %pid% hook mic 1
+format-foreground = ${colors.foreground-alt}
