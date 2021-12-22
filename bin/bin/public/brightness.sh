@@ -25,8 +25,17 @@ current_hdmi_brightness(){
     xrandr --verbose --current | grep ^"$ACTIVE_HDMI_MONITOR" -A5 | awk '/Brightness:/ {print $2}'
 }
 
-current_internal_brigthness(){
+current_internal_brightness(){
     light -G
+}
+
+print_current_hdmi_brightness(){
+    echo ": $(current_hdmi_brightness)"
+}
+
+print_current_internal_brigthness(){
+    current_brightness=$(current_internal_brightness)
+    echo ": ${current_brightness%.*}"
 }
 
 #
@@ -39,8 +48,6 @@ set_hdmi_brightness_default(){
     else
         xrandr --output "$ACTIVE_HDMI_MONITOR" --brightness 0.75 --gamma 0:0:0
     fi
-
-    echo ": $(current_hdmi_brightness)"
 }
 
 set_builtin_brightness_default(){
@@ -49,9 +56,6 @@ set_builtin_brightness_default(){
     else
         light -S 30
     fi
-
-    current_brightness=$(current_internal_brigthness)
-    echo ": ${current_brightness%.*}"
 }
 
 #
@@ -62,18 +66,13 @@ brighten_hdmi_monitor(){
     current_brightness=$(current_hdmi_brightness)
     increment=$(echo "$current_brightness + $1" | bc)
     xrandr --output "$ACTIVE_HDMI_MONITOR" --brightness "$increment"
-
-    echo ": $(current_hdmi_brightness)"
 }
 
 brighten_internal_monitor(){
     current_brightness=$(current_internal_brightness)
-    light -S $(("$current_brightness" + $1))
-
-    current_brightness=$(current_internal_brightness)
-    echo ": ${current_brightness%.*}"
+    increment=$(echo "$current_brightness + $1" | bc)
+    light -S "$increment"
 }
-
 #
 # Dim
 #
@@ -82,16 +81,12 @@ dim_hdmi_monitor(){
     current_brightness=$(current_hdmi_brightness)
     decrement=$(echo "$current_brightness - $1" | bc)
     xrandr --output "$ACTIVE_HDMI_MONITOR" --brightness "$decrement"
-
-    echo ": $(current_hdmi_brightness)"
 }
 
 dim_internal_monitor(){
     current_brightness=$(current_internal_brightness)
-    light -S $(("$current_brightness" - $1))
-
-    current_brightness=$(current_internal_brightness)
-    echo ": ${current_brightness%.*}"
+    decrement=$(echo "$current_brightness - $1" | bc)
+    light -S "$decrement"
 }
 
 
@@ -102,24 +97,30 @@ dim_internal_monitor(){
 brighten(){
     if [ -n "$ACTIVE_HDMI_MONITOR" ]; then
         brighten_hdmi_monitor 0.1
+        print_current_hdmi_brightness
     else
-       brighten_internal_monitor 5
+        brighten_internal_monitor 5
+        print_current_internal_brigthness
     fi
 }
 
 dim(){
     if [ -n "$ACTIVE_HDMI_MONITOR" ]; then
         dim_hdmi_monitor 0.1
+        print_current_hdmi_brightness
     else
-       dim_internal_monitor 5
+        dim_internal_monitor 5
+        print_current_internal_brigthness
     fi
 }
 
 default(){
     if [ -n "$ACTIVE_HDMI_MONITOR" ]; then
         set_hdmi_brightness_default
+        print_current_hdmi_brightness
     else
         set_builtin_brightness_default
+        print_current_internal_brigthness
     fi
 }
 
