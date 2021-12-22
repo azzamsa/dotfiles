@@ -41,7 +41,7 @@ tray-background = ${colors.background}
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right = wireless-network cpu memory battery mic date
+modules-right = wireless-network cpu memory battery mic speaker date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -146,4 +146,11 @@ type = custom/ipc
 hook-0 = amixer set Capture toggle && $HOME/.config/polybar/scripts/mic.sh && dunstify -t 1000 "Mic" "mic toggled"
 initial = 1
 click-left = polybar-msg -p %pid% hook mic 1
+format-foreground = ${colors.foreground-alt}
+
+[module/speaker]
+type = custom/ipc
+hook-0 = amixer set Master toggle && $HOME/.config/polybar/scripts/speaker.sh && dunstify -t 1000 "Speaker" "speaker toggled"
+initial = 1
+click-left = polybar-msg -p %pid% hook speaker 1
 format-foreground = ${colors.foreground-alt}
