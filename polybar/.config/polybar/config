@@ -143,14 +143,16 @@ format-prefix-foreground = ${colors.foreground-alt}
 
 [module/mic]
 type = custom/ipc
-hook-0 = amixer set Capture toggle && $HOME/.config/polybar/scripts/mic.sh && dunstify -t 1000 "Mic" "mic toggled"
+hook-0 = amixer set Capture nocap && $HOME/.config/polybar/scripts/mic.sh
+hook-1 = amixer set Capture toggle && $HOME/.config/polybar/scripts/mic.sh && dunstify -t 1000 "Mic" "mic toggled"
 initial = 1
-click-left = polybar-msg -p %pid% hook mic 1
+click-left = polybar-msg -p %pid% hook mic 2
 format-foreground = ${colors.foreground-alt}
 
 [module/speaker]
 type = custom/ipc
-hook-0 = amixer set Master toggle && $HOME/.config/polybar/scripts/speaker.sh && dunstify -t 1000 "Speaker" "speaker toggled"
+hook-0 = amixer set Master mute && $HOME/.config/polybar/scripts/speaker.sh
+hook-1 = amixer set Master toggle && $HOME/.config/polybar/scripts/speaker.sh && dunstify -t 1000 "Speaker" "speaker toggled"
 initial = 1
-click-left = polybar-msg -p %pid% hook speaker 1
+click-left = polybar-msg -p %pid% hook speaker 2
 format-foreground = ${colors.foreground-alt}
