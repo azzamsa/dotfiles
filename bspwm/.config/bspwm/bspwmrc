@@ -60,7 +60,7 @@ bspc rule --add mpv desktop='^4'
 
 ## window compositor
 pkill picom
-picom &
+picom -b &
 
 # status bar
 pkill polybar
