@@ -41,7 +41,7 @@ tray-background = ${colors.background}
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right = wireless-network cpu memory battery date
+modules-right = wireless-network cpu memory battery mic date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -140,3 +140,11 @@ time = %I:%M %p
 time-alt =
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
+
+[module/mic]
+type = custom/script
+tail = true
+label-foreground = ${colors.foreground-alt}
+interval = 2
+exec = $HOME/.config/polybar/scripts/mic.sh
+click-left = amixer set Capture toggle
