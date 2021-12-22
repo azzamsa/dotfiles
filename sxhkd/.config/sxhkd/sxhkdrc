@@ -115,6 +115,36 @@ super + h; a
 super + h; g
   bspc node --swap biggest.window
 
+
+#
+# Misc
+#
+
+# I am not the only user in my machines.
+# These buttons enable them to do some operation without
+# touching the terminal.
+
+# Volume
+XF86AudioRaiseVolume
+  amixer set Master '3%+'
+
+XF86AudioLowerVolume
+  exec amixer set Master '1%-'
+
+XF86AudioMute
+  amixer set Master toggle
+
+# Microphone
+XF86AudioMicMute
+  amixer set Capture toggle
+
+# Brightness
+XF86MonBrightnessUp
+  light -A 1
+
+XF86MonBrightnessDown
+  light -U 1
+
 #
 # Documentation
 #
