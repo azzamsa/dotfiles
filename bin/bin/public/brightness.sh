@@ -1,11 +1,7 @@
 #!/usr/bin/sh
 
-# Active monitor example output: `eDP-1 HDMI-2`
-ACTIVE_MONITORS=$(xrandr --listactivemonitors | grep -v Monitors | grep -Eo '[^ ]+$')
-# Currently active HDMI monitor will always be in the last position of `$ACTIVE_MONITORS` output
-# We need to loop over it.
 # shellcheck disable=SC2086
-ACTIVE_HDMI_MONITOR=$(echo $ACTIVE_MONITORS | awk '{print $NF}')
+ACTIVE_HDMI_MONITOR=$(xrandr --listactivemonitors | grep -v Monitors | awk '/HDMI/ {print $NF}')
 
 #
 # brightness
