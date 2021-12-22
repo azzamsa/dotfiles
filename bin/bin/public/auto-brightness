@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
 while true; do
-    brightness.sh
+    brightness.sh default
     sleep 30m
 done
