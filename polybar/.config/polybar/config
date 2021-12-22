@@ -41,7 +41,7 @@ tray-background = ${colors.background}
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right = wireless-network cpu memory battery mic speaker date
+modules-right = wireless-network cpu memory battery mic speaker brightness date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -156,3 +156,15 @@ hook-1 = amixer set Master toggle && $HOME/.config/polybar/scripts/speaker.sh &&
 initial = 1
 click-left = polybar-msg -p %pid% hook speaker 2
 format-foreground = ${colors.foreground-alt}
+
+[module/brightness]
+type = custom/ipc
+format-foreground = ${colors.foreground-alt}
+
+hook-0 = brightness.sh default
+hook-1 = brightness.sh brighten && dunstify -t 1000 "Brightness" "brighten"
+hook-2 = brightness.sh dim && dunstify -t 1000 "Brightness" "dim"
+initial = 1
+scroll-up = polybar-msg -p %pid% hook brightness 2
+scroll-down = polybar-msg -p %pid% hook brightness 3
+
