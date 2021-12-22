@@ -5,6 +5,10 @@
 
 My personal .dotfiles 🗃️
 
+<a href="https://github.com/azzamsa/dotfiles/workflows/ci.yml">
+    <img src="https://github.com/azzamsa/dotfiles/workflows/ci/badge.svg" alt="Build status" />
+</a>
+
 </div>
 
 ---
