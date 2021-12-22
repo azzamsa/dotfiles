@@ -34,10 +34,11 @@ sudo apt -y update
 # libdbus-1-dev and pkg-config required by i3status-rust and other apps, such as mousepad
 # audio won't work without pulseaudio
 # without `gstreamer1.0-pulseaudio` apps can't play sound (such workrave can't play .wav notification sound)
+# `alsa-utils` provide amixer command. It is easier to use than built-in pactl
 sudo apt-get install -y --no-install-recommends \
      xserver-xorg xinit libdbus-1-dev pkg-config \
      sudo firmware-iwlwifi x11-xserver-utils libssl-dev \
-     pavucontrol pulseaudio gstreamer1.0-pulseaudio\
+     pavucontrol pulseaudio gstreamer1.0-pulseaudio alsa-utils\
      blueman bluez pulseaudio-module-bluetooth \
      fish fuse git etckeeper gnupg2 ssh ssh-agent curl stow rsync \
      gnome-keyring
@@ -87,6 +88,10 @@ sudo systemctl start bluetooth.service
 
 # fish
 chsh -s "$(which fish)" # change default shell to fish
+
+# Bash
+sudo apt-get install -y --no-install-recommends \
+     shellcheck
 
 # Work
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
