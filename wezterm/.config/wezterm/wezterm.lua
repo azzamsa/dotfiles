@@ -49,7 +49,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 
 	local edge_foreground = background
-    clean_title = strip_home_name(tab.active_pane.title)
+	clean_title = strip_home_name(tab.active_pane.title)
 
 	return {
 		{ Background = { Color = edge_background } },
@@ -69,6 +69,7 @@ return {
 	default_cursor_style = "BlinkingBar",
 	font_size = 16.0,
 	font = wezterm.font_with_fallback({
+		"Victor Mono",
 		"Fira Code",
 		"Font Awesome 6 Free Regular",
 		"Font Awesome 6 Free Solid",
