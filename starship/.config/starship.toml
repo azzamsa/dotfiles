@@ -20,7 +20,7 @@ style = "bold fg:#d08770"
 # Original python status doesn't have space ater it.
 # It mixed with the next status. Otherwise, we don't
 # need to override the format here.
-format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\) )]($style)'
+format = '[${symbol}${pyenv_prefix}(${version}) (\($virtualenv\)) ]($style)'
 
 [rust]
 style = "bold fg:#bf616a"
