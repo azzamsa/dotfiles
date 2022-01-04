@@ -164,6 +164,8 @@ return {
 		{ key = "n", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
 		{ key = "u", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
 		{ key = "e", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
+		{ key = "Enter", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Next" }) },
+		{ key = "Enter", mods = "LEADER|SHIFT", action = wezterm.action({ ActivatePaneDirection = "Prev" }) },
 		--
 		-- 5 and 8 map to my arrow keys
 		{ key = "2", mods = "ALT", action = "ResetFontSize" },
