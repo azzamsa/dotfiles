@@ -104,8 +104,8 @@ return {
 		},
 	},
 	inactive_pane_hsb = {
-		saturation = 0.55,
-		brightness = 0.55,
+		saturation = 0.1,
+		brightness = 1.0,
 	},
 	hyperlink_rules = {
 		-- Linkify things that look like URLs
