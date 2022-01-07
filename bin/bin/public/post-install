@@ -116,14 +116,15 @@ mv nodebin/ .nodebin
 
 # Python
 # these app need to be installed inside the project's venv
-# pip3 install python-language-server pyls-black pyls-isort pyls-mypy
+# pip install python-language-server pyls-black pyls-isort pyls-mypy
+# pip install black mypy pylint ipdb
 
 # `grip` is handy tool to render md file locally
-pip3 install --user black flake8 flake8-isort grip
+pip install --user grip
 
-python3 -m pip install virtualfish
+pip install --user virtualfish
 vf install
-vf new -p /usr/bin/python3 global3
+vf new --python python3 global
 
 # Setup
 echo "Installed base app. I will setup them for you."
