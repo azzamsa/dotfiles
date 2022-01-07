@@ -114,15 +114,21 @@ ramp-used-7 = %{F#bf616a}█%{F-}
 
 [module/battery]
 type = internal/battery
+
 full-at = 98
 battery = BAT0
 adapter = ACAD
 poll-interval = 60
+
+label-full = Full
+
 format-charging = <ramp-capacity>  <label-charging>
 label-charging =  %percentage%%
-label-full = Full
+label-charging-foreground = ${colors.foreground-alt}
+
 format-discharging = <ramp-capacity>  <label-discharging>
 label-discharging = %percentage%%
+
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
