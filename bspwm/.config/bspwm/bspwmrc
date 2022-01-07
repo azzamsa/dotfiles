@@ -61,7 +61,7 @@ bspc rule --add Workrave state=sticky
 
 ## window compositor
 pkill picom
-picom -b &
+picom &
 
 # status bar
 pkill polybar
