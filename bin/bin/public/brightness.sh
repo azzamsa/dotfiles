@@ -93,7 +93,7 @@ dim_internal_monitor(){
 
 brighten(){
     if [ -n "$ACTIVE_HDMI_MONITOR" ]; then
-        brighten_hdmi_monitor 0.1
+        brighten_hdmi_monitor 0.05
         print_current_hdmi_brightness
     else
         brighten_internal_monitor 5
@@ -103,7 +103,7 @@ brighten(){
 
 dim(){
     if [ -n "$ACTIVE_HDMI_MONITOR" ]; then
-        dim_hdmi_monitor 0.1
+        dim_hdmi_monitor 0.05
         print_current_hdmi_brightness
     else
         dim_internal_monitor 5
