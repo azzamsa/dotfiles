@@ -109,6 +109,7 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 # Fixed version global packages
 mkdir nodebin && cd nodebin && npm init --yes
 npm install --prefix "$HOME"/nodebin/ typescript-language-server svelte-language-server bash-language-server
+npm install --prefix "$HOME"/nodebin/ prettier parcel
 mv nodebin/ .nodebin
 
 # Rust
