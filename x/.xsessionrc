@@ -1,0 +1,16 @@
+#!/usr/bin/sh
+
+# This file is debian specific.
+# Putting the startup app on `.xprofile` does not work
+
+# gnome keyring
+eval $(gnome-keyring-daemon --start --daemonize)
+export SSH_AUTH_SOCK
+
+# Tell sxhd to use `sh`. Otherwise it will use `fish
+# export SXHKD_SHELL=/usr/bin/sh
+
+/home/azzamsa/.config/bspwm/scripts/monitor.sh &
+
+# dbus-run-session bspwm
+

@@ -58,6 +58,16 @@ sudo apt-get install -y --no-install-recommends \
      aspell aspell-en \
      zoxide ripgrep arc-theme
 
+# Family
+
+# This machines is shared among family members
+# It is hard for them to memorize bunch of window manager keybindings
+sudo apt-get install -y --no-install-recommends \
+     lightdm xfce4 xfce4-battery-plugin
+
+# Set bspwm as default session in X
+sudo update-alternatives --install /usr/bin/x-session-manager x-session-manager /usr/bin/bspwm 60
+
 # Additional packages
 sudo apt-get install -y --no-install-recommends \
      docker.io docker-compose
