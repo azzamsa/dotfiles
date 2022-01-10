@@ -21,11 +21,11 @@ insomnia_desktop="https://www.dropbox.com/s/em9frkyxoq91ffb/insomnia.desktop?dl=
 node_version="v16.12"
 
 # Add repository
-echo "deb http://ftp.au.debian.org/debian/ bullseye main contrib non-free" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ftp.au.debian.org/debian/ bullseye main contrib non-free" | sudo tee -a /etc/apt/sources.list
+echo "deb http://ftp.au.debian.org/debian/ bullseye main contrib non-free" | sudo tee --append /etc/apt/sources.list
+echo "deb-src http://ftp.au.debian.org/debian/ bullseye main contrib non-free" | sudo tee --append /etc/apt/sources.list
 
 # Keep Debian up to date
-sudo apt -y update
+sudo apt --yes update
 
 #
 # Main package
@@ -37,7 +37,7 @@ sudo apt -y update
 # audio won't work without pulseaudio
 # without `gstreamer1.0-pulseaudio` apps can't play sound (such workrave can't play .wav notification sound)
 # `alsa-utils` provide amixer command. It is easier to use than built-in pactl
-sudo apt-get install -y --no-install-recommends \
+sudo apt-get install --yes --no-install-recommends \
      xserver-xorg xinit libdbus-1-dev pkg-config \
      sudo firmware-iwlwifi x11-xserver-utils libssl-dev \
      pavucontrol pulseaudio gstreamer1.0-pulseaudio alsa-utils\
@@ -51,7 +51,7 @@ sudo apt-get install -y --no-install-recommends \
 
 # xclip required by pass to copy to clipboard
 # gvfs-fuse gvfs-backends adds support for sftp in thunar
-sudo apt-get install -y --no-install-recommends \
+sudo apt-get install --yes --no-install-recommends \
      bspwm sxhkd polybar picom autorandr arandr i3lock rofi light dunst unclutter \
      pass light xclip network-manager-gnome \
      flameshot feh ristretto peek file-roller mousepad workrave \
@@ -68,14 +68,14 @@ sudo apt-get install -y --no-install-recommends \
 
 # This machines is shared among family members
 # It is hard for them to memorize bunch of window manager keybindings
-sudo apt-get install -y --no-install-recommends \
+sudo apt-get install --yes --no-install-recommends \
      lightdm xfce4 xfce4-battery-plugin
 
 #
 # Additional packages
 #
 
-sudo apt-get install -y --no-install-recommends \
+sudo apt-get install --yes --no-install-recommends \
      docker.io docker-compose
 sudo usermod -aG docker "$USER"
 su - "$USER"
@@ -85,7 +85,7 @@ su - "$USER"
 #
 
 python3 -m pip install --user qmk
-sudo apt-get install -y --no-install-recommends libhidapi-dev
+sudo apt-get install --yes --no-install-recommends libhidapi-dev
 # qmk setup -H /media/$USER/exts1/source/qmk_firmware
 # qmk config user.keyboard=sofle/rev1 user.keymap=$USER user.name=$USER
 
@@ -117,7 +117,7 @@ sudo systemctl start bluetooth.service
 chsh -s "$(which fish)" # change default shell to fish
 
 # Bash
-sudo apt-get install -y --no-install-recommends \
+sudo apt-get install --yes --no-install-recommends \
      shellcheck
 
 #
@@ -126,7 +126,7 @@ sudo apt-get install -y --no-install-recommends \
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-sudo apt-get install -y --no-install-recommends \
+sudo apt-get install --yes --no-install-recommends \
      python3 python3-dev python3-venv python3-pip python3-setuptools
 
 cargo install vivid fnm
@@ -167,92 +167,93 @@ echo "Installed base app. I will setup them for you."
 git clone --depth=1 https://github.com/azzamsa/scripts/ /tmp/scripts
 sudo mv /tmp/scripts/auto-suspend/ /opt/
 sudo chown -R "$USER:$USER" /opt/auto-suspend
-sudo ln -s /opt/auto-suspend/auto-suspend /usr/local/bin/auto-suspend
+sudo ln --symbolic /opt/auto-suspend/auto-suspend /usr/local/bin/auto-suspend
 
 # Wezterm
-curl -Lo /tmp/wezterm $wezterm_link
-sudo dpkg -i /tmp/wezterm
+curl --location $wezterm_link --output /tmp/wezterm
+sudo dpkg --install /tmp/wezterm
 
 # aw-qt
-curl -Lo /tmp/activitywatch.zip $activitywatch_link
+curl --location $activitywatch_link --output /tmp/activitywatch.zip
 unzip /tmp/activitywatch.zip
 sudo mv /tmp/activitywatch /opt/
-sudo chown -R "$USER:$USER" /opt/activitywatch
-sudo ln -s /opt/activitywatch/aw-qt /usr/local/bin/aw-qt
+sudo chown --recursive "$USER:$USER" /opt/activitywatch
+sudo ln --symbolic /opt/activitywatch/aw-qt /usr/local/bin/aw-qt
 
 # Nextcloud
-curl -Lo /tmp/nextcloud $nextcloud_link
+curl --location  $nextcloud_link --output /tmp/nextcloud
 chmod +x /tmp/nextcloud
 sudo mv /tmp/nextcloud /opt/
-sudo chown -R "$USER:$USER" /opt/nextcloud
-sudo ln -s /opt/nextcloud /usr/local/bin/nextcloud
+sudo chown --recursive "$USER:$USER" /opt/nextcloud
+sudo ln --symbolic /opt/nextcloud /usr/local/bin/nextcloud
 
 # Insomnia
-curl -Lo /tmp/insomnia $insomnia_link
+curl --location $insomnia_link --output /tmp/insomnia
 chmod +x /tmp/insomnia
 mv /tmp/insomnia /opt/
-sudo chown -R "$USER:$USER" /opt/insomnia
-sudo ln -s /opt/insomnia /usr/local/bin/insomnia
+sudo chown --recursive "$USER:$USER" /opt/insomnia
+sudo ln --symbolic /opt/insomnia /usr/local/bin/insomnia
 
 # Additional aspell dictionaries
-curl -Lo /tmp/aspell5-id.tar.bz2 $aspell_link
-tar -xf /tmp/aspell5-id.tar.bz2
+curl --location $aspell_link --output /tmp/aspell5-id.tar.bz2
+tar --file /tmp/aspell5-id.tar.bz2 --extract
 ./tmp/aspell5-id-1.2-0/configure
-sudo make -C /tmp/aspell5-id-1.2-0/ install
+sudo make --directory /tmp/aspell5-id-1.2-0/ install
 
 ## Firefox
-curl -Lo /tmp/firefox.tar.bz2 $firefox_link
-tar -xf /tmp/firefox.tar.bz2
+curl --location $firefox_link --output /tmp/firefox.tar.bz2
+tar --file /tmp/firefox.tar.bz2 --extract
 sudo mv /tmp/firefox/ /opt/
-sudo chown -R "$USER:$USER" /opt/firefox
-sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
+sudo chown --recursive "$USER:$USER" /opt/firefox
+sudo ln --symbolic /opt/firefox/firefox /usr/local/bin/firefox
 
 ## Telegram
-curl -Lo /tmp/tsetup.tar.xz $telegram_link
-tar -xf /tmp/tsetup.tar.xz
+curl --location  $telegram_link --output /tmp/tsetup.tar.xz
+tar --file /tmp/tsetup.tar.xz --extract
 sudo mv /tmp/Telegram/ /opt/
-sudo chown -R "$USER:$USER" /opt/Telegram
-sudo ln -s /opt/Telegram/Telegram /usr/local/bin/Telegram
+sudo chown --recursive "$USER:$USER" /opt/Telegram
+sudo ln --symbolic /opt/Telegram/Telegram /usr/local/bin/Telegram
 
 ## greenclip
-curl -Lo /tmp/greenclip $greenclip_link
+curl --location $greenclip_link --output /tmp/greenclip
 chmod +x /tmp/greenclip
 sudo mv /tmp/greenclip /opt/
-sudo ln -s /opt/greenclip /usr/local/bin/greenclip
+sudo ln --symbolic /opt/greenclip /usr/local/bin/greenclip
 
 ## pass-otp
 git clone https://github.com/tadfisher/pass-otp /tmp/pass-otp
-sudo make -C /tmp/pass-otp install
+sudo make --directory /tmp/pass-otp install
 
 # wallpaper, sounds, fonts, and icons
 mkdir ~/sounds ~/wallpapers
 
-curl -Lo ~/wallpapers/wallpapers.tar.gz "$wallpapers_link"
-tar -xf ~/wallpapers/wallpapers.tar.gz
+curl --location "$wallpapers_link" --output ~/wallpapers/wallpapers.tar.gz
+tar --file ~/wallpapers/wallpapers.tar.gz --extract
 rm ~/wallpapers/wallpapers.tar.gz
 
-curl -Lo ~/sounds/sounds.tar.gz "$sounds_link"
-tar -xf ~/sounds/sounds.tar.gz
+curl --location "$sounds_link" --output ~/sounds/sounds.tar.gz
+tar --file ~/sounds/sounds.tar.gz --extract
 rm ~/sounds/sounds.tar.gz
 
 # Fonts
-mkdir -p ~/.local/share/fonts
-curl -Lo ~/.local/share/fonts/fonts.tar.gz "$fonts_link"
-tar -xf ~/.local/share/fonts/fonts.tar.gz
+mkdir --parents ~/.local/share/fonts
+curl --location "$fonts_link" --output ~/.local/share/fonts/fonts.tar.gz
+tar --file ~/.local/share/fonts/fonts.tar.gz --extract
 rm ~/.local/share/fonts/fonts.tar.gz
+# -f force, -v verbose
 fc-cache -fv
 
 # Icons
 mkdir ~/.icons
-curl -Lo ~/.icons/.icons.tar.gz "$icons_link"
-tar -xf ~/.icons/.icons.tar.gz
+curl --location~/.icons/.icons.tar.gz "$icons_link"
+tar --file ~/.icons/.icons.tar.gz --extract
 rm ~/.icons/.icons.tar.gz
 
 # Global icons
-sudo mkdir -p /usr/share/icons/apps/
-sudo chown -R "$USER:$USER" /usr/share/icons/apps
-curl -Lo /usr/share/icons/apps/icons.tar.gz "$icon_apps_link"
-tar -xf /usr/share/icons/apps/icons.tar.gz
+sudo mkdir --parents /usr/share/icons/apps/
+sudo chown --recursive "$USER:$USER" /usr/share/icons/apps
+curl --location "$icon_apps_link" --output /usr/share/icons/apps/icons.tar.gz
+tar --file /usr/share/icons/apps/icons.tar.gz --extract
 rm /usr/share/icons/apps/icons.tar.gz
 
 # Emacs
@@ -278,15 +279,15 @@ echo "
 HandleSuspendKey=ignore
 HandleLidSwitch=ignore
 HandleLidSwitchDocked=ignore
-"  | sudo tee -a /etc/systemd/logind.conf
+"  | sudo tee --append /etc/systemd/logind.conf
 
 # Disable pc speaker
-echo "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
+echo "blacklist pcspkr" | sudo tee --append /etc/modprobe.d/nobeep.conf
 
 # .desktop files
-mkdir -p ~/.local/share/applications
-curl -Lo ~/.local/share/applications/firefox.desktop "$firefox_desktop"
-curl -Lo ~/.local/share/applications/insomnia.desktop "$insomnia_desktop"
+mkdir --parents ~/.local/share/applications
+curl --location "$firefox_desktop" --output ~/.local/share/applications/firefox.desktop
+curl --location "$insomnia_desktop" --output ~/.local/share/applications/insomnia.desktop
 
 # Python
 
@@ -300,7 +301,7 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 sudo mv /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.bak
 
 # Use lockscreen as LightDM background
-sudo mkdir -p /usr/share/backgrounds/
+sudo mkdir --parents /usr/share/backgrounds/
 sudo cp ~/wallpapers/lockscreen.png /usr/share/backgrounds/lockscreen.png
 
 echo "

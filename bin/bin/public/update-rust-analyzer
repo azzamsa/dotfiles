@@ -5,7 +5,7 @@
 
 link="https://github.com/rust-analyzer/rust-analyzer/releases/download/$1/rust-analyzer-x86_64-unknown-linux-gnu.gz"
 
-curl -L "$link" -o /tmp/rust-analyzer.gz
+curl --location "$link" --output /tmp/rust-analyzer.gz
 gunzip /tmp/rust-analyzer.gz
 chmod +x /tmp/rust-analyzer
 sudo cp /tmp/rust-analyzer /usr/local/bin/
