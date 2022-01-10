@@ -26,6 +26,9 @@ alias g "git"
 alias ytdl "youtube-dl"
 alias rrepl "evcxr" # I can't remember evcxr
 
+# fd in debian is `fdfind` which is too long
+alias fd "fdfind"
+
 set colorflag "--color"
 alias l "ls -lF $colorflag"
 alias la "ls -AltGhF --group-directories-first $colorflag"
