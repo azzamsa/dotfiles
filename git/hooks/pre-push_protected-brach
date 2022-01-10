@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#
+# Protect a master branch
+#
+
+# Prevent a push to a master branch
+# Commonly used if you are using Github's workflow
+
+remote="$1"
+
+protected_branch='master'
+current_branch=$(git branch --show-current)
+
+# only upstream branch is protected
+if [ $protected_branch = "$current_branch" ] && [ "$remote" = 'upstream' ]
+then
+    echo "${protected_branch} branch is protected 🔒."
+    exit 1
+fi
