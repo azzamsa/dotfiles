@@ -270,6 +270,29 @@ curl -Lo ~/.local/share/applications/insomnia.desktop "$insomnia_desktop"
 # in Debian, it points to python2
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
+#
+# Setup lightdm
+#
+
+# This setup needs to be in the last step, because it depends on wallpapers to be setting up before hand.
+sudo mv /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.bak
+
+# Use lockscreen as lightdm background
+sudo mkdir -p /usr/share/backgrounds/
+sudo cp ~/wallpapers/lockscreen.png /usr/share/backgrounds/lockscreen.png
+
+echo "
+[greeter]
+background = /usr/share/backgrounds/lockscreen.png
+theme-name = Arc
+icon-theme-name = Papirus-Light
+font-name = Victor Mono
+xft-antialias = true
+xft-hintstyle = hintslight
+xft-rgba = rgb
+"  | sudo tee --append /etc/lightdm/lightdm-gtk-greeter.conf
+
+
 echo "Setup finished"
 cat <<- EOF
 Your next TODO:
