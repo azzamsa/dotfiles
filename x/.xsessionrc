@@ -9,3 +9,6 @@ export SSH_AUTH_SOCK
 
 # Setup autorand
 /home/azzamsa/.config/bspwm/scripts/monitor.sh &
+
+# window compositor
+picom &

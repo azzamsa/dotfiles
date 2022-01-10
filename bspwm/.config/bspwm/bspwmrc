@@ -59,10 +59,6 @@ bspc rule --add Workrave state=sticky
 # pkill auto-brightness
 # auto-brightness &
 
-## window compositor
-pkill picom
-picom &
-
 # status bar
 pkill polybar
 "$HOME"/.config/polybar/launch.sh &
