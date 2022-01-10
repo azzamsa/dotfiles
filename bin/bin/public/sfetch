@@ -18,6 +18,7 @@ Just run it as normal executable file:
 Example output:
     ❯ ./sfetch
     OS: Debian GNU/Linux 11 (bullseye)
+    Kernel: Linux 5.10.0-10-amd64
     CPU: Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz
     Memory: 15893512 kB
     Emacs version: GNU Emacs 29.0.50 (build 1, x86_64-pc-linux-gnu, GTK+ Version 3.24.24, cairo version 1.16.0) of 2021-11-30
@@ -74,7 +75,15 @@ def memory():
     return f"Memory: {' '.join(memory_total_list)}"
 
 
+def kernel():
+    command = ["uname", "--kernel-name", "--kernel-release"]
+    raw_output, _ = shell(command)
+    output = raw_output.decode("utf-8").strip()
+    return f"Kernel: {output}"
+
+
 print(os_version())
+print(kernel())
 print(cpu())
 print(memory())
 print(emacs_version())
