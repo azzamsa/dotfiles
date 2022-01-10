@@ -47,7 +47,7 @@ bspc rule --add Firefox follow=on
 bspc rule --add Arandr
 
 bspc rule --add "Screen Layout Editor" desktop='^4'
-bspc rule --add mpv desktop='^4'
+bspc rule --add mpv desktop='^4' follow=on
 bspc rule --add Workrave state=sticky
 
 
