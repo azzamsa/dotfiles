@@ -60,7 +60,7 @@ sudo apt-get install --yes --no-install-recommends \
      mpv gimp inkscape libreoffice libreoffice-gtk3 audacity \
      okular okular-extra-backends evince system-config-printer \
      aspell aspell-en \
-     zoxide ripgrep arc-theme
+     zoxide ripgrep fd-find arc-theme
 
 #
 # Family
