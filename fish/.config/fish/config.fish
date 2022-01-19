@@ -1,7 +1,7 @@
 set fish_greeting # no greeting
 
 # Exports
-set -g fish_user_paths ~/bin/private ~/bin/public ~/.local/bin ~/.cargo/bin ~/.nodebin/node_modules/.bin ~/localbin $fish_user_paths
+set -g fish_user_paths ~/bin/private ~/bin/public ~/.local/bin ~/.cargo/bin ~/.nodebin/node_modules/.bin ~/localbin ~/.poetry/bin $fish_user_paths
 set -gx EDITOR emacs
 set -gx QT_QPA_PLATFORMTHEME qt5ct
 set -gx SXHKD_SHELL sh
