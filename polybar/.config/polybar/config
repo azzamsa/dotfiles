@@ -1,10 +1,10 @@
 [colors]
-background = #eceff4
-background-alt = #d8dee9
-foreground =  #4c566a
-foreground-alt = #5e81ac
-accent = #88c0d0
-alert = #ebcb8b
+background = #282828
+background-alt = #8a8a8a
+foreground =  #ffffc8
+foreground-alt = #87afaf
+accent = #fe8019
+alert = #fb4933
 
 [bar/bar1]
 monitor = ${env:MONITOR:HDMI-1}

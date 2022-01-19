@@ -13,7 +13,7 @@ zoxide init fish | source
 starship init fish | source
 fnm env | source
 
-set -x LS_COLORS (vivid generate nord)
+set -x LS_COLORS (vivid generate molokai)
 
 # Alias
 alias in "sudo apt install"
@@ -58,11 +58,11 @@ if test "$TERM" = "dumb"
 end
 
 # Color scheme
-set -U fish_color_error               81a1c1 # #81a1c1 default color when typing suggestion
-set -U fish_color_autosuggestion      6B7280 # #6B7280 suggestion
-set -U fish_color_command             5e81ac # #5e81ac binary command
-set -U fish_color_quote               a3be8c # #a3be8c text color inside the quote
-set -U fish_color_comment             a3be8c # #a3be8c comment color
+set -U fish_color_error               fe8019 # #fe8019 default color when typing suggestion
+set -U fish_color_autosuggestion      d5c4a1 # #d5c4a1 suggestion
+set -U fish_color_command             d787af # #d787af binary command
+set -U fish_color_quote               b8bb26 # #b8bb26 text color inside the quote
+set -U fish_color_comment             b8bb26 # #b8bb26 comment color
 set -U fish_color_valid_path          --underline # attribute for a valid path
 set -U fish_color_param               88c0d0 # #88c0d0 paremeter color such `--version`
 set -U fish_color_cancel              bf616a # #bf616a

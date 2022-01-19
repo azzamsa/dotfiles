@@ -6,11 +6,11 @@ local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 -- The filled in variant of the > symbol
 local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
-local COL_BG = "#eceff4"
-local COL_BG_ALT = "#d8dee9"
-local COL_FG = "#4c566a"
-local COL_FG_ALT = "#5e81ac"
-local COL_ACCENT = "#88c0d0"
+local COL_BG = "#282828"
+local COL_BG_ALT = "#8a8a8a"
+local COL_FG = "#ffffc8"
+local COL_FG_ALT = "#87afaf"
+local COL_ACCENT = "#fe8019"
 
 function strip_home_name(text)
 	local username = os.getenv("USER")
@@ -67,10 +67,10 @@ end)
 return {
 	--color_scheme = "ayu_light",
 	default_cursor_style = "BlinkingBar",
-	font_size = 16.0,
+	font_size = 17.0,
 	font = wezterm.font_with_fallback({
+        "Fira Code",
 		"Victor Mono",
-		"Fira Code",
 		"Font Awesome 6 Free Regular",
 		"Font Awesome 6 Free Solid",
 		"Font Awesome 6 Free Brands Regular",
