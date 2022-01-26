@@ -175,7 +175,7 @@ scroll-down = polybar-msg -p %pid% hook speaker 4
 
 [module/brightness]
 type = custom/ipc
-format-foreground = ${colors.foreground-alt}
+format-foreground = ${colors.foreground}
 
 hook-0 = $HOME/bin/public/brightness.sh default
 hook-1 = $HOME/bin/public/brightness.sh brighten && dunstify -t 1000 "Brightness" "brighten"
