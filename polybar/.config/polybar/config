@@ -1,10 +1,9 @@
 [colors]
-background = #282828
-background-alt = #8a8a8a
-foreground =  #ffffc8
-foreground-alt = #87afaf
-accent = #fe8019
-alert = #fb4933
+background = #282a36
+foreground =  #f8f8f2
+foreground-alt = #6272a4
+accent = #bd93f9
+alert = #ff5555
 
 [bar/bar1]
 monitor = ${env:MONITOR:HDMI-1}
@@ -55,7 +54,7 @@ type = internal/bspwm
 pin-workspaces = true
 
 label-focused = %name%
-label-focused-background= ${colors.accent}
+label-focused-background = ${colors.accent}
 label-focused-padding = 1
 label-occupied = %name%
 label-occupied-padding = 1

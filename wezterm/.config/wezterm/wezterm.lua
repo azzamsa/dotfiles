@@ -6,11 +6,11 @@ local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 -- The filled in variant of the > symbol
 local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
-local COL_BG = "#282828"
-local COL_BG_ALT = "#8a8a8a"
-local COL_FG = "#ffffc8"
-local COL_FG_ALT = "#87afaf"
-local COL_ACCENT = "#fe8019"
+local COL_BG = "#282a36"
+local COL_BG_ALT = "#6272a4"
+local COL_FG = "#f8f8f2"
+local COL_FG_ALT = "#bd93f9"
+local COL_ACCENT = "#ff79c6"
 
 function strip_home_name(text)
 	local username = os.getenv("USER")

@@ -57,29 +57,40 @@ if test "$TERM" = "dumb"
   function fish_title; end
 end
 
-# Color scheme
-set -U fish_color_error               fe8019 # #fe8019 default color when typing suggestion
-set -U fish_color_autosuggestion      d5c4a1 # #d5c4a1 suggestion
-set -U fish_color_command             d787af # #d787af binary command
-set -U fish_color_quote               b8bb26 # #b8bb26 text color inside the quote
-set -U fish_color_comment             b8bb26 # #b8bb26 comment color
-set -U fish_color_valid_path          --underline # attribute for a valid path
-set -U fish_color_param               88c0d0 # #88c0d0 paremeter color such `--version`
-set -U fish_color_cancel              bf616a # #bf616a
-set -U fish_color_end                 0087af # #0087af
-set -U fish_color_escape              444444 # #444444
-set -U fish_color_history_current     d08770 # #d08770
-set -U fish_color_match               bf616a # #bf616a
-set -U fish_color_normal              eceff4 # #eceff4
-set -U fish_color_operator            b48ead # #b48ead
-set -U fish_color_redirection         005faf # #005faf
-set -U fish_color_search_match        5e81ac # #5e81ac
-set -U fish_color_selection           'white' '--bold' '--background=brblack'
-set -U fish_color_status              red
-set -U fish_pager_color_completion    0087af # #0087af
-set -U fish_pager_color_description   yellow
-set -U fish_pager_color_prefix        d08770 # #d08770 # completion color such when doing `cd dotfiles/bspwm/.`
-set -U fish_pager_color_progress      'brwhite' '--background=cyan'
+#  Color Palette
+set -l foreground f8f8f2
+set -l selection 44475a
+set -l comment 6272a4
+set -l red ff5555
+set -l orange ffb86c
+set -l yellow f1fa8c
+set -l green 50fa7b
+set -l purple bd93f9
+set -l cyan 8be9fd
+set -l pink ff79c6
+
+# Syntax Highlighting Colors
+set -g fish_color_normal $foreground
+set -g fish_color_command $cyan
+set -g fish_color_keyword $pink
+set -g fish_color_quote $yellow
+set -g fish_color_redirection $foreground
+set -g fish_color_end $orange
+set -g fish_color_error $red
+# paremeter color such `--version`
+set -g fish_color_param $purple
+set -g fish_color_comment $comment
+set -g fish_color_selection --background=$selection
+set -g fish_color_search_match --background=$selection
+set -g fish_color_operator $green
+set -g fish_color_escape $pink
+set -g fish_color_autosuggestion $comment
+
+# Completion Pager Colors
+set -g fish_pager_color_progress $comment
+set -g fish_pager_color_prefix $cyan
+set -g fish_pager_color_completion $foreground
+set -g fish_pager_color_description $comment
 
 
 # tell fisher not to put a mess in ~/.config

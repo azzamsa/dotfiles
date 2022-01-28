@@ -1,22 +1,22 @@
 [character]
-success_symbol = "[❯](bold #fe8019)"
-error_symbol = "[✗](#fb4933)"
+success_symbol = "[❯](bold #bd93f9)"
+error_symbol = "[✗](#ff5555)"
 
 [directory]
-format = "[$path]($style fg:#fe8019) "
+format = "[$path]($style fg:#bd93f9) "
 read_only = " "
 
 [cmd_duration]
-format = '[ $duration ]($style fg:#87afaf)'
+format = '[ $duration ]($style fg:#6272a4)'
 
 [git_branch]
-format = "[on]($style fg:#d08770) [$symbol$branch ]($style fg:#a3be8c)"
+format = "[on]($style fg:#ffb86c) [$symbol$branch ]($style fg:#f1fa8c)"
 
 [git_status]
-style = "bold fg:#d08770"
+style = "bold fg:#ffb86c)"
 
 [python]
-style = "bold fg:#d08770"
+style = "bold fg:#ffb86c)"
 # Original python status doesn't have space ater it.
 # It mixed with the next status. Otherwise, we don't
 # need to override the format here.
