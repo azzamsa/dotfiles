@@ -37,7 +37,7 @@ bspc config normal_border_color "#d8dee9"
 
 bspc rule --add Wezterm desktop='^1'
 # Emacs is floating by default
-bspc rule --add Emacs desktop='^1' state=tiled
+bspc rule --add Emacs state=tiled
 
 # `follow=on` I want the desktop to switch to the browser
 # after I open the link from other app in different desktop
