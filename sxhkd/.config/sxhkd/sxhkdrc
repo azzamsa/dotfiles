@@ -73,9 +73,6 @@ super + {_, shift+}Tab
 super + e; {_,shift + }{l, u, y, o}
   bspc {desktop --focus,node --to-desktop} '{1,2,3,4}'
 
-# super + {4,5,6,7}
-# super + e; {l, u, y, o}
-#  bspc desktop --focus {1,2,3,4}
 
 #
 # Preselect
