@@ -81,7 +81,7 @@ return {
 	warn_about_missing_glyphs = false,
 	check_for_updates = false,
 	-- Tab Bar Options
-	use_fancy_tab_bar = false,
+	use_fancy_tab_bar = true,
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,
 	show_tab_index_in_tab_bar = false,
@@ -137,7 +137,7 @@ return {
 	-- keybindings
 	disable_default_key_bindings = true,
 	quick_select_alphabet = "colemak",
-	leader = { key = "n", mods = "SUPER", timeout_milliseconds = 2000 },
+	leader = { key = "n", mods = "CTRL", timeout_milliseconds = 2000 },
 	keys = {
 		{ key = "r", mods = "LEADER", action = "ReloadConfiguration" },
 		--

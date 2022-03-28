@@ -1,5 +1,0 @@
-#!/usr/bin/sh
-
-# Putting this here instead of global post-switch in case
-# I need manual window management in the future
-bspc wm -r

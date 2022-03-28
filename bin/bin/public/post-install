@@ -1,15 +1,12 @@
 #!/bin/sh
 
-wezterm_link="https://github.com/wez/wezterm/releases/download/20211204-082213-a66c61ee9/wezterm-20211204-082213-a66c61ee.Debian11.deb"
 activitywatch_link="https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip"
 nextcloud_link="https://github.com/nextcloud/desktop/releases/download/v3.3.5/Nextcloud-3.3.5-x86_64.AppImage"
 insomnia_link="https://github.com/Kong/insomnia/releases/download/core%402021.5.3/Insomnia.Core-2021.5.3.AppImage"
 aspell_link="https://ftp.gnu.org/gnu/aspell/dict/id/aspell5-id-1.2-0.tar.bz2"
 firefox_link="https://download-installer.cdn.mozilla.net/pub/firefox/releases/92.0.1/linux-x86_64/en-US/firefox-92.0.1.tar.bz2"
 telegram_link="https://updates.tdesktop.com/tlinux/tsetup.3.1.1.tar.xz"
-greenclip_link="https://github.com/erebe/greenclip/releases/download/v4.2/greenclip"
 
-wallpapers_link="https://www.dropbox.com/s/o5gvczc3ymgg8vv/wallpapers.tar.gz?dl=0"
 sounds_link="https://www.dropbox.com/s/whao1ljkd26n3nw/sounds.tar.gz?dl=0"
 fonts_link="https://www.dropbox.com/s/jp7s95ihd48edar/fonts.tar.gz?dl=0"
 icons_link="https://www.dropbox.com/s/4wn1fczsx050gvl/.icons.tar.gz?dl=0"
@@ -38,12 +35,9 @@ sudo apt --yes update
 # without `gstreamer1.0-pulseaudio` apps can't play sound (such workrave can't play .wav notification sound)
 # `alsa-utils` provide amixer command. It is easier to use than built-in pactl
 sudo apt-get install --yes --no-install-recommends \
-     xserver-xorg xinit libdbus-1-dev pkg-config \
-     sudo firmware-iwlwifi x11-xserver-utils libssl-dev \
-     pavucontrol pulseaudio gstreamer1.0-pulseaudio alsa-utils\
+     libssl-dev \
      blueman bluez pulseaudio-module-bluetooth \
-     fish fuse git etckeeper gnupg2 ssh ssh-agent curl stow rsync \
-     gnome-keyring
+     fuse git etckeeper gnupg2 ssh ssh-agent curl stow rsync
 
 #
 # Utilities
@@ -52,25 +46,13 @@ sudo apt-get install --yes --no-install-recommends \
 # xclip required by pass to copy to clipboard
 # gvfs-fuse gvfs-backends adds support for sftp in thunar
 sudo apt-get install --yes --no-install-recommends \
-     bspwm sxhkd polybar picom autorandr arandr i3lock rofi light dunst unclutter \
-     pass light xclip network-manager-gnome \
-     flameshot feh ristretto peek file-roller mousepad workrave \
-     thunar thunar-archive-plugin gvfs-fuse gvfs-backends \
+     flameshot copyq peek file-roller workrave \
      htop tar zip unzip unar unrar-free ncdu mat2 borgbackup gparted \
      mpv gimp inkscape libreoffice libreoffice-gtk3 audacity \
      okular okular-extra-backends evince system-config-printer \
      aspell aspell-en \
-     zoxide ripgrep fd-find arc-theme \
+     zoxide ripgrep fd-find \
      markdown telnet
-
-#
-# Family
-#
-
-# This machines is shared among family members
-# It is hard for them to memorize bunch of window manager keybindings
-sudo apt-get install --yes --no-install-recommends \
-     lightdm xfce4 xfce4-battery-plugin
 
 #
 # Additional packages
@@ -90,15 +72,6 @@ sudo apt-get install --yes --no-install-recommends libhidapi-dev
 # qmk setup -H /media/$USER/exts1/source/qmk_firmware
 # qmk config user.keyboard=sofle/rev1 user.keymap=$USER user.name=$USER
 
-#
-# Screen
-#
-
-# - Prepare the desired screen layout using arandr
-# - Save the layout using `autorandr --save docked`
-# - The common layouts are: `docked`, `mobile`, and `demo`
-# - To load the layout use `autorandr --load demo`
-# Docked for work, mobile while on the go, demo for presentation
 
 #
 # Bluetooth
@@ -115,6 +88,11 @@ sudo systemctl start bluetooth.service
 #
 
 # fish
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
+curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
+sudo apt update
+sudo apt install fish
+
 chsh -s "$(which fish)" # change default shell to fish
 
 # Bash
@@ -164,16 +142,6 @@ vf new --python python3 global
 
 echo "Installed base app. I will setup them for you."
 
-# auto-suspend
-git clone --depth=1 https://github.com/azzamsa/scripts/ /tmp/scripts
-sudo mv /tmp/scripts/auto-suspend/ /opt/
-sudo chown -R "$USER:$USER" /opt/auto-suspend
-sudo ln --symbolic /opt/auto-suspend/auto-suspend /usr/local/bin/auto-suspend
-
-# Wezterm
-curl --location $wezterm_link --output /tmp/wezterm
-sudo dpkg --install /tmp/wezterm
-
 # aw-qt
 curl --location $activitywatch_link --output /tmp/activitywatch.zip
 unzip /tmp/activitywatch.zip
@@ -215,22 +183,12 @@ sudo mv /tmp/Telegram/ /opt/
 sudo chown --recursive "$USER:$USER" /opt/Telegram
 sudo ln --symbolic /opt/Telegram/Telegram /usr/local/bin/Telegram
 
-## greenclip
-curl --location $greenclip_link --output /tmp/greenclip
-chmod +x /tmp/greenclip
-sudo mv /tmp/greenclip /opt/
-sudo ln --symbolic /opt/greenclip /usr/local/bin/greenclip
-
 ## pass-otp
 git clone https://github.com/tadfisher/pass-otp /tmp/pass-otp
 sudo make --directory /tmp/pass-otp install
 
-# wallpaper, sounds, fonts, and icons
-mkdir ~/sounds ~/wallpapers
-
-curl --location "$wallpapers_link" --output ~/wallpapers/wallpapers.tar.gz
-tar --file ~/wallpapers/wallpapers.tar.gz --extract
-rm ~/wallpapers/wallpapers.tar.gz
+#  sounds, fonts, and icons
+mkdir ~/sounds
 
 curl --location "$sounds_link" --output ~/sounds/sounds.tar.gz
 tar --file ~/sounds/sounds.tar.gz --extract
@@ -271,17 +229,6 @@ for d in ~/dotfiles/*/ ; do
     stow "$d" --no-folding
 done
 
-# mu4e
-# mu init --maildir=~/Email/secret --my-address=secret
-
-# Dual-monitor
-# Keep the laptot alive even if no HDMI connection
-echo "
-HandleSuspendKey=ignore
-HandleLidSwitch=ignore
-HandleLidSwitchDocked=ignore
-"  | sudo tee --append /etc/systemd/logind.conf
-
 # Disable pc speaker
 echo "blacklist pcspkr" | sudo tee --append /etc/modprobe.d/nobeep.conf
 
@@ -295,37 +242,3 @@ curl --location "$insomnia_desktop" --output ~/.local/share/applications/insomni
 # Set default python to python3
 # in Debian, it points to python2
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
-
-# Display manager
-
-# This setup needs to be in the last step, because it depends on wallpapers to be setting up before hand.
-sudo mv /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.bak
-
-# Use lockscreen as LightDM background
-sudo mkdir --parents /usr/share/backgrounds/
-sudo cp ~/wallpapers/lockscreen.png /usr/share/backgrounds/lockscreen.png
-
-echo "
-[greeter]
-background = /usr/share/backgrounds/lockscreen.png
-theme-name = Arc
-icon-theme-name = Papirus-Light
-font-name = Victor Mono
-xft-antialias = true
-xft-hintstyle = hintslight
-xft-rgba = rgb
-"  | sudo tee --append /etc/lightdm/lightdm-gtk-greeter.conf
-
-# Set bspwm as default session in X
-sudo update-alternatives --install /usr/bin/x-session-manager x-session-manager /usr/bin/bspwm 60
-
-# set LightDM as default display manager
-sudo dpkg-reconfigure lightdm
-
-echo "Setup finished"
-cat <<- EOF
-Your next TODO:
-  1. change BIOS setting for beep
-  2. copy .authinfo.gpg and Email
-  3. build emacs
-EOF
