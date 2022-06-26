@@ -12,6 +12,7 @@ set -gx _JAVA_AWT_WM_NONREPARENTING 1
 zoxide init fish | source
 starship init fish | source
 fnm env | source
+atuin init fish | source
 
 set -x LS_COLORS (vivid generate molokai)
 
