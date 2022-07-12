@@ -1,17 +1,5 @@
 local wezterm = require("wezterm")
 
-local LEFT_ARROW = utf8.char(0xff0b3)
--- The filled in variant of the < symbol
-local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
--- The filled in variant of the > symbol
-local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
-
-local COL_BG = "#282a36"
-local COL_BG_ALT = "#6272a4"
-local COL_FG = "#f8f8f2"
-local COL_FG_ALT = "#bd93f9"
-local COL_ACCENT = "#ff79c6"
-
 function strip_home_name(text)
 	local username = os.getenv("USER")
 	clean_text = text:gsub("/home/" .. username, "~")
@@ -33,50 +21,15 @@ wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
 	return zoomed .. index .. clean_title
 end)
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	-- edge icon
-	local edge_background = COL_BG
-	-- inactive tab
-	local background = COL_BG_ALT
-	local foreground = COL_FG
-
-	if tab.is_active then
-		background = COL_FG_ALT
-		foreground = COL_BG
-	elseif hover then
-		background = COL_ACCENT
-		foreground = COL_FG
-	end
-
-	local edge_foreground = background
-	clean_title = strip_home_name(tab.active_pane.title)
-
-	return {
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_LEFT_ARROW },
-		{ Background = { Color = background } },
-		{ Foreground = { Color = foreground } },
-		{ Text = clean_title },
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_RIGHT_ARROW },
-	}
-end)
-
 return {
-	--color_scheme = "ayu_light",
+	color_scheme = "Dracula",
 	default_cursor_style = "BlinkingBar",
-	font_size = 17.0,
+	font_size = 18.0,
 	font = wezterm.font_with_fallback({
-        "Fira Code",
-		"Victor Mono",
+		"Rec Mono Duotone",
 		"Font Awesome 6 Free Regular",
 		"Font Awesome 6 Free Solid",
 		"Font Awesome 6 Free Brands Regular",
-		"Font Awesome 5 Free Regular",
-		"Font Awesome 5 Free Solid",
-		"Font Awesome 5 Brands Regular",
 	}),
 	warn_about_missing_glyphs = false,
 	check_for_updates = false,
@@ -91,18 +44,6 @@ return {
 	-- Misc
 	adjust_window_size_when_changing_font_size = false,
 	-- Theme
-	colors = {
-		background = COL_BG,
-		foreground = COL_FG,
-		selection_bg = COL_ACCENT,
-		tab_bar = {
-			background = COL_BG,
-			new_tab = {
-				bg_color = COL_BG,
-				fg_color = COL_FG,
-			},
-		},
-	},
 	inactive_pane_hsb = {
 		saturation = 0.1,
 		brightness = 1.0,
@@ -135,44 +76,6 @@ return {
 		},
 	},
 	-- keybindings
-	disable_default_key_bindings = true,
+	disable_default_key_bindings = false,
 	quick_select_alphabet = "colemak",
-	leader = { key = "n", mods = "CTRL", timeout_milliseconds = 2000 },
-	keys = {
-		{ key = "r", mods = "LEADER", action = "ReloadConfiguration" },
-		--
-		{
-			key = "h",
-			mods = "LEADER",
-			action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
-		},
-		{ key = "v", mods = "LEADER", action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
-		{ key = "t", mods = "LEADER", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
-		{ key = "X", mods = "LEADER", action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
-		{ key = "x", mods = "LEADER", action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
-		{ key = "z", mods = "LEADER", action = "TogglePaneZoomState" },
-		{ key = "f", mods = "LEADER", action = "QuickSelect" },
-		{ key = "w", mods = "LEADER", action = "ActivateCopyMode" },
-		{ key = "s", mods = "LEADER", action = wezterm.action({ Search = { CaseInSensitiveString = "" } }) },
-		{ key = "PageUp", mods = "NONE", action = wezterm.action({ ScrollByPage = -1 }) },
-		{ key = "PageDown", mods = "NONE", action = wezterm.action({ ScrollByPage = 1 }) },
-		--
-		{ key = "Tab", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = 1 }) },
-		{ key = "Tab", mods = "LEADER|SHIFT", action = wezterm.action({ ActivateTabRelative = -1 }) },
-		--
-		{ key = "i", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
-		{ key = "n", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
-		{ key = "u", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
-		{ key = "e", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
-		{ key = "Enter", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Next" }) },
-		{ key = "Enter", mods = "LEADER|SHIFT", action = wezterm.action({ ActivatePaneDirection = "Prev" }) },
-		--
-		-- 5 and 8 map to my arrow keys
-		{ key = "2", mods = "ALT", action = "ResetFontSize" },
-		{ key = "5", mods = "ALT", action = "DecreaseFontSize" },
-		{ key = "8", mods = "ALT", action = "IncreaseFontSize" },
-		--
-		{ key = "w", mods = "ALT", action = wezterm.action({ CopyTo = "Clipboard" }) },
-		{ key = "y", mods = "CTRL", action = wezterm.action({ PasteFrom = "Clipboard" }) },
-	},
 }
