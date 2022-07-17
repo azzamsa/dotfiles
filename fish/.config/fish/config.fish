@@ -3,10 +3,9 @@ set fish_greeting # no greeting
 # Exports
 set -g fish_user_paths ~/bin/private ~/bin/public ~/.local/bin ~/.cargo/bin ~/.nodebin/node_modules/.bin ~/localbin ~/.poetry/bin $fish_user_paths
 set -gx EDITOR emacs
-set -gx QT_QPA_PLATFORMTHEME qt5ct
-set -gx SXHKD_SHELL sh
 # Java applications menus immediately closing after the click
 set -gx _JAVA_AWT_WM_NONREPARENTING 1
+set -gx PNPM_HOME ~/.local/share/pnpm
 
 # Utilities
 zoxide init fish | source
@@ -22,19 +21,12 @@ alias inn "sudo apt-get --no-install-recommends install"
 alias inb "sudo apt install -t bullseye-backports"
 
 alias c 'clear'
-alias rmd 'rm -rdf'
 alias g "git"
 alias ytdl "youtube-dl"
 alias rrepl "evcxr" # I can't remember evcxr
 
 # fd in debian is `fdfind` which is too long
 alias fd "fdfind"
-
-set colorflag "--color"
-alias l "ls -lF $colorflag"
-alias la "ls -AltGhF --group-directories-first $colorflag"
-alias lsd "ls -lF $colorflag | grep --color=never '^d'"
-alias ls "command ls $colorflag"
 
 # Abbrev
 abbr crg "cargo"
