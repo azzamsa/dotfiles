@@ -7,6 +7,14 @@ function strip_home_name(text)
 	return clean_text
 end
 
+function clear_selection(window, pane)
+	local has_selection = window:get_selection_text_for_pane(pane) ~= ""
+	if has_selection then
+		window:perform_action(act.CopyTo("ClipboardAndPrimarySelection"), pane)
+		window:perform_action(act.ClearSelection, pane)
+	end
+end
+
 wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
 	local zoomed = ""
 	if tab.active_pane.is_zoomed then
@@ -92,7 +100,13 @@ return {
 		{ key = "/", mods = "LEADER", action = act({ Search = { CaseInSensitiveString = "" } }) },
 		{ key = "c", mods = "ALT", action = "ActivateCopyMode" },
 
-		{ key = "w", mods = "ALT", action = act({ CopyTo = "Clipboard" }) },
+		{
+			key = "w",
+			mods = "ALT",
+			action = wezterm.action_callback(function(window, pane)
+				clear_selection(window, pane)
+			end),
+		},
 		{ key = "y", mods = "CTRL", action = act({ PasteFrom = "Clipboard" }) },
 
 		{ key = "t", mods = "CTRL", action = act({ SpawnTab = "CurrentPaneDomain" }) },
@@ -160,8 +174,14 @@ return {
 			{ key = "Escape", action = "PopKeyTable" },
 		},
 		copy_mode = {
+			{
+				key = "y",
+				mods = "NONE",
+				action = wezterm.action_callback(function(window, pane)
+					clear_selection(window, pane)
+				end),
+			},
 
-			{ key = "y", mods = "NONE", action = act({ CopyTo = "Clipboard" }) },
 			{ key = "c", mods = "CTRL", action = act.CopyMode("Close") },
 			{ key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
 
