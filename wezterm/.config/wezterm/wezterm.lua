@@ -89,28 +89,31 @@ return {
 	leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 2000 },
 	keys = {
 		{ key = "f", mods = "LEADER", action = "QuickSelect" },
-		{ key = "/", mods = "LEADER", action = wezterm.action({ Search = { CaseInSensitiveString = "" } }) },
-		{ key = "w", mods = "CTRL", action = "ActivateCopyMode" },
+		{ key = "/", mods = "LEADER", action = act({ Search = { CaseInSensitiveString = "" } }) },
+		{ key = "c", mods = "ALT", action = "ActivateCopyMode" },
 
-		{ key = "w", mods = "ALT", action = wezterm.action({ CopyTo = "Clipboard" }) },
-		{ key = "y", mods = "CTRL", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+		{ key = "w", mods = "ALT", action = act({ CopyTo = "Clipboard" }) },
+		{ key = "y", mods = "CTRL", action = act({ PasteFrom = "Clipboard" }) },
 
-		{ key = "t", mods = "CTRL", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
+		{ key = "t", mods = "CTRL", action = act({ SpawnTab = "CurrentPaneDomain" }) },
+
+		{ key = "w", mods = "CTRL|SHIFT", action = act({ CloseCurrentTab = { confirm = false } }) },
+		{ key = "w", mods = "CTRL", action = act({ CloseCurrentPane = { confirm = false } }) },
 
 		{
 			key = "v",
 			mods = "CTRL|ALT",
-			action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
+			action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }),
 		},
 		{
 			key = "h",
 			mods = "CTRL|ALT",
-			action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
+			action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
 		},
-		{ key = "RightArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
-		{ key = "LeftArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
-		{ key = "UpArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
-		{ key = "DownArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
+		{ key = "RightArrow", mods = "ALT", action = act({ ActivatePaneDirection = "Right" }) },
+		{ key = "LeftArrow", mods = "ALT", action = act({ ActivatePaneDirection = "Left" }) },
+		{ key = "UpArrow", mods = "ALT", action = act({ ActivatePaneDirection = "Up" }) },
+		{ key = "DownArrow", mods = "ALT", action = act({ ActivatePaneDirection = "Down" }) },
 
 		{
 			key = "h",
@@ -157,6 +160,8 @@ return {
 			{ key = "Escape", action = "PopKeyTable" },
 		},
 		copy_mode = {
+
+			{ key = "y", mods = "NONE", action = act({ CopyTo = "Clipboard" }) },
 			{ key = "c", mods = "CTRL", action = act.CopyMode("Close") },
 			{ key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
 
@@ -165,8 +170,8 @@ return {
 			{ key = "e", mods = "NONE", action = act.CopyMode("MoveUp") },
 			{ key = "i", mods = "NONE", action = act.CopyMode("MoveRight") },
 
-			{ key = "f", mods = "ALT", action = act.CopyMode("MoveForwardWord") },
-			{ key = "b", mods = "ALT", action = act.CopyMode("MoveBackwardWord") },
+			{ key = "f", mods = "NONE", action = act.CopyMode("MoveForwardWord") },
+			{ key = "b", mods = "NONE", action = act.CopyMode("MoveBackwardWord") },
 
 			{ key = "0", mods = "NONE", action = act.CopyMode("MoveToStartOfLine") },
 			{ key = "$", mods = "NONE", action = act.CopyMode("MoveToEndOfLineContent") },
