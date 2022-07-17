@@ -5,3 +5,5 @@
 [credential]
 	username = azzam
 
+# [core]
+# 	sshCommand = ssh -o ProxyCommand=\"connect -S 127.0.0.1:8080 %h %p\"
