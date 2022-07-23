@@ -1,7 +1,7 @@
 set fish_greeting # no greeting
 
 # Exports
-set -g fish_user_paths ~/bin/private ~/bin/public ~/.local/bin ~/.cargo/bin ~/.nodebin/node_modules/.bin ~/localbin ~/.poetry/bin $fish_user_paths
+set -g fish_user_paths ~/bin/private ~/bin/public ~/.local/bin ~/.cargo/bin ~/.nodebin/node_modules/.bin ~/.poetry/bin ~/.local/share/pnpm $fish_user_paths
 set -gx EDITOR emacs
 # Java applications menus immediately closing after the click
 set -gx _JAVA_AWT_WM_NONREPARENTING 1
@@ -27,12 +27,6 @@ alias rrepl "evcxr" # I can't remember evcxr
 
 # fd in debian is `fdfind` which is too long
 alias fd "fdfind"
-
-# Abbrev
-abbr crg "cargo"
-abbr js "just"
-abbr mk "make"
-abbr pn "pnpm"
 
 ## expand !! such `sudo !!` bash equivalent
 function sudobangbang --on-event fish_postexec
