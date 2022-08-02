@@ -111,8 +111,8 @@ return {
 
 		{ key = "t", mods = "CTRL", action = act({ SpawnTab = "CurrentPaneDomain" }) },
 
-		{ key = "w", mods = "CTRL|SHIFT", action = act({ CloseCurrentTab = { confirm = false } }) },
-		{ key = "w", mods = "CTRL", action = act({ CloseCurrentPane = { confirm = false } }) },
+		{ key = "q", mods = "CTRL|SHIFT", action = act({ CloseCurrentTab = { confirm = true } }) },
+		{ key = "q", mods = "CTRL", action = act({ CloseCurrentPane = { confirm = true } }) },
 
 		{
 			key = "v",
