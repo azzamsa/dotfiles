@@ -3,10 +3,6 @@
 activitywatch_link="https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip"
 aspell_link="https://ftp.gnu.org/gnu/aspell/dict/id/aspell5-id-1.2-0.tar.bz2"
 
-sounds_link="https://www.dropbox.com/s/whao1ljkd26n3nw/sounds.tar.gz?dl=0"
-fonts_link="https://www.dropbox.com/s/jp7s95ihd48edar/fonts.tar.gz?dl=0"
-icons_link="https://www.dropbox.com/s/4wn1fczsx050gvl/.icons.tar.gz?dl=0"
-
 node_version="v16.12"
 
 # Add repository
@@ -40,7 +36,7 @@ sudo apt-get install --yes --no-install-recommends \
      flameshot copyq peek file-roller workrave \
      htop tar zip unzip unar unrar-free ncdu mat2 python3-nautilus borgbackup gparted \
      mpv gimp inkscape libreoffice libreoffice-gtk3 audacity \
-     okular okular-extra-backends evince system-config-printer \
+     evince system-config-printer \
      aspell aspell-en \
      zoxide ripgrep fd-find \
      markdown telnet
@@ -150,34 +146,6 @@ sudo make --directory /tmp/aspell5-id-1.2-0/ install
 git clone https://github.com/tadfisher/pass-otp /tmp/pass-otp
 sudo make --directory /tmp/pass-otp install
 
-#  sounds, fonts, and icons
-mkdir ~/sounds
-
-curl --location "$sounds_link" --output ~/sounds/sounds.tar.gz
-tar --file ~/sounds/sounds.tar.gz --extract
-rm ~/sounds/sounds.tar.gz
-
-# Fonts
-mkdir --parents ~/.local/share/fonts
-curl --location "$fonts_link" --output ~/.local/share/fonts/fonts.tar.gz
-tar --file ~/.local/share/fonts/fonts.tar.gz --extract
-rm ~/.local/share/fonts/fonts.tar.gz
-# -f force, -v verbose
-fc-cache -fv
-
-# Icons
-mkdir ~/.icons
-curl --location~/.icons/.icons.tar.gz "$icons_link"
-tar --file ~/.icons/.icons.tar.gz --extract
-rm ~/.icons/.icons.tar.gz
-
-# Global icons
-sudo mkdir --parents /usr/share/icons/apps/
-sudo chown --recursive "$USER:$USER" /usr/share/icons/apps
-curl --location "$icon_apps_link" --output /usr/share/icons/apps/icons.tar.gz
-tar --file /usr/share/icons/apps/icons.tar.gz --extract
-rm /usr/share/icons/apps/icons.tar.gz
-
 # Emacs
 sudo apt-get build-dep emacs
 inn libgccjit-10-dev
@@ -193,7 +161,7 @@ for d in ~/dotfiles/*/ ; do
 done
 
 # Disable pc speaker
-echo "blacklist pcspkr" | sudo tee --append /etc/modprobe.d/nobeep.conf
+# echo "blacklist pcspkr" | sudo tee --append /etc/modprobe.d/nobeep.conf
 
 # Python
 
