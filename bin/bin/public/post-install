@@ -38,7 +38,7 @@ sudo apt-get install --yes --no-install-recommends \
      mpv gimp inkscape libreoffice libreoffice-gtk3 audacity \
      evince system-config-printer \
      aspell aspell-en \
-     zoxide ripgrep fd-find \
+     fd-find \
      markdown telnet
 
 #
@@ -95,7 +95,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 sudo apt-get install --yes --no-install-recommends \
      python3 python3-dev python3-venv python3-pip python3-setuptools
 
-cargo install vivid fnm
+cargo install vivid fnm atuin bat zoxide watchexec-cli tokei
 fnm use $node_version
 
 # Starship
@@ -109,7 +109,10 @@ npm install --prefix "$HOME"/nodebin/ prettier parcel
 mv nodebin/ .nodebin
 
 # Rust
-# cargo install cargo-make
+# cargo install git-cliff dprint dioxus-cli cargo-udeps cargo-outdated cargo-tarpaulin microserver
+
+# ripgrep
+# cargo install --path . --features 'pcre2'
 
 # Python
 # these app need to be installed inside the project's venv
