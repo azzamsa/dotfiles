@@ -40,17 +40,18 @@ wezterm.on("update-right-status", function(window, pane)
 end)
 
 return {
+	-- color_scheme = "Tomorrow",
 	color_scheme = "Dracula",
 	default_cursor_style = "BlinkingBar",
 	font_size = 18.0,
 	font = wezterm.font_with_fallback({
-		"Rec Mono Duotone",
+		"Fira Code",
 		"Font Awesome 6 Free Regular",
 		"Font Awesome 6 Free Solid",
 		"Font Awesome 6 Free Brands Regular",
 	}),
 	warn_about_missing_glyphs = false,
-	check_for_updates = false,
+	check_for_updates = true,
 	-- Tab Bar Options
 	use_fancy_tab_bar = true,
 	enable_tab_bar = true,

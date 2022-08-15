@@ -14,6 +14,7 @@ fnm env | source
 atuin init fish | source
 
 set -x LS_COLORS (vivid generate molokai)
+# set -x LS_COLORS (vivid generate one-light)
 
 # Alias
 alias in "sudo apt install"
