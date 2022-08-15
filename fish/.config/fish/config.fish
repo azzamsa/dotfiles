@@ -25,9 +25,6 @@ alias g "git"
 alias ytdl "youtube-dl"
 alias rrepl "evcxr" # I can't remember evcxr
 
-# fd in debian is `fdfind` which is too long
-alias fd "fdfind"
-
 ## expand !! such `sudo !!` bash equivalent
 function sudobangbang --on-event fish_postexec
     abbr !! sudo $argv[1]
