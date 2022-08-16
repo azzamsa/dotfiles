@@ -1,7 +1,5 @@
-use ~/code/forks/nu_scripts/prompt/zoxide-eq.nu [z, zi]
-
 source ~/.cache/starship/init.nu
-zoxide init nushell | save ~/.zoxide.nu
+zoxide init nushell --hook prompt | save ~/.zoxide.nu
 
 # Alias
 alias in = sudo apt install
