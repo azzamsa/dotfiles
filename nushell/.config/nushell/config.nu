@@ -16,18 +16,17 @@ alias g = git
 alias la = ls -a
 alias rrepl = evcxr # I can't remember evcxr
 
+# List all history
 def history_all [] {
-  let history_= (history | get command | uniq | reverse | to text | sk)
+  let history_ = (history | get command | uniq | reverse | to text | sk)
   xdotool type $history_
 }
-# List all history
-alias hh = history_all
 
+# List previous history in current directory
 def history_in_pwd [] {
   let history_ = (history | where cwd == $env.PWD | get command | uniq | reverse | to text | sk)
   xdotool type $history_
 }
-# List previous history in current directory
 alias hh = history_in_pwd
 
 def-env br_cmd [] {
@@ -43,4 +42,21 @@ alias br = (br_cmd | cd ($env.cmd | str replace "cd" "" | str trim))
 let-env config = {
   show_banner: false, # No greeting
   history_file_format: "sqlite" # "sqlite" or "plaintext"
+
+  keybindings: [
+    {
+      name: "all history"
+      modifier: control
+      keycode: char_h
+      mode: emacs
+      event: [
+        { edit: Clear }
+        {
+          edit: insertString
+          value: "history_all"
+        }
+        { send: enter }
+      ]
+   },
+  ]
 }
