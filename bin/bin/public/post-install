@@ -39,7 +39,7 @@ sudo apt-get install --yes --no-install-recommends \
      evince system-config-printer \
      aspell aspell-en \
      fd-find \
-     markdown telnet
+     markdown telnet webp
 
 #
 # Additional packages
