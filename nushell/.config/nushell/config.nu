@@ -40,8 +40,11 @@ alias br = (br_cmd | cd ($env.cmd | str replace "cd" "" | str trim))
 
 # The default config record. This is where much of your global configuration is setup.
 let-env config = {
-  show_banner: false, # No greeting
+  show_banner: false # No greeting
   history_file_format: "sqlite" # "sqlite" or "plaintext"
+  # Enables terminal markers and a workaround to arrow keys stop working issue.
+  # This also enable Terminal to show the current PWD it its title.
+  shell_integration: true
 
   keybindings: [
     {
