@@ -1,6 +1,11 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+function get_username()
+	local username = os.getenv("USER")
+	return username
+end
+
 function strip_home_name(text)
 	local username = os.getenv("USER")
 	clean_text = text:gsub("/home/" .. username, "~")
@@ -40,6 +45,8 @@ wezterm.on("update-right-status", function(window, pane)
 end)
 
 return {
+	-- Spawn a different shell in login mode
+	default_prog = { "/home/" .. get_username() .. "/.cargo/bin/nu", "-l" },
 	-- color_scheme = "Tomorrow",
 	color_scheme = "Dracula",
 	default_cursor_style = "BlinkingBar",
