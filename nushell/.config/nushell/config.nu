@@ -18,13 +18,13 @@ alias rrepl = evcxr # I can't remember evcxr
 
 # List all history
 def history_all [] {
-  let history_ = (history | get command | uniq | reverse | to text | sk)
+  let history_ = (history | where exit_status != 1 | get command | uniq | reverse | to text | sk)
   xdotool type $history_
 }
 
 # List previous history in current directory
 def history_in_pwd [] {
-  let history_ = (history | where cwd == $env.PWD | get command | uniq | reverse | to text | sk)
+  let history_ = (history | where cwd == $env.PWD | where exit_status != 1 | get command | uniq | reverse | to text | sk)
   xdotool type $history_
 }
 alias hh = history_in_pwd
