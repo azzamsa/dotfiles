@@ -16,18 +16,6 @@ alias g = git
 alias la = ls -a
 alias rrepl = evcxr # I can't remember evcxr
 
-# List all history
-def history_all [] {
-  let history_ = (history | where exit_status != 1 | get command | uniq | reverse | to text | sk)
-  xdotool type $history_
-}
-
-# List previous history in current directory
-def history_in_pwd [] {
-  let history_ = (history | where cwd == $env.PWD | where exit_status != 1 | get command | uniq | reverse | to text | sk)
-  xdotool type $history_
-}
-alias hh = history_in_pwd
 
 def-env br_cmd [] {
   let cmd_file = (^mktemp | str trim);
@@ -47,20 +35,69 @@ let-env config = {
   shell_integration: true
   rm_always_trash: true # Move `rm`-ed file to Trash
 
+ menus: [
+    {
+        # List all unique successful commands
+        name: all_history_menu
+        only_buffer_difference: true
+        marker: "? "
+        type: {
+            layout: list
+            page_size: 10
+        }
+        style: {
+            text: green
+            selected_text: green_reverse
+        }
+        source: { |buffer, position|
+            history
+            | where command =~ $buffer
+            | reverse
+            | where exit_status != 1
+            | each { |it| {value: $it.command } }
+            | uniq
+        }
+    }
+    {
+        # List all unique successful commands in the current directory
+        name: pwd_history_menu
+        only_buffer_difference: true
+        marker: "? "
+        type: {
+            layout: list
+            page_size: 10
+        }
+        style: {
+            text: green
+            selected_text: green_reverse
+        }
+        source: { |buffer, position|
+            history
+            | where command =~ $buffer
+            | reverse
+            | where exit_status != 1
+            | where cwd == $env.PWD
+            | each { |it| {value: $it.command } }
+            | uniq
+        }
+    }
+]
+
   keybindings: [
     {
       name: "all history"
       modifier: control
       keycode: char_h
       mode: emacs
-      event: [
-        { edit: Clear }
-        {
-          edit: insertString
-          value: "history_all"
-        }
-        { send: enter }
-      ]
-   },
+      event: { send: menu name: all_history_menu }
+    }
+    {
+      name: "pwd history"
+      modifier: control
+      keycode: char_p
+      mode: emacs
+      event: { send: menu name: pwd_history_menu }
+    }
   ]
+
 }
