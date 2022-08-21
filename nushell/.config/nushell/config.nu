@@ -1,11 +1,6 @@
 source ~/.cache/starship/init.nu
 zoxide init nushell --hook prompt | save ~/.zoxide.nu
 
-let new_paths = ["~/.nodebin/node_modules/.bin"]
-for path in $new_paths {
-    let-env PATH = ($env.PATH | append $path)
-}
-
 # Alias
 alias in = sudo apt install
 alias inn = sudo apt-get --no-install-recommends install
