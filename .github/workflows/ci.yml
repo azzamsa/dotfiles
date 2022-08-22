@@ -25,7 +25,7 @@ jobs:
       uses: ludeeus/action-shellcheck@master
       with:
         scandir: './bin/bin/public'
-        ignore_names: cwindow sfetch
+        ignore_names: sfetch
 
 
   python:
@@ -51,4 +51,3 @@ jobs:
     - name: Check formatting
       run: |
         black --check bin/bin/public/sfetch
-        black --check bin/bin/public/cwindow
