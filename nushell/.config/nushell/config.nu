@@ -6,6 +6,9 @@ alias in = sudo apt install
 alias inn = sudo apt-get --no-install-recommends install
 alias inb = sudo apt install -t bullseye-backports
 
+alias update = sudo apt-get -y update
+alias upgrade = sudo apt-get -y upgrade
+
 alias c = clear
 alias g = git
 alias la = ls -a
