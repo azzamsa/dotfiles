@@ -13,14 +13,14 @@ My personal .dotfiles 🗃️
 
 ---
 
-<p align="center"><img src="assets/preview1.png"/></p>
-<p align="center"><img src="assets/preview2.png"/></p>
+## Uh Oh! Where is Your Old Configuration?
+
+- [i3 configuration](https://github.com/azzamsa/dotfiles/tree/i3). 2017 - 2021 
+- [bspwm configuration](https://github.com/azzamsa/dotfiles/tree/bspwm). 2022 
 
 ## Features
 
-- Bright, clean, minimalist design.
 - Keep your anonymity. No credential is shown anywhere.
-- uniformity color of the terminal, window manager, status, and command runner.
 - More ...
 
 ## Usage
@@ -35,15 +35,15 @@ $ for d in ~/dotfiles/*/ ; do
 done
 ```
 
-## Notes
-
-This repo only hold currently used config. For old config visit the `archive` branc.
-
 ## Contribution
 
 I don't plan to accept any contribution that adds new functionality. But it is OK for fixes and improvement. I don't recommend using this repository directly. Instead, use it as a source of inspiration.
 
-### Credits
+## See Also
 
-- [Nord Theme](https://www.nordtheme.com/)
+- [azzamsa/doom.d: 📜 My personal Doom Emacs configuration](https://github.com/azzamsa/doom.d) 
+- [azzamsa/emacs.d: 📜 My personal Emacs configuration](https://github.com/azzamsa/emacs.d)
+
+## Credits
+
 - [Noto Emoji](https://github.com/googlefonts/noto-emoji) by Google
