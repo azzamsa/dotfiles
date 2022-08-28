@@ -85,14 +85,14 @@ let-env config = {
     {
       name: "all history"
       modifier: control
-      keycode: char_h
+      keycode: char_r
       mode: emacs
       event: { send: menu name: all_history_menu }
     }
     {
       name: "pwd history"
       modifier: control
-      keycode: char_p
+      keycode: char_h
       mode: emacs
       event: { send: menu name: pwd_history_menu }
     }
