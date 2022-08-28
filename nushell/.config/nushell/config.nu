@@ -1,3 +1,7 @@
+use ~/code/forks/nu_scripts/custom-completions/make/make-completions.nu *
+use ~/code/forks/nu_scripts/custom-completions/git/git-completions.nu *
+use ~/code/forks/nu_scripts/custom-completions/cargo/cargo-completions.nu *
+
 source ~/.cache/starship/init.nu
 zoxide init nushell --hook prompt | save ~/.zoxide.nu
 
@@ -32,6 +36,7 @@ let-env config = {
   # This also enable Terminal to show the current PWD it its title.
   shell_integration: true
   rm_always_trash: true # Move `rm`-ed file to Trash
+  enable_external_completion: true
 
  menus: [
     {
