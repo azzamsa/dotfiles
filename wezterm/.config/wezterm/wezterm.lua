@@ -125,8 +125,8 @@ return {
 	quick_select_alphabet = "colemak",
 	leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 2000 },
 	keys = {
-		{ key = "m", mods = "CTRL|ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },
-		{ key = "i", mods = "CTRL|ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
+		{ key = "m", mods = "CTRL|ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
+		{ key = "i", mods = "CTRL|ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },
 
 		{ key = "f", mods = "LEADER", action = "QuickSelect" },
 		{ key = "/", mods = "LEADER", action = act({ Search = { CaseInSensitiveString = "" } }) },
