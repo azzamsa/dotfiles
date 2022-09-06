@@ -1,6 +1,6 @@
-use ~/code/forks/nu_scripts/custom-completions/make/make-completions.nu *
-use ~/code/forks/nu_scripts/custom-completions/git/git-completions.nu *
-use ~/code/forks/nu_scripts/custom-completions/cargo/cargo-completions.nu *
+# use ~/code/forks/nu_scripts/custom-completions/make/make-completions.nu *
+# use ~/code/forks/nu_scripts/custom-completions/git/git-completions.nu *
+# use ~/code/forks/nu_scripts/custom-completions/cargo/cargo-completions.nu *
 
 source ~/.cache/starship/init.nu
 zoxide init nushell --hook prompt | save ~/.zoxide.nu
