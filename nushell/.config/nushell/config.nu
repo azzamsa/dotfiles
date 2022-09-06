@@ -53,10 +53,11 @@ let-env config = {
         }
         source: { |buffer, position|
             history
-            | where command =~ $buffer
-            | reverse
+            | select command exit_status
             | where exit_status != 1
+            | where command =~ $buffer
             | each { |it| {value: $it.command } }
+            | reverse
             | uniq
         }
     }
@@ -75,11 +76,12 @@ let-env config = {
         }
         source: { |buffer, position|
             history
-            | where command =~ $buffer
-            | reverse
+            | select command exit_status cwd
             | where exit_status != 1
             | where cwd == $env.PWD
+            | where command =~ $buffer
             | each { |it| {value: $it.command } }
+            | reverse
             | uniq
         }
     }
