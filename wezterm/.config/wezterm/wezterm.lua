@@ -99,11 +99,35 @@ return {
 			format = "$0",
 		},
 	},
+	-- mouse
+	mouse_bindings = {
+		-- Scrolling up while holding CTRL increases the font size
+		{
+			event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+			mods = "CTRL",
+			action = act.IncreaseFontSize,
+		},
+		-- Scrolling down while holding CTRL decreases the font size
+		{
+			event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+			mods = "CTRL",
+			action = act.DecreaseFontSize,
+		},
+		-- Reset font size
+		{
+			event = { Down = { streak = 1, button = "Middle" } },
+			mods = "CTRL",
+			action = act.ResetFontSize,
+		},
+	},
 	-- keybindings
 	disable_default_key_bindings = false,
 	quick_select_alphabet = "colemak",
 	leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 2000 },
 	keys = {
+		{ key = "m", mods = "CTRL|ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },
+		{ key = "i", mods = "CTRL|ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
+
 		{ key = "f", mods = "LEADER", action = "QuickSelect" },
 		{ key = "/", mods = "LEADER", action = act({ Search = { CaseInSensitiveString = "" } }) },
 		{ key = "c", mods = "ALT", action = "ActivateCopyMode" },
