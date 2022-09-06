@@ -59,6 +59,7 @@ return {
 	}),
 	warn_about_missing_glyphs = false,
 	check_for_updates = true,
+	switch_to_last_active_tab_when_closing_tab = true,
 	-- Tab Bar Options
 	use_fancy_tab_bar = true,
 	enable_tab_bar = true,
