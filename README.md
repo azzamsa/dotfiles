@@ -46,4 +46,5 @@ I don't plan to accept any contribution that adds new functionality. But it is O
 
 ## Credits
 
+- [Henrik Lissner's dotfiles](https://github.com/hlissner/dotfiles/config/zsh) for ZSH configurations
 - [Noto Emoji](https://github.com/googlefonts/noto-emoji) by Google

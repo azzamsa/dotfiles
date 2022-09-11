@@ -46,17 +46,11 @@ end)
 
 return {
 	-- Spawn a different shell in login mode
-	default_prog = { "/home/" .. get_username() .. "/.cargo/bin/nu", "-l" },
 	-- color_scheme = "Tomorrow",
 	color_scheme = "Dracula",
 	default_cursor_style = "BlinkingBar",
 	font_size = 18.0,
-	font = wezterm.font_with_fallback({
-		"Fira Code",
-		"Font Awesome 6 Free Regular",
-		"Font Awesome 6 Free Solid",
-		"Font Awesome 6 Free Brands Regular",
-	}),
+	font = wezterm.font("MesloLGS NF"),
 	warn_about_missing_glyphs = false,
 	check_for_updates = true,
 	switch_to_last_active_tab_when_closing_tab = true,
