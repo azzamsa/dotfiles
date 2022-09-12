@@ -50,7 +50,7 @@ return {
 	color_scheme = "Dracula",
 	default_cursor_style = "BlinkingBar",
 	font_size = 18.0,
-	font = wezterm.font("MesloLGS NF"),
+	font = wezterm.font("Fira Code Nerd Font"),
 	warn_about_missing_glyphs = false,
 	check_for_updates = true,
 	switch_to_last_active_tab_when_closing_tab = true,
