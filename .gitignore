@@ -1,8 +1,0 @@
-# secrets
-bash/.secrets
-
-fish_variables
-*/*/gtk-3.0/bookmarks
-
-# Nu database
-*sqlite3*
