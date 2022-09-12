@@ -1,161 +1,41 @@
 #!/bin/sh
 
-activitywatch_link="https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip"
-aspell_link="https://ftp.gnu.org/gnu/aspell/dict/id/aspell5-id-1.2-0.tar.bz2"
-
-node_version="v16.12"
-
-# Add repository
-echo "deb http://ftp.au.debian.org/debian/ bullseye main contrib non-free" | sudo tee --append /etc/apt/sources.list
-echo "deb-src http://ftp.au.debian.org/debian/ bullseye main contrib non-free" | sudo tee --append /etc/apt/sources.list
-
-# Keep Debian up to date
-sudo apt --yes update
-
-#
-# Main package
-#
-
-# libssl-dev provides certificates for curl
-# libdbus-1-dev and pkg-config required by i3status-rust and other apps, such as mousepad
-# audio won't work without pulseaudio
-# without `gstreamer1.0-pulseaudio` apps can't play sound (such workrave can't play .wav notification sound)
-# `alsa-utils` provide amixer command. It is easier to use than built-in pactl
-sudo apt-get install --yes --no-install-recommends \
-     libssl-dev \
-     blueman bluez pulseaudio-module-bluetooth \
-     git etckeeper gnupg2 ssh ssh-agent curl stow rsync
-
-#
-# Utilities
-#
-
-# xclip required by pass to copy to clipboard
-# python3-nautilus is for nautilus integration with mat2
-sudo apt-get install --yes --no-install-recommends \
-     flameshot copyq peek file-roller workrave \
-     htop tar zip unzip unar unrar-free ncdu mat2 python3-nautilus borgbackup gparted \
-     mpv gimp inkscape libreoffice libreoffice-gtk3 audacity \
-     evince system-config-printer \
-     aspell aspell-en \
-     fd-find \
-     markdown telnet webp
-
-#
-# Additional packages
-#
-
-sudo apt-get install --yes --no-install-recommends \
-     docker.io docker-compose
-sudo usermod -aG docker "$USER"
-su - "$USER"
-
-#
-# Keyboards
-#
-
-python3 -m pip install --user qmk
-sudo apt-get install --yes --no-install-recommends libhidapi-dev
-# qmk setup -H /media/$USER/exts1/source/qmk_firmware
-# qmk config user.keyboard=sofle/rev1 user.keymap=$USER user.name=$USER
+# Remove unused apps
+sudo dnf remove --assumeyes virtualbox* samba-* anaconda-* tmux qemu-* Box2D
 
 
-#
-# Bluetooth
-#
+# General
+sudo dnf update --assumeyes
+sudo dnf install --assumeyes stow emacs ncdu workrave copyq \
+     docker docker-compose libreoffice gimp inkscape neofetch
 
-# Start the GUI manager using `bluetooth` in rofi drun
-# Then manage using PavuControl GUI.
-sudo modprobe btusb
-sudo systemctl enable bluetooth.service
-sudo systemctl start bluetooth.service
+# Terminal
+sudo dnf install --assumeyes zsh fira-code-fonts
+# Rustup
+sudo dnf install --assumeyes lld make gcc
+# Rust OpenSSL
+sudo dnf install --assumeyes pkg-config openssl-devel
+# Gnome Pano
+sudo dnf install --assumeyes libgda libgda-sqlite
+# Gnome Totem
+sudo dnf install --assumeyes gstreamer1-plugin-openh264 mozilla-openh264
 
-#
-# Shell
-#
+# Setup Docker
+sudo setfacl --modify user:username:rw /var/run/docker.sock
 
-# fish
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
-curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
-sudo apt update
-sudo apt install fish
-
-chsh -s "$(which fish)" # change default shell to fish
-
-# Bash
-sudo apt-get install --yes --no-install-recommends \
-     shellcheck
-
-#
-# Work
-#
-
+# Setup Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup toolchain install nightly
 
-sudo apt-get install --yes --no-install-recommends \
-     python3 python3-dev python3-venv python3-pip python3-setuptools
+# Setup Rust Utilities
+sudo dnf install --assumeyes tokei fd-find exa
+cargo install --locked fnm broot watchexec-cli tokei git-cliff cargo-edit cargo-watch cargo-outdated cargo-tarpaulin stylua
 
-cargo install vivid fnm atuin bat zoxide watchexec-cli tokei starship
-fnm use $node_version
+# Setup Sh Utilities
+sudo dnf install --assumeyes shellcheck
 
-# Starship
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-
-# Js
-# Fixed version global packages
-mkdir nodebin && cd nodebin && npm init --yes
-npm install --prefix "$HOME"/nodebin/ typescript-language-server svelte-language-server bash-language-server
-npm install --prefix "$HOME"/nodebin/ prettier parcel
-mv nodebin/ .nodebin
-
-# Rust
-# cargo install git-cliff dprint dioxus-cli cargo-udeps cargo-outdated cargo-tarpaulin microserver
-
-# ripgrep
-# cargo install --path . --features 'pcre2'
-
-# Python
-# these app need to be installed inside the project's venv
-# pip install python-language-server pyls-black pyls-isort pyls-mypy
-# pip install black mypy pylint ipdb
-
-# `grip` is handy tool to render md file locally
-pip install --user grip
-
-pip install --user virtualfish
-vf install
-vf new --python python3 global
-
-#
-# Setup
-#
-
-echo "Installed base app. I will setup them for you."
-
-# aw-qt
-curl --location $activitywatch_link --output /tmp/activitywatch.zip
-unzip /tmp/activitywatch.zip
-sudo mv /tmp/activitywatch /opt/
-sudo chown --recursive "$USER:$USER" /opt/activitywatch
-sudo ln --symbolic /opt/activitywatch/aw-qt /usr/local/bin/aw-qt
-
-# Additional aspell dictionaries
-curl --location $aspell_link --output /tmp/aspell5-id.tar.bz2
-tar --file /tmp/aspell5-id.tar.bz2 --extract
-./tmp/aspell5-id-1.2-0/configure
-sudo make --directory /tmp/aspell5-id-1.2-0/ install
-
-## pass-otp
-git clone https://github.com/tadfisher/pass-otp /tmp/pass-otp
-sudo make --directory /tmp/pass-otp install
-
-# Emacs
-sudo apt-get build-dep emacs
-inn libgccjit-10-dev
-# ./autogen.sh
-# ./configure --with-native-compilation --with-pgtk
-# make or # make -j$(nproc)
-# sudo make install
+# Setup Python Utilities
+pip install --user grip black pylint
 
 # Dotfiles
 git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
@@ -163,11 +43,52 @@ for d in ~/dotfiles/*/ ; do
     stow "$d" --no-folding
 done
 
-# Disable pc speaker
-# echo "blacklist pcspkr" | sudo tee --append /etc/modprobe.d/nobeep.conf
+# Install flathub: keepasxc, logseq, Extension Manager,
+flatpak update
+flatpak install flathub com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakeman.ExtensionManager
 
-# Python
+# Download rpm files manually
+# https://github.com/wez/wezterm/releases
+# https://github.com/Kong/insomnia/releases
+# https://github.com/flameshot-org/flameshot/releases
+# https://dbeaver.io/download/
 
-# Set default python to python3
-# in Debian, it points to python2
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+# Download binary
+# https://github.com/restic/restic/releases
+# https://github.com/restic/restic/releases
+
+# Move files from previous machine
+# .gnupg fonts .nodebin .ssh .emacs .doom .config/insomnia
+
+# Setup Doom
+doom sync
+# doom doctor
+
+# Setup ripgrep with pcre2 feature
+mkdir -p /opt/ripgrep
+sudo chown --recursive "$USER:$USER" /opt/activitywatch
+git clone --depth 1 git@github.com:BurntSushi/ripgrep.git /opt/ripgrep
+cargo install --path /opt/ripgrep --features 'pcre2'
+
+# Post Setup
+sudo dnf autoremove
+sudo dnf clean packages
+
+# Clean locales
+mkdir /tmp/locales
+sudo mv en* locale.alias /tmp/locales
+sudo rm -rf /usr/share/locale/*
+sudo mv /tmp/locales/* /usr/share/locale/
+
+sudo rm -rf /var/tmp/* /tmp/*
+
+sudo journalctl --rotate
+sudo journalctl --vacuum-time=1s
+
+docker system prune -a
+
+# Troubeshooting
+
+# Workrave
+# Exec=env GDK_BACKEND=x11 workrave
+# in /usr/share/applications/workrave
