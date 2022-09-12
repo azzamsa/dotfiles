@@ -1,6 +1,8 @@
 #!/usr/bin/sh
 
 # inspired from git-cliff
+#
+# Usage: `release.sh v1.0.0`
 
 untracked_files=$(git ls-files . --exclude-standard --others)
 
