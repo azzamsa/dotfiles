@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] - 2022-09-12
+
+### Bug fixes
+- Update .gitignore ([74a50d5](74a50d5e2e56e53ba8265abfd2c47a248060846a))
+- **mpv:** Remove its configuration ([fe52ba5](fe52ba59ba0ad70ead19dc3698ecb5e44c928ed7))
+- **zsh:** Remove fish and starship ([c83ef14](c83ef146d195c982059915e2716a21577649b82b))
+
+
 ## [2.0.0] - 2022-09-12
 
 ### Features
