@@ -1,4 +1,7 @@
 #!/usr/bin/env zsh
+
+eval "$(starship init zsh)"
+
 source $ZDOTDIR/config.zsh
 
 # NOTE ZGEN_DIR and ZGEN_SOURCE are forward-declared in ~/.zshenv
@@ -22,12 +25,10 @@ if ! zgenom saved; then
   # NOTE Be extra careful about plugin load order, or subtle breakage can
   #   emerge. This is the best order I've sussed out for these plugins.
   zgenom load junegunn/fzf shell
-  zgenom load jeffreytse/zsh-vi-mode
   zgenom load zdharma-continuum/fast-syntax-highlighting
   zgenom load zsh-users/zsh-completions src
   zgenom load zsh-users/zsh-autosuggestions
   zgenom load zsh-users/zsh-history-substring-search
-  zgenom load hlissner/zsh-autopair autopair.zsh
 
   zgenom save
   zgenom compile $ZDOTDIR
@@ -43,5 +44,4 @@ if [[ $TERM != dumb ]]; then
   source $ZDOTDIR/paths.zsh
   source $ZDOTDIR/apps.zsh
 
-  autopair-init
 fi

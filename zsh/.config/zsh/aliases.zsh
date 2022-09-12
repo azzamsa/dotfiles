@@ -12,15 +12,9 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -pv'
-alias wget='wget -c'
 alias path='echo -e ${PATH//:/\\n}'
-alias ports='netstat -tulanp'
 
 alias mk=make
-alias gurl='curl --compressed'
-
-alias shutdown='sudo shutdown'
-alias reboot='sudo reboot'
 
 # An rsync that respects gitignore
 rcp() {
@@ -44,10 +38,6 @@ alias rcpd='rcp --delete --delete-after'
 alias rcpu='rcp --chmod=go='
 alias rcpdu='rcpd --chmod=go='
 
-alias jc='journalctl -xe'
-alias sc=systemctl
-alias ssc='sudo systemctl'
-
 if (( $+commands[exa] )); then
   alias exa="exa --group-directories-first --git";
   alias l="exa -blF";
@@ -63,9 +53,6 @@ function take {
   mkdir "$1" && cd "$1";
 }; compdef take=mkdir
 
-function zman {
-  PAGER="less -g -I -s '+/^       "$1"'" man zshall;
-}
 
 # Create a reminder with human-readable durations, e.g. 15m, 1h, 40s, etc
 function r {
