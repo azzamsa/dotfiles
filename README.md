@@ -17,7 +17,7 @@ My personal .dotfiles 🗃️
 
 - [i3 configuration](https://github.com/azzamsa/dotfiles/tree/i3). 2017 - 2021
 - [bspwm configuration](https://github.com/azzamsa/dotfiles/tree/bspwm). 2022
-- [NuShell configuration](https://github.com/azzamsa/dotfiles/tree/nushell). 2022
+- [NuShell, Fish, MPV configuration](https://github.com/azzamsa/dotfiles/tree/nushell). 2022
 
 ## Features
 
