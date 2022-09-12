@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# Add credentials to keyring app
-
-pass --clip ssh/github
-
-ssh-add ~/.ssh/github
-
-
