@@ -15,8 +15,9 @@ My personal .dotfiles 🗃️
 
 ## Uh Oh! Where is Your Old Configuration?
 
-- [i3 configuration](https://github.com/azzamsa/dotfiles/tree/i3). 2017 - 2021 
-- [bspwm configuration](https://github.com/azzamsa/dotfiles/tree/bspwm). 2022 
+- [i3 configuration](https://github.com/azzamsa/dotfiles/tree/i3). 2017 - 2021
+- [bspwm configuration](https://github.com/azzamsa/dotfiles/tree/bspwm). 2022
+- [NuShell configuration](https://github.com/azzamsa/dotfiles/tree/nushell). 2022
 
 ## Features
 
@@ -41,7 +42,7 @@ I don't plan to accept any contribution that adds new functionality. But it is O
 
 ## See Also
 
-- [azzamsa/doom.d: 📜 My personal Doom Emacs configuration](https://github.com/azzamsa/doom.d) 
+- [azzamsa/doom.d: 📜 My personal Doom Emacs configuration](https://github.com/azzamsa/doom.d)
 - [azzamsa/emacs.d: 📜 My personal Emacs configuration](https://github.com/azzamsa/emacs.d)
 
 ## Credits
