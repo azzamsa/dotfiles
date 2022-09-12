@@ -49,6 +49,7 @@ unsetopt HUP              # Don't kill jobs on shell exit.
 unsetopt CHECK_JOBS       # Don't report on jobs when shell exit.
 
 ## History
+HISTFILE=~/.zsh_history
 HISTSIZE=100000   # Max events to store in internal history.
 SAVEHIST=100000   # Max events to store in history file.
 
