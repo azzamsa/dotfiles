@@ -51,7 +51,6 @@ if [[ $TERM != dumb ]]; then
   source $ZDOTDIR/paths.zsh
   source $ZDOTDIR/apps.zsh
 
-  _cache fasd --init posix-alias zsh-{hook,{c,w}comp{,-install}}
   autopair-init
 fi
 
