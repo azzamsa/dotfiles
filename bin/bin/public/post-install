@@ -26,6 +26,12 @@ sudo setfacl --modify user:username:rw /var/run/docker.sock
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup toolchain install nightly
 
+# Use lld as default linker
+tee -a ~/.cargo/config <<EOF
+[target.x86_64-unknown-linux-gnu]
+rustflags = [ "-Clink-arg=-fuse-ld=lld", "-Clink-arg=-Wl,--no-rosegment" ]
+EOF
+
 # Setup Rust Utilities
 sudo dnf install --assumeyes tokei fd-find exa
 cargo install --locked fnm broot watchexec-cli tokei git-cliff cargo-edit cargo-watch cargo-outdated cargo-tarpaulin stylua
