@@ -3,11 +3,10 @@
 # Remove unused apps
 sudo dnf remove --assumeyes virtualbox* samba-* anaconda-* tmux qemu-* Box2D
 
-
 # General
 sudo dnf update --assumeyes
 sudo dnf install --assumeyes stow emacs ncdu workrave copyq \
-     docker docker-compose libreoffice gimp inkscape neofetch
+  docker docker-compose libreoffice gimp inkscape neofetch
 
 # Terminal
 sudo dnf install --assumeyes zsh fira-code-fonts
@@ -39,8 +38,8 @@ pip install --user grip black pylint
 
 # Dotfiles
 git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
-for d in ~/dotfiles/*/ ; do
-    stow "$d" --no-folding
+for d in ~/dotfiles/*/; do
+  stow "$d" --no-folding
 done
 
 # Install flathub: keepasxc, logseq, Extension Manager,
