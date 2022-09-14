@@ -15,6 +15,7 @@ alias mkdir='mkdir -pv'
 alias path='echo -e ${PATH//:/\\n}'
 
 alias mk=make
+alias crg=cargo
 
 # An rsync that respects gitignore
 rcp() {
