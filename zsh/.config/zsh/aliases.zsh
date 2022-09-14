@@ -16,6 +16,7 @@ alias path='echo -e ${PATH//:/\\n}'
 
 alias mk=make
 alias crg=cargo
+alias shf="shfmt --list --write --indent 2"
 
 # An rsync that respects gitignore
 rcp() {
