@@ -34,7 +34,12 @@ EOF
 
 # Setup Rust Utilities
 sudo dnf install --assumeyes tokei fd-find exa
-cargo install --locked fnm broot watchexec-cli tokei git-cliff cargo-edit cargo-watch cargo-outdated cargo-tarpaulin stylua
+cargo install --locked cargo-binstall broot watchexec-cli  git-cliff cargo-edit cargo-watch cargo-outdated cargo-tarpaulin stylua
+
+# fnm
+cargo binstall fnm --pkg-url="https://github.com/Schniz/fnm/releases/download/v1.31.1/fnm-linux.zip" --pkg-fmt Zip --bin-dir "{ bin }" --install-path ~/.local/bin
+chmod +x ~/.local/bin/fnm
+
 
 # Setup Sh Utilities
 sudo dnf install --assumeyes shellcheck
