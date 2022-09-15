@@ -34,12 +34,23 @@ EOF
 
 # Setup Rust Utilities
 sudo dnf install --assumeyes tokei fd-find exa
-cargo install --locked cargo-binstall broot watchexec-cli  git-cliff cargo-edit cargo-watch cargo-outdated cargo-tarpaulin stylua
+cargo install --locked cargo-binstall watchexec-cli git-cliff cargo-edit cargo-watch cargo-outdated cargo-tarpaulin
 
 # fnm
-cargo binstall fnm --pkg-url="https://github.com/Schniz/fnm/releases/download/v1.31.1/fnm-linux.zip" --pkg-fmt Zip --bin-dir "{ bin }" --install-path ~/.local/bin
+cargo binstall fnm --no-symlinks \
+  --pkg-url="https://github.com/Schniz/fnm/releases/download/v{ version }/fnm-linux.zip" \
+  --pkg-fmt zip --bin-dir "{ bin }" --install-path ~/.local/bin
 chmod +x ~/.local/bin/fnm
 
+# broot
+cargo binstall broot --no-symlinks \
+  --pkg-url="https://github.com/Canop/broot/releases/download/v1.14.3/broot_{ version }.zip" \
+  --pkg-fmt zip --bin-dir "{ target }/{ bin }" --install-path ~/.local/bin
+
+# stylua
+cargo binstall stylua --no-symlinks \
+  --pkg-url="https://github.com/JohnnyMorganz/StyLua/releases/download/v{ version }/stylua-linux.zip" \
+  --pkg-fmt zip --bin-dir "{ bin }" --install-path ~/.local/bin
 
 # Setup Sh Utilities
 sudo dnf install --assumeyes shellcheck
@@ -96,6 +107,8 @@ sudo journalctl --rotate
 sudo journalctl --vacuum-time=1s
 
 docker system prune -a
+
+rm -rf ~/.cargo/git/* ~/.cargo/registry/*
 
 # Troubeshooting
 
