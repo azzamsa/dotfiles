@@ -24,11 +24,6 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-if (( $+commands[fzf] )); then
-  bindkey '^R' fzf-history-widget
-fi
-
-
 # Vim's C-x C-l in zsh
 history-beginning-search-backward-then-append() {
   zle history-beginning-search-backward

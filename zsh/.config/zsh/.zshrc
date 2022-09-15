@@ -24,7 +24,6 @@ if ! zgenom saved; then
 
   # NOTE Be extra careful about plugin load order, or subtle breakage can
   #   emerge. This is the best order I've sussed out for these plugins.
-  zgenom load junegunn/fzf shell
   zgenom load zdharma-continuum/fast-syntax-highlighting
   zgenom load zsh-users/zsh-completions src
   zgenom load zsh-users/zsh-autosuggestions

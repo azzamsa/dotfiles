@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 eval "$(fnm env --use-on-cd)"
+eval "$(atuin init zsh)"
 
 # Broot alias
 function br {
@@ -15,9 +16,4 @@ function br {
         rm -f "$cmd_file"
         return "$code"
     fi
-}
-
-# Jog functions
-function zshaddhistory() {
-  echo "${1%%$'\n'}⋮${PWD}   " >> ~/.zsh_history_ext
 }
