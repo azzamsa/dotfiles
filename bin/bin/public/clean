@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#
+#  Clean temporary files
+#
+
+echo "🧽 Cleaning temporary package manager files"
+sudo dnf autoremove
+sudo dnf clean packages
+
+echo "🧽 Cleaning temporary system files"
+sudo rm -rf /var/tmp/* /tmp/*
+
+echo "🧽 Cleaning dagling dockerfiles"
+# https://docs.docker.com/engine/reference/commandline/system_prune/
+# `--force` should be `--assumeyes`
+docker system prune --all --force
+
+echo "✨ You have a new shiny machine!"
