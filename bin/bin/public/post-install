@@ -76,7 +76,8 @@ flatpak install flathub com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakema
 
 # Download binary
 # https://github.com/restic/restic/releases
-# https://github.com/restic/restic/releases
+# https://github.com/oniony/TMSU/releases
+# https://github.com/talklittle/tmsu-nautilus-rs/releases
 
 # Move files from previous machine
 # .gnupg fonts .nodebin .ssh .emacs .doom .config/insomnia
