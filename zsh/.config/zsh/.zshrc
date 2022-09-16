@@ -19,7 +19,7 @@ zgenom autoupdate
 if ! zgenom saved; then
   echo "Initializing zgenom"
   rm -f $ZDOTDIR/*.zwc(N) \
-        $XDG_CACHE_HOME/zsh/*(N) \
+        $HOME/.cache/zsh/*(N) \
         $ZGEN_INIT.zwc
 
   # NOTE Be extra careful about plugin load order, or subtle breakage can
@@ -35,7 +35,7 @@ fi
 
 ## Bootstrap interactive sessions
 if [[ $TERM != dumb ]]; then
-  autoload -Uz compinit && compinit -u -d $ZSH_CACHE/zcompdump
+  autoload -Uz compinit && compinit -u -d ~/.cache/zsh/zcompdump
 
   source $ZDOTDIR/keybinds.zsh
   source $ZDOTDIR/completion.zsh

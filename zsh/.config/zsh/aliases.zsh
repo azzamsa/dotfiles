@@ -33,7 +33,7 @@ rcp() {
   rsync -azPJ \
     --include=.git/ \
     --filter=':- .gitignore' \
-    --filter=":- $XDG_CONFIG_HOME/git/ignore" \
+    --filter=":- ~/.config/git/ignore" \
     "$@"
 }; compdef rcp=rsync
 alias rcpd='rcp --delete --delete-after'
