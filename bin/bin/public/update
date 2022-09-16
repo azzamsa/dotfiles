@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#
+#  Update applications
+#
+
+echo "🌱 Updating flatpak apps"
+flatpak update
+
+echo "🌱 Updating dnf apps"
+sudo dnf update
+
+echo "🌱 Checking node apps"
+pushd ~/.nodebin >/dev/null || exit
+taze major
+popd >/dev/null || exit
+
+echo "🌱 Checking rust apps"
+cargo install-update -l
+
+echo "✨ You have a new shiny machine!"
