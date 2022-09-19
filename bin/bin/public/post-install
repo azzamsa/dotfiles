@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # Remove unused apps
-sudo dnf remove --assumeyes virtualbox* samba-* anaconda-* tmux qemu-* Box2D
+sudo dnf remove --assumeyes virtualbox* anaconda-* tmux qemu-* Box2D
 
 # General
 sudo dnf update --assumeyes
 sudo dnf install --assumeyes stow emacs ncdu workrave copyq \
-  docker docker-compose libreoffice gimp inkscape neofetch
+  docker docker-compose libreoffice gimp inkscape neofetch pandoc nextcloud-client flameshot
 
 # Terminal
 sudo dnf install --assumeyes zsh fira-code-fonts
@@ -65,13 +65,13 @@ for d in ~/dotfiles/*/; do
 done
 
 # Install flathub: keepasxc, logseq, Extension Manager,
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
 flatpak install flathub com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakeman.ExtensionManager
 
 # Download rpm files manually
 # https://github.com/wez/wezterm/releases
 # https://github.com/Kong/insomnia/releases
-# https://github.com/flameshot-org/flameshot/releases
 # https://dbeaver.io/download/
 
 # Download binary
