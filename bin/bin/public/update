@@ -16,6 +16,7 @@ taze major
 popd >/dev/null || exit
 
 echo "🌱 Checking rust apps"
+rustup check
 cargo install-update -l
 
 echo "✨ You have a new shiny machine!"
