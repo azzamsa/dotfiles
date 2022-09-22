@@ -6,7 +6,8 @@ sudo dnf remove --assumeyes virtualbox* anaconda-* tmux qemu-* Box2D
 # General
 sudo dnf update --assumeyes
 sudo dnf install --assumeyes stow emacs ncdu workrave copyq \
-  docker docker-compose libreoffice gimp inkscape neofetch pandoc nextcloud-client flameshot
+  docker docker-compose libreoffice gimp inkscape neofetch pandoc nextcloud-client flameshot \
+  gparted foliate
 
 # Terminal
 sudo dnf install --assumeyes zsh fira-code-fonts
