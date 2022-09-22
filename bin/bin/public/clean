@@ -7,6 +7,7 @@
 echo "🧽 Cleaning temporary package manager files"
 sudo dnf autoremove
 sudo dnf clean packages
+flatpak uninstall --unused
 
 echo "🧽 Cleaning temporary system files"
 sudo rm -rf /var/tmp/* /tmp/*
