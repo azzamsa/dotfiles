@@ -9,6 +9,10 @@ sudo dnf install --assumeyes stow emacs ncdu workrave copyq \
   docker docker-compose libreoffice gimp inkscape neofetch pandoc nextcloud-client flameshot \
   gparted foliate
 
+# HEIF image supports
+sudo dnf install --assumeyes https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
+sudo dnf install --assumeyes libheif gimp-heif-plugin
+
 # Terminal
 sudo dnf install --assumeyes zsh fira-code-fonts
 # Rustup
@@ -37,27 +41,38 @@ EOF
 sudo dnf install --assumeyes tokei fd-find exa
 cargo install --locked cargo-binstall watchexec-cli git-cliff cargo-edit cargo-watch cargo-outdated cargo-tarpaulin
 
+cargo binstall --no-confirm --no-symlinks cargo-edit
+cargo binstall --no-confirm --no-symlinks watchexec-cli cargo-outdated --install-path ~/.local/bin
+
 # fnm
-cargo binstall fnm --no-symlinks \
+cargo binstall --no-confirm --no-symlinks fnm \
   --pkg-url="https://github.com/Schniz/fnm/releases/download/v{ version }/fnm-linux.zip" \
   --pkg-fmt zip --bin-dir "{ bin }" --install-path ~/.local/bin
 chmod +x ~/.local/bin/fnm
 
 # broot
-cargo binstall broot --no-symlinks \
+cargo binstall --no-confirm --no-symlinks broot \
   --pkg-url="https://github.com/Canop/broot/releases/download/v1.14.3/broot_{ version }.zip" \
   --pkg-fmt zip --bin-dir "{ target }/{ bin }" --install-path ~/.local/bin
 
 # stylua
-cargo binstall stylua --no-symlinks \
+cargo binstall --no-confirm --no-symlinks stylua \
   --pkg-url="https://github.com/JohnnyMorganz/StyLua/releases/download/v{ version }/stylua-linux.zip" \
   --pkg-fmt zip --bin-dir "{ bin }" --install-path ~/.local/bin
+
+# git-cliff
+cargo binstall --no-confirm --no-symlinks git-cliff \
+  --pkg-url="https://github.com/orhun/git-cliff/releases/download/v{ version }/{ name }-{ version }-{ target }.tar.gz" \
+  --pkg-fmt tgz --bin-dir "{ name }-{ version }/{ bin }" --install-path ~/.local/bin
 
 # Setup Sh Utilities
 sudo dnf install --assumeyes shellcheck
 
 # Setup Python Utilities
-pip install --user grip black pylint
+pip install --user pipenv grip black pylint
+
+# Setup Web Utilities
+sudo dnf install --assumeyes tidy
 
 # Dotfiles
 git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
