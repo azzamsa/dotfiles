@@ -1,0 +1,17 @@
+#!/bin/bash
+
+FILES=(
+  "sfetch"
+  "names")
+
+fmt() {
+  for file in "${FILES[@]}"; do
+    rustfmt bin/bin/public/"$file"
+  done
+}
+
+
+case $1 in
+"fmt") fmt ;;
+*) echo "unsupported action" ;;
+esac

@@ -10,9 +10,11 @@ setup: ## Setup the repository
 
 fmt: ## Format the codebase.
 	./scripts/ci_sh fmt
+	./scripts/ci_rust fmt
 
 fmt_check: ## Check is the codebase properly formatted.
 	./scripts/ci_sh fmt
+	./scripts/ci_rust fmt
 
 lint: ## Lint the codebase.
 	./scripts/ci_sh lint
