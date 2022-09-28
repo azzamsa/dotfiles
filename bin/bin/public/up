@@ -9,7 +9,12 @@ PACKAGE_NAME="$1"
 PACKAGE_VERSION="$2"
 
 if [ -z "$PACKAGE_NAME" ]; then
-  echo "error: version is not specified"
+  echo "error: package is not specified"
+  cat <<End-of-message
+
+Supported packages:
+- rust-analyzer
+End-of-message
   exit 1
 fi
 
