@@ -3,8 +3,8 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  bash:
-    name: Lint Bash files
+  ci:
+    name: Check code quality
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
@@ -15,33 +15,10 @@ jobs:
       with:
         fetch-depth: 1
 
-    - name: Run ShellCheck
-      uses: ludeeus/action-shellcheck@master
-      with:
-        scandir: './bin/bin/public'
-        ignore_names: sfetch
-
-
-  python:
-    name: Lint Python files
-    runs-on: ubuntu-20.04
-    strategy:
-      fail-fast: false
-
-    steps:
-    - name: Checkout source code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v1
-      with:
-          python-version: 3.9
-
-    - name: Install Black
-      run: pip install black
-
-    - name: Check formatting
+    - name: Install prerequisites
       run: |
-        black --check bin/bin/public/sfetch
+        make setup
+
+    - name: Check
+      run: |
+        make check
