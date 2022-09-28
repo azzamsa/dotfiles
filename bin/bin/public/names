@@ -1,56 +1,56 @@
-#!/bin/python
+#!/usr/bin/env rust-script
+//! Names
+//!
+//! Sometimes I need random "real" name for demos.
+//!
+//! Usage:
+//!
+//! Just run it as normal executable file:
+//!
+//! ```shell
+//! $ ./names
+//! galileo
+//! ```
+//!
+//! ```cargo
+//! [dependencies]
+//! rand = "0.8.5"
+//! ```
+use rand::Rng;
 
-"""
-Names
-~~~~~~~~~~~~~~~~~~~~~
-Sometimes I need random "real" name for demos.
-
-Usage:
-
-Just run it as normal executable file:
-
-.. code-block:: console
-   ./names
-
-Example output:
-    ❯ ./names
-    galileo
-
-"""
-import random
-
-NAMES = [
-    # Muhammad ibn Jābir al-Ḥarrānī al-Battānī was a founding father of astronomy. https:#en.wikipedia.org/wiki/Mu%E1%B8%A5ammad_ibn_J%C4%81bir_al-%E1%B8%A4arr%C4%81n%C4%AB_al-Batt%C4%81n%C4%AB
+const NAMES: [&'static str; 12] = [
+    // Muhammad ibn Jābir al-Ḥarrānī al-Battānī was a founding father of astronomy. https:#en.wikipedia.org/wiki/Mu%E1%B8%A5ammad_ibn_J%C4%81bir_al-%E1%B8%A4arr%C4%81n%C4%AB_al-Batt%C4%81n%C4%AB
     "albattani",
-    # Archimedes was a physicist, engineer and mathematician who invented too many things to list them here. https:#en.wikipedia.org/wiki/Archimedes
+    // Archimedes was a physicist, engineer and mathematician who invented too many things to list them here. https:#en.wikipedia.org/wiki/Archimedes
     "archimedes",
-    # Leonardo Da Vinci invented too many things to list here. https:#en.wikipedia.org/wiki/Leonardo_da_Vinci.
+    // Leonardo Da Vinci invented too many things to list here. https:#en.wikipedia.org/wiki/Leonardo_da_Vinci.
     "davinci",
-    # Albert Einstein invented the general theory of relativity. https:#en.wikipedia.org/wiki/Albert_Einstein
+    // Albert Einstein invented the general theory of relativity. https:#en.wikipedia.org/wiki/Albert_Einstein
     "einstein",
-    # Leonhard Euler invented large parts of modern mathematics. https:#de.wikipedia.org/wiki/Leonhard_Euler
+    // Leonhard Euler invented large parts of modern mathematics. https:#de.wikipedia.org/wiki/Leonhard_Euler
     "euler",
-    # Michael Faraday - British scientist who contributed to the study of electromagnetism and electrochemistry. https:#en.wikipedia.org/wiki/Michael_Faraday
+    // Michael Faraday - British scientist who contributed to the study of electromagnetism and electrochemistry. https:#en.wikipedia.org/wiki/Michael_Faraday
     "faraday",
-    # Richard Feynman was a key contributor to quantum mechanics and particle physics. https:#en.wikipedia.org/wiki/Richard_Feynman
+    // Richard Feynman was a key contributor to quantum mechanics and particle physics. https:#en.wikipedia.org/wiki/Richard_Feynman
     "feynman",
-    # Galileo was a founding father of modern astronomy, and faced politics and obscurantism to establish scientific truth.  https:#en.wikipedia.org/wiki/Galileo_Galilei
+    // Galileo was a founding father of modern astronomy, and faced politics and obscurantism to establish scientific truth.  https:#en.wikipedia.org/wiki/Galileo_Galilei
     "galileo",
-    # Grace Hopper developed the first compiler for a computer programming language and  is credited with popularizing the term "debugging" for fixing computer glitches. https:#en.wikipedia.org/wiki/Grace_Hopper
+    // Grace Hopper developed the first compiler for a computer programming language and  is credited with popularizing the term "debugging" for fixing computer glitches. https:#en.wikipedia.org/wiki/Grace_Hopper
     "hopper",
-    # Ada Lovelace invented the first algorithm. https:#en.wikipedia.org/wiki/Ada_Lovelace (thanks James Turnbull)
+    // Ada Lovelace invented the first algorithm. https:#en.wikipedia.org/wiki/Ada_Lovelace (thanks James Turnbull)
     "lovelace",
-    # Srinivasa Ramanujan - Indian mathematician and autodidact who made extraordinary contributions to mathematical analysis, number theory, infinite series, and continued fractions. - https:#en.wikipedia.org/wiki/Srinivasa_Ramanujan
+    // Srinivasa Ramanujan - Indian mathematician and autodidact who made extraordinary contributions to mathematical analysis, number theory, infinite series, and continued fractions. - https:#en.wikipedia.org/wiki/Srinivasa_Ramanujan
     "ramanujan",
-    # Nikola Tesla invented the AC electric system and every gadget ever used by a James Bond villain. https:#en.wikipedia.org/wiki/Nikola_Tesla
+    // Nikola Tesla invented the AC electric system and every gadget ever used by a James Bond villain. https:#en.wikipedia.org/wiki/Nikola_Tesla
     "tesla",
-]
+];
 
+fn get_random_name() -> String {
+    let mut rng = rand::thread_rng();
+    let random_num = rng.gen_range(0..NAMES.len());
+    return NAMES[random_num].to_string();
+}
 
-def get_random_name():
-    random_num = random.randint(0, len(NAMES))
-    return NAMES[random_num]
-
-
-if __name__ == "__main__":
-    print(get_random_name())
+fn main() {
+    println!("{:?} ", get_random_name());
+}
