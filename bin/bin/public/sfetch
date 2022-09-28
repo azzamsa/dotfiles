@@ -1,89 +1,40 @@
-#!/bin/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env rust-script
+//! Simple Fetch (sfetch)
+//!
+//! I tend to use it to copy and paste my sistem information for bug reporting.
+//!
+//! Usage:
+//! Just run it as normal executable file:
+//!
+//! ```shell
+//! ./sfetch
+//! ```
+//!
+//! Example output:
+//! ❯ ./sfetch
+//! OS: Fedora Linux 36 (Workstation Edition) x86_64
+//! Kernel: 5.19.11-200.fc36.x86_64
+//! Shell: zsh 5.8.1
+//! DE: GNOME 42.5
+//! WM: Mutter
+//! Emacs version: GNU Emacs 28.1 (build 1, x86_64-redhat-linux-gnu, GTK+ Version 3.24.34, cairo version 1.17.6) of 2022-07-15
+//!
+//! ```cargo
+//! [dependencies]
+//! xshell = "0.2.2"
+//! anyhow = "1.0.65"
+//! ```
+use xshell::{cmd, Shell};
 
-"""
-Simple Fetch (sfetch)
-~~~~~~~~~~~~~~~~~~~~~
-It is a simple fetch that written in pure Python without any external dependencies.
+fn main() -> anyhow::Result<()> {
+    let sh = Shell::new()?;
 
-I tend to use it to copy and paste my sistem information for bug reporting.
+    cmd!(sh, "neofetch --off --disable title model uptime packages resolution cpu gpu memory theme icons term wm_theme cols").run()?;
 
-Usage:
+    let mut emacs_version = cmd!(sh, "emacs --quick --batch --eval ' (print (version))'").read()?;
+    emacs_version = emacs_version.replace('\n', "");
+    emacs_version = emacs_version.replace('"', "");
+    println!("Emacs version: {}", emacs_version);
 
-Just run it as normal executable file:
-
-.. code-block:: console
-   ./sfetch
-
-Example output:
-    ❯ ./sfetch
-    OS: Debian GNU/Linux 11 (bullseye)
-    Kernel: Linux 5.10.0-10-amd64
-    CPU: Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz
-    Memory: 15893512 kB
-    Emacs version: GNU Emacs 29.0.50 (build 1, x86_64-pc-linux-gnu, GTK+ Version 3.24.24, cairo version 1.16.0) of 2021-11-30
-
-"""
-
-import subprocess
-
-
-def shell(command):
-
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    # output, error = process.communicate()
-    return process.communicate()
-
-
-def read_lines(filename):
-    with open(filename) as f:
-        content = f.readlines()
-    return content
-
-
-def emacs_version():
-    command = ["emacs", "--quick", "--batch", "--eval", "(print (version))"]
-    raw_output, _ = shell(command)
-    output = raw_output.decode("utf-8").replace('"', "").split()
-    return f"Emacs version: {' '.join(output)}"
-
-
-def os_version():
-    command = ["lsb_release", "-d"]
-    raw_output, _ = shell(command)
-    output = raw_output.decode("utf-8").replace('"', "").split()[1:]
-    return f"OS: {' '.join(output)}"
-
-
-def cpu():
-    content = read_lines("/proc/cpuinfo")
-    for line in content:
-        if "model name" in line:
-            model_name = line
-            break
-    model_name_list = model_name.split()[3:]
-    return f"CPU: {' '.join(model_name_list)}"
-
-
-def memory():
-    content = read_lines("/proc/meminfo")
-    for line in content:
-        if "MemTotal" in line:
-            memory_total = line
-            break
-    memory_total_list = memory_total.split()[1:]
-    return f"Memory: {' '.join(memory_total_list)}"
-
-
-def kernel():
-    command = ["uname", "--kernel-name", "--kernel-release"]
-    raw_output, _ = shell(command)
-    output = raw_output.decode("utf-8").strip()
-    return f"Kernel: {output}"
-
-
-print(os_version())
-print(kernel())
-print(cpu())
-print(memory())
-print(emacs_version())
+    Ok(())
+}
