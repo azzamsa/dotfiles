@@ -5,6 +5,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias -- -='cd -'
 
+alias g=git
 alias q=exit
 alias c=clear
 alias sudo='sudo '

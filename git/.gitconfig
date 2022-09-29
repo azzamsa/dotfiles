@@ -15,20 +15,10 @@
 
 [alias]
 	s = status
-	br = branch
-	f = fetch
+	b = branch
+	cl = clone --depth 1
 	g = log --graph --pretty=custom           # Show custom graph.
 	l = log --pretty=custom                   # Show custom log.
-	co = checkout
-	ac = !git add -A && git commit            # Commit all changes.
-	pl = pull --rebase                        # Pull with rebase
-	lg = !"git lg1"
-	lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) \
-	- %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— \
-	%an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-	lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) \
-	- %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' \
-	%C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
 
 [pretty]
 
