@@ -4,10 +4,14 @@
 #  Clean temporary files
 #
 
-echo "🧽 Cleaning temporary package manager files"
+echo "🧽 Cleaning unused dnf package"
 sudo dnf autoremove
-sudo dnf clean packages
+
+echo "🧽 Cleaning unused flatpak package"
 flatpak uninstall --unused
+
+echo "🧽 Cleaning package manager cache"
+sudo dnf clean packages
 
 echo "🧽 Cleaning temporary system files"
 sudo rm -rf /var/tmp/* /tmp/*
