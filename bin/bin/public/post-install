@@ -39,31 +39,10 @@ EOF
 
 # Setup Rust Utilities
 sudo dnf install --assumeyes tokei fd-find exa
-cargo install --locked cargo-binstall watchexec-cli git-cliff cargo-edit cargo-watch cargo-outdated cargo-tarpaulin
 
-cargo binstall --no-confirm --no-symlinks cargo-edit
-cargo binstall --no-confirm --no-symlinks watchexec-cli cargo-outdated --install-path ~/.local/bin
-
-# fnm
-cargo binstall --no-confirm --no-symlinks fnm \
-  --pkg-url="https://github.com/Schniz/fnm/releases/download/v{ version }/fnm-linux.zip" \
-  --pkg-fmt zip --bin-dir "{ bin }" --install-path ~/.local/bin
-chmod +x ~/.local/bin/fnm
-
-# broot
-cargo binstall --no-confirm --no-symlinks broot \
-  --pkg-url="https://github.com/Canop/broot/releases/download/v1.14.3/broot_{ version }.zip" \
-  --pkg-fmt zip --bin-dir "{ target }/{ bin }" --install-path ~/.local/bin
-
-# stylua
-cargo binstall --no-confirm --no-symlinks stylua \
-  --pkg-url="https://github.com/JohnnyMorganz/StyLua/releases/download/v{ version }/stylua-linux.zip" \
-  --pkg-fmt zip --bin-dir "{ bin }" --install-path ~/.local/bin
-
-# git-cliff
-cargo binstall --no-confirm --no-symlinks git-cliff \
-  --pkg-url="https://github.com/orhun/git-cliff/releases/download/v{ version }/{ name }-{ version }-{ target }.tar.gz" \
-  --pkg-fmt tgz --bin-dir "{ name }-{ version }/{ bin }" --install-path ~/.local/bin
+cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin
+cargo binstall --no-confirm --no-symlinks watchexec-cli cargo-outdated just fnm broot sytlua \
+  --install-path ~/.local/bin
 
 # Setup Sh Utilities
 sudo dnf install --assumeyes shellcheck
