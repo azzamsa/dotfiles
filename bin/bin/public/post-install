@@ -59,10 +59,10 @@ for d in ~/dotfiles/*/; do
   stow "$d" --no-folding
 done
 
-# Install flathub: keepasxc, logseq, Extension Manager,
+# Install apps from with flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
-flatpak install flathub com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakeman.ExtensionManager
+flatpak install flathub com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakeman.ExtensionManager org.mozilla.Thunderbird
 
 # Download rpm files manually
 # https://github.com/wez/wezterm/releases
