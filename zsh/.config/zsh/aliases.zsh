@@ -15,6 +15,7 @@ alias mv='mv -i'
 alias mkdir='mkdir -pv'
 alias path='echo -e ${PATH//:/\\n}'
 
+alias j=just
 alias mk=make
 alias crg=cargo
 alias shf="shfmt --list --write --indent 2"
