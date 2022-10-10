@@ -56,11 +56,6 @@ zstyle ':completion:*:history-words' menu yes
 zstyle ':completion::*:(-command-|export):*' fake-parameters ${${${_comps[(I)-value-*]#*,}%%,*}:#-*-}
 # Sory array completion candidates
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
-# Complete hostnames from ssh files too
-zstyle -e ':completion:*:hosts' hosts 'reply=(
-  ${=${=${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) 2>/dev/null)"}%%[#| ]*}//\]:[0-9]*/ }//,/ }//\[/ }
-  ${=${${${${(@M)${(f)"$(cat ~/.ssh/config 2>/dev/null)"}:#Host *}#Host }:#*\**}:#*\?*}}
-)'
 # Don't complete uninteresting users
 zstyle ':completion:*:users' ignored-patterns \
   adm amanda apache avahi beaglidx bin cacti canna clamav daemon \
