@@ -15,12 +15,40 @@
 //! ```cargo
 //! [dependencies]
 //! rand = "0.8.5"
+//! xflags = "0.3.0"
 //! ```
 use rand::Rng;
 
-const NAMES: [&'static str; 12] = [
+// List of muslim figure
+//
+// Sources:
+// - [1001 Inventions and the Library of Secrets](https://www.youtube.com/watch?v=JZDe9DCx7Wk)
+const MUSLIMS: [&str; 9] = [
+    // Ismail al-Jazari was a father of robotics and modern day engineering . https://en.wikipedia.org/wiki/Ismail_al-Jazari
+    "aljazari",
+    // Ibn al-Haytham was a founding father of optic. https://en.wikipedia.org/wiki/Ibn_al-Haytham
+    "alhaytham",
+    // Abbas ibn Firnas lies the foundation of flight. https://en.wikipedia.org/wiki/Abbas_ibn_Firnas
+    "firnas",
+    // al-Zahrawi was the father of surgery. https://en.wikipedia.org/wiki/Al-Zahrawi
+    "zahrawi",
+    // Fahreddin Pasha defends the medina in 1916. [This man ate grasshoppers to save Madinah - YouTube](https://www.youtube.com/watch?v=S326ws1FXVs)
+    "fahreddin",
+    // Corporal Hasan (Onbasi Hasan) is the last defender of al Aqsa. [Corporal Hasan: The Loyal Defender of Al Aqsa - YouTube](https://www.youtube.com/watch?v=-KMi3-bests)
+    "hasan",
+    // Khawla's complaints is heard from seventh heaven. [She was Heard from the Seventh Heaven](https://www.youtube.com/watch?app=desktop&v=apDPu0mKjfM)
+    "khwala",
     // Muhammad ibn Jābir al-Ḥarrānī al-Battānī was a founding father of astronomy. https:#en.wikipedia.org/wiki/Mu%E1%B8%A5ammad_ibn_J%C4%81bir_al-%E1%B8%A4arr%C4%81n%C4%AB_al-Batt%C4%81n%C4%AB
     "albattani",
+    // Fatima al-Fihri. https://en.wikipedia.org/wiki/Fatima_al-Fihri
+    "fihri",
+];
+
+// List of random scholars
+//
+// Sources
+// - https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go
+const NAMES: [&str; 11] = [
     // Archimedes was a physicist, engineer and mathematician who invented too many things to list them here. https:#en.wikipedia.org/wiki/Archimedes
     "archimedes",
     // Leonardo Da Vinci invented too many things to list here. https:#en.wikipedia.org/wiki/Leonardo_da_Vinci.
@@ -45,12 +73,41 @@ const NAMES: [&'static str; 12] = [
     "tesla",
 ];
 
-fn get_random_name() -> String {
+enum Source {
+    Muslim,
+    Other,
+}
+
+fn get_random_number(length: usize) -> usize {
     let mut rng = rand::thread_rng();
-    let random_num = rng.gen_range(0..NAMES.len());
-    return NAMES[random_num].to_string();
+    rng.gen_range(0..length)
+}
+
+fn get_random_name(source: Source) -> String {
+    match source {
+        Source::Muslim => {
+            let random_num = get_random_number(MUSLIMS.len());
+            MUSLIMS[random_num].to_string()
+        }
+        Source::Other => {
+            let random_num = get_random_number(NAMES.len());
+            NAMES[random_num].to_string()
+        }
+    }
 }
 
 fn main() {
-    println!("{:?} ", get_random_name());
+    let flags = xflags::parse_or_exit! {
+        /// Name source
+        optional source: String
+    };
+
+    let source = match flags.source {
+        Some(s) => match s.as_ref() {
+            "muslim" => Source::Muslim,
+            _ => Source::Other,
+        },
+        None => Source::Other,
+    };
+    println!("{:?} ", get_random_name(source));
 }
