@@ -5,20 +5,21 @@ on: [push, pull_request]
 jobs:
   ci:
     name: Check code quality
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
 
     steps:
     - name: Checkout source code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
+      uses: actions/checkout@v3
+
+    - name: Install latest just release
+      uses: extractions/setup-just@v1
 
     - name: Install prerequisites
       run: |
-        make setup
+        just setup
 
     - name: Check
       run: |
-        make check
+        just check
