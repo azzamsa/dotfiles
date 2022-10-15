@@ -41,7 +41,7 @@ EOF
 sudo dnf install --assumeyes tokei fd-find exa
 
 cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin
-cargo binstall --no-confirm --no-symlinks watchexec-cli cargo-outdated just fnm broot stylua \
+cargo binstall --no-confirm --no-symlinks watchexec-cli cargo-outdated just fnm broot stylua starship \
   --install-path ~/.local/bin
 
 # Setup Sh Utilities
