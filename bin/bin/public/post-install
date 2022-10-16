@@ -4,10 +4,11 @@
 sudo dnf remove --assumeyes virtualbox* anaconda-* tmux qemu-* Box2D
 
 # General
+# - Pavucontrol is needed to raise to volume beyond 100% for USB audio card
 sudo dnf update --assumeyes
 sudo dnf install --assumeyes stow emacs ncdu workrave copyq \
   docker docker-compose libreoffice gimp inkscape neofetch pandoc nextcloud-client flameshot \
-  gparted foliate
+  gparted foliate gnome-contacts gnome-calendar gnome-characters nnn pavucontrol etckeeper
 
 # HEIF image supports
 sudo dnf install --assumeyes https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
@@ -42,6 +43,7 @@ sudo dnf install --assumeyes tokei fd-find exa
 
 cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin
 cargo binstall --no-confirm --no-symlinks watchexec-cli cargo-outdated just fnm broot stylua starship \
+  bat genact \
   --install-path ~/.local/bin
 
 # Setup Sh Utilities
