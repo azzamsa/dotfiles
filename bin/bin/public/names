@@ -23,7 +23,16 @@ use rand::Rng;
 //
 // Sources:
 // - [1001 Inventions and the Library of Secrets](https://www.youtube.com/watch?v=JZDe9DCx7Wk)
-const MUSLIMS: [&str; 9] = [
+//
+// Other sources to look:
+// - https://en.wikipedia.org/wiki/List_of_scientists_in_medieval_Islamic_world
+// - https://en.wikipedia.org/wiki/List_of_Islamic_scholars_described_as_father_or_founder_of_a_field
+// - https://en.wikipedia.org/wiki/List_of_Sahabah
+// - https://en.wikipedia.org/wiki/Mathematics_in_the_medieval_Islamic_world#Other_major_figures
+// - https://en.wikipedia.org/wiki/List_of_Muslim_philosophers
+// - https://en.wikipedia.org/wiki/List_of_Muslim_historians
+// - https://en.wikipedia.org/wiki/List_of_female_Islamic_scholars
+const MUSLIMS: [&str; 10] = [
     // Ismail al-Jazari was a father of robotics and modern day engineering . https://en.wikipedia.org/wiki/Ismail_al-Jazari
     "aljazari",
     // Ibn al-Haytham was a founding father of optic. https://en.wikipedia.org/wiki/Ibn_al-Haytham
@@ -42,6 +51,8 @@ const MUSLIMS: [&str; 9] = [
     "albattani",
     // Fatima al-Fihri. https://en.wikipedia.org/wiki/Fatima_al-Fihri
     "fihri",
+    // Astronomers and astrologers
+    "ulugh",
 ];
 
 // List of random scholars
