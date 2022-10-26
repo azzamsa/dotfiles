@@ -10,6 +10,7 @@ alias q=exit
 alias c=clear
 alias sudo='sudo '
 alias in='sudo dnf install '
+alias out='sudo dnf remove '
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
