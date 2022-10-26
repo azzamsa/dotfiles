@@ -32,25 +32,9 @@ use rand::Rng;
 // - https://en.wikipedia.org/wiki/List_of_Muslim_philosophers
 // - https://en.wikipedia.org/wiki/List_of_Muslim_historians
 // - https://en.wikipedia.org/wiki/List_of_female_Islamic_scholars
-const MUSLIMS: [&str; 10] = [
-    // Ismail al-Jazari was a father of robotics and modern day engineering . https://en.wikipedia.org/wiki/Ismail_al-Jazari
-    "aljazari",
-    // Ibn al-Haytham was a founding father of optic. https://en.wikipedia.org/wiki/Ibn_al-Haytham
-    "alhaytham",
-    // Abbas ibn Firnas lies the foundation of flight. https://en.wikipedia.org/wiki/Abbas_ibn_Firnas
-    "firnas",
-    // al-Zahrawi was the father of surgery. https://en.wikipedia.org/wiki/Al-Zahrawi
-    "zahrawi",
+const MUSLIMS: [&str; 2] = [
     // Fahreddin Pasha defends the medina in 1916. [This man ate grasshoppers to save Madinah - YouTube](https://www.youtube.com/watch?v=S326ws1FXVs)
     "fahreddin",
-    // Corporal Hasan (Onbasi Hasan) is the last defender of al Aqsa. [Corporal Hasan: The Loyal Defender of Al Aqsa - YouTube](https://www.youtube.com/watch?v=-KMi3-bests)
-    "hasan",
-    // Khawla's complaints is heard from seventh heaven. [She was Heard from the Seventh Heaven](https://www.youtube.com/watch?app=desktop&v=apDPu0mKjfM)
-    "khwala",
-    // Muhammad ibn Jābir al-Ḥarrānī al-Battānī was a founding father of astronomy. https:#en.wikipedia.org/wiki/Mu%E1%B8%A5ammad_ibn_J%C4%81bir_al-%E1%B8%A4arr%C4%81n%C4%AB_al-Batt%C4%81n%C4%AB
-    "albattani",
-    // Fatima al-Fihri. https://en.wikipedia.org/wiki/Fatima_al-Fihri
-    "fihri",
     // Astronomers and astrologers
     "ulugh",
 ];
@@ -59,29 +43,11 @@ const MUSLIMS: [&str; 10] = [
 //
 // Sources
 // - https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go
-const NAMES: [&str; 11] = [
-    // Archimedes was a physicist, engineer and mathematician who invented too many things to list them here. https:#en.wikipedia.org/wiki/Archimedes
-    "archimedes",
-    // Leonardo Da Vinci invented too many things to list here. https:#en.wikipedia.org/wiki/Leonardo_da_Vinci.
-    "davinci",
-    // Albert Einstein invented the general theory of relativity. https:#en.wikipedia.org/wiki/Albert_Einstein
-    "einstein",
-    // Leonhard Euler invented large parts of modern mathematics. https:#de.wikipedia.org/wiki/Leonhard_Euler
-    "euler",
-    // Michael Faraday - British scientist who contributed to the study of electromagnetism and electrochemistry. https:#en.wikipedia.org/wiki/Michael_Faraday
-    "faraday",
+const NAMES: [&str; 2] = [
     // Richard Feynman was a key contributor to quantum mechanics and particle physics. https:#en.wikipedia.org/wiki/Richard_Feynman
     "feynman",
-    // Galileo was a founding father of modern astronomy, and faced politics and obscurantism to establish scientific truth.  https:#en.wikipedia.org/wiki/Galileo_Galilei
-    "galileo",
-    // Grace Hopper developed the first compiler for a computer programming language and  is credited with popularizing the term "debugging" for fixing computer glitches. https:#en.wikipedia.org/wiki/Grace_Hopper
-    "hopper",
-    // Ada Lovelace invented the first algorithm. https:#en.wikipedia.org/wiki/Ada_Lovelace (thanks James Turnbull)
-    "lovelace",
     // Srinivasa Ramanujan - Indian mathematician and autodidact who made extraordinary contributions to mathematical analysis, number theory, infinite series, and continued fractions. - https:#en.wikipedia.org/wiki/Srinivasa_Ramanujan
     "ramanujan",
-    // Nikola Tesla invented the AC electric system and every gadget ever used by a James Bond villain. https:#en.wikipedia.org/wiki/Nikola_Tesla
-    "tesla",
 ];
 
 enum Source {
