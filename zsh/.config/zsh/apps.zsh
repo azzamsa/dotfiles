@@ -2,6 +2,7 @@
 
 eval "$(fnm env --use-on-cd)"
 eval "$(atuin init zsh)"
+eval "$(zoxide init zsh)"
 
 # Broot alias
 function br {
@@ -53,3 +54,8 @@ n ()
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
 }
+
+# zoxide
+if (( $+commands[zoxide] )); then
+  export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/:$HOME/.config/"
+fi
