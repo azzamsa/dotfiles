@@ -5,22 +5,23 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias -- -='cd -'
 
-alias g=git
-alias q=exit
-alias c=clear
+alias g='git'
+alias q='exit'
+alias c='clear'
 alias sudo='sudo '
-alias in='sudo dnf install '
-alias out='sudo dnf remove '
+alias in='sudo dnf install --assumeyes'
+alias out='sudo dnf remove --assumeyes'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -pv'
 alias path='echo -e ${PATH//:/\\n}'
 
-alias j=just
-alias mk=make
-alias crg=cargo
-alias shf="shfmt --list --write --indent 2"
+alias j='just'
+alias mk='make'
+alias crg='cargo'
+alias shf='shfmt --list --write --indent 2'
+alias pip='pip --default-timeout=1000'
 
 # An rsync that respects gitignore
 rcp() {
