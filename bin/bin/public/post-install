@@ -1,23 +1,25 @@
-#!/bin/sh
+#!/bin/bash
+
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+
+sudo dnf update --assumeyes
 
 # Remove unused apps
-sudo dnf remove --assumeyes virtualbox* anaconda-* tmux qemu-* Box2D
+sudo dnf remove --assumeyes virtualbox* tmux qemu-*
 
 # General
 # - Pavucontrol is needed to raise to volume beyond 100% for USB audio card
-sudo dnf update --assumeyes
-sudo dnf install --assumeyes stow emacs ncdu workrave copyq \
+sudo dnf install --assumeyes @development-tools emacs ncdu workrave \
   docker docker-compose libreoffice gimp inkscape neofetch pandoc nextcloud-client flameshot \
-  gparted foliate gnome-contacts gnome-calendar gnome-characters nnn pavucontrol etckeeper
+  gparted foliate gnome-contacts gnome-calendar gnome-characters pavucontrol etckeeper seahorse
 
 # HEIF image supports
 sudo dnf install --assumeyes https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
 sudo dnf install --assumeyes libheif gimp-heif-plugin
 
-# Terminal
-sudo dnf install --assumeyes zsh fira-code-fonts
 # Rustup
-sudo dnf install --assumeyes lld make gcc
+sudo dnf install --assumeyes mold lld make gcc
 # Rust OpenSSL
 sudo dnf install --assumeyes pkg-config openssl-devel
 # Gnome Pano
@@ -26,68 +28,92 @@ sudo dnf install --assumeyes libgda libgda-sqlite
 sudo dnf install --assumeyes gstreamer1-plugin-openh264 mozilla-openh264
 
 # Setup Docker
+sudo usermod -aG docker "$USER"
 sudo setfacl --modify user:username:rw /var/run/docker.sock
 
 # Setup Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup toolchain install nightly
+rustup component add rust-analyzer
+. "$HOME/.cargo/env"
 
 # Use lld as default linker
-tee -a ~/.cargo/config <<EOF
-[target.x86_64-unknown-linux-gnu]
-rustflags = [ "-Clink-arg=-fuse-ld=lld", "-Clink-arg=-Wl,--no-rosegment" ]
-EOF
+# tee -a ~/.cargo/config <<EOF
+# [target.x86_64-unknown-linux-gnu]
+# rustflags = [ "-Clink-arg=-fuse-ld=lld", "-Clink-arg=-Wl,--no-rosegment" ]
+# EOF
 
 # Setup Rust Utilities
 sudo dnf install --assumeyes tokei fd-find exa
 
+# Setup cargo-binstall
+curl --location https://github.com/cargo-bins/cargo-binstall/releases/download/v0.16.0/cargo-binstall-x86_64-unknown-linux-gnu.tgz \
+  --output /tmp/binstall.tgz
+tar -xf /tmp/binstall.tgz
+mkdir -p ~/.local/bin
+mv /tmp/cargo-binstall ~/.local/bin
+
 cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin
-cargo binstall --no-confirm --no-symlinks watchexec-cli cargo-outdated just fnm broot stylua starship \
-  bat genact \
+cargo binstall --no-confirm --no-symlinks watchexec-cli cargo-outdated just fnm stylua starship \
+  bat genact atuin zoxide zellij rust-script \
   --install-path ~/.local/bin
 
 # Setup Sh Utilities
-sudo dnf install --assumeyes shellcheck
+sudo dnf install --assumeyes ShellCheck
 
 # Setup Python Utilities
-pip install --user pipenv grip black pylint
+python3 -m pip install --user grip
 
 # Setup Web Utilities
 sudo dnf install --assumeyes tidy
-
-# Dotfiles
-git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
-for d in ~/dotfiles/*/; do
-  stow "$d" --no-folding
-done
+fnm use 18.12.0
 
 # Install apps from with flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
-flatpak install flathub com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakeman.ExtensionManager org.mozilla.Thunderbird
+flatpak install --assumeyes flathub com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakeman.ExtensionManager org.mozilla.Thunderbird
 
-# Download rpm files manually
-# https://github.com/wez/wezterm/releases
-# https://github.com/Kong/insomnia/releases
-# https://dbeaver.io/download/
+# Setup Emacs & Doom
+git clone https://github.com/azzamsa/doom.d ~/.doom.d
 
-# Download binary
-# https://github.com/restic/restic/releases
-# https://github.com/oniony/TMSU/releases
-# https://github.com/talklittle/tmsu-nautilus-rs/releases
-
-# Move files from previous machine
-# .gnupg fonts .nodebin .ssh .emacs .doom .config/insomnia
-
-# Setup Doom
-doom sync
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+~/.emacs.d/bin/doom sync
 # doom doctor
 
+# Setup GNOME Extension
+wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+chmod +x gnome-shell-extension-installer
+sudo mv gnome-shell-extension-installer /usr/bin/
+gnome-shell-extension-installer 2890 5278
+
+# Setup shell
+curl --location https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip \
+  --output /tmp/firacode.zip
+mv /tmp/firacode.zip ~/.local/share/fonts/
+unzip ~/.local/share/fonts/firacode.zip
+fc-cache -fv
+
+sudo dnf install --assumeyes git stow zsh util-linux-user wl-clipboard
+
+# Dotfiles
+if [ ! -d ~/dotfiles/ ] ; then
+    git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
+fi
+
+# Remove existing files
+rm .zshenv
+pushd ~/dotfiles >/dev/null || exit
+  stow bin git gnupg vi zsh zellij --no-folding --restow
+popd >/dev/null || exit
+
+# Set ZSH to as default
+chsh -s "$(which zsh)"
+
 # Setup ripgrep with pcre2 feature
-mkdir -p /opt/ripgrep
-sudo chown --recursive "$USER:$USER" /opt/activitywatch
-git clone --depth 1 git@github.com:BurntSushi/ripgrep.git /opt/ripgrep
-cargo install --path /opt/ripgrep --features 'pcre2'
+mkdir -p ~/opt/ripgrep
+git clone --depth 1 https://github.com/BurntSushi/ripgrep.git ~/opt/ripgrep
+cargo install --path ~/opt/ripgrep --features 'pcre2'
 
 # Post Setup
 sudo dnf autoremove
@@ -107,6 +133,18 @@ sudo journalctl --vacuum-time=1s
 docker system prune -a
 
 rm -rf ~/.cargo/git/* ~/.cargo/registry/*
+
+# Download rpm files manually
+# https://github.com/Kong/insomnia/releases
+# https://dbeaver.io/download/
+
+# Download binary
+# https://github.com/restic/restic/releases
+# https://github.com/oniony/TMSU/releases
+# https://github.com/talklittle/tmsu-nautilus-rs/releases
+
+# Move files from previous machine
+# .gnupg .nodebin .ssh .emacs .config/insomnia
 
 # Troubeshooting
 
