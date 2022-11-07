@@ -12,7 +12,7 @@ sudo dnf remove --assumeyes virtualbox* tmux qemu-*
 # - Pavucontrol is needed to raise to volume beyond 100% for USB audio card
 sudo dnf install --assumeyes @development-tools emacs ncdu workrave \
   docker docker-compose libreoffice gimp inkscape neofetch pandoc nextcloud-client flameshot \
-  gparted foliate gnome-contacts gnome-calendar gnome-characters pavucontrol etckeeper seahorse
+  gparted foliate gnome-contacts gnome-calendar gnome-characters gnome-clocks nnn pavucontrol etckeeper seahorse
 
 # HEIF image supports
 sudo dnf install --assumeyes https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
