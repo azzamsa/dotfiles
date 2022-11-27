@@ -109,9 +109,9 @@ popd >/dev/null || exit
 chsh -s "$(which zsh)"
 
 # Setup ripgrep with pcre2 feature
-mkdir -p ~/opt/ripgrep
-git clone --depth 1 https://github.com/BurntSushi/ripgrep.git ~/opt/ripgrep
-cargo install --path ~/opt/ripgrep --features 'pcre2'
+mkdir -p ~/.opt/ripgrep
+git clone --depth 1 https://github.com/BurntSushi/ripgrep.git ~/.opt/ripgrep
+cargo install --path ~/.opt/ripgrep --features 'pcre2'
 
 # Post Setup
 sudo dnf autoremove
