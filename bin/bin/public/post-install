@@ -71,6 +71,9 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak update
 flatpak install --assumeyes flathub com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakeman.ExtensionManager org.mozilla.Thunderbird
 
+# Emacs everywhere
+sudo dnf install --assumeyes xclip xdotool xprop xwininfo
+
 # Setup Emacs & Doom
 git clone https://github.com/azzamsa/doom.d ~/.doom.d
 
