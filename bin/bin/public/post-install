@@ -54,7 +54,7 @@ mkdir -p ~/.local/bin
 mv /tmp/cargo-binstall ~/.local/bin
 
 cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin watchexec-cli cargo-outdated just fnm stylua starship \
-  bat genact atuin zoxide zellij rust-script \
+  bat genact atuin zoxide zellij rust-script evcxr_repl
 
 # Setup Sh Utilities
 sudo dnf install --assumeyes ShellCheck

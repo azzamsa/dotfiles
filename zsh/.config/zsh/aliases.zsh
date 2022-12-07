@@ -22,6 +22,8 @@ alias mk='make'
 alias crg='cargo'
 alias shf='shfmt --list --write --indent 2'
 alias pip='pip --default-timeout=1000'
+# Can't remember `evcxr`
+alias rrepl='evcxr'
 
 # An rsync that respects gitignore
 rcp() {
