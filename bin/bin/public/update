@@ -12,11 +12,11 @@ sudo dnf update
 
 echo "🌱 Checking node apps"
 pushd ~/.nodebin >/dev/null || exit
-taze major
+taze major -w && npm i
 popd >/dev/null || exit
 
 echo "🌱 Checking rust apps"
 rustup check
-cargo install-update -l
+cargo install-update -a
 
 echo "✨ You have a new shiny machine!"
