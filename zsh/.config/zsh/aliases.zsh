@@ -16,6 +16,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -pv'
 alias path='echo -e ${PATH//:/\\n}'
+alias ports='netstat -tulanp'
 
 alias j='just'
 alias mk='make'
