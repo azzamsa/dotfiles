@@ -14,8 +14,8 @@
 //!
 //! ```cargo
 //! [dependencies]
-//! rand = "0.8.5"
-//! xflags = "0.3.0"
+//! rand = "0.8"
+//! xflags = "0.3"
 //! ```
 use rand::Rng;
 

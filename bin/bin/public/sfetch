@@ -21,8 +21,8 @@
 //!
 //! ```cargo
 //! [dependencies]
-//! xshell = "0.2.2"
-//! anyhow = "1.0.65"
+//! xshell = "0.2"
+//! anyhow = "1.0"
 //! ```
 use xshell::{cmd, Shell};
 
