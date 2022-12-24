@@ -57,5 +57,5 @@ n ()
 
 # zoxide
 if (( $+commands[zoxide] )); then
-  export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/:$HOME/.config/"
+  export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.config/*"
 fi
