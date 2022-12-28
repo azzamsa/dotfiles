@@ -1,0 +1,32 @@
+#!/bin/sh
+
+: '
+Zellij Here (zellij-here)
+~~~~~~~~~~~~~~~~~~~~~
+Open zellij terminal in given directory.
+
+Usage:
+
+```
+$ zellij-here "/opt"
+```
+
+Usage from other application:
+
+``` lisp
+(defun terminal-here ()
+  (interactive)
+  (message "Opening terminal in %s" default-directory)
+  (start-process "" nil "zellij-here" default-directory))
+```
+'
+
+# takes the path as an argument (e.g. /opt)
+if [ -n "$1" ]; then
+  path="$1"
+else
+  echo "::: No path passed. Use '$HOME' as default"
+  path="$HOME"
+fi
+
+zellij action new-tab --layout "default" --cwd "$path"
