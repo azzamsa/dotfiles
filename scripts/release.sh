@@ -16,7 +16,7 @@ fi
 # takes the tag as an argument (e.g. v0.1.0)
 if [ -n "$1" ]; then
     # update the changelog
-    git-cliff --tag "$1" --sort newest > CHANGELOG.md
+    git-cliff --tag "$1" > CHANGELOG.md
     git add -A && git commit -m "$1"
     git show
     git tag -s -a "$1" -m "$1" -m "For details, see the CHANGELOG.md"
