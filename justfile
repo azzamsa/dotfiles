@@ -33,8 +33,3 @@ check: fmt-check lint
 # Create a new release. Example `just release v2.2.0`
 release version:
     bash scripts/release.sh {{ version }}
-
-# Local Variables:
-# mode: makefile
-# End:
-# vim: set ft=make :
