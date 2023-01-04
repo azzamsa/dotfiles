@@ -1,499 +1,405 @@
 # Changelog
-
 All notable changes to this project will be documented in this file.
+
+## [2.1.0] - 2023-01-04
+
+### Features
+- **bin:** Open `zellij` from other application ([b5f718e](b5f718e5c0215611656f0d9bf6d745ac7fb6a61c))
+- **zellij:** Unbind default exit key ([249b026](249b026902d74322ead4915c1988ae969d2affee))
+- **zsh:** Add `port` alias ([cf7e19d](cf7e19d479651fc492abdc4305528be981c8296e))
+- **bin:** Support Emacs everywhere ([7b123c4](7b123c49dfeeac20384a73e5dd9b38b57ed82ddd))
+- Support `evcxr` ([53ba2d6](53ba2d68e539dc7450320e4784f3b897fe1d7744))
+- **bin:** Add gnome-clocks ([813d934](813d9341710e780320fc1d1735adfb5e7f6ca2e4))
+- **zellij:** Initial support ([cd7b307](cd7b30733b8577a71fff3062320748970bb7dfb3))
+- **zsh:** Bring back zoxide ([5f41642](5f416420197b4c2ea18af95443c6a1149c3af83a))
+- **zsh:** Add more alias ([e333032](e333032de51569da274a551d9883016ee5fec50e))
+- **bin:** Add more apps to post-install ([44d7f48](44d7f4834380f21a9c7c8e000cb8ccf82c50ba2b))
+- **bin:** Install starship using `cargo-binstall` ([d069644](d069644ba61a45212dd998d0021ea7a817dda74e))
+- **bin:** Muslim figure for names ([310d6b1](310d6b1ddbc7bd94ddccf8b3973026f075cf3892))
+- **zsh:** `dnf install` alias ([d12cbf0](d12cbf0a0baf51a2d5d86020cab9ae92266fc7fe))
+- **zsh:** Support `nnn` ([427d590](427d59052ea03930a77d6c5c0ac7dfcf0d525010))
+- **bin:** Install `Thunderbird` ([3db1729](3db1729ae8f6c4637143d4d0199890816f22f51b))
+- **zsh:** `just` alias ([2f1700b](2f1700b080a7d4023a867c99fbfea9b4690d6dbb))
+
+
+### Bug fixes
+- **zsh:** Update exclude zoxide directory ([22e9336](22e93368308cce58e064cbca5a1886d04cdfd93a))
+- **bin:** Install update directly ([b3dafaf](b3dafaf366eb1f3384fb0f1036242a7c35d45fa2))
+- **bin:** Hide `opt` directory ([6665aa5](6665aa5fd821c6bf15b9a7217dd2399e5298b1b3))
+- **bin:** `cargo-update` now supports `cargo-binstall` ([918205a](918205ae64d586507d1a3e7cfbd2fb8df38faf62))
+- **zellij:** Nvidia needs to run under x11 ([d48d042](d48d042af474a094f6e61a80e3f25ac6aa05d138))
+- **bin:** Update post-install ([1bffdc2](1bffdc216746eacb16db9ef6a50f1b223cbc1e2e))
+- **bin:** Only keep unique distinguishable name ([e00e5dc](e00e5dcec77f3fe03212bff62e801c81ce9f039c))
+- **zsh:** Enable `Ctrl-D` to exit ([a238b9d](a238b9d0cc91b79d4641ab1d2beed27137e852f7))
+- **bin:** App name typo ([63becd9](63becd927ed09acebf9efd232945b562dbcc03bd))
+- **zsh:** Double keypress on `ssh` hostname ([0a33781](0a33781b1432b665f8b72800e39edb711d5f8846))
+- **bin:** Don't check installed rust binaries ([028c7fc](028c7fc903acb7f866fff61dc474f6b256ea69c7))
+- **bin:** Binstall doesn't need project URL anymore ([56c04dd](56c04ddbb11bc95339283e020148cd15ac24a4a4))
+- Remove unused git config ([b95c3de](b95c3deac00fff050995b739a0100fc880aae671))
+
 
 ## [2.2.0] - 2022-09-28
 
-### Bug Fixes
-
-- Update post-install
-- Some vars are not set
-- Don't highlight paste
-- Remove some names
-- Download binary manually
-- Migrate to Fedora
-- Bring back starship
-- Add more paths
-- Weird behavior without explicit `HISTFILE` location
-- Use `menu` instead of blind `completer`
-- I don't use tmux
-- Broot is better than fasd
-
 ### Features
+- **bin:** List supported packages if package name missing ([b1b246b](b1b246ba0a2a783cf2f54eae7761ad34833596bb))
+- **bin:** Update post install ([10d985d](10d985dadfa0210fa136f58755334cb53683c661))
+- **bin:** Check rust updates ([bec4cb1](bec4cb1ee32a32be80796f53b9fdc0d504baf1b5))
+- **bin:** Add more package to install ([011c3fc](011c3fcb2aee4af32091895f17e4777058454295))
+- **bin:** Clean unused flatpak packages ([a6d4ae8](a6d4ae8ac665fd5a95aecb228ec4447d5679584a))
+- **bin:** `update` ([79cc4a1](79cc4a1cafdda5e1bda080290442dec89946126b))
+- **bin:** Tmsu installations ([a007967](a00796715cd66bb67e838f9438fdbed9c9c48216))
+- **zsh:** Migrate to `atuin` ([62fb45e](62fb45e5c21a88605abba10fcd51970e30161ca3))
+- **bin:** `clean` ([15348f3](15348f32defb9a8c3247885e6e2476716a91b86e))
+- **bin:** `up` rust-analyzer ([e104eea](e104eea720941f982da747fd74f950de2cc440b0))
+- **bin:** Use `binstall` to install frequently updated Rust package ([e75f7ab](e75f7abb5963a17e6fb8fa1e89a1e491fd4493df))
+- **bin:** Shfmt `--write` alias ([590e15d](590e15d14fa3aa7232888173c857a4702c3200fb))
+- **bin:** Binstall `fnm` ([8e6a064](8e6a064967746e9cdb1b3731bfe569df28538d09))
+- **zsh:** Add `cargo` alias ([42d1625](42d16251798c76f6b83bfbcf0a07bd230ced017d))
+- **bin:** Names ([1745649](1745649285964730c3ef392882273fb0d52c531e))
+- **bin:** Use `lld` as default linker ([d9aa922](d9aa922fe722e5015c42d2b2679363e59d887373))
+- **bin:** Ding ([14c7367](14c73676a3191f4574a7e430d8179e1761687642))
 
-- List supported packages if package name missing
-- Update post install
-- Check rust updates
-- Add more package to install
-- Clean unused flatpak packages
-- `update`
-- Tmsu installations
-- Migrate to `atuin`
-- `clean`
-- `up` rust-analyzer
-- Use `binstall` to install frequently updated Rust package
-- Shfmt `--write` alias
-- Binstall `fnm`
-- Add `cargo` alias
-- Names
-- Use `lld` as default linker
-- Ding
+
+### Bug fixes
+- **bin:** Update post-install ([61f08e5](61f08e5592247e934c679727d2be7fe9c1989708))
+- **zsh:** Some vars are not set ([7875c5f](7875c5f17a70c6b9e31b5831de9d9a3dd4b6acef))
+- **zsh:** Don't highlight paste ([8286600](82866001242ce5c735a27008a7464f07fcdf82a1))
+- **bin:** Remove some names ([e0fe2ea](e0fe2ea7ced2cb1011377dd7f2855bff26a8fa98))
+- **bin:** Download binary manually ([f5def44](f5def443e11c19f185d56873af8549802a5ce0c9))
+- **bin:** Migrate to Fedora ([4c5ccdc](4c5ccdc51e63a552c73113753687e6d9aa5e70fd))
+- **zsh:** Bring back starship ([e0e9059](e0e905900a9e69265295009fd7b87e7297b009f2))
+- **zsh:** Add more paths ([e246627](e2466276b85e66ceae3f5aa6bc2f5c5fa6e16e4c))
+- **zsh:** Weird behavior without explicit `HISTFILE` location ([9e30167](9e30167efdf361bb55eac7fe23e93c5937774ce7))
+- **zsh:** Use `menu` instead of blind `completer` ([79435c2](79435c2e423c0fdeed89c1713191b488e7c259f0))
+- **zsh:** I don't use tmux ([605f48f](605f48f2843d4b68572b8ee7e3e29dc5ecbddb7b))
+- **zsh:** Broot is better than fasd ([27ba423](27ba423360bff70f06ce8b12d9af9f2624b2ede9))
+
 
 ### Performance
+- **zsh:** Remove unused code ([6beb1a4](6beb1a47b2a76be5f1ce3d0dc66a2d1dbd10224e))
 
-- Remove unused code
 
-### Refactor
+## [2.1.0] - 2023-01-04
 
-- Port `sfetch` to rust
-- Port `names` to rust
-- Reformat using `shfmt`
+### Bug fixes
+- Update .gitignore ([74a50d5](74a50d5e2e56e53ba8265abfd2c47a248060846a))
+- **mpv:** Remove its configuration ([fe52ba5](fe52ba59ba0ad70ead19dc3698ecb5e44c928ed7))
+- **zsh:** Remove fish and starship ([c83ef14](c83ef146d195c982059915e2716a21577649b82b))
 
-### Ci
-
-- Add ci for Rust files
-- Update workflow
-
-## [2.1.0] - 2022-09-12
-
-### Bug Fixes
-
-- Update .gitignore
-- Remove its configuration
-- Remove fish and starship
-
-### Documentation
-
-- Update readme
-
-### Build
-
-- Add usage guide
 
 ## [2.0.0] - 2022-09-12
 
-### Bug Fixes
-
-- Migrate some alias to `dnf` instead of `apt`
-- Custom completion can't accepts custom arguments
-- Swap `tab relative` keybinding
-- Replace built-in history keybinding
-- Enable showing $PWD in Terminal title
-- Revert wezterm-here
-- Auto-type the history command
-- Wrong zoxide setup
-- Zoxide support Nushell out of the box
-- Some package need bleeding edge version
-- Avoid accidental quit
-- Don't hardcode themes
-- Use latest packages
-- Use gnome defaults
-- Remove abbrev
-- Avoid f5 hiccup
-- Maximum recursion depth reached
-- Key layer slows my workflow
-- Remove unused config
-- GNOME doesn't need GTK config
-- X config is not needed anymore
-- Migrate to flatpak
-- Migrate to GNOME
-- Opacity in browser is a bad idea
-- Now I use Emacs in non-specified workspace
-- Use sticky key for switching workspace
-- Migrate to dracula dark theme
-- Brightness text should use `foreground` color
-- Move everything to Fira Code
-- Migrate to dark theme
-- Mic is not reliable
-- Enable `follow` for mpv
-- Picom won't start at startup
-- Suddenly it can't find script custom path
-- Adjust hue for inactive pane in newer version
-- Use smaller increment/decrement in brightness
-- Wrong foreground color in battery module
-- Don't daemonize picom
-- Workrave applet should be sticky
-- Install more app to venv
-- No space after python version
-- I don't need fancy tab-bar
-- Use full name in office
-- Wrong function name
-- Daemonize picom
-- Handle day night in brighten/dim
-- Use initial in IPC to avoid state changes in restart
-- Typo
-- Update-alternatives need sudo rights
-- Java applications menus immediately closing after the click
-- Skip sticky windows when switching window
-- Put lockscreen image back to wallpapers directory
-- Use full percentage for CPU
-- Running the monitor.sh in bspwmrc cause it to restart indefinitely
-- Missing percentage in label
-- Remove maildir-utils and friends
-- Use dunstify instead
-- It has been dark before 5 pm
-- Darken the inactive pane
-- Remove unused module
-- Can't set foreground color on ramp
-- Use native xwindow module
-- `pinentry-gtk2` took ages to load
-- Must start with desktop number 1
-- Use darker color for `pager_color_prefix`
-- Use pinentry-gtk2
-- Node prompt has no whitespace at the end
-- Improve day/night detection
-- Use xwindo again to show title
-- Swap the main key with emacs
-- Delete old unused configs
-- Doesn't use bitmap font
-- Use more modern icon sets
-- Avoid conflicting keys with emacs
-- Picom binary is missing
-- Wezterm now installed via deb files
-- 12 hour format is more redable for merge
-- Revert the top margin
-- Use gnome-keyring instead of keychain
-- Use regular date module. `interval` not supported in ipc module
-- Don't focus to empty node
-- Start Emacs in tiled by default
-- Can't change focus with active mouse hovering on other windor
-- `--no-folding` solves the cluttered symlink directories
-- Use a more brightner version of foreground color
-- Try using homerow for workspaces
-- Using chain in bspwm is hard
-- Migrate to bspwm
-
-### Documentation
-
-- Add license
-- Post ZSH migration
-- List all branches
-- Improve separation between section
-- Capitalize docstring
-- Capitalize docstring
-- Separate configuration for office
-- More documentation
-- Add more log
-- Wezterm here documentation
-- Replace assets with the new tiny simple look
-
 ### Features
+- **zsh:** Initial configuration ([bfb9686](bfb9686a6bbd8c46010dac0c0505432dcc4fef12))
+- **wezterm:** Enable `switch to last active tab when closing tab` ([1c3caef](1c3caefa8beb9b6a6bef7ee08809ecad1b162695))
+- **wezterm:** More shortcut ([ff7460c](ff7460cd4fe24a5a9d4442a3bc038092378954a1))
+- **nushell:** Enable command completions ([5be6210](5be6210607d4c6ca8271be868b7cddefc056a0ea))
+- **vi:** Initial config ([f83182b](f83182bf6b4382b6ae617fa0c444bfb373cbb7dc))
+- **nushell:** More aliases ([04a2d78](04a2d78297ee0a7dc384447e92cc7cf87c08dd0d))
+- **nushell:** Support fnm ([f0398f9](f0398f915bf0204ba593b766adcef7d802f5d6d9))
+- **wezterm:** Use Nushell as login shell ([6f88e0d](6f88e0dde544ff7dcfbfdec1db0df602f96ab74c))
+- **nushell:** Add external executable path ([586b513](586b513b2721707ef11f03cc81685315dfcfe535))
+- **nushell:** Use menu to avoid having multiple prompt in custom history ([7b398f6](7b398f67c81f333c521a147d6db8c60fb6d31848))
+- **nushell:** Exclude failed command ([4bfb518](4bfb518ae41a59a8b734085b96b02eb6948679a8))
+- **nushell:** Always remove to trash ([972f3e5](972f3e57381cae621086146ed28cb4f77fcedff0))
+- **bin:** Add wepb to post-install ([76622ac](76622ac02d30e510b1f38bf1e2df7778cc448559))
+- **nushell:** Use keybinding for history ([e6c43af](e6c43af0f900d59b0fb7615951dd30c3275f0f4f))
+- **nushell:** Initial commit ([b46551b](b46551b0c5e997ad6debce8c057c9e898017bb1d))
+- Play well both in ligth and dark mode ([272c16a](272c16a14b99c5be1eba7d8f5a22c2401857e1f9))
+- **fish:** Broot file manager ([72e25f8](72e25f83b455f4d2118f7aa574e6ce747e65a3d1))
+- **wezterm:** Visual feedback after copy ([12235e8](12235e80debe2409df34badc54a677c7355fb07c))
+- **wezterm:** Use layers for keybindings ([672b0bc](672b0bc550d81263e88894856229f14a62f355d9))
+- Support atuin ([fc3bdf9](fc3bdf939594570c5dc677521873f6a49017c9e9))
+- **bin:** Add more utilities package ([f438be2](f438be220b16ae62d6328bc8ad48aee5f5dbca3d))
+- **fish:** Support poetry ([0febe07](0febe07483c9ac15f98e9aed05e4cc739c195095))
+- **bspwm:** Add rule for thunar ([688aa6a](688aa6a8b7a5506e1f02ca9c3931464970e8a1a0))
+- **bin:** Add fd-find to post installation ([55162bf](55162bf3f92efbb56fc71e7579f4860280a6dcc7))
+- **git:** Pre-push hooks that protect a branch from being pushed into ([f0ad749](f0ad749b67acd8ae43bc2fb7a083f3fadece2983))
+- **bin:** Kernel info in sfetch ([e199ec7](e199ec7e62885eb2035176c4fb1e0eeecb37c518))
+- **fish:** Fdfind is too long ([ff03362](ff03362fec5f9bf77a3c36ebc43a0e79db9c69af))
+- **bin:** Setup lightdm ([1a74aa5](1a74aa50dbda0e8d75b76d4115fac7f843640384))
+- **bin:** Add credentials to keyring app ([5e9b0a7](5e9b0a7751d5c917aa1ee6294e1b87f1279d1727))
+- **bin:** Updating rust-analyzer made easy ([b388a54](b388a5416b85b63e8e0570f8fe50ea3a3cee6afb))
+- **bin:** Make it easier for family members to use this machine ([20ea4c6](20ea4c6b78f735f4809814fc790821b09fe77f66))
+- **bin:** Add more package to nodebin ([891834f](891834f786d64f11b19690dbe8c6a944dd57591e))
+- **fish:** Show tree in current directory ([ca130c5](ca130c54005de802c124bd94c3635e14cbfa6d71))
+- **wezterm:** Toggle next/prev movement on pane direction ([ed036f2](ed036f226f906a12baf24d1f92e7a4ab73306da5))
+- **vimium:** Initial config ([529cba4](529cba497037245a893c6b3af7c49534ca1f8fe5))
+- **polybar:** Manage volume level from the bar ([5bd85c9](5bd85c996241b092996976f65585cade225a22a1))
+- **bin:** Add more package to post-install ([f4545d9](f4545d99a295168e18d893aa1f296698cad483e1))
+- **polybar:** Brighten and dim screen from bar ([5156895](5156895498a182783c3915b58a84e42190df6d47))
+- **bin:** Dim and brighten the screen ([aa82492](aa824928b04ea42f7eab41c9a6d57ba0b6cfec9b))
+- **sxhkd:** Enable more fn keys ([7b2017a](7b2017a81d1a0abc1117d04a1c5925d581411139))
+- **polybar:** Toggle speaker status from the bar ([1aed542](1aed542eaf67ed8ae42cfe0f8f15667381c7c33b))
+- **polybar:** Toggle mic status from the bar ([51d3692](51d3692a011e455bfe7eff063076df2888cfd517))
+- **bin:** Emacs pgtk supports ([cd84b80](cd84b80bbe801240fa1dbd5ddf0a99e2b8fad9dc))
+- **bin:** Auto brightness ([664fe31](664fe31fcbcf0cb39a8699813fae4e8081a3c035))
+- **bin:** Auto suspend ([9710185](97101855ceb9628a7cc74b3690db5a6d0bbea11d))
+- **bspwm:** Load the desired autorandr mode based on connected monitors ([5084ece](5084ece59f1c3abc59766e7ad7eb6b6b698be163))
+- **polybar:** Use env variable for wlan interface name ([2dead77](2dead77cf86361a1fa633faf6864685fe908d1eb))
+- **bin:** Bluetooth support in installation ([e61f734](e61f734cefab946cd82c9f629d059e73c140df60))
+- **bspwm:** Fully support automatic monitor switching ([95c00ef](95c00ef483b7d263413601c01249249bd4672747))
+- **bspwm:** Move all workspace to internal monitor when HDMI turned off ([7ea5702](7ea57023dec5c981f3e9e29890e20b496905d106))
+- **picom:** Intial commit ([065097e](065097e23afff287de69337c6d8cd56dc33debd4))
+- Strip any credentials from window title ([9e38fc6](9e38fc694213373d9febd614843d21010a88933a))
+- **wezterm:** Support fallback fonts ([24c9f0e](24c9f0eeb60ceeb45a73463aafe4ab1402fd4ff3))
+- Sfetch ([f4af5e5](f4af5e52fda74cd82b60f23f4a0971bdd3e3d78d))
+- **wezterm:** Use the similar keymap with the current window manager ([ec33cfa](ec33cfaf671bd318a67f0c5089df77b042319bd2))
+- **starship:** Nordify ([b23aa98](b23aa98ec5a6f296c2dc4573a85e4d2fccb4e803))
+- **sxhd:** Focus to previous node ([5b9f933](5b9f933b4639ab75936aa9565787bbd823d1ae8f))
+- **sxhkd:** Resize window ([1d376f9](1d376f9b3688cf81751097d6d1659b9540990929))
+- I3 like window split ([3194977](319497786bddacd3487ff01fc3751ab055c559f6))
+- Group keys to have more free keys ([c77fd3f](c77fd3fad70059b77b9e8c5ddcc7f3d349d00fe3))
+- I need `notify-send` to notify things ([b26a5ab](b26a5abfda47605810f03bdac628f282012b6fea))
+- Language servers installations ([604e6e2](604e6e2a44a171ac2ac24e308ba5471359e5b37a))
+- Add bspwm steps to post install ([3a66a30](3a66a307bc74ed00d5183666af19893238c7fc8e))
+- Merge most used script here ([d0d4df6](d0d4df63a3106c3be4e98cae3a756e87c3373830))
+- Use homerow for workspace number ([47c64d4](47c64d459bc45983df5b15905d83094c99ffa2df))
+- Move  move all the workspace to second montior ([74e3768](74e3768dcf2d791240d90a999c48b95ab3a26cda))
+- Brightness based on monitors and time ([4949354](4949354f0b974f10d73548c08659244ece5a18e6))
+- Hide empty workspaces ([2378ff0](2378ff0206c25c62088b3627e014b24f12cd137e))
+- Support external monitors ([e567199](e56719975389c8cf6065788b39f3c4e56f19aad7))
+- Use nord theme ([0ba9278](0ba9278f245a32c95f99dbefcfefddfcffaf5eda))
 
-- Initial configuration
-- Enable `switch to last active tab when closing tab`
-- More shortcut
-- Enable command completions
-- Initial config
-- More aliases
-- Support fnm
-- Use Nushell as login shell
-- Add external executable path
-- Use menu to avoid having multiple prompt in custom history
-- Exclude failed command
-- Always remove to trash
-- Add wepb to post-install
-- Use keybinding for history
-- Initial commit
-- Play well both in ligth and dark mode
-- Broot file manager
-- Visual feedback after copy
-- Use layers for keybindings
-- Support atuin
-- Add more utilities package
-- Support poetry
-- Add rule for thunar
-- Add fd-find to post installation
-- Pre-push hooks that protect a branch from being pushed into
-- Kernel info in sfetch
-- Fdfind is too long
-- Setup lightdm
-- Add credentials to keyring app
-- Updating rust-analyzer made easy
-- Make it easier for family members to use this machine
-- Add more package to nodebin
-- Show tree in current directory
-- Toggle next/prev movement on pane direction
-- Initial config
-- Manage volume level from the bar
-- Add more package to post-install
-- Brighten and dim screen from bar
-- Dim and brighten the screen
-- Enable more fn keys
-- Toggle speaker status from the bar
-- Toggle mic status from the bar
-- Emacs pgtk supports
-- Auto brightness
-- Auto suspend
-- Load the desired autorandr mode based on connected monitors
-- Use env variable for wlan interface name
-- Bluetooth support in installation
-- Fully support automatic monitor switching
-- Move all workspace to internal monitor when HDMI turned off
-- Intial commit
-- Strip any credentials from window title
-- Support fallback fonts
-- Sfetch
-- Use the similar keymap with the current window manager
-- Nordify
-- Focus to previous node
-- Resize window
-- I3 like window split
-- Group keys to have more free keys
-- I need `notify-send` to notify things
-- Language servers installations
-- Add bspwm steps to post install
-- Merge most used script here
-- Use homerow for workspace number
-- Move  move all the workspace to second montior
-- Brightness based on monitors and time
-- Hide empty workspaces
-- Support external monitors
-- Use nord theme
 
-### Miscellaneous Tasks
+### Bug fixes
+- **nushell:** Migrate some alias to `dnf` instead of `apt` ([697ee87](697ee87943d8d5ca3e68cb4d9937f4549a2bf9e1))
+- **nushell:** Custom completion can't accepts custom arguments ([b59063b](b59063b4b8b198c8678b6a79aaaee96557e547c9))
+- **wezterm:** Swap `tab relative` keybinding ([7837fb8](7837fb897d011976026958bd2c9f02b3a86b997e))
+- **nushell:** Replace built-in history keybinding ([536cfc7](536cfc7d96c240c0c530c1b890754f73d8f3e269))
+- **nushell:** Enable showing $PWD in Terminal title ([5d5461d](5d5461da069257d6e01a365b1558af3557f4d2cd))
+- Revert wezterm-here ([47440e6](47440e60d3cf64dcf1bb3553ebb97ad1b9a01a93))
+- **nushell:** Auto-type the history command ([f78506e](f78506e387d044fe4c46a95b57022daabb4d27a4))
+- **nushell:** Wrong zoxide setup ([c2f431f](c2f431f9a19fd5ec6c904a0f403f99af9640ab7d))
+- **nushell:** Zoxide support Nushell out of the box ([e475bb5](e475bb59926c60cf615909adc30393cf5dccb71c))
+- Some package need bleeding edge version ([eccbd48](eccbd48f9f098cf9259c0a34af493c3cb0bdab60))
+- **wezterm:** Avoid accidental quit ([e68ad08](e68ad08998931de13ffcc775f0b09d8d20b4f86f))
+- **fish:** Don't hardcode themes ([35ab794](35ab79453d5b6e3cf156af9e2276092bb6a74d6c))
+- **bin:** Use latest packages ([6f83b2a](6f83b2a4efccf616235303ded78dc10b9382ec04))
+- **bin:** Use gnome defaults ([02f2677](02f26779ad567664110682009d178896204c7ec4))
+- **fish:** Remove abbrev ([e0c9462](e0c94627fb1d737cc43bd62762deb6d96cbee238))
+- **git:** Avoid f5 hiccup ([18a15ed](18a15ede25b466fddf5c168664248efe908c359b))
+- **fish:** Maximum recursion depth reached ([b10a1a7](b10a1a7083e62054c380359cabcfb38ae7330d4e))
+- **wezterm:** Key layer slows my workflow ([6c7fa87](6c7fa8786e9369a4de012a27b2cc54594c182457))
+- **wezterm:** Remove unused config ([e904984](e9049842aacd4976a152bba9a94be13679ac8e32))
+- GNOME doesn't need GTK config ([25ad9ef](25ad9ef21cff28ee15a7e766000d55e96a244531))
+- X config is not needed anymore ([afa36b5](afa36b5413275f5dc2a4190c69aef793c264b21d))
+- Migrate to flatpak ([d6f9c33](d6f9c331ac535226e1416e97245c1c7c3e8733a2))
+- Migrate to GNOME ([376e667](376e66797cc6cc9914af727f0a8f2396286d4e10))
+- **picom:** Opacity in browser is a bad idea ([59c6e48](59c6e48ca7024aa810a9c892d55d4dfcb758a989))
+- **bspwm:** Now I use Emacs in non-specified workspace ([c45cb27](c45cb27a4b586cb149b0208f35f144d0e6a76cec))
+- **sxhkd:** Use sticky key for switching workspace ([2b39439](2b39439a06a1adf3efd176184fd9eec3fc1464cc))
+- Migrate to dracula dark theme ([20a2605](20a260574f8e58986cfeedc77bb547c7c41c7f35))
+- **polybar:** Brightness text should use `foreground` color ([9d54f2b](9d54f2bda468555a1b269ed4c0c23558a622a797))
+- Move everything to Fira Code ([3a3319f](3a3319f211f837d96e8fee1855a79b384fe4f567))
+- Migrate to dark theme ([9b8925c](9b8925c38036a76912569588c2a9b39cd060ec35))
+- **polybar:** Mic is not reliable ([ad0d30d](ad0d30d118a3a5ef2814d35bb540bf4464a94935))
+- **bspwm:** Enable `follow` for mpv ([6274675](6274675f061f69781a07ffa6b5e80b2c92682c9e))
+- **bspwm:** Picom won't start at startup ([5b6b484](5b6b484210e338d4d13440a2c43da53c055c8728))
+- **polybar:** Suddenly it can't find script custom path ([71665a3](71665a3e08e44e8f360108e97215fa43b075c572))
+- **wezterm:** Adjust hue for inactive pane in newer version ([e7d2bb0](e7d2bb06745c388673722e56c5fb0a9fd4eafa8f))
+- **bin:** Use smaller increment/decrement in brightness ([e734969](e7349697facf1fd09c964df7d03e754e9ad1a85a))
+- **polybar:** Wrong foreground color in battery module ([0507b24](0507b243f2cd98a96469eae5cd832504e040de38))
+- **bspwm:** Don't daemonize picom ([af86384](af863842ceeca1cac5469776bde06dcf675d86cc))
+- **bspwm:** Workrave applet should be sticky ([b2660a7](b2660a784b21ca3301559bfd49134ade1f61244c))
+- **bin:** Install more app to venv ([31d9bb7](31d9bb7fc3fd7b8ae584f24f78e31b2038ee9ee0))
+- **starship:** No space after python version ([1e8850a](1e8850aa0943186b06c2ab32c3ed88b49cf0f41a))
+- **wezterm:** I don't need fancy tab-bar ([666d182](666d182a5995e121826b60f3663d3b0a9b970d4b))
+- **git:** Use full name in office ([7a2cf41](7a2cf41c1b0e322f01625f9b87792dfd463270b8))
+- **bin:** Wrong function name ([e8b1baf](e8b1baf3f0a7649a697bd609c358e24176946c91))
+- **bspwm:** Daemonize picom ([0e683e2](0e683e24373ce00c3b060e526cf9c2463332a2b2))
+- **bin:** Handle day night in brighten/dim ([0e1d990](0e1d9907d7f420900a14a77622fe25076015bd11))
+- **polybar:** Use initial in IPC to avoid state changes in restart ([65dc940](65dc9406b1fac32996759f6d1fedd944c84d7ae7))
+- **fish:** Typo ([31808c0](31808c05964a62652dd2b7e5602fb46a643ec609))
+- **bin:** Update-alternatives need sudo rights ([415584f](415584f27c0c5fff0e81d38499b467bd80072e27))
+- **bspwm:** Java applications menus immediately closing after the click ([edaabcd](edaabcd71cf4824707ab5a15af858bd73d122f40))
+- **sxhkd:** Skip sticky windows when switching window ([0d865f6](0d865f6c5f2b6c7b3e19f8b752f387539847f152))
+- **bin:** Put lockscreen image back to wallpapers directory ([d027b5b](d027b5b0b46b8b489670118532f03e8a7c21ce5b))
+- **polybar:** Use full percentage for CPU ([0bd28cf](0bd28cf7aaa2a8a15fa190480557ced3b444729a))
+- **bspwm:** Running the monitor.sh in bspwmrc cause it to restart indefinitely ([a8292be](a8292be95c62967e28f24b3de04414eb96a69df4))
+- **polybar:** Missing percentage in label ([4ab15b9](4ab15b99f60fc9239bfb97fee1ac62de7599e6fe))
+- **bin:** Remove maildir-utils and friends ([81c8872](81c8872e5f84cbb1fb64ab067e7d953a2378075b))
+- **bin:** Use dunstify instead ([04428b5](04428b59dcf26fb297f118b341dddc7f9c2157cc))
+- **bin:** It has been dark before 5 pm ([69f4e28](69f4e2895ccc55bbacb3b1e4af7b31083f176350))
+- **wezterm:** Darken the inactive pane ([771b58a](771b58aa441e174e3996c5e586adf328a2dfc696))
+- **polybar:** Remove unused module ([e2f02b0](e2f02b0240b649b6458077fb7a515d63013979f5))
+- **polybar:** Can't set foreground color on ramp ([bbf9e9e](bbf9e9ee690c6bc362ffc4a89227def71ee56df3))
+- **polybar:** Use native xwindow module ([76bcc42](76bcc426f954c4829e74a6ae0f906861ec58d7c5))
+- **gnupg:** `pinentry-gtk2` took ages to load ([3ee741c](3ee741c2771b7f077c8eda69d3757441c6efcf68))
+- **bspwm:** Must start with desktop number 1 ([e7c1569](e7c1569cb5d172762c3d4d3ce34dd18f17f44d88))
+- **fish:** Use darker color for `pager_color_prefix` ([46e2a40](46e2a40d276c09be31659c3abb9cf15f3a45847c))
+- **gpg:** Use pinentry-gtk2 ([d598b60](d598b60a4b74020e8b46da7e0db273c061de7e96))
+- **starship:** Node prompt has no whitespace at the end ([5ab8c45](5ab8c45347980bdc2a91011295f69e7e8b251e6c))
+- **bspwm:** Improve day/night detection ([f9cd75c](f9cd75c90b7b96423a0c87c55366487fda84acbf))
+- **polybar:** Use xwindo again to show title ([d13fc7b](d13fc7bdc0f6f6ccd7d1b6637e69b53007407fba))
+- **sxhkd:** Swap the main key with emacs ([2d48171](2d48171243d7bf0f966055bf110f4998c9e7d4fa))
+- Delete old unused configs ([a5c95b0](a5c95b0e2d098ef8bd4eac49d973a6376e73724d))
+- **bspwm:** Doesn't use bitmap font ([4bc1d8f](4bc1d8f5ec4440cef920d3f8c3dccfb7d3026ba0))
+- **starship:** Use more modern icon sets ([4ea00cd](4ea00cde3dcab144250cad4f7ec322c8a860ecec))
+- **sxhkd:** Avoid conflicting keys with emacs ([602d10f](602d10ff1cc41353f2e1f7f3847f386bc950013e))
+- **bin:** Picom binary is missing ([f0ae534](f0ae534db77f70d47c4ad7b27b5cbc58a4b84a31))
+- **bin:** Wezterm now installed via deb files ([de661c0](de661c04c0a9649caa6fb012cec53c87e8ae45a2))
+- **polybar:** 12 hour format is more redable for merge ([90456e1](90456e11c6a25699f8babb6bde29d311fd22882f))
+- **wezterm:** Revert the top margin ([8837716](88377164e7420e3c60ed81dd2d24a4a84ff5c430))
+- **bin:** Use gnome-keyring instead of keychain ([cd1b47e](cd1b47eb5368196420414a31c5e524390f051f09))
+- **polybar:** Use regular date module. `interval` not supported in ipc module ([fae7e98](fae7e98dbb484383ace8329c1a5580c14c1ad07d))
+- **bspwm:** Don't focus to empty node ([ad71061](ad710614e628ba51f83a950c7a2426d2b4209734))
+- **bspwm:** Start Emacs in tiled by default ([754f5dc](754f5dcd4c723ca0abc7e3ce50a448533d8ca735))
+- **bspwm:** Can't change focus with active mouse hovering on other windor ([316a793](316a793d6a3eb9a39e1749497d0e5cba1506c44b))
+- `--no-folding` solves the cluttered symlink directories ([29c5428](29c54289d8dd5e11811e0d6f8ccc803fb156447e))
+- Use a more brightner version of foreground color ([fdb22d9](fdb22d952bcbe614de82d7cdd38cce661aed2fd8))
+- Try using homerow for workspaces ([2668a5f](2668a5ffe2b93801cdf6a08aff9043baf5d1ab62))
+- Using chain in bspwm is hard ([4ff6c26](4ff6c26a80e273be8206fb8ef2079cd2ec717515))
+- Migrate to bspwm ([52aa44b](52aa44bca349cc575aba6dc22cafc6f50e5f4d31))
 
-- Ignore non dotfiles directory
 
 ### Performance
+- **nushell:** History menu ([4b3e456](4b3e456b5871695bec0903981c5109faf51a164a))
+- **polybar:** Use IPC for toggle mic status ([e940236](e940236e8dd415b6345b4bb907a1c571ba67c23f))
 
-- History menu
-- Use IPC for toggle mic status
-
-### Refactor
-
-- Shorten the code
-- Duplicate entries
-- Long parameter name is easier to digest
-- Bspwm now executed by lightdm
-- Blacken
-- Use simpler approach to get current HDMI name
-- Avoid duplicate code in brightness
-- Rules
-- Make all the spaces consistent
-- Use simpler logic to get active monitor
-- Use more simple regex
-- Move independent scripts to bin
-- Adhere to bspwm vocabularies
-- Use more sensible function name
-- Use full parameter name for more readablity
-- Use POSIX sh for all scripts
-- Reorder keybindings
-- Follow bash best practice
-- Avoid duplicate code in managing multiple screen
-
-### Styling
-
-- Format
-- Use VictorMono as primary font
-
-### Build
-
-- Update git-cliff configuration
-
-### Ci
-
-- Add release workflows
-- Remove missing item
-- Add Python lints
-- Initial
 
 ## [1.0.0] - 2021-12-03
 
-### Add
-
-- Pull with rebase option
-- Magit alias
-- Support rrun with bash completion name
-- Rrun compile to custom dir
-- Auto-suspend to startup
-- Welcome texlive 2018
-- Ability to read user PATH from sudo
-- Rust run
-
-### Bug Fixes
-
-- Use arrow key for pane and window direction
-- Use more accessible keys
-- Use more accessible leader key
-- Remove unused virtualfish prompt config
-- Use the arrow key again in i3wm
-- Use the number at the home-row position
-- Use more accesible menu key in i3wm
-- Wezterm doesn't need any fallback font
-- Nodejs character positioned incorrectly
-- Remove battery in status bar
-- Set fallback font in wezterm
-- Use `fira code` for all text
-- Stretchly is too huge
-- Old rofi config is deprecated
-- Wezterm background shouldn't be pure white
-- Make rofi match current indigo theme
-- Light theme should have light as base color.
-- Too much space between icon and text i3status
-- Match the background with the window title color.
-- Don't use value from Xresources anymore.
-- Removed bash, sbcl, tmux, next
-- Use more reachable keys
-- Auto-start terminai
-- Adjust i3 key to colemak
-- Don't start heavy app in startup
-- Hide username in Wezterm title
-- `mousedragend1pane` fixed in 3.3
-- Remove auto move window based on the title
-- Copied word using a mouse not sent to clipboard
-- Tmux keybindings is wierd
-- Change floating window keybinding
-- Add missing default layout in menu
-- Remove unused colors
-- Set workspace in startup program
-- For emacs-style `copy-mode` is enough
-- Don't rever to default mode after floating window toggle
-- Recent version of st terminal doesn't send selection correctly to clipboard
-- Grenclip doesn't accept copy selection from tmux
-- Remove unused tmux custom keymap
-- Use `st` instead of `stterm`
-- Remove hibernate from `i3-exit`
-- `workrave` typo
-- Remove keymap modification
-- Strive to use sticky key all the way down
-- Firefox logo does not shown correcly after migration to bullseye
-- Remove i3-gaps config
-- Make emacs keybinding consistent in rofi
-- Emoji without space doesn't work in some social app
-- Remove unused i3wm keybindings
-- Move dmenu, clipboard, and kill window under the same command.
-- Rrun
-- Move long command to bash script
-- Rrun.fish
-- No need fish plugins
-- Disable compton and xautolock
-- A change to zman and bilal interface
-- Migrate to fnm
-- Remove all custom screenshot commands
-- Don't make shadow in `peek`
-- Disable insert key
-- Increase default brightness
-- Use manually installed emacs.
-- Update .stow-local-ignore
-- 15 is less bright for my eyes
-- Disable Telegram auto-start
-- Workrave is better than activity-watch
-- Adjust mpv key to a common pattern
-- Don't prevent xautolock to do its job
-- Change cursor to brighter color
-- `LS_COLORS` doesn't work in Emacs
-- Override up and down icon in network i3status
-- Emacs tramp hang over fish prompt
-- Utilities path not found
-- Disable transparancy in st terminal
-- Color warning on tmux
-- Switch to light theme.
-- Drop lava color scheme. Prefers Zenburn.
-- Drop duplicate config
-- Remove sdkman, gvm, and rvm
-- Use ISO format in status bar date time
-- Critical battery level is too high
-- Brighten `binding_mode` color
-- Don't draw shadow in i3 title bar
-- Increase terminal font size
-- Path for work gitconfig
-- Start mpv at lower volume
-- Start `aza-login` manually
-- Remove silientcast config
-
-### Documentation
-
-- Readme
-- Add description for each color variable in fish
-- `MouseDragEnd1Pane` doesn't work in tmux 3.1
-- Add tmux yank comment
-- Colors from X resources
-- Add comment in i3wm app config
-- Modifier key
-- Explain remapping key goal
-
 ### Features
+- Abbrev in fish shell ([b7e79ed](b7e79ed8879bc16cad6e8214a906ec4687f7f78d))
+- Add abbrev ([765f7d8](765f7d85cc2a79f5ed17745e91206079668c0cd2))
+- **wezterm:** Dim inactive panes ([54b74b5](54b74b56d8c5ae1a09a804b9821c880fab68a44c))
+- **wezterm:** Linkify any URL with port ([3f04ab9](3f04ab97605c6d86ad5fb8760202dd94ce36bd0f))
+- Add scroll page wezterm ([5e0c0d5](5e0c0d52460d11421276185c350f4e2e6f475aba))
+- Search mode in wezterm ([b6eefac](b6eefac91dfd295466d9f310eb5369bdef54918b))
+- Support xinitrc ([05df13e](05df13ef8b04108c8e33236fc95542fa4f7f4a7a))
+- Show icons in dmenu ([1ca7aef](1ca7aef763ac18fe67a46f9372c88056ebf79cb5))
+- Support moving tab in wezterm ([7a54e67](7a54e670c49d9332d8083b70605d5ce7bf2fa643))
+- Tell fisher not to put a mess in ~/.config ([880dbcc](880dbcc622c690ff50a38d7157b66788e4b09827))
+- Enable copy-mode and quickselect in wezterm ([77cf49a](77cf49aa1dd3d07e67562e2357922c44afdd28a8))
+- Migrate to wezterm ([ac02a59](ac02a59882a27a106375088e721b6d9099efbaac))
+- Add 🥗 to greenclip ([7d73e9c](7d73e9cf4c88b3cc6c660e16ead024732603bae1))
+- Add tmux-jump and tmux-fingers ([c1ed420](c1ed420ef782ece8a5e5cec579a9e11ea5e13464))
+- Set default workspace for common app ([6cb7d3b](6cb7d3b5c9d69387bf6d10587b4f389f1f4c7cc0))
+- Make space as super on hold ([5febdc5](5febdc5dada9c7e59a954f00310fab44f06718d4))
+- Map menu to super ([f0cab72](f0cab721ad20540b0eab479dc63cd02d4b77953b))
+- New greenclip config ([e37363a](e37363ad3b09d2e02a0f6873a9abc8a10fac9523))
+- Adopt to new zaman & bilal interface ([6ab5bc0](6ab5bc0d88f41910d1c801bad6ade8ee9fa5e3eb))
+- Make workrave notification float ([3fa52ef](3fa52ef297607f908d7987b0c906a0b29c85d988))
+- Do it all on big screen ([39fa105](39fa1055b6a656178d4f3da02719e3851d7dd548))
+- More aliases ([fb0f530](fb0f530a43a2040114ed36d0f9abe18f81c106e2))
+- Enable stowing .gitignore ([d5ae19c](d5ae19c343fd2ed33f2a82b7d5a24638c2289e0a))
+- Global .gitignore ([4361200](4361200cb69adcb188ff9271ed4cab4a260f0ad4))
+- Install from backports alias ([cfc7480](cfc748068325fab91e065ccc4a4c7d335c1bbd07))
+- Support scratchpad ([db6824e](db6824e10a61cf5e7be83ec27bb942f3da91874d))
+- Support activity watcher ([2b705fd](2b705fd484bc0e15fe13a7adff58a8bd288ce289))
+- Support `bat` ([04359c0](04359c065ce5c9d8e4b1f3a488b5bdecd62c2dd5))
+- Add more path to fish_user_path ([57bb230](57bb230ab3088e67eee57e46101bfc08ac5c6717))
+- Add fisher to fish ([f77d455](f77d455e5ff2e97d4f9f5ea224b66968bd505cbf))
+- Add `zman` to status bar ([307f84e](307f84ea8fd4a4126ce83f33526486968d14806c))
+- Add lava and zenburn color scheme fish shell ([3b19309](3b1930974f03ac992f1691a7abcbfc6fcb16f313))
+- Add more fish utilites ([154c843](154c8436bf932d45a398674eeb5c5ee08531470d))
+- Add `docker_ip` function ([35093b3](35093b331ca318c13cfbf1dba13d788c5d240e9c))
+- Use JSON version of ~bilal~ output in status bar ([fa0d18e](fa0d18e3a845a06afb0c1ca21c54549854f5306a))
+- Add default $EDITOR ([e56d03d](e56d03df2b4ee361326010025d5dec40a5cbbf0a))
+- Add `clear` alias ([cd51fcc](cd51fccb2b788e99bdc9ffd0bb910bdc78b8db2d))
+- Display salah time (bilal) in status bar ([504eca1](504eca1bddf6e9c2ca402280613779a58a67db0e))
+- Migrate from py3status to i3status-rs ([f67e2cc](f67e2cc32a10439a048f897e6d61dd9decd640b1))
+- Support window animations using compton ([f2b137a](f2b137ad416bd91cce75e385dab495f77aa8e89d))
+- Change programming tools font to fira code ([37e8b15](37e8b15474d13364b4dddfe0a443931b8303e92c))
+- Change system font to fira sans ([1952b49](1952b495cd1019c386b789b36024a4dd31651954))
+- Hide nextcloud tray window border ([9dda472](9dda472d2c24df63113d27f46af0c5db2ef4e73a))
+- Get docker ip ([37a4c3d](37a4c3d9106ac18a934d032c17fb802ee3b6dbec))
+- Support go111module ([3a55b89](3a55b894e569b472a5e70497e2014b486950bb24))
+- New signing key ([743d2a8](743d2a836a4e8613c73e66261dac3f064849d726))
+- Support resizing images ([70d922b](70d922bb8d2cfebf3794b04a00c4e0d86de2d80b))
+- Add keychain  support ([179f41b](179f41b7d725e401356be79f70818ed67fd958f5))
+- Completion for obs-cli ([a5ae7c2](a5ae7c24afb50129cd1700e0b7942c36d8ce3b1e))
 
-- Abbrev in fish shell
-- Add abbrev
-- Dim inactive panes
-- Linkify any URL with port
-- Add scroll page wezterm
-- Search mode in wezterm
-- Support xinitrc
-- Show icons in dmenu
-- Support moving tab in wezterm
-- Tell fisher not to put a mess in ~/.config
-- Enable copy-mode and quickselect in wezterm
-- Migrate to wezterm
-- Add 🥗 to greenclip
-- Add tmux-jump and tmux-fingers
-- Set default workspace for common app
-- Make space as super on hold
-- Map menu to super
-- New greenclip config
-- Adopt to new zaman & bilal interface
-- Make workrave notification float
-- Do it all on big screen
-- More aliases
-- Enable stowing .gitignore
-- Global .gitignore
-- Install from backports alias
-- Support scratchpad
-- Support activity watcher
-- Support `bat`
-- Add more path to fish_user_path
-- Add fisher to fish
-- Add `zman` to status bar
-- Add lava and zenburn color scheme fish shell
-- Add more fish utilites
-- Add `docker_ip` function
-- Use JSON version of ~bilal~ output in status bar
-- Add default $EDITOR
-- Add `clear` alias
-- Display salah time (bilal) in status bar
-- Migrate from py3status to i3status-rs
-- Support window animations using compton
-- Change programming tools font to fira code
-- Change system font to fira sans
-- Hide nextcloud tray window border
-- Get docker ip
-- Support go111module
-- New signing key
-- Support resizing images
-- Add keychain  support
-- Completion for obs-cli
 
-### Fix
+### Bug fixes
+- **wezterm:** Use arrow key for pane and window direction ([05a44e6](05a44e6699f67a0a2a6bb928a415c24de87a0079))
+- **wezterm:** Use more accessible keys ([3086931](3086931af3bd33c16a33f8707eed84e2a2b43ea5))
+- **wezterm:** Use more accessible leader key ([d66dd7d](d66dd7d15d6b931627c493aa029c8437387b19d1))
+- Remove unused virtualfish prompt config ([07d9797](07d9797ded53cece2ec1bcab5f96f6d30a431ec3))
+- Use the arrow key again in i3wm ([2774b52](2774b52374691cf0d2885c1274047ed488311e98))
+- Use the number at the home-row position ([e183622](e1836225e63e87abc839af5d3b9d848483a2b168))
+- Use more accesible menu key in i3wm ([9a7f5de](9a7f5deb88deb72bfbe1618360390bd363b908ee))
+- Wezterm doesn't need any fallback font ([0f75bdb](0f75bdb762f138e7a38ef1e3e694e6ce9c143bc3))
+- Nodejs character positioned incorrectly ([230d177](230d177eacf7a7bd2a0851eb457add3f43015ecf))
+- Remove battery in status bar ([feafd15](feafd15d7325b9b3a1488703277c131c0c61240b))
+- Set fallback font in wezterm ([d004330](d004330f2f0778525d7cd114ff52c7b8353ae84c))
+- Use `fira code` for all text ([e07b6f1](e07b6f193e0a01956996ca8c299b0c0a12392f7b))
+- Stretchly is too huge ([f9791cb](f9791cb6810af9a4f65693368cf31f82e2d17f89))
+- Old rofi config is deprecated ([de5be82](de5be82724b4a92a830bed7c23bc00de2f702a70))
+- Wezterm background shouldn't be pure white ([f7b9ec2](f7b9ec28549f95b3d7e2a02accb6a2a4c6c81fe1))
+- Make rofi match current indigo theme ([d265c7f](d265c7f1fb16f610d62022e4fa171fb4d7c0e800))
+- Light theme should have light as base color. ([98729b4](98729b4f170555d8b8c8a5c145d8c5926d226c59))
+- Too much space between icon and text i3status ([a4dfe9f](a4dfe9f358921b5e49b35c7ad806e997c57278c9))
+- Match the background with the window title color. ([ccac8c2](ccac8c2bacd2073a0122d47fbd1f0e40123f76ac))
+- Don't use value from Xresources anymore. ([c6e3277](c6e3277d1bdd24aa4d0469c6dbdc6de217edab85))
+- Removed bash, sbcl, tmux, next ([2d84904](2d84904363672c50e34c7fc835ad0435ef8ae7d1))
+- Use more reachable keys ([52a48d2](52a48d24e5541189d3099958812f7772668fc4cc))
+- Auto-start terminai ([28519ba](28519ba94a9102bbbc47fc84652239adbb059cb6))
+- Adjust i3 key to colemak ([8b8ceed](8b8ceed1938aea59c4c5559c58645429d26b67b1))
+- Don't start heavy app in startup ([47b6f63](47b6f63ead4dd40625e57ef094eb722060ab0f89))
+- Hide username in Wezterm title ([db00eac](db00eac98ad45fc79fd3242666083a8972e0bb2a))
+- `mousedragend1pane` fixed in 3.3 ([280b191](280b191ae422a87c5949b0513f3668ecbdce3959))
+- Remove auto move window based on the title ([85b766e](85b766eef50945d1fa4b10262976123b6d9fc6ed))
+- Copied word using a mouse not sent to clipboard ([6a25653](6a2565324ea0f800a15717bdb33d4cec665ef9f4))
+- Tmux keybindings is wierd ([65595eb](65595eb6d69e645931cfbe6463118e908a409515))
+- Change floating window keybinding ([5847de3](5847de33bc9b131c5c79f36ba9265ede703fde5a))
+- Add missing default layout in menu ([dfc6e1d](dfc6e1d8ed2484d3508211fc792539abbaf09772))
+- Remove unused colors ([054e8be](054e8be3903c96fb2ddf57e37ac44e91e1113210))
+- Set workspace in startup program ([0f2efd0](0f2efd0f2663441fc2d3ab1d092e66e4061a9609))
+- For emacs-style `copy-mode` is enough ([af43c13](af43c13baf43e86cad8a3cd258d4efb9a4741f96))
+- Don't rever to default mode after floating window toggle ([e15fc27](e15fc27ca3e9d3283475618312af4f84cb26440d))
+- Recent version of st terminal doesn't send selection correctly to clipboard ([2bf69db](2bf69db1de080c60fe9ad1edda3993c05824340a))
+- Grenclip doesn't accept copy selection from tmux ([5bdcb77](5bdcb77c5d7dfa59168000565ce393694290dea9))
+- Remove unused tmux custom keymap ([adbf9c7](adbf9c70ca444283f29d1f223d8d5f0d7cd70530))
+- Use `st` instead of `stterm` ([5727f3a](5727f3a5a600c0a7f7869006af81c6b09f90b9b4))
+- Remove hibernate from `i3-exit` ([c165451](c165451b423a86369b46f1993787e467f6f0bf27))
+- `workrave` typo ([bef770a](bef770a714e1301e772b83e3942da36853b8beb7))
+- Remove keymap modification ([6558128](655812841696a9252dea2c689bce3d4a56c4dd0f))
+- Strive to use sticky key all the way down ([a4a5642](a4a5642cd82e09368ccaf129b3e8c87e68a9780f))
+- Firefox logo does not shown correcly after migration to bullseye ([d37f580](d37f5800908eeb8dc99fef8ff1dc891bce2b5569))
+- Remove i3-gaps config ([602c73a](602c73a42409fa996fa43e662f69e8cb6ae231e0))
+- Make emacs keybinding consistent in rofi ([b6285b3](b6285b3039e6108819a277eed38a45757150cc7d))
+- Emoji without space doesn't work in some social app ([085be33](085be3353ac94f1c796cbde55d55e8ca188ab02b))
+- Remove unused i3wm keybindings ([f38ee47](f38ee472f44cf13b727fa92c548530fca6a6adf2))
+- Move dmenu, clipboard, and kill window under the same command. ([6c48d21](6c48d2163b3ac8ad2c8a460d8107e2a3ca2d9cb3))
+- Rrun ([1e4970a](1e4970a71f916a5df9b09b541dbb1dfdbcf54c81))
+- Move long command to bash script ([a3f0c5a](a3f0c5a6f4bdb28ece26b1f03cc3420952b58faf))
+- Rrun.fish ([8ec2f19](8ec2f1991222236b23ec0f3ef478e3db1831fef7))
+- No need fish plugins ([7e77df5](7e77df5c2a858c0faa7e71d5de63d9a89e90ff79))
+- Disable compton and xautolock ([bd6025c](bd6025ce10b79c6940f98b0d7611042ed2e71a5d))
+- A change to zman and bilal interface ([a3778e3](a3778e3b5da07e904f08f791f2f98fedde703056))
+- Migrate to fnm ([b98576b](b98576b5cd2df86b62800f7fd64035539b6c63f5))
+- Remove all custom screenshot commands ([dd3dde8](dd3dde8ed90aff100350a05d6bf70db36c3d8183))
+- Don't make shadow in `peek` ([eb885d2](eb885d2c494a95425e27f747fdc39eeb9bf6fe13))
+- Disable insert key ([75a1078](75a107875fb1eb6df0b13ae0358dbe1ccb533d64))
+- Increase default brightness ([a7646b7](a7646b73c810082c99df087e89414f36cba66a63))
+- Use manually installed emacs. ([952e2a0](952e2a00d384cc4c582b0b0cae5695748c78acd2))
+- Update .stow-local-ignore ([33639f0](33639f0965a8dd0cc37a3c7cdd7dc9cd5fd77669))
+- 15 is less bright for my eyes ([f641fb4](f641fb4899b4ffdf22084324ed8341078e1d838a))
+- Disable Telegram auto-start ([82af193](82af193581bb32cfab0340793db666a863d8f89e))
+- Workrave is better than activity-watch ([8b45f75](8b45f752aa1362bea18b7db0f277060ca133cd20))
+- Adjust mpv key to a common pattern ([783977a](783977ae39ce466f2323a8e8842edf4321953115))
+- Don't prevent xautolock to do its job ([211bd2a](211bd2ad3bc67d4dffbb947951657100955fe593))
+- Change cursor to brighter color ([786efb1](786efb1832596d94e78353b4807ab9c0bd7e8223))
+- `LS_COLORS` doesn't work in Emacs ([80b76f5](80b76f59a9717d68c4faca241895985fbbf6301b))
+- Override up and down icon in network i3status ([43763df](43763df44276ef1c8bf5347d95fee848d3618d9e))
+- Emacs tramp hang over fish prompt ([3831315](3831315c191b05806a152453892c365073e5907b))
+- Utilities path not found ([312193e](312193e90ef4f653a9fcba167abf973d3a6320fa))
+- Disable transparancy in st terminal ([3b04b6a](3b04b6a645457ca6b1aad90c327a9feb7019b14a))
+- Color warning on tmux ([fce5f32](fce5f328a6679fb65dacc3db6bdb6eb780192752))
+- Switch to light theme. ([29fd2b9](29fd2b99cc617e045734c2fe4b381d0d37e58e07))
+- Drop lava color scheme. Prefers Zenburn. ([5d3ed3e](5d3ed3ea63f18a9c3efe234b6471fb636ed0cc36))
+- Drop duplicate config ([b544fe1](b544fe1e31da93988b275c5a9d4752fd9e66cc4c))
+- Remove sdkman, gvm, and rvm ([8a504c6](8a504c68c1bc39754d879881972504569ea69527))
+- Use ISO format in status bar date time ([46a7dd0](46a7dd04f776981e4d87163deaeab8816231a737))
+- Critical battery level is too high ([0c5fb9d](0c5fb9dec37a218605fb04124aed82b0ea185fa3))
+- Brighten `binding_mode` color ([7a74235](7a742357f75480dba529d1cf01e36563536751d1))
+- Don't draw shadow in i3 title bar ([753ba80](753ba80a682b6cb3cfb124ebb62433e962e1e1cd))
+- Increase terminal font size ([b85fe1a](b85fe1a78bf80e2a60b787f34a6b511468987df2))
+- Path for work gitconfig ([b5e8612](b5e861242669e844dff545a997e09edb3ff36764))
+- Start mpv at lower volume ([9ea99dd](9ea99dd99327a1c8beda2fba546a139fe7f25fa5))
+- Start `aza-login` manually ([44c3f5d](44c3f5d6830eb8fc75c5530f583add322edada44))
+- Remove silientcast config ([c6cfc27](c6cfc276476914b7b4c88ce3f128c6f105f324ad))
 
-- Wrong Xmodmap mapping
-- Wrap long lines
-- Lower battery threshold status icon
-- I prefer to use tab selection
 
-### Refactor
-
-- Remove unused value from Xresources
-- Rename colors name
-- Remove unused code
-- `cdn.fish`, make it simpler
-- Drop emacsclient config
-
-### Reformat
-
-- Indent lines correctly
-
-### Styling
-
-- Use new firefox logo in i3status
-- I love indigo color!
-
-### Add
-
-- Salah time config
-
-### Build
-
-- Release config
-
-<!-- generated by git-cliff -->

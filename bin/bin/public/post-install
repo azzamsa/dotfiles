@@ -98,14 +98,14 @@ fc-cache -fv
 sudo dnf install --assumeyes git stow zsh util-linux-user wl-clipboard
 
 # Dotfiles
-if [ ! -d ~/dotfiles/ ] ; then
-    git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
+if [ ! -d ~/dotfiles/ ]; then
+  git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
 fi
 
 # Remove existing files
 rm .zshenv
 pushd ~/dotfiles >/dev/null || exit
-  stow bin git gnupg vi zsh zellij --no-folding --restow
+stow bin git gnupg vi zsh zellij --no-folding --restow
 popd >/dev/null || exit
 
 # Set ZSH to as default
