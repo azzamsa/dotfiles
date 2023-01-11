@@ -54,7 +54,7 @@ mkdir -p ~/.local/bin
 mv /tmp/cargo-binstall ~/.local/bin
 
 cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin watchexec-cli cargo-outdated just fnm stylua starship \
-  bat genact atuin zoxide zellij rust-script evcxr_repl
+  bat genact atuin zoxide zellij rust-script evcxr_repl bandwhich hurl kondo git-cliff dprint cargo-nextest
 
 # Setup Sh Utilities
 sudo dnf install --assumeyes ShellCheck
@@ -69,7 +69,9 @@ fnm use 18.12.0
 # Install apps from with flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
-flatpak install --assumeyes flathub com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakeman.ExtensionManager org.mozilla.Thunderbird
+flatpak install --assumeyes flathub org.telegram.desktop com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakeman.ExtensionManager \
+  org.mozilla.Thunderbird  org.videolan.VLC org.kde.okular io.github.seadve.Kooha fr.romainvigier.MetadataCleaner \
+  us.zoom.Zoom
 
 # Emacs everywhere
 sudo dnf install --assumeyes xclip xdotool xprop xwininfo
