@@ -4,21 +4,32 @@
 #  Clean temporary files
 #
 
-echo "🧽 Cleaning unused dnf package"
-sudo dnf autoremove
+clean_tmp() {
+  echo "🧽 Cleaning temporary system files"
+  rm -rf /var/tmp/* /tmp/*
+}
 
-echo "🧽 Cleaning unused flatpak package"
-flatpak uninstall --unused
+clean_all() {
+  clean_tmp
 
-echo "🧽 Cleaning package manager cache"
-sudo dnf clean packages
+  echo "🧽 Cleaning unused dnf package"
+  sudo dnf autoremove
 
-echo "🧽 Cleaning temporary system files"
-sudo rm -rf /var/tmp/* /tmp/*
+  echo "🧽 Cleaning unused flatpak package"
+  flatpak uninstall --unused
 
-echo "🧽 Cleaning dagling dockerfiles"
-# https://docs.docker.com/engine/reference/commandline/system_prune/
-# `--force` should be `--assumeyes`
-docker system prune --all --force
+  echo "🧽 Cleaning package manager cache"
+  sudo dnf clean packages
+
+  echo "🧽 Cleaning dagling dockerfiles"
+  # https://docs.docker.com/engine/reference/commandline/system_prune/
+  # `--force` should be `--assumeyes`
+  docker system prune --all --force
+}
+
+case $1 in
+"tmp") clean_tmp ;;
+*) clean_all ;;
+esac
 
 echo "✨ You have a new shiny machine!"
