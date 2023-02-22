@@ -1,3 +1,4 @@
 .github
 assets
-git/hooks
+git/.config/git/hooks
+git/.config/git/.stow-local-ignore

@@ -1,3 +1,9 @@
+# If this is your first time setting up zsh
+# copy the code below to /etc/zshenv
+#
+# ZDOTDIR=~/.config/zsh
+# source -- "$ZDOTDIR"/.zshenv
+
 ZGEN_DIR=~/.local/share/zgenom
 
 function _cache {

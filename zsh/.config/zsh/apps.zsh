@@ -59,3 +59,42 @@ n ()
 if (( $+commands[zoxide] )); then
   export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.config/*"
 fi
+
+if (( $+commands[cargo] )); then
+    export CARGO_HOME="$XDG_DATA_HOME"/cargo
+fi
+
+if (( $+commands[gpg] )); then
+    export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+fi
+
+if (( $+commands[grip] )); then
+    export GRIPHOME="$XDG_CONFIG_HOME"/grip fs
+fi
+
+if (( $+commands[rustup] )); then
+    export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+fi
+
+if (( $+commands[doom] )); then
+    export DOOMDIR=$XDG_CONFIG_HOME/doom
+fi
+
+if (( $+commands[wget] )); then
+    alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+fi
+
+if (( $+commands[sqlite3] )); then
+    export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
+fi
+
+if (( $+commands[psql] )); then
+    export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
+fi
+
+export WINEPREFIX="$XDG_DATA_HOME"/wine
+export LESSHISTFILE="$XDG_STATE_HOME"/less/history
+export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export TERMINFO="$XDG_DATA_HOME"/terminfo
+export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo

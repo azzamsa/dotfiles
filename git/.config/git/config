@@ -68,11 +68,12 @@
 	#     order to allow any of the above configs to be overwritten
 	#     by the local ones
 
-	path = ~/.gitconfig.local
+	path = "${XDG_CONFIG_HOME}"/config.local
 
 # The `**/office/name/**` path must points
 # to specific office directory
 [includeIf "gitdir:**/office/bgn/**"]
-	path = ~/.gitconfig.bgn
+	path = "${XDG_CONFIG_HOME}"/config.bgn
+
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = "${XDG_CONFIG_HOME}"/ignore

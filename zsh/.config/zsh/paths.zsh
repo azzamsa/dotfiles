@@ -3,7 +3,7 @@
 path=(
   ~/bin/{private,public}(N)
   ~/.emacs.d/bin(N)
-  ~/.cargo/bin(N)
+  "$XDG_DATA_HOME"/cargo/bin(N)
   ~/.local/bin(N)
   ~/.nodebin/node_modules/.bin(N)
   $path
