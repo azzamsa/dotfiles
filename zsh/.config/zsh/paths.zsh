@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
 
 path=(
-  ~/bin/{private,public}(N)
-  ~/.emacs.d/bin(N)
-  "$XDG_DATA_HOME"/cargo/bin(N)
   ~/.local/bin(N)
-  ~/.nodebin/node_modules/.bin(N)
+  ~/.opt/bin/{private,public}(N)
+  ~/.opt/nodebin/node_modules/.bin(N)
+  "$XDG_CONFIG_HOME"/emacs/bin(N)
+  "$XDG_DATA_HOME"/cargo/bin(N)
   $path
 )

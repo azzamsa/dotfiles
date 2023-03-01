@@ -76,7 +76,8 @@ if (( $+commands[rustup] )); then
     export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 fi
 
-if (( $+commands[doom] )); then
+if (( $+commands[emacs] )); then
+    export EMACSDIR=$XDG_CONFIG_HOME/emacs
     export DOOMDIR=$XDG_CONFIG_HOME/doom
 fi
 
