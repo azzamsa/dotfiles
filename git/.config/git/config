@@ -9,7 +9,7 @@
 
 
 [credential]
-	helper = cache --timeout=14400
+	helper = cache --timeout=86400
 	username = azzamsa
 
 
