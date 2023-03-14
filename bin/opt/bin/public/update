@@ -11,7 +11,7 @@ echo "🌱 Updating dnf apps"
 sudo dnf update
 
 echo "🌱 Checking node apps"
-pushd ~/.opt/nodebin >/dev/null || exit
+pushd ~/opt/nodebin >/dev/null || exit
 taze major -w && npm i
 popd >/dev/null || exit
 

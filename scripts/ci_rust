@@ -6,7 +6,7 @@ FILES=(
 
 fmt() {
   for file in "${FILES[@]}"; do
-    rustfmt bin/.opt/bin/public/"$file"
+    rustfmt bin/opt/bin/public/"$file"
   done
 }
 

@@ -10,13 +10,13 @@ FILES=(
 
 fmt() {
   for file in "${FILES[@]}"; do
-    shfmt --list --write --indent 2 bin/.opt/bin/public/"$file"
+    shfmt --list --write --indent 2 bin/opt/bin/public/"$file"
   done
 }
 
 lint() {
   for file in "${FILES[@]}"; do
-    shellcheck bin/.opt/bin/public/"$file"
+    shellcheck bin/opt/bin/public/"$file"
   done
 }
 
