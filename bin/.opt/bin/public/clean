@@ -12,6 +12,9 @@ clean_tmp() {
 clean_all() {
   clean_tmp
 
+  echo "🧽 Cleaning dependencies and build artifacts"
+  kondo --older 1M
+
   echo "🧽 Cleaning unused dnf package"
   sudo dnf autoremove
 
