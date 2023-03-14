@@ -23,8 +23,7 @@ clean_all() {
 
   echo "🧽 Cleaning dagling dockerfiles"
   # https://docs.docker.com/engine/reference/commandline/system_prune/
-  # `--force` should be `--assumeyes`
-  docker system prune --all --force
+  docker system prune
 }
 
 case $1 in
