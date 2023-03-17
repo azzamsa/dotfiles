@@ -1,160 +1,79 @@
 #!/bin/bash
 
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
+# Upgarde
+rpm-ostree status
+rpm-ostree upgrade --check
+rpm-ostree upgrade
 
-sudo dnf update --assumeyes
+# Basic Packages
+rpm-ostree install --apply-live zsh wl-clipboard xclip libgda libgda-sqlite tlp tlp-rdw gnome-tweaks
+systemctl reboot
 
-# Remove unused apps
-sudo dnf remove --assumeyes virtualbox* tmux qemu-*
+# NVIDIA
+rpm-ostree install --apply-live https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusio
+n.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+systemctl reboot
+rpm-ostree install --apply-live akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda
+systemctl reboot
 
-# General
-# - Pavucontrol is needed to raise to volume beyond 100% for USB audio card
-sudo dnf install --assumeyes @development-tools emacs ncdu workrave \
-  docker docker-compose libreoffice gimp inkscape neofetch pandoc nextcloud-client flameshot \
-  gparted foliate gnome-contacts gnome-calendar gnome-characters gnome-clocks gnome-calculator nnn pavucontrol etckeeper seahorse \
-  aspell aspell-id
+# Setup TLP
+rpm-ostree override remove power-profiles-daemon
+sudo systemctl enable tlp.service
+sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
+# set `STOP_CHARGE_THRESH_BAT0="1"` in `/etc/tlp.conf``
+sudo tlp start\nsudo tlp-stat -s -c -b
 
-# HEIF image supports
-sudo dnf install --assumeyes https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
-sudo dnf install --assumeyes libheif gimp-heif-plugin
-
-# Rustup
-sudo dnf install --assumeyes mold lld make gcc
-# Rust OpenSSL
-sudo dnf install --assumeyes pkg-config openssl-devel
-# Gnome Pano
-sudo dnf install --assumeyes libgda libgda-sqlite
-# Gnome Totem
-sudo dnf install --assumeyes gstreamer1-plugin-openh264 mozilla-openh264
-
-# Setup Docker
-sudo usermod -aG docker "$USER"
-sudo setfacl --modify user:username:rw /var/run/docker.sock
-
-# Setup Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup toolchain install nightly
-rustup component add rust-analyzer
-ln -s $(rustup which --toolchain stable rust-analyzer)  "$XDG_DATA_HOME"/cargo/bin/rust-analyzer
-. "$HOME/.cargo/env"
-
-# Use mold as default linker
-# https://github.com/rui314/mold#how-to-use
-# tee -a "$XDG_DATA_HOME"/cargo/config  <<EOF
-# [target.x86_64-unknown-linux-gnu]
-# linker = "clang"
-# rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
-# EOF
-
-# Setup Rust Utilities
-sudo dnf install --assumeyes tokei fd-find exa
-
-# Setup cargo-binstall
-curl --location https://github.com/cargo-bins/cargo-binstall/releases/download/v0.16.0/cargo-binstall-x86_64-unknown-linux-gnu.tgz \
-  --output /tmp/binstall.tgz
-tar -xf /tmp/binstall.tgz
-mkdir -p ~/.local/bin
-mv /tmp/cargo-binstall ~/.local/bin
-
-cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin watchexec-cli cargo-outdated just fnm stylua starship \
-  bat genact atuin zoxide zellij rust-script evcxr_repl bandwhich hurl kondo git-cliff dprint cargo-nextest
-
-# Setup Sh Utilities
-sudo dnf install --assumeyes ShellCheck
-
-# Setup Python Utilities
-python3 -m pip install --user grip
-
-# Setup Web Utilities
-sudo dnf install --assumeyes tidy
-fnm use 18.12.0
+rustup default stable
 
 # Install apps from with flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
-flatpak install --assumeyes flathub org.telegram.desktop com.logseq.Logseq org.keepassxc.KeePassXC com.mattjakeman.ExtensionManager \
-  org.mozilla.Thunderbird  org.videolan.VLC org.kde.okular io.github.seadve.Kooha fr.romainvigier.MetadataCleaner \
-  us.zoom.Zoom
+flatpak install --assumeyes flathub org.gnome.Firmware org.telegram.desktop com.logseq.Logseq org.keepassxc.KeePassXC \
+  com.mattjakeman.ExtensionManager org.mozilla.Thunderbird org.videolan.VLC org.kde.okular \
+  io.github.seadve.Kooha fr.romainvigier.MetadataCleaner us.zoom.Zoom \
+  com.github.johnfactotum.Foliate io.dbeaver.DBeaverCommunity org.inkscape.Inkscape \
+  org.gimp.GIMP com.github.tchx84.Flatseal io.github.celluloid_player.Celluloid \
+  org.libreoffice.LibreOffice
 
-# Emacs everywhere
-sudo dnf install --assumeyes xclip xdotool xprop xwininfo
+# Toolboxes
+toolbox enter f37-base
+sudo dnf install @development-tools clang
+sudo dnf install emacs neofetch nnn
+cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin watchexec-cli cargo-outdated just fnm stylua starship \
+  bat genact atuin zoxide zellij rust-script evcxr_repl bandwhich hurl kondo git-cliff dprint cargo-nextest
+# Setup Sh Utilities
+sudo dnf install --assumeyes ShellCheck
+# Setup Python Utilities
+python3 -m pip install --user grip
+# Setup Web Utilities
+sudo dnf install --assumeyes tidy
+fnm use v18
+# Emacs
+doom sync && doom doctor
 
-# Setup Emacs & Doom
-git clone https://github.com/azzamsa/doom.d ~/.doom.d
+# GNOME Extensions
+# - https://extensions.gnome.org/extension/5278/pano/
+# - https://extensions.gnome.org/extension/2980/internet-speed-meter/
+# - https://extensions.gnome.org/extension/36/lock-keys/
+# - https://extensions.gnome.org/extension/1625/soft-brightness/
+# - https://extensions.gnome.org/extension/615/appindicator-support/
 
-git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
-~/.emacs.d/bin/doom install
-~/.emacs.d/bin/doom sync
-# doom doctor
+# VPN
+# - https://account.proton.me/u/0/vpn/OpenVpnIKEv2
 
-# Setup GNOME Extension
-wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
-chmod +x gnome-shell-extension-installer
-sudo mv gnome-shell-extension-installer /usr/bin/
-gnome-shell-extension-installer 2890 5278
-
-# Setup shell
-curl --location https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip \
-  --output /tmp/firacode.zip
-mv /tmp/firacode.zip ~/.local/share/fonts/
-unzip ~/.local/share/fonts/firacode.zip
-fc-cache -fv
-
-sudo dnf install --assumeyes git stow zsh util-linux-user wl-clipboard
-
-# Dotfiles
-if [ ! -d ~/dotfiles/ ]; then
-  git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
-fi
-
-# Remove existing files
-rm .zshenv
-pushd ~/dotfiles >/dev/null || exit
-stow bin git gnupg vi zsh zellij --no-folding --restow
-popd >/dev/null || exit
-
+# Dotfles
+stow --no-folding --restow bin git gnupg vi zsh zellij popd >/dev/null || exit
 # Set ZSH to as default
-chsh -s "$(which zsh)"
+sudo usermod -s /bin/zsh $USERNAME
 
 # Setup ripgrep with pcre2 feature
 mkdir -p ~/opt/ripgrep
 git clone --depth 1 https://github.com/BurntSushi/ripgrep.git ~/opt/ripgrep
 cargo install --path ~/opt/ripgrep --features 'pcre2'
 
-# Post Setup
-sudo dnf autoremove
-sudo dnf clean packages
-
-# Clean locales
-mkdir /tmp/locales
-sudo mv en* locale.alias /tmp/locales
-sudo rm -rf /usr/share/locale/*
-sudo mv /tmp/locales/* /usr/share/locale/
-
-sudo rm -rf /var/tmp/* /tmp/*
-
-sudo journalctl --rotate
-sudo journalctl --vacuum-time=1s
-
-docker system prune -a
-
-rm -rf ~/.cargo/git/* ~/.cargo/registry/*
-
-# Download rpm files manually
-# https://github.com/Kong/insomnia/releases
-# https://dbeaver.io/download/
-
-# Download binary
+# Download binary manually
+# https://github.com/mvdan/sh/releases
 # https://github.com/restic/restic/releases
 # https://github.com/oniony/TMSU/releases
 # https://github.com/talklittle/tmsu-nautilus-rs/releases
-
-# Move files from previous machine
-# .gnupg .nodebin .ssh .emacs .config/insomnia
-
-# Troubeshooting
-
-# Workrave
-# Exec=env GDK_BACKEND=x11 workrave
-# in /usr/share/applications/workrave

@@ -50,14 +50,13 @@ alias rcpd='rcp --delete --delete-after'
 alias rcpu='rcp --chmod=go='
 alias rcpdu='rcpd --chmod=go='
 
-if (( $+commands[exa] )); then
-  alias exa="exa --group-directories-first --git";
-  alias l="exa -blF";
-  alias ll="exa -abghilmu";
-  alias llm='ll --sort=modified'
-  alias la="LC_COLLATE=C exa -ablF";
-  alias tree='exa --tree'
-fi
+# exa
+alias exa="exa --group-directories-first --git";
+alias l="exa -blF";
+alias ll="exa -abghilmu";
+alias llm='ll --sort=modified'
+alias la="LC_COLLATE=C exa -ablF";
+alias tree='exa --tree'
 
 autoload -U zmv
 

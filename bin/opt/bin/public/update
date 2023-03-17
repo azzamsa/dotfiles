@@ -7,8 +7,8 @@
 echo "🌱 Updating flatpak apps"
 flatpak update
 
-echo "🌱 Updating dnf apps"
-sudo dnf update
+echo "🌱 Upgrading system"
+rpm-ostree upgrade --check
 
 echo "🌱 Checking node apps"
 pushd ~/opt/nodebin >/dev/null || exit

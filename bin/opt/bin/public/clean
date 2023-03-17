@@ -6,7 +6,7 @@
 
 clean_tmp() {
   echo "🧽 Cleaning temporary system files"
-  rm -rf /var/tmp/* /tmp/*
+  rm -rf /tmp/*
 }
 
 clean_all() {
@@ -15,18 +15,14 @@ clean_all() {
   echo "🧽 Cleaning dependencies and build artifacts"
   kondo --older 1M
 
-  echo "🧽 Cleaning unused dnf package"
-  sudo dnf autoremove
+  echo "🧽 Cleaning unused layer"
+  rpm-ostree cleanup
 
   echo "🧽 Cleaning unused flatpak package"
   flatpak uninstall --unused
 
-  echo "🧽 Cleaning package manager cache"
-  sudo dnf clean packages
-
   echo "🧽 Cleaning dagling dockerfiles"
-  # https://docs.docker.com/engine/reference/commandline/system_prune/
-  docker system prune
+  podman system prune
 }
 
 case $1 in

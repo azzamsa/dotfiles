@@ -4,9 +4,7 @@ FILES=(
   "clean"
   "ding"
   "post-install"
-  "up"
-  "update"
-  "wezterm-here")
+  "update")
 
 fmt() {
   for file in "${FILES[@]}"; do

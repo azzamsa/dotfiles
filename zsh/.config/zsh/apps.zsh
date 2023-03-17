@@ -20,9 +20,7 @@ function br {
 }
 
 # nnn
-if (( $+commands[nnn] )); then
-  export NNN_BMS="p:$HOME/projects;t:/tmp/"
-fi
+export NNN_BMS="p:$HOME/projects;t:/tmp/"
 
 n ()
 {
@@ -55,44 +53,16 @@ n ()
     fi
 }
 
-# zoxide
-if (( $+commands[zoxide] )); then
-  export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.config/*"
-fi
-
-if (( $+commands[cargo] )); then
-    export CARGO_HOME="$XDG_DATA_HOME"/cargo
-fi
-
-if (( $+commands[gpg] )); then
-    export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-fi
-
-if (( $+commands[grip] )); then
-    export GRIPHOME="$XDG_CONFIG_HOME"/grip fs
-fi
-
-if (( $+commands[rustup] )); then
-    export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-fi
-
-if (( $+commands[emacs] )); then
-    export EMACSDIR=$XDG_CONFIG_HOME/emacs
-    export DOOMDIR=$XDG_CONFIG_HOME/doom
-fi
-
-if (( $+commands[wget] )); then
-    alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
-fi
-
-if (( $+commands[sqlite3] )); then
-    export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
-fi
-
-if (( $+commands[psql] )); then
-    export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
-fi
-
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GRIPHOME="$XDG_CONFIG_HOME"/grip fs
+export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.config/*"
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export EMACSDIR=$XDG_CONFIG_HOME/emacs
+export DOOMDIR=$XDG_CONFIG_HOME/doom
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
+export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
 export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
