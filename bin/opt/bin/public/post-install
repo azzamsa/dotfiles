@@ -6,7 +6,9 @@ rpm-ostree upgrade --check
 rpm-ostree upgrade
 
 # Basic Packages
-rpm-ostree install --apply-live zsh wl-clipboard xclip libgda libgda-sqlite tlp tlp-rdw gnome-tweaks
+rpm-ostree install --apply-live zsh wl-clipboard libgda libgda-sqlite tlp tlp-rdw gnome-tweaks
+systemctl reboot
+rpm-ostree override remove firefox firefox-langpacks
 systemctl reboot
 
 # NVIDIA
@@ -23,6 +25,7 @@ sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
 # set `STOP_CHARGE_THRESH_BAT0="1"` in `/etc/tlp.conf``
 sudo tlp start\nsudo tlp-stat -s -c -b
 
+# Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup default stable
 
@@ -30,11 +33,12 @@ rustup default stable
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
 flatpak install --assumeyes flathub org.gnome.Firmware org.telegram.desktop com.logseq.Logseq org.keepassxc.KeePassXC \
-  com.mattjakeman.ExtensionManager org.mozilla.Thunderbird org.videolan.VLC org.kde.okular \
+  com.mattjakeman.ExtensionManager org.mozilla.firefox org.mozilla.Thunderbird org.videolan.VLC org.kde.okular \
   io.github.seadve.Kooha fr.romainvigier.MetadataCleaner us.zoom.Zoom \
   com.github.johnfactotum.Foliate io.dbeaver.DBeaverCommunity org.inkscape.Inkscape \
   org.gimp.GIMP com.github.tchx84.Flatseal io.github.celluloid_player.Celluloid \
-  org.libreoffice.LibreOffice
+  org.libreoffice.LibreOffice net.hovancik.Stretchly org.gustavoperedo.FontDownloader \
+  com.github.maoschanz.drawing rest.insomnia.Insomnia com.calibre_ebook.calibre
 
 # Toolboxes
 toolbox enter f37-base
