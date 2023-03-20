@@ -1,0 +1,6 @@
+# https://starship.rs/config/
+
+[container]
+symbol = '🫙'
+style = 'bold blue dimmed'
+format = '[$symbol \[$name\]]($style) '
