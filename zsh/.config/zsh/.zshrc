@@ -7,8 +7,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 export ZDOTDIR="$HOME"/.config/zsh
 
-eval "$(starship init zsh)"
-
 source $ZDOTDIR/config.zsh
 
 # NOTE ZGEN_DIR and ZGEN_SOURCE are forward-declared in ~/.zshenv
