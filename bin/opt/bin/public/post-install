@@ -6,7 +6,7 @@ rpm-ostree upgrade --check
 rpm-ostree upgrade
 
 # Basic Packages
-rpm-ostree install --apply-live zsh wl-clipboard libgda libgda-sqlite tlp tlp-rdw gnome-tweaks
+rpm-ostree install --apply-live zsh nnn wl-clipboard libgda libgda-sqlite tlp tlp-rdw gnome-tweaks
 systemctl reboot
 rpm-ostree override remove firefox firefox-langpacks
 systemctl reboot
@@ -38,12 +38,13 @@ flatpak install --assumeyes flathub org.gnome.Firmware org.telegram.desktop com.
   com.github.johnfactotum.Foliate io.dbeaver.DBeaverCommunity org.inkscape.Inkscape \
   org.gimp.GIMP com.github.tchx84.Flatseal io.github.celluloid_player.Celluloid \
   org.libreoffice.LibreOffice net.hovancik.Stretchly org.gustavoperedo.FontDownloader \
-  com.github.maoschanz.drawing rest.insomnia.Insomnia com.calibre_ebook.calibre
+  com.github.maoschanz.drawing rest.insomnia.Insomnia com.calibre_ebook.calibre \
+  org.gnome.FileRoller org.gnome.Boxes
 
 # Toolboxes
 toolbox enter f37-base
-sudo dnf install @development-tools clang
-sudo dnf install emacs neofetch nnn
+sudo dnf install @development-tools clang mold
+sudo dnf install emacs neofetch nnn jq
 cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin watchexec-cli cargo-outdated just fnm stylua starship \
   bat genact atuin zoxide zellij rust-script evcxr_repl bandwhich hurl kondo git-cliff dprint cargo-nextest
 # Setup Sh Utilities
