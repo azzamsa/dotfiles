@@ -11,6 +11,11 @@ systemctl reboot
 rpm-ostree override remove firefox firefox-langpacks
 systemctl reboot
 
+# Dotfles
+stow --no-folding --restow bin git gnupg vi zsh zellij popd >/dev/null || exit
+# Set ZSH to as default
+sudo usermod -s /bin/zsh $USERNAME
+
 # NVIDIA
 rpm-ostree install --apply-live https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusio
 n.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -39,23 +44,40 @@ flatpak install --assumeyes flathub org.gnome.Firmware org.telegram.desktop com.
   org.gimp.GIMP com.github.tchx84.Flatseal io.github.celluloid_player.Celluloid \
   org.libreoffice.LibreOffice net.hovancik.Stretchly org.gustavoperedo.FontDownloader \
   com.github.maoschanz.drawing rest.insomnia.Insomnia com.calibre_ebook.calibre \
-  org.gnome.FileRoller org.gnome.Boxes
+  org.gnome.FileRoller org.gnome.Boxes org.gnome.seahorse.Application
 
 # Toolboxes
-toolbox enter f37-base
-sudo dnf install @development-tools clang mold
-sudo dnf install emacs neofetch nnn jq
-cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin watchexec-cli cargo-outdated just fnm stylua starship \
-  bat genact atuin zoxide zellij rust-script evcxr_repl bandwhich hurl kondo git-cliff dprint cargo-nextest
-# Setup Sh Utilities
-sudo dnf install --assumeyes ShellCheck
-# Setup Python Utilities
+toolbox create base
+toolbox enter base
+# Tools
+sudo dnf install --assumeyes zsh emacs neofetch nnn jq ShellCheck tidy python3.11-pip
 python3 -m pip install --user grip
-# Setup Web Utilities
-sudo dnf install --assumeyes tidy
-fnm use v18
 # Emacs
 doom sync && doom doctor
+# create a base image
+podman stop base
+podman commit base
+  
+# Rust Toolbox
+toolbox create -i base rust
+toolbox enter rust
+sudo dnf install --assumeyes @development-tools clang mold
+# Setup Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+. "$HOME/.cargo/env"
+# Use rust toolbox to install cargo apps
+cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin watchexec-cli cargo-outdated just fnm stylua starship \
+  bat genact dua-cli atuin zoxide zellij rust-script evcxr_repl bandwhich hurl kondo git-cliff dprint cargo-nextest
+
+# Python Toolbox
+toolbox create -i base python
+toolbox enter python
+sudo dnf install --assumeyes python3.11 python3.11-devel python3.11-pip
+
+# Javascript
+toolbox create -i base javascript
+toolbox enter javascript
+fnm use v18
 
 # GNOME Extensions
 # - https://extensions.gnome.org/extension/5278/pano/
@@ -66,11 +88,6 @@ doom sync && doom doctor
 
 # VPN
 # - https://account.proton.me/u/0/vpn/OpenVpnIKEv2
-
-# Dotfles
-stow --no-folding --restow bin git gnupg vi zsh zellij popd >/dev/null || exit
-# Set ZSH to as default
-sudo usermod -s /bin/zsh $USERNAME
 
 # Setup ripgrep with pcre2 feature
 mkdir -p ~/opt/ripgrep
