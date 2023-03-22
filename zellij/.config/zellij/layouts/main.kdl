@@ -3,9 +3,9 @@ layout {
         pane name="host"
         pane split_direction="horizontal" {
             pane {
-                name "base"
+                name "daily"
                 command "toolbox"
-                args "enter" "base"
+                args "enter" "daily"
             }
             pane
         }
