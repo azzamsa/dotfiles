@@ -5,8 +5,8 @@
 #
 
 clean_tmp() {
-  echo "🧽 Cleaning temporary system files"
-  rm -rf /tmp/*
+  echo "🧽 Cleaning temporary files"
+  rm -rf ~/tmp/*
 }
 
 clean_all() {
