@@ -12,7 +12,9 @@ rpm-ostree override remove firefox firefox-langpacks
 systemctl reboot
 
 # Dotfles
-stow --no-folding --restow bin git gnupg vi zsh zellij popd >/dev/null || exit
+pushd ~/dotfiles >/dev/null || exit
+stow --no-fold bin git gnupg zellij zsh vi starship
+popd >/dev/null || exit
 # Set ZSH to as default
 sudo usermod -s /bin/zsh $USERNAME
 
@@ -50,7 +52,7 @@ flatpak install --assumeyes flathub org.gnome.Firmware org.telegram.desktop com.
 toolbox create base
 toolbox enter base
 # Tools
-sudo dnf install --assumeyes zsh emacs neofetch nnn jq ShellCheck tidy python3.11-pip
+sudo dnf install --assumeyes zsh emacs neofetch nnn stow jq ShellCheck tidy python3.11-pip
 python3 -m pip install --user grip
 # Emacs
 doom sync && doom doctor
