@@ -9,11 +9,13 @@ alias g='git'
 alias q='exit'
 alias c='clear'
 alias sudo='sudo '
+
 alias in='sudo dnf install --assumeyes'
 alias up='sudo dnf upgrade --assumeyes'
 alias out='sudo dnf remove'
 alias cin='cargo binstall --no-confirm --no-symlinks'
 alias cout='cargo uninstall'
+
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -28,6 +30,9 @@ alias shf='shfmt --list --write --indent 2'
 alias pip='pip --default-timeout=1000'
 # Can't remember `evcxr`
 alias rrepl='evcxr'
+
+
+alias box='toolbox enter'
 
 # An rsync that respects gitignore
 rcp() {
