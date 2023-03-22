@@ -96,11 +96,7 @@ toolbox create base
 toolbox enter base
 
 # Tools
-sudo dnf install --assumeyes zsh python3.11-pip emacs nnn jq ShellCheck tidy 
-python3 -m pip install --user grip
-
-# Emacs
-doom sync && doom doctor
+sudo dnf install --assumeyes zsh
 
 # create a base image
 podman stop base
@@ -114,7 +110,13 @@ toolbox create -i base daily
 toolbox enter base
 
 # Tools
-sudo dnf install --assumeyes neofetch stow workrave
+sudo dnf install --assumeyes emacs nnn jq ShellCheck tidy neofetch stow workrave
+
+sudo dnf install --assumeyes python3.11-pip
+python3 -m pip install --user grip
+
+# Emacs
+doom sync && doom doctor
 ```
 
 ### Rust
