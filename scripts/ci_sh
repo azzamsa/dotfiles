@@ -3,7 +3,6 @@
 FILES=(
   "clean"
   "ding"
-  "post-install"
   "update")
 
 fmt() {
