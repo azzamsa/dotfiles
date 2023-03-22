@@ -155,6 +155,14 @@ cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin
   bat genact dua-cli atuin zoxide zellij rust-script evcxr_repl bandwhich hurl kondo git-cliff dprint cargo-nextest
 ```
 
+## Export Daily Apps in Toolboxes
+
+```bash
+toolbox enter daily
+cp /usr/share/applications/emacs.desktop ~/.local/share/applications
+cp /usr/share/applications/workrave.desktop ~/.local/share/applications
+```
+
 ## Install GNOME Extensions
 
 - https://extensions.gnome.org/extension/5278/pano/

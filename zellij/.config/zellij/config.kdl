@@ -1,5 +1,4 @@
 copy_command "wl-copy" // wayland
-// copy_command "xclip -selection clipboard"
 
 keybinds {
    unbind "Ctrl q"
