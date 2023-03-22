@@ -13,8 +13,11 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v3
 
-    - name: Install latest just release
+    - name: Install just
       uses: taiki-e/install-action@just
+
+    - name: Install dprint
+      uses: taiki-e/install-action@dprint
 
     - name: Install prerequisites
       run: |

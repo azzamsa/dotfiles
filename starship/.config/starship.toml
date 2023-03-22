@@ -1,6 +1,12 @@
 # https://starship.rs/config/
 
 [container]
+style = 'bold blue dimmed'
+format = '[$symbol]($style) '
+
+[custom.container_name]
+command = "container-name"
+when = "container-name"
 symbol = '🫙'
 style = 'bold blue dimmed'
-format = '[$symbol \[$name\]]($style) '
+format = "[$symbol $output]($style) "

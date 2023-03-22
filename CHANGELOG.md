@@ -1,9 +1,11 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 ## [2.1.0] - 2023-01-04
 
 ### Features
+
 - **bin:** Open `zellij` from other application ([b5f718e](b5f718e5c0215611656f0d9bf6d745ac7fb6a61c))
 - **zellij:** Unbind default exit key ([249b026](249b026902d74322ead4915c1988ae969d2affee))
 - **zsh:** Add `port` alias ([cf7e19d](cf7e19d479651fc492abdc4305528be981c8296e))
@@ -21,8 +23,8 @@ All notable changes to this project will be documented in this file.
 - **bin:** Install `Thunderbird` ([3db1729](3db1729ae8f6c4637143d4d0199890816f22f51b))
 - **zsh:** `just` alias ([2f1700b](2f1700b080a7d4023a867c99fbfea9b4690d6dbb))
 
-
 ### Bug fixes
+
 - **zsh:** Update exclude zoxide directory ([22e9336](22e93368308cce58e064cbca5a1886d04cdfd93a))
 - **bin:** Install update directly ([b3dafaf](b3dafaf366eb1f3384fb0f1036242a7c35d45fa2))
 - **bin:** Hide `opt` directory ([6665aa5](6665aa5fd821c6bf15b9a7217dd2399e5298b1b3))
@@ -37,10 +39,10 @@ All notable changes to this project will be documented in this file.
 - **bin:** Binstall doesn't need project URL anymore ([56c04dd](56c04ddbb11bc95339283e020148cd15ac24a4a4))
 - Remove unused git config ([b95c3de](b95c3deac00fff050995b739a0100fc880aae671))
 
-
 ## [2.2.0] - 2022-09-28
 
 ### Features
+
 - **bin:** List supported packages if package name missing ([b1b246b](b1b246ba0a2a783cf2f54eae7761ad34833596bb))
 - **bin:** Update post install ([10d985d](10d985dadfa0210fa136f58755334cb53683c661))
 - **bin:** Check rust updates ([bec4cb1](bec4cb1ee32a32be80796f53b9fdc0d504baf1b5))
@@ -59,8 +61,8 @@ All notable changes to this project will be documented in this file.
 - **bin:** Use `lld` as default linker ([d9aa922](d9aa922fe722e5015c42d2b2679363e59d887373))
 - **bin:** Ding ([14c7367](14c73676a3191f4574a7e430d8179e1761687642))
 
-
 ### Bug fixes
+
 - **bin:** Update post-install ([61f08e5](61f08e5592247e934c679727d2be7fe9c1989708))
 - **zsh:** Some vars are not set ([7875c5f](7875c5f17a70c6b9e31b5831de9d9a3dd4b6acef))
 - **zsh:** Don't highlight paste ([8286600](82866001242ce5c735a27008a7464f07fcdf82a1))
@@ -74,22 +76,22 @@ All notable changes to this project will be documented in this file.
 - **zsh:** I don't use tmux ([605f48f](605f48f2843d4b68572b8ee7e3e29dc5ecbddb7b))
 - **zsh:** Broot is better than fasd ([27ba423](27ba423360bff70f06ce8b12d9af9f2624b2ede9))
 
-
 ### Performance
-- **zsh:** Remove unused code ([6beb1a4](6beb1a47b2a76be5f1ce3d0dc66a2d1dbd10224e))
 
+- **zsh:** Remove unused code ([6beb1a4](6beb1a47b2a76be5f1ce3d0dc66a2d1dbd10224e))
 
 ## [2.1.0] - 2023-01-04
 
 ### Bug fixes
+
 - Update .gitignore ([74a50d5](74a50d5e2e56e53ba8265abfd2c47a248060846a))
 - **mpv:** Remove its configuration ([fe52ba5](fe52ba59ba0ad70ead19dc3698ecb5e44c928ed7))
 - **zsh:** Remove fish and starship ([c83ef14](c83ef146d195c982059915e2716a21577649b82b))
 
-
 ## [2.0.0] - 2022-09-12
 
 ### Features
+
 - **zsh:** Initial configuration ([bfb9686](bfb9686a6bbd8c46010dac0c0505432dcc4fef12))
 - **wezterm:** Enable `switch to last active tab when closing tab` ([1c3caef](1c3caefa8beb9b6a6bef7ee08809ecad1b162695))
 - **wezterm:** More shortcut ([ff7460c](ff7460cd4fe24a5a9d4442a3bc038092378954a1))
@@ -155,14 +157,14 @@ All notable changes to this project will be documented in this file.
 - Add bspwm steps to post install ([3a66a30](3a66a307bc74ed00d5183666af19893238c7fc8e))
 - Merge most used script here ([d0d4df6](d0d4df63a3106c3be4e98cae3a756e87c3373830))
 - Use homerow for workspace number ([47c64d4](47c64d459bc45983df5b15905d83094c99ffa2df))
-- Move  move all the workspace to second montior ([74e3768](74e3768dcf2d791240d90a999c48b95ab3a26cda))
+- Move move all the workspace to second montior ([74e3768](74e3768dcf2d791240d90a999c48b95ab3a26cda))
 - Brightness based on monitors and time ([4949354](4949354f0b974f10d73548c08659244ece5a18e6))
 - Hide empty workspaces ([2378ff0](2378ff0206c25c62088b3627e014b24f12cd137e))
 - Support external monitors ([e567199](e56719975389c8cf6065788b39f3c4e56f19aad7))
 - Use nord theme ([0ba9278](0ba9278f245a32c95f99dbefcfefddfcffaf5eda))
 
-
 ### Bug fixes
+
 - **nushell:** Migrate some alias to `dnf` instead of `apt` ([697ee87](697ee87943d8d5ca3e68cb4d9937f4549a2bf9e1))
 - **nushell:** Custom completion can't accepts custom arguments ([b59063b](b59063b4b8b198c8678b6a79aaaee96557e547c9))
 - **wezterm:** Swap `tab relative` keybinding ([7837fb8](7837fb897d011976026958bd2c9f02b3a86b997e))
@@ -252,15 +254,15 @@ All notable changes to this project will be documented in this file.
 - Using chain in bspwm is hard ([4ff6c26](4ff6c26a80e273be8206fb8ef2079cd2ec717515))
 - Migrate to bspwm ([52aa44b](52aa44bca349cc575aba6dc22cafc6f50e5f4d31))
 
-
 ### Performance
+
 - **nushell:** History menu ([4b3e456](4b3e456b5871695bec0903981c5109faf51a164a))
 - **polybar:** Use IPC for toggle mic status ([e940236](e940236e8dd415b6345b4bb907a1c571ba67c23f))
-
 
 ## [1.0.0] - 2021-12-03
 
 ### Features
+
 - Abbrev in fish shell ([b7e79ed](b7e79ed8879bc16cad6e8214a906ec4687f7f78d))
 - Add abbrev ([765f7d8](765f7d85cc2a79f5ed17745e91206079668c0cd2))
 - **wezterm:** Dim inactive panes ([54b74b5](54b74b56d8c5ae1a09a804b9821c880fab68a44c))
@@ -308,11 +310,11 @@ All notable changes to this project will be documented in this file.
 - Support go111module ([3a55b89](3a55b894e569b472a5e70497e2014b486950bb24))
 - New signing key ([743d2a8](743d2a836a4e8613c73e66261dac3f064849d726))
 - Support resizing images ([70d922b](70d922bb8d2cfebf3794b04a00c4e0d86de2d80b))
-- Add keychain  support ([179f41b](179f41b7d725e401356be79f70818ed67fd958f5))
+- Add keychain support ([179f41b](179f41b7d725e401356be79f70818ed67fd958f5))
 - Completion for obs-cli ([a5ae7c2](a5ae7c24afb50129cd1700e0b7942c36d8ce3b1e))
 
-
 ### Bug fixes
+
 - **wezterm:** Use arrow key for pane and window direction ([05a44e6](05a44e6699f67a0a2a6bb928a415c24de87a0079))
 - **wezterm:** Use more accessible keys ([3086931](3086931af3bd33c16a33f8707eed84e2a2b43ea5))
 - **wezterm:** Use more accessible leader key ([d66dd7d](d66dd7d15d6b931627c493aa029c8437387b19d1))
@@ -401,5 +403,3 @@ All notable changes to this project will be documented in this file.
 - Start mpv at lower volume ([9ea99dd](9ea99dd99327a1c8beda2fba546a139fe7f25fa5))
 - Start `aza-login` manually ([44c3f5d](44c3f5d6830eb8fc75c5530f583add322edada44))
 - Remove silientcast config ([c6cfc27](c6cfc276476914b7b4c88ce3f128c6f105f324ad))
-
-

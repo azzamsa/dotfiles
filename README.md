@@ -27,7 +27,7 @@ My personal .dotfiles 🗃️
 
 ## Usage
 
-``` bash
+```bash
 $ # clone the repository
 $ git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
 

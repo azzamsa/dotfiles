@@ -14,11 +14,13 @@ setup:
 fmt:
     ./scripts/ci_sh fmt
     ./scripts/ci_rust fmt
+    dprint fmt --config configs/dprint.json
 
 # Check is the codebase properly formatted.
 fmt-check:
     ./scripts/ci_sh fmt
     ./scripts/ci_rust fmt
+    dprint check --config configs/dprint.json
 
 # Lint the codebase.
 lint:
