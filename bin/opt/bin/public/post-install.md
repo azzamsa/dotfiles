@@ -190,3 +190,10 @@ cargo install --path ~/opt/ripgrep --features 'pcre2'
 ## Setup ProtonVPN
 
 - https://account.proton.me/u/0/vpn/OpenVpnIKEv2
+
+## Setup Flatpak Apps Permisson
+
+- `filesystems=home`
+  - Kohaa
+  - Telegram
+  - Firefox
