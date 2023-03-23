@@ -110,7 +110,7 @@ toolbox create -i base daily
 toolbox enter base
 
 # Tools
-sudo dnf install --assumeyes emacs nnn jq ShellCheck tidy neofetch stow workrave
+sudo dnf install --assumeyes emacs nnn jq ShellCheck tidy neofetch stow workrave pandoc
 
 sudo dnf install --assumeyes python3.11-pip
 python3 -m pip install --user grip
@@ -152,7 +152,8 @@ fnm use v18
 toolbox enter rust
 
 cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin watchexec-cli cargo-outdated just fnm stylua starship \
-  bat genact dua-cli atuin zoxide zellij rust-script evcxr_repl bandwhich hurl kondo git-cliff dprint cargo-nextest
+  bat genact dua-cli atuin zoxide zellij rust-script evcxr_repl bandwhich hurl kondo git-cliff dprint cargo-nextest \
+  tokei difftastic
 ```
 
 ## Export Daily Apps in Toolboxes
