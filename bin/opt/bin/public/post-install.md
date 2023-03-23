@@ -81,7 +81,7 @@ flatpak install --assumeyes flathub org.gnome.Firmware org.telegram.desktop com.
   com.mattjakeman.ExtensionManager org.mozilla.firefox org.mozilla.Thunderbird org.videolan.VLC org.kde.okular \
   io.github.seadve.Kooha fr.romainvigier.MetadataCleaner us.zoom.Zoom \
   com.github.johnfactotum.Foliate io.dbeaver.DBeaverCommunity org.inkscape.Inkscape \
-  org.gimp.GIMP com.github.tchx84.Flatseal io.github.celluloid_player.Celluloid \
+  org.gimp.GIMP com.github.tchx84.Flatseal \
   org.libreoffice.LibreOffice net.hovancik.Stretchly org.gustavoperedo.FontDownloader \
   com.github.maoschanz.drawing rest.insomnia.Insomnia com.calibre_ebook.calibre \
   org.gnome.FileRoller org.gnome.Boxes org.gnome.seahorse.Application
