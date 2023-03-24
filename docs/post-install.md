@@ -18,7 +18,7 @@ rpm-ostree upgrade
 ## Install Basic Packages
 
 ```bash
-rpm-ostree install --apply-live zsh nnn wl-clipboard tlp tlp-rdw gnome-tweaks
+rpm-ostree install --apply-live gnome-tweaks nnn tlp tlp-rdw wl-clipboard zsh
 systemctl reboot
 
 rpm-ostree override remove firefox firefox-langpacks
@@ -77,12 +77,7 @@ rustup default stable
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
 
-flatpak install --assumeyes flathub org.gnome.Firmware org.telegram.desktop com.logseq.Logseq org.keepassxc.KeePassXC \
-  com.mattjakeman.ExtensionManager org.mozilla.firefox org.mozilla.Thunderbird org.videolan.VLC org.kde.okular \
-  io.github.seadve.Kooha fr.romainvigier.MetadataCleaner us.zoom.Zoom com.github.johnfactotum.Foliate \
-  io.dbeaver.DBeaverCommunity org.inkscape.Inkscape org.gimp.GIMP com.github.tchx84.Flatseal org.libreoffice.LibreOffice \
-  rest.insomnia.Insomnia com.calibre_ebook.calibre org.gnome.FileRoller org.gnome.Boxes org.gnome.seahorse.Application \
-  com.rafaelmardojai.Blanket
+flatpak install --assumeyes flathub com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.github.tchx84.Flatseal com.logseq.Logseq com.mattjakeman.ExtensionManager com.rafaelmardojai.Blanket fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.gimp.GIMP org.gnome.Boxes org.gnome.FileRoller org.gnome.Firmware org.gnome.seahorse.Application org.inkscape.Inkscape org.kde.okular org.keepassxc.KeePassXC org.libreoffice.LibreOffice org.mozilla.firefox org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia us.zoom.Zoom
 ```
 
 ## Setup Toolboxes
@@ -109,7 +104,7 @@ toolbox create -i base daily
 toolbox enter daily
 
 # Tools
-sudo dnf install --assumeyes emacs nnn jq ShellCheck tidy neofetch stow workrave pandoc
+sudo dnf install --assumeyes copyq emacs flameshot jq neofetch nnn pandoc ShellCheck stow tidy workrave
 
 sudo dnf install --assumeyes python3.11-pip
 python3 -m pip install --user grip
@@ -150,9 +145,7 @@ fnm use v18
 ```bash
 toolbox enter rust
 
-cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin watchexec-cli cargo-outdated just fnm stylua starship \
-  bat genact dua-cli atuin zoxide zellij rust-script evcxr_repl bandwhich hurl kondo git-cliff dprint cargo-nextest \
-  tokei difftastic
+cargo binstall --no-confirm --no-symlinks atuin bandwhich bat cargo-edit cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch difftastic dprint dua-cli evcxr_repl fnm genact git-cliff hurl just kondo rust-script starship stylua tokei watchexec-cli zellij zoxide
 ```
 
 ## Export Daily Apps in Toolboxes
