@@ -4,19 +4,19 @@
 #  Update applications
 #
 
-echo "🌱 Updating flatpak apps"
+printf "\n🌱 Updating flatpak apps\n"
 flatpak update
 
-echo "🌱 Upgrading system"
+printf "\n🌱 Upgrading system\n"
 rpm-ostree upgrade --preview
 
-echo "🌱 Checking node apps"
+printf "\n🌱 Checking node apps\n"
 pushd ~/opt/nodebin >/dev/null || exit
 taze major -w && npm i
 popd >/dev/null || exit
 
-echo "🌱 Checking rust apps"
+printf "\n🌱 Checking rust apps\n"
 rustup check
 cargo install-update -a
 
-echo "✨ You have a new shiny machine!"
+printf "✨ You have a new shiny machine!"

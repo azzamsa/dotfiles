@@ -5,23 +5,23 @@
 #
 
 clean_tmp() {
-  echo "🧽 Cleaning temporary files"
+  printf "🧽 Cleaning temporary files\n"
   rm -rf ~/tmp/*
 }
 
 clean_all() {
   clean_tmp
 
-  echo "🧽 Cleaning dependencies and build artifacts"
+  printf "\n🧽 Cleaning dependencies and build artifacts\n"
   kondo --older 1M
 
-  echo "🧽 Cleaning unused layer"
-  rpm-ostree cleanup
+  printf "\n🧽 Cleaning unused layer\n"
+  rpm-ostree cleanup --base
 
-  echo "🧽 Cleaning unused flatpak package"
+  printf "\n🧽 Cleaning unused flatpak package\n"
   flatpak uninstall --unused
 
-  echo "🧽 Cleaning dagling dockerfiles"
+  printf "\n🧽 Cleaning dagling dockerfiles\n"
   podman system prune
 }
 
@@ -30,4 +30,4 @@ case $1 in
 *) clean_all ;;
 esac
 
-echo "✨ You have a new shiny machine!"
+printf "\n✨ You have a new shiny machine!\n"
