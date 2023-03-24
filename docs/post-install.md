@@ -79,12 +79,10 @@ flatpak update
 
 flatpak install --assumeyes flathub org.gnome.Firmware org.telegram.desktop com.logseq.Logseq org.keepassxc.KeePassXC \
   com.mattjakeman.ExtensionManager org.mozilla.firefox org.mozilla.Thunderbird org.videolan.VLC org.kde.okular \
-  io.github.seadve.Kooha fr.romainvigier.MetadataCleaner us.zoom.Zoom \
-  com.github.johnfactotum.Foliate io.dbeaver.DBeaverCommunity org.inkscape.Inkscape \
-  org.gimp.GIMP com.github.tchx84.Flatseal \
-  org.libreoffice.LibreOffice net.hovancik.Stretchly org.gustavoperedo.FontDownloader \
-  com.github.maoschanz.drawing rest.insomnia.Insomnia com.calibre_ebook.calibre \
-  org.gnome.FileRoller org.gnome.Boxes org.gnome.seahorse.Application
+  io.github.seadve.Kooha fr.romainvigier.MetadataCleaner us.zoom.Zoom com.github.johnfactotum.Foliate \
+  io.dbeaver.DBeaverCommunity org.inkscape.Inkscape org.gimp.GIMP com.github.tchx84.Flatseal org.libreoffice.LibreOffice \
+  rest.insomnia.Insomnia com.calibre_ebook.calibre org.gnome.FileRoller org.gnome.Boxes org.gnome.seahorse.Application \
+  com.rafaelmardojai.Blanket
 ```
 
 ## Setup Toolboxes
@@ -101,13 +99,14 @@ sudo dnf install --assumeyes zsh
 # create a base image
 podman stop base
 podman commit base
+# podman tag <image id> base
 ```
 
 ### Daily
 
 ```bash
 toolbox create -i base daily
-toolbox enter base
+toolbox enter daily
 
 # Tools
 sudo dnf install --assumeyes emacs nnn jq ShellCheck tidy neofetch stow workrave pandoc
