@@ -186,6 +186,7 @@ Icon=/var/home/<username>/.local/share/icons/workrave.png
 ```
 
 Set the timer.
+
 - Each 20 minutes work, take 5 minutes rest.
 - Each 3 hours work, take 1 hour rest.
 
@@ -230,9 +231,34 @@ cargo install --path ~/opt/ripgrep --features 'pcre2'
 
 - https://account.proton.me/u/0/vpn/OpenVpnIKEv2
 
-## Setup Flatpak Apps Permisson
+## Setup Flatpak Apps Permission
 
 - `filesystems=home`
   - Kohaa
   - Telegram
   - Firefox
+
+## Modify GNOME Settings
+
+### Keyboard
+
+Go to `Settings` -> `Keyboard`.
+
+- Navigation
+  - Move to workspace on the left: Ctrl + Tab
+  - Move to workspace on the right: Ctrl + Alt + Tab
+  - Switch Windows: Alt + Tab
+- CopyQ
+  - name: CopyQ
+  - command: toolbox run -c daily env QT_QPA_PLATFORM=xcb copyq show
+  - shortcut: Ctrl + Shift + P
+- Flameshot
+  - name: Flameshot
+  - command: toolbox run -c daily flameshot gui
+  - shortcut: print
+
+### Multitasking
+
+- Workspace: Fixed number. 4 workspaces.
+- Application switching: include only applications from the current workspace.
+- Multi-monitor: workspace on primary display only.
