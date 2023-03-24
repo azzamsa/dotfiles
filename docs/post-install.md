@@ -18,7 +18,7 @@ rpm-ostree upgrade
 ## Install Basic Packages
 
 ```bash
-rpm-ostree install --apply-live zsh nnn wl-clipboard libgda libgda-sqlite tlp tlp-rdw gnome-tweaks
+rpm-ostree install --apply-live zsh nnn wl-clipboard tlp tlp-rdw gnome-tweaks
 systemctl reboot
 
 rpm-ostree override remove firefox firefox-langpacks
@@ -157,10 +157,50 @@ cargo binstall --no-confirm --no-symlinks cargo-edit cargo-watch cargo-tarpaulin
 
 ## Export Daily Apps in Toolboxes
 
+## Export Emacs
+
 ```bash
 toolbox enter daily
 cp /usr/share/applications/emacs.desktop ~/.local/share/applications
+```
+
+Change the `Exec` and `Icon` line.
+
+```bash
+Exec=toolbox run -c daily ~/.config/emacs/bin/doom run
+Icon=/var/home/<username>/.local/share/icons/emacs_256.png
+```
+
+## Export Workrave
+
+```
+toolbox enter daily
 cp /usr/share/applications/workrave.desktop ~/.local/share/applications
+```
+
+Change the `Exec` and `Icon` line.
+
+```bash
+Exec=toolbox run -c daily workrave
+Icon=/var/home/<username>/.local/share/icons/workrave.png
+```
+
+Set the timer.
+- Each 20 minutes work, take 5 minutes rest.
+- Each 3 hours work, take 1 hour rest.
+
+## Export CopyQ
+
+```
+toolbox enter daily
+cp /usr/share/applications/com.github.hluk.copyq.desktop ~/.local/share/applications
+```
+
+Change the `Exec` and `Icon` line.
+
+```bash
+Exec=toolbox run -c daily env QT_QPA_PLATFORM=xcb copyq
+Icon=/var/home/<username>/.local/share/icons/copyq_256.png
 ```
 
 ## Install GNOME Extensions
