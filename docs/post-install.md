@@ -220,9 +220,15 @@ git clone --depth 1 https://github.com/BurntSushi/ripgrep.git ~/opt/ripgrep
 cargo install --path ~/opt/ripgrep --features 'pcre2'
 ```
 
-## Setup ProtonVPN
+## Setup VPN
+
+## ProtonVPN
 
 - https://account.proton.me/u/0/vpn/OpenVpnIKEv2
+
+## Firefox
+
+Enable `DNS over HTTPs` by going to `Settings` -> `Network Settings` -> `Connection Settings`
 
 ## Setup Flatpak Apps Permission
 
