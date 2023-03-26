@@ -107,7 +107,7 @@ toolbox enter daily
 sudo dnf install --assumeyes copyq emacs flameshot jq neofetch nnn pandoc ShellCheck stow tidy workrave
 
 sudo dnf install --assumeyes python3.11-pip
-python3 -m pip install --user grip
+python3 -m pip install --user grip proselint
 
 # Emacs
 doom sync && doom doctor
