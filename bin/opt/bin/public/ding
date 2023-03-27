@@ -1,3 +1,3 @@
 #!/bin/bash
 
-paplay ~/songs/notifications/ding.ogg
+pw-play ~/music/notifications/ding.ogg
