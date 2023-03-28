@@ -225,6 +225,8 @@ Icon=/var/home/<username>/.local/share/icons/copyq_256.png
 - https://github.com/restic/restic/releases
 - https://github.com/oniony/TMSU/releases
 - https://github.com/talklittle/tmsu-nautilus-rs/releases
+- https://github.com/junegunn/fzf
+- https://github.com/charmbracelet/glow
 
 ### Ripgrep With Pcre2 Feature
 
