@@ -18,7 +18,7 @@ rpm-ostree upgrade
 ## Install Basic Packages
 
 ```bash
-rpm-ostree install --apply-live gnome-tweaks nnn tlp tlp-rdw wl-clipboard zsh
+rpm-ostree install --apply-live gnome-tweaks tlp tlp-rdw wl-clipboard zsh
 systemctl reboot
 
 rpm-ostree override remove firefox firefox-langpacks
@@ -104,7 +104,7 @@ toolbox create -i base daily
 toolbox enter daily
 
 # Tools
-sudo dnf install --assumeyes copyq emacs flameshot jq neofetch nnn pandoc ShellCheck stow tidy workrave
+sudo dnf install --assumeyes copyq emacs flameshot jq neofetch  pandoc ShellCheck stow tidy workrave
 
 sudo dnf install --assumeyes python3.11-pip
 python3 -m pip install --user grip proselint
