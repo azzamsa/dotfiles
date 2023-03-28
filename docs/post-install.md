@@ -37,8 +37,22 @@ popd >/dev/null || exit
 
 ## Set ZSH As Default Shell
 
+If this is your first time setting up zsh
+copy the code below to `/etc/zshenv`
+
+```bash
+ZDOTDIR=~/.config/zsh
+source -- "$ZDOTDIR"/.zshenv
+```
+
 ```bash
 sudo usermod -s /bin/zsh $USERNAME
+```
+
+Remove unnecessary bash configuration.
+
+```bash
+rm .bash_profile .bashrc .profile .bash_logout
 ```
 
 ## Install GPU Drivers
