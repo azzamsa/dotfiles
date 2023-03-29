@@ -91,8 +91,10 @@ rustup default stable
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
 
-flatpak install --assumeyes flathub com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.github.tchx84.Flatseal com.logseq.Logseq com.mattjakeman.ExtensionManager com.rafaelmardojai.Blanket fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.gimp.GIMP org.gnome.Boxes org.gnome.FileRoller org.gnome.Firmware org.gnome.seahorse.Application org.inkscape.Inkscape org.kde.okular org.keepassxc.KeePassXC org.libreoffice.LibreOffice org.mozilla.firefox org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia us.zoom.Zoom
+flatpak install --assumeyes flathub com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.github.tchx84.Flatseal com.logseq.Logseq com.mattjakeman.ExtensionManager com.rafaelmardojai.Blanket fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.flameshot.Flameshot org.gimp.GIMP org.gnome.Boxes org.gnome.FileRoller org.gnome.Firmware org.gnome.seahorse.Application org.inkscape.Inkscape org.kde.okular org.keepassxc.KeePassXC org.libreoffice.LibreOffice org.mozilla.firefox org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia us.zoom.Zoom
 ```
+
+Flameshot must be installed in the host via flatpak. Otherwise, the toolbox version of Flameshot is not able to copy image to clipboard.
 
 ## Setup Toolboxes
 
