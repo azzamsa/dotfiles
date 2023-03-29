@@ -246,6 +246,11 @@ bash -c  "$(curl -sLo- https://git.io/vQgMr)"
 
 Choose `night owl` as theme and `Iosevka Nerd Font 18`
 
+## Setup Credentials
+
+To avoid git prompting password every each login.
+Copy the ssh password to Seahorse app. Open seahorse, go to `Password > Login`. Then paste the password to `Unlock password for: ...`
+
 ## Setup VPN
 
 ### ProtonVPN
