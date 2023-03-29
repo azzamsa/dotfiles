@@ -236,13 +236,23 @@ git clone --depth 1 https://github.com/BurntSushi/ripgrep.git ~/opt/ripgrep
 cargo install --path ~/opt/ripgrep --features 'pcre2'
 ```
 
+## Setup Terminal
+
+### Change Theme
+
+```bash
+bash -c  "$(curl -sLo- https://git.io/vQgMr)"
+```
+
+Choose `night owl` as theme and `Iosevka Nerd Font 18`
+
 ## Setup VPN
 
-## ProtonVPN
+### ProtonVPN
 
 - https://account.proton.me/u/0/vpn/OpenVpnIKEv2
 
-## Firefox
+## Setup Firefox
 
 Enable `DNS over HTTPs` by going to `Settings` -> `Network Settings` -> `Connection Settings`
 
