@@ -143,6 +143,9 @@ toolbox create -i base python
 toolbox enter python
 
 sudo dnf install --assumeyes python3.11 python3.11-devel python3.11-pip
+
+# install poetry
+curl -sSL https://install.python-poetry.org | python3 -
 ```
 
 ### Javascript
