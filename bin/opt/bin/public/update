@@ -1,22 +1,54 @@
-#!/bin/bash
+#!/usr/bin/env rust-script
+//! Update
+//!
+//! Update applications.
+//!
+//! Usage:
+//!
+//! Just run it as normal executable file:
+//!
+//! ```shell
+//! $ ./update
+//! ```
+//!
+//! ```cargo
+//! [dependencies]
+//! xshell = "0.2"
+//! anyhow = "1.0"
+//! ```
+use xshell::{cmd, Shell};
 
-#
-#  Update applications
-#
+fn home() -> anyhow::Result<String> {
+    Ok(std::env::var("HOME")?)
+}
 
-printf "\n🌱 Updating flatpak apps\n"
-flatpak update
+fn run() -> anyhow::Result<()> {
+    let sh = Shell::new()?;
 
-printf "\n🌱 Upgrading system\n"
-rpm-ostree upgrade --preview
+    println!("🌱 Updating flatpak apps");
+    cmd!(sh, "flatpak update").run()?;
 
-printf "\n🌱 Checking node apps\n"
-pushd ~/opt/nodebin >/dev/null || exit
-taze major -w && npm i
-popd >/dev/null || exit
+    println!("🌱 Upgrading system");
+    cmd!(sh, "rpm-ostree upgrade --preview").run()?;
 
-printf "\n🌱 Checking rust apps\n"
-rustup check
-cargo install-update -a
+    println!("🌱 Checking node apps");
+    {
+        let home = home()?;
+        let _d = sh.push_dir(format!("{home}/opt/nodebin"));
+        cmd!(sh, "taze major --write").run()?;
+        cmd!(sh, "npm i").run()?;
+    }
 
-printf "✨ You have a new shiny machine!"
+    println!("🌱 Checking rust apps");
+    cmd!(sh, "rustup check").run()?;
+    cmd!(sh, "cargo install-update -a").run()?;
+
+    Ok(())
+}
+
+fn main() -> anyhow::Result<()> {
+    run()?;
+    println!("✨ You have a new shiny machine!");
+
+    Ok(())
+}

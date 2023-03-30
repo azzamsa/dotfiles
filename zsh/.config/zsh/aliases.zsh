@@ -28,9 +28,12 @@ alias mk='make'
 alias crg='cargo'
 alias shf='shfmt --list --write --indent 2'
 alias pip='pip --default-timeout=1000'
+# alias x='xplr'
+# x means xplore
+alias x='cd "$(xplr --print-pwd-as-result)"'
+
 # Can't remember `evcxr`
 alias rrepl='evcxr'
-
 
 alias box='toolbox enter'
 

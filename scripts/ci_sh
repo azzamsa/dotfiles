@@ -2,7 +2,7 @@
 
 FILES=(
   "ding"
-  "update")
+)
 
 fmt() {
   for file in "${FILES[@]}"; do

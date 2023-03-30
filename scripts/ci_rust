@@ -4,6 +4,7 @@ FILES=(
   "clean"
   "names"
   "sfetch"
+  "update"
 )
 
 fmt() {
