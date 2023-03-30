@@ -12,8 +12,15 @@ fmt() {
   done
 }
 
+lint() {
+  for file in "${FILES[@]}"; do
+    file_path=bin/opt/bin/public/"$file"
+    cargo clippy --manifest-path "$(rust-script -p "$file_path")/Cargo.toml"
+  done
+}
 
 case $1 in
 "fmt") fmt ;;
+"lint") lint ;;
 *) echo "unsupported action" ;;
 esac
