@@ -297,3 +297,15 @@ Go to `Settings` -> `Keyboard`.
 - Workspace: Fixed number. 4 workspaces.
 - Application switching: include only applications from the current workspace.
 - Multi-monitor: workspace on primary display only.
+
+## Setup directory icons
+
+```shell
+$ gio info music/
+  metadata::custom-icon: file:///usr/share/icons/Adwaita/512x512/places/folder-music.png
+```
+
+Add more icons from:
+
+- https://github.com/Bonandry/adwaita-plus
+- https://github.com/somepaulo/MoreWaita
