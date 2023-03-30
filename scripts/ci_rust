@@ -1,8 +1,10 @@
 #!/bin/bash
 
 FILES=(
+  "clean"
+  "names"
   "sfetch"
-  "names")
+)
 
 fmt() {
   for file in "${FILES[@]}"; do

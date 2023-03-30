@@ -1,7 +1,6 @@
 #!/bin/bash
 
 FILES=(
-  "clean"
   "ding"
   "update")
 

@@ -1,33 +1,67 @@
-#!/bin/bash
+#!/usr/bin/env rust-script
+//! Clean
+//!
+//! Don't clutter my machine!
+//!
+//! Usage:
+//!
+//! Just run it as normal executable file:
+//!
+//! ```shell
+//! $ ./clean
+//! ```
+//!
+//! ```cargo
+//! [dependencies]
+//! xflags = "0.3"
+//! xshell = "0.2"
+//! anyhow = "1.0"
+//! ```
+use xshell::{cmd, Shell};
 
-#
-#  Clean temporary files
-#
+fn tmp() -> anyhow::Result<()> {
+    let sh = Shell::new()?;
 
-clean_tmp() {
-  printf "🧽 Cleaning temporary files\n"
-  rm -rf ~/tmp/*
+    println!("🧽 Cleaning temporary files");
+    cmd!(sh, "rm -rf ~/tmp/*").run()?;
+
+    Ok(())
 }
 
-clean_all() {
-  clean_tmp
+fn all() -> anyhow::Result<()> {
+    let sh = Shell::new()?;
 
-  printf "\n🧽 Cleaning dependencies and build artifacts\n"
-  kondo --older 1M
+    tmp()?;
 
-  printf "\n🧽 Cleaning unused layer\n"
-  rpm-ostree cleanup --base
+    println!("🧽 Cleaning dependencies and build artifacts");
+    cmd!(sh, "kondo --older 1M").run()?;
 
-  printf "\n🧽 Cleaning unused flatpak package\n"
-  flatpak uninstall --unused
+    println!("🧽 Cleaning unused layer");
+    cmd!(sh, "rpm-ostree cleanup --base").run()?;
 
-  printf "\n🧽 Cleaning dagling dockerfiles\n"
-  podman system prune
+    println!("🧽 Cleaning unused flatpak package");
+    cmd!(sh, "flatpak uninstall --unused").run()?;
+
+    println!("🧽 Cleaning dagling images");
+    cmd!(sh, "podman system prune").run()?;
+
+    Ok(())
 }
 
-case $1 in
-"tmp") clean_tmp ;;
-*) clean_all ;;
-esac
+fn main() -> anyhow::Result<()> {
+    let flags = xflags::parse_or_exit! {
+        /// target
+        optional target: String
+    };
 
-printf "\n✨ You have a new shiny machine!\n"
+    match flags.target {
+        Some(s) => match s.as_ref() {
+            "tmp" => tmp,
+            _ => all,
+        },
+        None => all,
+    };
+    println!("✨ You have a new shiny machine!");
+
+    Ok(())
+}
