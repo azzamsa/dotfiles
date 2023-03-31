@@ -17,14 +17,22 @@
 //! xshell = "0.2"
 //! anyhow = "1.0"
 //! ```
+use std::fs;
 use xshell::{cmd, Shell};
+
+fn home() -> anyhow::Result<String> {
+    Ok(std::env::var("HOME")?)
+}
 
 fn tmp() -> anyhow::Result<()> {
     let sh = Shell::new()?;
 
     println!("🧽 Cleaning temporary files");
-    cmd!(sh, "rm -rf ~/tmp/*").run()?;
-
+    let home = home()?;
+    let paths = fs::read_dir(format!("{home}/.tmp"))?;
+    for path in paths {
+        sh.remove_path(path?.path())?;
+    }
     Ok(())
 }
 
@@ -56,10 +64,10 @@ fn main() -> anyhow::Result<()> {
 
     match flags.target {
         Some(s) => match s.as_ref() {
-            "tmp" => tmp,
-            _ => all,
+            "tmp" => tmp()?,
+            _ => all()?,
         },
-        None => all,
+        None => all()?,
     };
     println!("✨ You have a new shiny machine!");
 
