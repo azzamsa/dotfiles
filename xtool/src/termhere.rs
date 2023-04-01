@@ -18,17 +18,6 @@
 /// ```
 use xshell::{cmd, Shell};
 
-fn home() -> anyhow::Result<String> {
-    Ok(std::env::var("HOME")?)
-}
-
-fn here(sh: &Shell, pwd: &str) -> anyhow::Result<()> {
-    let args = ["--layout", "default", "--cwd", pwd];
-    println!("Opening terminal in `{pwd}`");
-    cmd!(sh, "zellij action new-tab {args...}").run()?;
-    Ok(())
-}
-
 pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
     let flags = xflags::parse_or_exit! {
         optional pwd: String
@@ -40,4 +29,15 @@ pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
     };
 
     Ok(())
+}
+
+fn here(sh: &Shell, pwd: &str) -> anyhow::Result<()> {
+    let args = ["--layout", "default", "--cwd", pwd];
+    println!("Opening terminal in `{pwd}`");
+    cmd!(sh, "zellij action new-tab {args...}").run()?;
+    Ok(())
+}
+
+fn home() -> anyhow::Result<String> {
+    Ok(std::env::var("HOME")?)
 }

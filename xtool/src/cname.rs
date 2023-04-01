@@ -2,10 +2,6 @@
 use std::process;
 use xshell::{cmd, Error, Shell};
 
-fn is_inside_container(sh: &Shell) -> Result<String, Error> {
-    cmd!(sh, "test -e /run/.containerenv").read()
-}
-
 pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
     if is_inside_container(sh).is_err() {
         process::exit(1);
@@ -20,4 +16,8 @@ pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
     println!("{}", name);
 
     Ok(())
+}
+
+fn is_inside_container(sh: &Shell) -> Result<String, Error> {
+    cmd!(sh, "test -e /run/.containerenv").read()
 }

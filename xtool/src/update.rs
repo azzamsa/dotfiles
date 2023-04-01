@@ -1,7 +1,10 @@
 use xshell::{cmd, Shell};
 
-fn home() -> anyhow::Result<String> {
-    Ok(std::env::var("HOME")?)
+pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
+    exec(sh)?;
+    println!("✨ You have a new shiny machine!");
+
+    Ok(())
 }
 
 fn exec(sh: &Shell) -> anyhow::Result<()> {
@@ -25,9 +28,6 @@ fn exec(sh: &Shell) -> anyhow::Result<()> {
     Ok(())
 }
 
-pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
-    exec(sh)?;
-    println!("✨ You have a new shiny machine!");
-
-    Ok(())
+fn home() -> anyhow::Result<String> {
+    Ok(std::env::var("HOME")?)
 }
