@@ -1,5 +1,4 @@
 /// Container Name
-use std::fs;
 use std::process;
 use xshell::{cmd, Error, Shell};
 
@@ -12,11 +11,13 @@ pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
         process::exit(1);
     };
 
-    let env = fs::read_to_string("/run/.containerenv")?;
-    let env: Vec<_> = env.lines().collect();
-    let name = env.iter().find(|x| x.contains("name"));
-    if let Some(name) = name {
-        println!("{}", name.replace('"', "").replace("name=", ""));
-    }
+    let env = sh.read_file("/run/.containerenv")?;
+    let name = env
+        .split_once("name=\"")
+        .and_then(|it| it.1.split_once('\"'))
+        .map(|it| it.0)
+        .ok_or_else(|| anyhow::format_err!("can't find name field in the env file"))?;
+    println!("{}", name);
+
     Ok(())
 }
