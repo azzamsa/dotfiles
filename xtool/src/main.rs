@@ -1,5 +1,6 @@
 use xshell::Shell;
 
+mod age;
 mod backup;
 mod clean;
 mod cname;
@@ -10,13 +11,14 @@ mod update;
 
 type Tools<'a> = &'a [(&'a str, fn(&Shell) -> anyhow::Result<()>)];
 const TOOLS: Tools = &[
+    ("age", age::run),
     ("backup", backup::run),
-    ("sfetch", sfetch::run),
     ("clean", clean::run),
-    ("update", update::run),
-    ("ding", ding::run),
     ("cname", cname::run),
+    ("ding", ding::run),
+    ("sfetch", sfetch::run),
     ("termhere", termhere::run),
+    ("update", update::run),
 ];
 
 fn main() -> anyhow::Result<()> {
