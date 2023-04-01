@@ -1,30 +1,10 @@
-#!/usr/bin/env rust-script
-//! Update
-//!
-//! Update applications.
-//!
-//! Usage:
-//!
-//! Just run it as normal executable file:
-//!
-//! ```shell
-//! $ ./update
-//! ```
-//!
-//! ```cargo
-//! [dependencies]
-//! xshell = "0.2"
-//! anyhow = "1.0"
-//! ```
 use xshell::{cmd, Shell};
 
 fn home() -> anyhow::Result<String> {
     Ok(std::env::var("HOME")?)
 }
 
-fn run() -> anyhow::Result<()> {
-    let sh = Shell::new()?;
-
+fn exec(sh: &Shell) -> anyhow::Result<()> {
     println!("🌱 Updating flatpak apps");
     cmd!(sh, "flatpak update").run()?;
 
@@ -33,8 +13,7 @@ fn run() -> anyhow::Result<()> {
 
     println!("🌱 Checking node apps");
     {
-        let home = home()?;
-        let _d = sh.push_dir(format!("{home}/opt/nodebin"));
+        let _d = sh.push_dir(format!("{}/opt/nodebin", home()?));
         cmd!(sh, "taze major --write").run()?;
         cmd!(sh, "npm i").run()?;
     }
@@ -46,8 +25,8 @@ fn run() -> anyhow::Result<()> {
     Ok(())
 }
 
-fn main() -> anyhow::Result<()> {
-    run()?;
+pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
+    exec(sh)?;
     println!("✨ You have a new shiny machine!");
 
     Ok(())

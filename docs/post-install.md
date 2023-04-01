@@ -31,7 +31,7 @@ systemctl reboot
 
 ```bash
 pushd ~/dotfiles >/dev/null || exit
-stow --no-fold bin git gnupg zellij zsh vi starship
+stow --no-fold git gnupg zellij zsh vi starship
 popd >/dev/null || exit
 ```
 

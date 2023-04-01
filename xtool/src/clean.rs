@@ -1,22 +1,3 @@
-#!/usr/bin/env rust-script
-//! Clean
-//!
-//! Don't clutter my machine!
-//!
-//! Usage:
-//!
-//! Just run it as normal executable file:
-//!
-//! ```shell
-//! $ ./clean
-//! ```
-//!
-//! ```cargo
-//! [dependencies]
-//! xflags = "0.3"
-//! xshell = "0.2"
-//! anyhow = "1.0"
-//! ```
 use std::fs;
 use xshell::{cmd, Shell};
 
@@ -24,22 +5,17 @@ fn home() -> anyhow::Result<String> {
     Ok(std::env::var("HOME")?)
 }
 
-fn tmp() -> anyhow::Result<()> {
-    let sh = Shell::new()?;
-
+fn tmp(sh: &Shell) -> anyhow::Result<()> {
     println!("🧽 Cleaning temporary files");
-    let home = home()?;
-    let paths = fs::read_dir(format!("{home}/.tmp"))?;
+    let paths = fs::read_dir(format!("{}/.tmp", home()?))?;
     for path in paths {
         sh.remove_path(path?.path())?;
     }
     Ok(())
 }
 
-fn all() -> anyhow::Result<()> {
-    let sh = Shell::new()?;
-
-    tmp()?;
+fn all(sh: &Shell) -> anyhow::Result<()> {
+    tmp(sh)?;
 
     println!("🧽 Cleaning dependencies and build artifacts");
     cmd!(sh, "kondo --older 1M").run()?;
@@ -56,7 +32,7 @@ fn all() -> anyhow::Result<()> {
     Ok(())
 }
 
-fn main() -> anyhow::Result<()> {
+pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
     let flags = xflags::parse_or_exit! {
         /// target
         optional target: String
@@ -64,10 +40,10 @@ fn main() -> anyhow::Result<()> {
 
     match flags.target {
         Some(s) => match s.as_ref() {
-            "tmp" => tmp()?,
-            _ => all()?,
+            "tmp" => tmp(sh)?,
+            _ => all(sh)?,
         },
-        None => all()?,
+        None => all(sh)?,
     };
     println!("✨ You have a new shiny machine!");
 
