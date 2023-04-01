@@ -1,5 +1,6 @@
 use xshell::Shell;
 
+mod backup;
 mod clean;
 mod cname;
 mod ding;
@@ -9,6 +10,7 @@ mod update;
 
 type Tools<'a> = &'a [(&'a str, fn(&Shell) -> anyhow::Result<()>)];
 const TOOLS: Tools = &[
+    ("backup", backup::run),
     ("sfetch", sfetch::run),
     ("clean", clean::run),
     ("update", update::run),
