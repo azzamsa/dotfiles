@@ -1,3 +1,4 @@
+use std::env;
 use xshell::{cmd, Shell};
 
 pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
@@ -16,7 +17,7 @@ fn exec(sh: &Shell) -> anyhow::Result<()> {
 
     println!("🌱 Checking node apps");
     {
-        let _d = sh.push_dir(format!("{}/opt/nodebin", home()?));
+        let _d = sh.push_dir(format!("{}/opt/nodebin", env::var("HOME")?));
         cmd!(sh, "taze major --write").run()?;
         cmd!(sh, "npm i").run()?;
     }
@@ -26,8 +27,4 @@ fn exec(sh: &Shell) -> anyhow::Result<()> {
     cmd!(sh, "cargo install-update -a").run()?;
 
     Ok(())
-}
-
-fn home() -> anyhow::Result<String> {
-    Ok(std::env::var("HOME")?)
 }

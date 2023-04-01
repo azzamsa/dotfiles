@@ -1,4 +1,4 @@
-use std::fs;
+use std::{env, fs};
 use xshell::{cmd, Shell};
 
 pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
@@ -39,13 +39,9 @@ fn all(sh: &Shell) -> anyhow::Result<()> {
 
 fn tmp(sh: &Shell) -> anyhow::Result<()> {
     println!("🧽 Cleaning temporary files");
-    let paths = fs::read_dir(format!("{}/.tmp", home()?))?;
+    let paths = fs::read_dir(format!("{}/.tmp", env::var("HOME")?))?;
     for path in paths {
         sh.remove_path(path?.path())?;
     }
     Ok(())
-}
-
-fn home() -> anyhow::Result<String> {
-    Ok(std::env::var("HOME")?)
 }
