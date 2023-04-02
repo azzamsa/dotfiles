@@ -5,7 +5,7 @@ The steps I need to take after finishing fresh installation of an OS.
 ## Current Machine
 
 - 80TU Lenovo ideapad 310-14IKB + NVIDIA GeForce 920MX
-- Fedora 37 Silverblue
+- Fedora Silverblue
 
 ## Upgrade The Os
 

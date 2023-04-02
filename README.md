@@ -13,12 +13,17 @@ My personal .dotfiles 🗃️
 
 ---
 
+## Current Machine
+
+- 80TU Lenovo ideapad 310-14IKB + NVIDIA GeForce 920MX
+- Fedora Silverblue
+
 ## Uh Oh! Where is Your Old Configuration?
 
-- [i3 configuration](https://github.com/azzamsa/dotfiles/tree/i3). 2017 - 2021
-- [bspwm configuration](https://github.com/azzamsa/dotfiles/tree/bspwm). 2022
-- [NuShell, Fish, MPV configuration](https://github.com/azzamsa/dotfiles/tree/nushell). 2022
-- [Fedora GNOME configuration](https://github.com/azzamsa/dotfiles/tree/fedora-gnome). 2023
+- [Debian - i3](https://github.com/azzamsa/dotfiles/tree/i3). 2017 - 2021
+- [Debian - bspwm](https://github.com/azzamsa/dotfiles/tree/bspwm). 2022
+- [Debian - NuShell, Fish, MPV](https://github.com/azzamsa/dotfiles/tree/nushell). 2022
+- [Fedora - GNOME](https://github.com/azzamsa/dotfiles/tree/fedora-gnome). 2023
 
 ## Features
 
