@@ -56,8 +56,8 @@ check: fmt-check lint _doc-check
 up arg="":
     #!{{ shebang }}
     if [ "{{ arg }}" = "--write" ]; then
-    	cargo upgrade
-    	cargo update
+        cargo upgrade
+        cargo update
     else
         cargo outdated --root-deps-only
     fi;
