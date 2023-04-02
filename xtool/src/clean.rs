@@ -3,17 +3,16 @@ use std::{env, fs};
 use duct::cmd;
 
 pub(crate) fn run() -> anyhow::Result<()> {
-    let flags = xflags::parse_or_exit! {
-        optional target: String
-    };
+    let mut args = pico_args::Arguments::from_env();
+    let target: Option<String> = args.opt_free_from_str()?;
 
-    match flags.target {
-        Some(s) => match s.as_ref() {
-            "tmp" => tmp()?,
-            _ => anyhow::bail!("unknown target: `{}`", s),
-        },
+    match target {
         None => all()?,
-    };
+        Some(t) => match t.as_ref() {
+            "tmp" => tmp()?,
+            _ => anyhow::bail!("unknown target: `{}`", t),
+        },
+    }
     println!("✨ You have a new shiny machine!");
 
     Ok(())

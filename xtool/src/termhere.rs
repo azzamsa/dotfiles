@@ -14,14 +14,13 @@ use std::env;
 use duct::cmd;
 
 pub(crate) fn run() -> anyhow::Result<()> {
-    let flags = xflags::parse_or_exit! {
-        optional pwd: String
-    };
+    let mut args = pico_args::Arguments::from_env();
+    let pwd: Option<String> = args.opt_free_from_str()?;
 
     let home = env::var("HOME")?;
-    match flags.pwd {
-        Some(p) => here(&p)?,
+    match pwd {
         None => here(&home)?,
+        Some(p) => here(&p)?,
     };
 
     Ok(())
