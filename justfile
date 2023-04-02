@@ -6,9 +6,6 @@ _default:
 
 # Setup the repository
 setup:
-    shellcheck --version || sudo apt install -y shellcheck
-    which shfmt || ./scripts/ci_prepare
-    black --version || pip install --user black
 
 # Format the codebase.
 fmt:
