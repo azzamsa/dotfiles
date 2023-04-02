@@ -2,7 +2,69 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.0] - 2023-01-04
+## [3.0.0] - 2023-04-02
+
+### Features
+
+- **xtool:** Age ([03f6b15](03f6b15d761bca238f090abe9fb08f426fe7b2b5))
+- **xtool:** Backup ([d393a94](d393a9454715f416db018cfe74409868c2555b45))
+- **bin:** Xtool ([19dedfe](19dedfe592d2ee630a08386afbeda4dc91027317))
+- **docs:** Add more apps ([210a4fc](210a4fcf260421926e510994a6a7a18093638472))
+- **docs:** I use Rust as scripting tool ([8b25a34](8b25a344a0eb97071f642a400e1bbad3257db22b))
+- **docs:** Setup icons ([d2b15c1](d2b15c18a84e30dcc1bc9e201327f9a2b0c68c44))
+- **docs:** Setup poetry ([302e53b](302e53b81b8dbbc386a50e9e3cbfda69b6376f8a))
+- **docs:** Setup credentials ([44be206](44be206472bf31e89a9c7e002aa6fdc32f1bf4b8))
+- **docs:** Setup terminal ([12d9da4](12d9da4fd8aea2c78b3eabff0d5cd2bc6f57bba4))
+- **docs:** Add more apps ([ae71c04](ae71c041e3da45d37ecfbb52343f7aeb7fa75c41))
+- **docs:** Remove bash configs ([b9b14cb](b9b14cb3b8c91ceacbc0eb99ef275ca4edcc9731))
+- **docs:** Support proselint ([644785c](644785cd7539d9ab7282066a699c83f996d19157))
+- **docs:** Vpn ([b49460b](b49460bb1a2630496187432b8025691b0e963859))
+- **docs:** Gnome settings ([81dd382](81dd382cb2592ab1a62467cc01a1d3c905b8994a))
+- **docs:** Use `copyq` ([54b1c47](54b1c478e0a0875574b6d0f0e5cdaa03803fb29a))
+- **docs:** Move post-install ([98c9fcd](98c9fcdbcd826be98433673fdc92cc6afd63c4f9))
+- **bin:** Setup flatpak permission ([e95b526](e95b52674b0f310ee1ef859f6f4dcd6d4e694aab))
+- **bin:** Add more packages ([a9a7e19](a9a7e194cef53367b7cfc710e99b6d6dd3f9429c))
+- **bin:** Toolbox apps can be launched from host ([e10ef10](e10ef10faa4da1f35c4fb3eca1b402f9d2709de1))
+- **zsh:** `toolbox` alias ([ac0d973](ac0d973e56fe4e6b2385255a18d0930d7a9a3377))
+- **bin:** Add stow ([bf7d4b4](bf7d4b43cb7b0c5845ab66d0ae00b47dc67f5dd7))
+- **zellij:** Add common layout ([cc00afb](cc00afba8f94c8db6a03f5bb2980ac08b0334187))
+- **bin:** Maximize the use of container ([914f1d3](914f1d35eb795be3658b7e8fea6393cee7316be8))
+- **zsh:** New alias ([74c1ed0](74c1ed02270b28eaeae5181f0a2733f87cf18424))
+- **starship:** Bring it back! ([7f689e9](7f689e9c2a3a9d5a6f609b7759f8ec4fd62253ce))
+- **bin:** Add more packages ([71a7e68](71a7e68ff8da29b88d14a9f030dc2d470fcb939d))
+- **bin:** Add more packages ([1329da9](1329da9daa2aaf653e2602b0d16ce53f0f53c11e))
+- Migrate to Fedora Silverblue ([d6d75df](d6d75df3c967a2bf19d87df937aa7499bf01172f))
+- **vimium:** Initial ([f542c92](f542c924c5bcb4ddabc5d6fcfee72f14c768ee69))
+- **bin:** Cleans dependencies and build artifacts ([15fc65c](15fc65c34ac01ae2ab1c1abfca3577d8c505967f))
+- **bin:** Use mold as default linker ([0473d60](0473d60f8f8a5d656083f50e89b569b49bf1b3ea))
+- Respect XDG specifications ([a7ea6a5](a7ea6a5037331852f18a546b9bf44c685b2dd4fd))
+- **bin:** Only clean `tmp` ([7040c1d](7040c1d5d5cbd4f2bc6539b3990c61be81185722))
+- **bin:** Gnome-calculator ([a592ebe](a592ebe1e9f1d8bc0601539fe716923e04ecd142))
+- **bin:** Support aspell ([e848078](e848078ab740cbe118f5ab81987e0c3c41bcebcb))
+- **bin:** More app to install ([b9e729c](b9e729c224ccb96df058e1f6d3483920aefe7359))
+- **zsh:** `cargo binstall` alias ([0f1db03](0f1db03fe6a6298a191df245f0908f85bf0cac84))
+
+### Bug fixes
+
+- **docs:** Rust tools are now compiled ([a54011d](a54011dffb0e75ebaa91201aba2b7345181cc4c5))
+- **bin:** Can't remove directory content ([82ff52f](82ff52fe70e7e67491eb7503d7e4d64929bc6d32))
+- **docs:** Flameshot can't copy to clipboard ([2c6602e](2c6602e86081103d06c74a13a95253a9d42d7efd))
+- **docs:** Minimize layering apps by not using `nnn` ([573cef4](573cef467492d0a6da7a7d3843b0aedac004fe51))
+- **bin:** Use `pw-play` in Wayland ([ae76094](ae76094bb184bace2636786e2383e23e02c1ed89))
+- **bin:** `printf` is more pridictable ([a1f3e80](a1f3e80bb376eecb13a76bcb68348bf846a8f9a4))
+- **bin:** Vlc is enough ([6e81174](6e81174c71d11f462f2172c485e8676fd33a946e))
+- **bin:** Base image must be very minimal ([72839d3](72839d39737873323845f7f2ecdadc5ec0b26bdd))
+- **bin:** Flatpak apps unable to reliably read system root directory ([4f8e86d](4f8e86d8786ad8eb8a39fef0bfc91a8489846916))
+- **zellij:** Use daily image ([d9fddb5](d9fddb51438e2c95e90d5fa8ef4fd5bc66593028))
+- **bin:** Markdown is more readable ([a41cb70](a41cb70daf1164cadf137925145a4b805ffa1174))
+- **zsh:** `starship` is not found ([91ab1e4](91ab1e4c3c55b59bb1cae1660135356672a9a68e))
+- **bin:** `preview` is better ([69ebc20](69ebc20507daa80dd437a8e12615e2c16b89fa28))
+- **bin:** Don't remove important images ([290c4d3](290c4d358f34415f5b301b3a3554a75151bea3ca))
+- **git:** Increase cache ([bafe08d](bafe08d2d489422616d92c7512c483da1453e53f))
+- **git:** Bash variable is not expanded it git config ([8ef9782](8ef9782494be003beb4dec1d2394619cd24e9676))
+- **zsh:** Avoid unintended app removal ([c48633d](c48633d999a755c467cc884d6a7b5a500c0e5fb8))
+
+## [2.3.0] - 2023-01-04
 
 ### Features
 
@@ -80,7 +142,7 @@ All notable changes to this project will be documented in this file.
 
 - **zsh:** Remove unused code ([6beb1a4](6beb1a47b2a76be5f1ce3d0dc66a2d1dbd10224e))
 
-## [2.1.0] - 2023-01-04
+## [2.1.0] - 2022-09-12
 
 ### Bug fixes
 
