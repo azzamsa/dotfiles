@@ -1,5 +1,3 @@
-use xshell::Shell;
-
 mod age;
 mod backup;
 mod clean;
@@ -9,7 +7,7 @@ mod sfetch;
 mod termhere;
 mod update;
 
-type Tools<'a> = &'a [(&'a str, fn(&Shell) -> anyhow::Result<()>)];
+type Tools<'a> = &'a [(&'a str, fn() -> anyhow::Result<()>)];
 const TOOLS: Tools = &[
     ("age", age::run),
     ("backup", backup::run),
@@ -29,25 +27,22 @@ fn main() -> anyhow::Result<()> {
         .iter()
         .find(|&&(name, _run)| name == progn)
         .ok_or_else(|| anyhow::format_err!("unknown tool: `{}`", progn))?;
-    let sh = Shell::new()?;
-    run(&sh)
+    run()
 }
 
 #[test]
 fn link_me_up() -> anyhow::Result<()> {
-    use xshell::{cmd, Shell};
-    let sh = Shell::new()?;
+    use duct::cmd;
 
     let target = format!("{}/.local/bin", std::env::var("HOME")?);
-    let bin = std::path::Path::new(&target);
-    sh.create_dir(bin)?;
-    cmd!(sh, "cargo build --release").run()?;
+    let target = std::path::Path::new(&target);
+    cmd!("mkdir", "-p", target).run()?;
+    cmd!("cargo", "build", "--release").run()?;
 
     for &(tool, _) in TOOLS {
-        let dst = bin.join(tool);
-        sh.remove_path(&dst)?;
-        sh.hard_link("./target/release/xtool", &dst)?;
+        let dst = target.join(tool);
+        cmd!("rm", "-rf", &dst).run()?;
+        cmd!("ln", "./target/release/xtool", &dst).run()?;
     }
-
     Ok(())
 }

@@ -1,47 +1,47 @@
 use std::{env, fs};
-use xshell::{cmd, Shell};
 
-pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
+use duct::cmd;
+
+pub(crate) fn run() -> anyhow::Result<()> {
     let flags = xflags::parse_or_exit! {
-        /// target
         optional target: String
     };
 
     match flags.target {
         Some(s) => match s.as_ref() {
-            "tmp" => tmp(sh)?,
+            "tmp" => tmp()?,
             _ => anyhow::bail!("unknown target: `{}`", s),
         },
-        None => all(sh)?,
+        None => all()?,
     };
     println!("✨ You have a new shiny machine!");
 
     Ok(())
 }
 
-fn all(sh: &Shell) -> anyhow::Result<()> {
-    tmp(sh)?;
+fn all() -> anyhow::Result<()> {
+    tmp()?;
 
     println!("🧽 Cleaning dependencies and build artifacts");
-    cmd!(sh, "kondo --older 1M --all").run()?;
+    cmd!("kondo", "--older", "1M").run()?;
 
     println!("🧽 Cleaning unused layer");
-    cmd!(sh, "rpm-ostree cleanup --base").run()?;
+    cmd!("rpm-ostree", "cleanup", "--base").run()?;
 
     println!("🧽 Cleaning unused flatpak package");
-    cmd!(sh, "flatpak uninstall --unused --assumeyes").run()?;
+    cmd!("flatpak", "uninstall", "--unused").run()?;
 
     println!("🧽 Cleaning dagling images");
-    cmd!(sh, "podman system prune --force").run()?;
+    cmd!("podman", "system", "prune").run()?;
 
     Ok(())
 }
 
-fn tmp(sh: &Shell) -> anyhow::Result<()> {
+fn tmp() -> anyhow::Result<()> {
     println!("🧽 Cleaning temporary files");
     let paths = fs::read_dir(format!("{}/.tmp", env::var("HOME")?))?;
     for path in paths {
-        sh.remove_path(path?.path())?;
+        cmd!("rm", "-rf", path?.path()).run()?;
     }
     Ok(())
 }

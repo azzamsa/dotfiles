@@ -2,39 +2,33 @@
 ///
 /// Open terminal in given directory.
 ///
-/// Usage:
-///
-/// ```
-/// $ termhere "/opt"
-/// ```
-///
 /// Usage from other application:
-///
 /// ``` lisp
 /// (defun terminal-here ()
 ///   (interactive)
 ///   (message "Opening terminal in %s" default-directory)
-///   (start-process "" nil "zellij-here" default-directory))
+///   (start-process "" nil "termhere" default-directory))
 /// ```
 use std::env;
-use xshell::{cmd, Shell};
 
-pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
+use duct::cmd;
+
+pub(crate) fn run() -> anyhow::Result<()> {
     let flags = xflags::parse_or_exit! {
         optional pwd: String
     };
 
     let home = env::var("HOME")?;
     match flags.pwd {
-        Some(p) => here(sh, &p)?,
-        None => here(sh, &home)?,
+        Some(p) => here(&p)?,
+        None => here(&home)?,
     };
 
     Ok(())
 }
 
-fn here(sh: &Shell, pwd: &str) -> anyhow::Result<()> {
+fn here(pwd: &str) -> anyhow::Result<()> {
     println!("Opening terminal in `{pwd}`");
-    cmd!(sh, "zellij action new-tab --layout default --cwd {pwd}").run()?;
+    cmd!("zellij", "action", "new-tab", "--layout", "default", "--cwd", pwd).run()?;
     Ok(())
 }

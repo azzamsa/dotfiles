@@ -1,13 +1,14 @@
 /// Container Name
-use std::process;
-use xshell::{cmd, Error, Shell};
+use std::{fs, io, process};
 
-pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
-    if is_inside_container(sh).is_err() {
+use duct::cmd;
+
+pub(crate) fn run() -> anyhow::Result<()> {
+    if is_inside_container().is_err() {
         process::exit(1);
     };
 
-    let env = sh.read_file("/run/.containerenv")?;
+    let env = fs::read_to_string("/run/.containerenv")?;
     let name = env
         .split_once("name=\"")
         .and_then(|it| it.1.split_once('\"'))
@@ -18,6 +19,6 @@ pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
     Ok(())
 }
 
-fn is_inside_container(sh: &Shell) -> Result<String, Error> {
-    cmd!(sh, "test -e /run/.containerenv").read()
+fn is_inside_container() -> Result<String, io::Error> {
+    cmd!("test", "-e", "/run/.containerenv").read()
 }

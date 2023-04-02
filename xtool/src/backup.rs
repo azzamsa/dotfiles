@@ -1,35 +1,39 @@
 use std::env;
-use xshell::{cmd, Shell};
 
-pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
-    backup(sh)?;
-    prune(sh)?;
+use duct::cmd;
+
+pub(crate) fn run() -> anyhow::Result<()> {
+    backup()?;
+    prune()?;
     Ok(())
 }
 
-fn backup(sh: &Shell) -> anyhow::Result<()> {
+fn backup() -> anyhow::Result<()> {
     let target = env::var("_META_BACKUP_INCLUDE")?;
     println!("🚀 Starting backup");
 
-    let args = [
+    // "--dry-run"
+    cmd!(
+        "restic",
         "--verbose",
         "--exclude-caches",
         "--one-file-system",
         "backup",
         "--files-from",
-        &target,
-        // "--dry-run",
-    ];
-    cmd!(sh, "restic {args...}").run()?;
+        &target
+    )
+    .run()?;
 
     println!("🍰 Backup finished");
     Ok(())
 }
 
-fn prune(sh: &Shell) -> anyhow::Result<()> {
+fn prune() -> anyhow::Result<()> {
     println!("🧹 Pruning old backup");
 
-    let args = [
+    // "--dry-run"
+    cmd!(
+        "restic",
         "--verbose",
         "forget",
         "--prune",
@@ -38,10 +42,9 @@ fn prune(sh: &Shell) -> anyhow::Result<()> {
         "--keep-weekly",
         "2",
         "--keep-monthly",
-        "2",
-        // "--dry-run",
-    ];
-    cmd!(sh, "restic {args...}").run()?;
+        "2"
+    )
+    .run()?;
 
     println!("🍰 Prune finished");
     Ok(())

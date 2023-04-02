@@ -11,8 +11,8 @@ panic = "abort"
 
 [dependencies]
 anyhow = "1"
+duct = "0.13.6"
 xflags = "0.3.1"
-xshell = "0.2.3"
 
 # age
 humantime = "2"

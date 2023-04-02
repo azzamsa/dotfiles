@@ -1,30 +1,29 @@
 use std::env;
-use xshell::{cmd, Shell};
 
-pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
-    exec(sh)?;
+use duct::cmd;
+
+pub(crate) fn run() -> anyhow::Result<()> {
+    exec()?;
     println!("✨ You have a new shiny machine!");
 
     Ok(())
 }
 
-fn exec(sh: &Shell) -> anyhow::Result<()> {
+fn exec() -> anyhow::Result<()> {
     println!("🌱 Updating flatpak apps");
-    cmd!(sh, "flatpak update").run()?;
+    cmd!("flatpak", "update").run()?;
 
     println!("🌱 Upgrading system");
-    cmd!(sh, "rpm-ostree upgrade --preview").run()?;
+    cmd!("rpm-ostree", "upgrade", "--preview").run()?;
 
     println!("🌱 Checking node apps");
-    {
-        let _d = sh.push_dir(format!("{}/opt/nodebin", env::var("HOME")?));
-        cmd!(sh, "taze major --write").run()?;
-        cmd!(sh, "npm i").run()?;
-    }
+    let dir = format!("{}/opt/nodebin", env::var("HOME")?);
+    cmd!("taze", "major", "--write").dir(&dir).run()?;
+    cmd!("npm", "install").dir(&dir).run()?;
 
     println!("🌱 Checking rust apps");
-    cmd!(sh, "rustup check").run()?;
-    cmd!(sh, "cargo install-update -a").run()?;
+    cmd!("rustup", "check").run()?;
+    cmd!("cargo", "install-update", "-a").run()?;
 
     Ok(())
 }

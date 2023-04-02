@@ -1,10 +1,9 @@
 use std::env;
-use xshell::Shell;
 
 use humantime::{format_duration, parse_duration};
 use time::{format_description, Date, Duration, OffsetDateTime};
 
-pub(crate) fn run(_sh: &Shell) -> anyhow::Result<()> {
+pub(crate) fn run() -> anyhow::Result<()> {
     dob()?;
     println!();
     marriage()?;
