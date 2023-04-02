@@ -40,7 +40,7 @@ jobs:
           mkdir -p "${ARCHIVE_DIR}"
 
           # Source
-          cp -r "git" "gnupg" "vi" "wezterm" "zsh" "$ARCHIVE_DIR"
+          cp -r "gnupg" "vi" "zellij" "zsh" "git" "vimium" "starship" "docs" "xtool" "$ARCHIVE_DIR"
           # README, LICENSE and CHANGELOG files
           cp "README.md" "LICENSE" "CHANGELOG.md" "$ARCHIVE_DIR"
 
