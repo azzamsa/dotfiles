@@ -34,8 +34,7 @@ pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
 }
 
 fn here(sh: &Shell, pwd: &str) -> anyhow::Result<()> {
-    let args = ["--layout", "default", "--cwd", pwd];
     println!("Opening terminal in `{pwd}`");
-    cmd!(sh, "zellij action new-tab {args...}").run()?;
+    cmd!(sh, "zellij action new-tab --layout default --cwd {pwd}").run()?;
     Ok(())
 }
