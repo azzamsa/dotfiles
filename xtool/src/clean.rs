@@ -10,7 +10,7 @@ pub(crate) fn run(sh: &Shell) -> anyhow::Result<()> {
     match flags.target {
         Some(s) => match s.as_ref() {
             "tmp" => tmp(sh)?,
-            _ => all(sh)?,
+            _ => anyhow::bail!("unknown target: `{}`", s),
         },
         None => all(sh)?,
     };
