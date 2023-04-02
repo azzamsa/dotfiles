@@ -11,7 +11,7 @@ pub(crate) fn run() -> anyhow::Result<()> {
 
 fn exec() -> anyhow::Result<()> {
     println!("🌱 Updating flatpak apps");
-    cmd!("flatpak", "update").run()?;
+    cmd!("flatpak", "update").unchecked().run()?;
 
     println!("🌱 Upgrading system");
     cmd!("rpm-ostree", "upgrade", "--preview").run()?;

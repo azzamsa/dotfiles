@@ -22,16 +22,16 @@ fn all() -> anyhow::Result<()> {
     tmp()?;
 
     println!("🧽 Cleaning dependencies and build artifacts");
-    cmd!("kondo", "--older", "1M").run()?;
+    cmd!("kondo", "--older", "1M").unchecked().run()?;
 
     println!("🧽 Cleaning unused layer");
     cmd!("rpm-ostree", "cleanup", "--base").run()?;
 
     println!("🧽 Cleaning unused flatpak package");
-    cmd!("flatpak", "uninstall", "--unused").run()?;
+    cmd!("flatpak", "uninstall", "--unused").unchecked().run()?;
 
     println!("🧽 Cleaning dagling images");
-    cmd!("podman", "system", "prune").run()?;
+    cmd!("podman", "system", "prune").unchecked().run()?;
 
     Ok(())
 }
