@@ -36,6 +36,7 @@ alias x='cd "$(xplr --print-pwd-as-result)"'
 alias rrepl='evcxr'
 
 alias box='toolbox enter'
+alias keepassxc-cli='toolbox run -c daily keepassxc-cli'
 
 # An rsync that respects gitignore
 rcp() {
@@ -65,7 +66,10 @@ alias l="exa -blF";
 alias ll="exa -abghilmu";
 alias llm='ll --sort=modified'
 alias la="LC_COLLATE=C exa -ablF";
-alias tree='exa --tree'
+alias tree='exa --tree --git-ignore'
+
+# replacement
+alias cat="bat"
 
 autoload -U zmv
 
