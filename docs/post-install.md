@@ -199,7 +199,7 @@ cp /usr/share/applications/workrave.desktop ~/.local/share/applications
 Change the `Exec` and `Icon` line.
 
 ```bash
-Exec=toolbox run -c daily workrave
+Exec=toolbox run -c daily env GDK_BACKEND=x11 workrave
 Icon=/var/home/<username>/.local/share/icons/workrave.png
 ```
 
