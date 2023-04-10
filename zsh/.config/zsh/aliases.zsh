@@ -37,6 +37,7 @@ alias rrepl='evcxr'
 
 alias box='toolbox enter'
 alias keepassxc-cli='toolbox run -c daily keepassxc-cli'
+alias neofetch='toolbox run -c daily neofetch'
 
 # An rsync that respects gitignore
 rcp() {
