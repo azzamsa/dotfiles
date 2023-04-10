@@ -269,11 +269,13 @@ Copy the ssh password to Seahorse app. Open seahorse, go to `Password > Login`. 
 ## Setting Up DNS
 
 On laptop.
+
 - `Setting` -> `Wifi` -> `DNS`
   - IPv4: `1.1.1.1`, `1.0.0.1`
   - IPv6: `2606:4700:4700::1111`, `2606:4700:4700::1001`
 
 On router.
+
 - Advanced -> Router -> DHCP -> run `$("#dhcp_dns").show();` in browser console.
 
 ## Setup Firefox
