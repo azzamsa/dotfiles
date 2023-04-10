@@ -126,7 +126,7 @@ toolbox create -i base daily
 toolbox enter daily
 
 # Tools
-sudo dnf install --assumeyes copyq emacs flameshot jq neofetch  pandoc ShellCheck stow tidy workrave
+sudo dnf install --assumeyes copyq emacs flameshot jq neofetch  pandoc ShellCheck stow tidy workrave yt-dlp
 
 sudo dnf install --assumeyes python3.11-pip
 python3 -m pip install --user grip proselint
