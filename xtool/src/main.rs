@@ -3,6 +3,7 @@ mod backup;
 mod clean;
 mod cname;
 mod ding;
+mod names;
 mod sfetch;
 mod termhere;
 mod update;
@@ -14,6 +15,7 @@ const TOOLS: Tools = &[
     ("clean", clean::run),
     ("cname", cname::run),
     ("ding", ding::run),
+    ("names", names::run),
     ("sfetch", sfetch::run),
     ("termhere", termhere::run),
     ("update", update::run),
