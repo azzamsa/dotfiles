@@ -19,4 +19,4 @@ humantime = "2"
 time = { version = "0.3", features = ["formatting", "local-offset", "parsing"] }
 
 # names
-names = { version = "0.14.0", default-features = false }
+rand = "0.8"

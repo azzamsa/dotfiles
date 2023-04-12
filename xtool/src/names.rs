@@ -1,5 +1,4 @@
-use names::Generator;
-use names::Name;
+use rand::Rng;
 
 pub(crate) fn run() -> anyhow::Result<()> {
     // https://github.com/zellij-org/zellij/pull/2122
@@ -81,8 +80,13 @@ pub(crate) fn run() -> anyhow::Result<()> {
         "ulugh",      // astronomer
         "zahrawi",    // father of surgery
     ];
-
-    let mut generator = Generator::new(adjectives, nouns, Name::default());
-    println!("{}", generator.next().unwrap_or("".to_string()));
+    let adjective = adjectives[get_random_number(adjectives.len())];
+    let noun = nouns[get_random_number(nouns.len())];
+    println!("{}-{}", adjective, noun);
     Ok(())
+}
+
+fn get_random_number(length: usize) -> usize {
+    let mut rng = rand::thread_rng();
+    rng.gen_range(0..length)
 }
