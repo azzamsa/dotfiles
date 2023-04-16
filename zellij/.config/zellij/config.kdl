@@ -3,3 +3,9 @@ copy_command "wl-copy" // wayland
 keybinds {
    unbind "Ctrl q"
 }
+
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
