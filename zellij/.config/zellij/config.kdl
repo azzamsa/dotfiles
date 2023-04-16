@@ -9,3 +9,5 @@ ui {
         hide_session_name true
     }
 }
+
+theme "dracula"
