@@ -315,6 +315,19 @@ Go to `Settings` -> `Keyboard`.
 - Application switching: include only applications from the current workspace.
 - Multi-monitor: workspace on primary display only.
 
+### Set time, paper size and units in British
+
+i.e. weeks starting with Mondays, A4, metric.
+
+Put the code below in `/etc/locale.conf`
+
+```
+LANG=en_US.UTF-8
+LC_TIME=en_GB.UTF-8
+LC_PAPER=en_GB.UTF-8
+LC_MEASUREMENT=en_GB.UTF-8
+```
+
 ## Setup directory icons
 
 ```shell
