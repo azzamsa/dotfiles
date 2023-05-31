@@ -341,3 +341,32 @@ Add more icons from:
 
 - https://github.com/Bonandry/adwaita-plus
 - https://github.com/somepaulo/MoreWaita
+
+## Setup Emoji
+
+Some apps aren't able to display colored emoji without proper setting. I believe it because they are containerized.
+
+### CopyQ
+
+Add the following code to `~/.config/fontconfig/fonts.conf`.
+
+```xml
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+ <match target="pattern">
+    <edit name="family" mode="prepend_first">
+      <string>Twemoji</string>
+      <string>Noto Color Emoji</string>
+    </edit>
+  </match>
+</fontconfig>
+```
+
+## Emacs
+
+Add `(add-to-list 'doom-emoji-fallback-font-families "Twemoji")` to the Doom config.
+
+## VSCodium
+
+Set `'Iosevka Nerd Font', Twemoji` as font.
