@@ -264,7 +264,9 @@ Copy the ssh password to Seahorse app. Open seahorse, go to `Password > Login`. 
 
 ## Setting up VPN
 
-- ProtonVPN: https://account.proton.me/u/0/vpn/OpenVpnIKEv2
+### ProtonVPN
+
+Go to Network setting. Add new VPN from a file. Fill the required information according to https://account.proton.me/u/0/vpn/OpenVpnIKEv2
 
 ## Setting Up DNS
 
