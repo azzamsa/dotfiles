@@ -141,7 +141,7 @@ doom sync && doom doctor
 toolbox create -i base rust
 toolbox enter rust
 
-sudo dnf install --assumeyes @development-tools clang mold
+sudo dnf install --assumeyes @development-tools clang mold openssl1.1
 ```
 
 ### Pyhon
