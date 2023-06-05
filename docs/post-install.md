@@ -135,35 +135,15 @@ python3 -m pip install --user grip proselint
 
 # Emacs
 doom sync && doom doctor
-```
 
-### Rust
+# Rust
+sudo dnf install --assumeyes @development-tools clang mold openssl-devel openssl1.1
 
-```bash
-toolbox create -i base rust
-toolbox enter rust
-
-sudo dnf install --assumeyes @development-tools clang mold openssl1.1
-```
-
-### Pyhon
-
-```bash
-toolbox create -i base python
-toolbox enter python
-
+# Python
 sudo dnf install --assumeyes python3.11 python3.11-devel python3.11-pip
-
-# install poetry
 curl -sSL https://install.python-poetry.org | python3 -
-```
 
-### Javascript
-
-```
-toolbox create -i base javascript
-toolbox enter javascript
-
+# Javascript
 fnm use v18
 ```
 
