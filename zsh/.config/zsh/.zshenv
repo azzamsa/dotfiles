@@ -4,7 +4,7 @@
 # ZDOTDIR=~/.config/zsh
 # source -- "$ZDOTDIR"/.zshenv
 
-source ~/.config/meta/env
+source "$HOME"/.config/meta/env
 ZGEN_DIR=~/.local/share/zgenom
 
 function _cache {

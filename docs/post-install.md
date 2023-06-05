@@ -78,13 +78,20 @@ sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
 sudo tlp start\nsudo tlp-stat -s -c -b
 ```
 
-## Install Rust on Host
+## Setup Rust
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup default stable
 rustup component add rust-analyzer
 # rustup which --toolchain stable rust-analyzer
+```
+
+## Setup Python
+
+```bash
+curl -sSf https://rye-up.com/get | bash
+curl -sSL https://install.python-poetry.org | python3 -
 ```
 
 ## Install Flatpak Applications
@@ -130,18 +137,11 @@ toolbox enter daily
 # Tools
 sudo dnf install --assumeyes copyq emacs flameshot jq neofetch  pandoc ShellCheck stow tidy workrave yt-dlp
 
-sudo dnf install --assumeyes python3.11-pip
-python3 -m pip install --user grip proselint
-
 # Emacs
 doom sync && doom doctor
 
 # Rust
 sudo dnf install --assumeyes @development-tools clang mold openssl-devel openssl1.1
-
-# Python
-sudo dnf install --assumeyes python3.11 python3.11-devel python3.11-pip
-curl -sSL https://install.python-poetry.org | python3 -
 
 # Javascript
 fnm use v18
@@ -150,9 +150,15 @@ fnm use v18
 ## Install Rust Apps
 
 ```bash
-toolbox enter rust
+toolbox enter daily
 
-cargo binstall --no-confirm --no-symlinks atuin bandwhich bat cargo-edit cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch difftastic dprint dua-cli evcxr_repl fnm genact git-cliff hurl just kondo rust-script starship stylua tokei watchexec-cli zellij zoxide
+cargo binstall --no-confirm --no-symlinks atuin bandwhich bat cargo-edit cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch difftastic dprint dua-cli evcxr_repl fnm genact git-cliff hurl just kondo rust-script starship stylua tokei watchexec-cli zellij zoxide xlpr tere
+```
+
+## Install Python Apps
+
+```bash
+rye install grip
 ```
 
 ## Export Daily Apps in Toolboxes
