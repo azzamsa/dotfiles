@@ -83,6 +83,8 @@ sudo tlp start\nsudo tlp-stat -s -c -b
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup default stable
+rustup component add rust-analyzer
+# rustup which --toolchain stable rust-analyzer
 ```
 
 ## Install Flatpak Applications
