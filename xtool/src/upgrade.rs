@@ -14,7 +14,9 @@ fn exec() -> anyhow::Result<()> {
     cmd!("flatpak", "update").unchecked().run()?;
 
     println!("🌱 Upgrading system");
-    cmd!("rpm-ostree", "upgrade", "--preview").run()?;
+    cmd!("rpm-ostree", "upgrade", "--preview")
+        .unchecked()
+        .run()?;
 
     println!("🌱 Checking node apps");
     let dir = format!("{}/opt/nodebin", env::var("HOME")?);
