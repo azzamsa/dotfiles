@@ -6,7 +6,7 @@ mod ding;
 mod names;
 mod sfetch;
 mod termhere;
-mod update;
+mod upgrade;
 
 type Tools<'a> = &'a [(&'a str, fn() -> anyhow::Result<()>)];
 const TOOLS: Tools = &[
@@ -18,7 +18,7 @@ const TOOLS: Tools = &[
     ("names", names::run),
     ("sfetch", sfetch::run),
     ("termhere", termhere::run),
-    ("update", update::run),
+    ("upgrade", upgrade::run),
 ];
 
 fn main() -> anyhow::Result<()> {
