@@ -5,7 +5,6 @@ shebang := if os() == 'windows' { 'powershell.exe' } else { '/usr/bin/sh' }
 set dotenv-load := true
 
 alias d := dev
-alias r := run
 alias f := fmt
 alias l := lint
 alias p := publish
@@ -21,10 +20,6 @@ setup:
 # Develop the app.
 dev:
     cargo watch -x 'clippy --locked --all-targets --all-features'
-
-# Develop the app.
-run:
-    cargo run
 
 # Format the codebase.
 fmt:
