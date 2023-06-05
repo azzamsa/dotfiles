@@ -38,7 +38,7 @@ popd >/dev/null || exit
 ## Set ZSH As Default Shell
 
 If this is your first time setting up zsh
-copy the code below to `/etc/zshenv`
+copy the code below to `~/.zshenv`
 
 ```bash
 ZDOTDIR=~/.config/zsh
