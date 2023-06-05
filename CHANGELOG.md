@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.0] - 2023-06-05
+
+### Features
+
+- **xplr:** Initial commit ([cefb978](cefb97829e7a227d89a5df1addffbf059a402cd9))
+- **zsh:** Support xplr ([605eb7b](605eb7bf7018ced35961af439f0effa41c841e67))
+- **zsh:** New aliases ([c7c6abe](c7c6abecbcb5f019d00c13f2c9d4c71c2ca06719))
+- **zellij:** Custom theme ([7a9b867](7a9b8670383fe455bf16177e784897c38ff5f7c8))
+- **zellij:** Hide session name ([31a1a2e](31a1a2eec3327da70e8b666ea9b13d5d582b5f7a))
+- **xtool:** Names ([e577885](e577885f23ac2fe88a260914a22184277e1a9b07))
+- **zsh:** Add more aliases ([d402a11](d402a11e740169afc34957d718070f78177ae876))
+- **zsh:** Source meta env automatically ([ebf63ad](ebf63ad75fea80c3ec278d692290ebf045a288b9))
+- **docs:** Add yt-dlp ([1baaf21](1baaf21798bdba29cb38c1d880a8a8db91210433))
+- **docs:** Setup dns ([883f785](883f78528dbee974fb815d35e64e113f3eab230a))
+- **zsh:** More aliases ([9452797](94527975b92af1dc8494332f5a0f8b4777fd251d))
+- **docs:** Setup dns ([df6930f](df6930f36d91bf7c315ca32d2fcb8f2e606feb06))
+- **docs:** Brave just for emergency ([4f2f1db](4f2f1db02b124b46bb83cb19b01f12dda4c4f7e6))
+- **docs:** More apps ([fe811f0](fe811f0fcda267b8201626d6821486619fec53de))
+
+### Bug fixes
+
+- **zsh:** Root prompt failed to find zsh entrypoint ([17f93e9](17f93e9924a5cff881af4cd0131606c928412b14))
+- **git:** It is `connect-proxy` on Fedora ([18fe78d](18fe78da1e99cf3eba5aa0b08fd72ff66795945b))
+- **zsh:** Now rust-analyzer is managed by rustup ([1bf0b67](1bf0b6758893137295e910e86b1be52977f99218))
+- **xtool:** Don't fail if no OS upgrade ([b1a8ea2](b1a8ea29c78c44c99c66720cb5d9710c1747dffc))
+- **docs:** Workrave icon doesn't shows up ([a39805c](a39805cbf86a57e63801bed95c47680fcae7523d))
+- **xtool:** Don't check for exit status on some commands ([e41c913](e41c913f2a725bef6a15473313ee1fb85a39b8ff))
+- **xtool:** Don't accept unknown flag ([f8ad9df](f8ad9df07ef84f5108a286bbb0d38f96313806d9))
+- **xtool:** Disable prompting to a user ([5f28927](5f28927e1cddc19dacc350ea26c4e1a1a28472b3))
+
 ## [3.0.0] - 2023-04-02
 
 ### Features
