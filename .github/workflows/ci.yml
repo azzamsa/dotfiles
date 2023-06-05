@@ -19,6 +19,11 @@ jobs:
     - name: Install dprint
       uses: taiki-e/install-action@dprint
 
+    - name: Install stylua
+      uses: taiki-e/install-action@v2
+      with:
+        tool: stylua
+
     - name: Install prerequisites
       run: |
         just setup
