@@ -4,6 +4,7 @@ mod clean;
 mod cname;
 mod ding;
 mod names;
+mod ports;
 mod sfetch;
 mod termhere;
 mod upgrade;
@@ -16,6 +17,7 @@ const TOOLS: Tools = &[
     ("cname", cname::run),
     ("ding", ding::run),
     ("names", names::run),
+    ("ports", ports::run),
     ("sfetch", sfetch::run),
     ("termhere", termhere::run),
     ("upgrade", upgrade::run),
