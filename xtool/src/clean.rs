@@ -1,6 +1,14 @@
 use std::{env, fs};
 
 use duct::cmd;
+use serde::Deserialize;
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "PascalCase")]
+struct Image {
+    id: String,
+    names: Option<Vec<String>>,
+}
 
 pub(crate) fn run() -> anyhow::Result<()> {
     let mut args = pico_args::Arguments::from_env();
@@ -30,8 +38,14 @@ fn all() -> anyhow::Result<()> {
     println!("🧽 Cleaning unused flatpak package");
     cmd!("flatpak", "uninstall", "--unused").unchecked().run()?;
 
-    println!("🧽 Cleaning dagling images");
-    cmd!("podman", "system", "prune").unchecked().run()?;
+    println!("🧽 Cleaning container cache");
+    let images = cmd!("podman", "images", "--all", "--format=json").read()?;
+    let images: Vec<Image> = serde_json::from_str(&images)?;
+    for image in images {
+        if image.names.is_none() {
+            cmd!("podman", "rmi", &image.id, "--force").run()?;
+        }
+    }
 
     Ok(())
 }
