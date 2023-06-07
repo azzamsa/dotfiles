@@ -135,7 +135,7 @@ toolbox create -i base daily
 toolbox enter daily
 
 # Tools
-sudo dnf install --assumeyes copyq emacs flameshot jq neofetch  pandoc ShellCheck stow tidy workrave yt-dlp telnet
+sudo dnf install --assumeyes copyq emacs flameshot jq neofetch  pandoc ShellCheck stow tidy workrave yt-dlp telnet aspell-id
 
 # Emacs
 doom sync && doom doctor
