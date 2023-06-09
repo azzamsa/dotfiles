@@ -5,6 +5,8 @@ eval "$(fnm env --use-on-cd)"
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
 source "$HOME/.rye/env"
+source "$XDG_DATA_HOME/cargo/env"
+
 
 # Broot alias
 function br {
