@@ -10,6 +10,9 @@ alias q='exit'
 alias c='clear'
 alias sudo='sudo '
 
+alias fm='nautilus'
+alias ted='flatpak run org.gnome.TextEditor'
+
 alias in='sudo dnf install --assumeyes'
 alias up='sudo dnf upgrade --assumeyes'
 alias out='sudo dnf remove'
