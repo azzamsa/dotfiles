@@ -10,6 +10,7 @@ pub(crate) fn run() -> anyhow::Result<()> {
 
 fn backup() -> anyhow::Result<()> {
     let target = env::var("_META_BACKUP_INCLUDE")?;
+    let exclude_list = env::var("_META_BACKUP_EXCLUDE")?;
     println!("🚀 Starting backup");
 
     // "--dry-run"
@@ -20,7 +21,9 @@ fn backup() -> anyhow::Result<()> {
         "--one-file-system",
         "backup",
         "--files-from",
-        &target
+        &target,
+        "--exclude-file",
+        exclude_list,
     )
     .run()?;
 
