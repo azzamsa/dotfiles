@@ -1,5 +1,7 @@
 # https://starship.rs/config/
 
+command_timeout = 1000
+
 [container]
 style = 'bold blue dimmed'
 format = '[$symbol]($style) '
