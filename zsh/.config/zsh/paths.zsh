@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 path=(
+  "$HOME"/opt/bin(N)
   "$HOME"/.local/bin(N)
   "$HOME"/opt/nodebin/node_modules/.bin(N)
   "$XDG_CONFIG_HOME"/emacs/bin(N)

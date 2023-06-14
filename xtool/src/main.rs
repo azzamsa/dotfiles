@@ -1,4 +1,3 @@
-mod age;
 mod backup;
 mod clean;
 mod cname;
@@ -11,7 +10,6 @@ mod upgrade;
 
 type Tools<'a> = &'a [(&'a str, fn() -> anyhow::Result<()>)];
 const TOOLS: Tools = &[
-    ("age", age::run),
     ("backup", backup::run),
     ("clean", clean::run),
     ("cname", cname::run),
