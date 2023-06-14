@@ -239,6 +239,8 @@ cargo install --path ~/opt/ripgrep --features 'pcre2'
 
 ### Change Theme
 
+Use [Gogh](https://github.com/Gogh-Co/Gogh/) to change theme.
+
 ```bash
 bash -c  "$(curl -sLo- https://git.io/vQgMr)"
 ```
