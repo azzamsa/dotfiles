@@ -136,6 +136,8 @@ toolbox enter daily
 
 # Tools
 sudo dnf install --assumeyes copyq emacs flameshot jq neofetch  pandoc ShellCheck stow tidy workrave yt-dlp telnet aspell-id
+# gpg
+sudo dnf install --assumeyes pinentry pinentry-gnome3
 
 # Emacs
 doom sync && doom doctor
