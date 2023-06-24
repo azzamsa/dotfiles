@@ -163,6 +163,11 @@ cargo binstall --no-confirm --no-symlinks atuin bandwhich bat cargo-edit cargo-n
 rye install grip
 ```
 
+## Setup Font
+
+Get it from https://github.com/ryanoasis/nerd-fonts/releases
+
+
 ## Export Daily Apps in Toolboxes
 
 ## Export Emacs
