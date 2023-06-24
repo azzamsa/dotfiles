@@ -227,12 +227,16 @@ Icon=/var/home/<username>/.local/share/icons/copyq_256.png
 
 ## Install Binaries Manually
 
-- https://github.com/mvdan/sh/releases
-- https://github.com/restic/restic/releases
-- https://github.com/oniony/TMSU/releases
-- https://github.com/talklittle/tmsu-nautilus-rs/releases
-- https://github.com/junegunn/fzf
-- https://github.com/charmbracelet/glow
+Install eget from https://github.com/zyedidia/eget/releases
+
+```bash
+eget junegunn/fzf
+eget mvdan/sh
+eget restic/restic/
+eget oniony/TMSU/
+eget junegunn/fzf
+eget charmbracelet/glow
+```
 
 ### Ripgrep With Pcre2 Feature
 
