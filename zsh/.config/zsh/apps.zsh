@@ -34,8 +34,8 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GRIPHOME="$XDG_CONFIG_HOME"/grip fs
 export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.config/*"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-export EMACSDIR=$XDG_CONFIG_HOME/emacs
-export DOOMDIR=$XDG_CONFIG_HOME/doom
+# export EMACSDIR=$XDG_CONFIG_HOME/emacs
+# export MINEMACSDIR=$XDG_CONFIG_HOME/minemacs
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
