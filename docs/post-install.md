@@ -100,7 +100,7 @@ curl -sSL https://install.python-poetry.org | python3 -
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
 
-flatpak install --assumeyes flathub com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.github.qarmin.czkawka com.github.tchx84.Flatseal com.logseq.Logseq com.mattjakeman.ExtensionManager com.rafaelmardojai.Blanket fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.flameshot.Flameshot org.flozz.yoga-image-optimizer org.gimp.GIMP org.gnome.Boxes org.gnome.FileRoller org.gnome.Firmware org.gnome.seahorse.Application org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.keepassxc.KeePassXC org.libreoffice.LibreOffice org.mozilla.firefox org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia us.zoom.Zoom
+flatpak install --assumeyes flathub com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.github.qarmin.czkawka com.github.tchx84.Flatseal com.logseq.Logseq com.mattjakeman.ExtensionManager com.rafaelmardojai.Blanket fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.flameshot.Flameshot org.gimp.GIMP org.gnome.Boxes org.gnome.FileRoller org.gnome.Firmware org.gnome.seahorse.Application org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.keepassxc.KeePassXC org.libreoffice.LibreOffice org.mozilla.firefox org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia us.zoom.Zoom
 ```
 
 Pin Brave browser. It is installed just for emergency.
@@ -135,7 +135,7 @@ toolbox create -i base daily
 toolbox enter daily
 
 # Tools
-sudo dnf install --assumeyes copyq emacs flameshot jq neofetch  pandoc ShellCheck stow tidy workrave yt-dlp telnet aspell-id
+sudo dnf install --assumeyes copyq emacs flameshot jq neofetch pandoc ShellCheck stow tidy workrave yt-dlp telnet aspell-id
 # gpg
 sudo dnf install --assumeyes pinentry pinentry-gnome3
 
@@ -154,7 +154,14 @@ fnm use v18
 ```bash
 toolbox enter daily
 
-cargo binstall --no-confirm --no-symlinks atuin bandwhich bat cargo-edit cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch difftastic dprint dua-cli evcxr_repl fnm genact git-cliff hurl just kondo rust-script starship stylua tokei watchexec-cli zellij zoxide xlpr tere
+# shell prompt
+cargo binstall --no-confirm --no-symlinks atuin fnm starship zoxide zellij
+
+# rust development tool
+cargo binstall --no-confirm --no-symlinks cargo-edit cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch dprint git-cliff hurl just tokei watchexec-cli git-cliff
+
+# utilities
+cargo binstall --no-confirm --no-symlinks bandwhich bat dua-cli kondo rust-script stylua xlpr tere
 ```
 
 ## Install Python Apps
@@ -166,7 +173,6 @@ rye install grip
 ## Setup Font
 
 Get it from https://github.com/ryanoasis/nerd-fonts/releases
-
 
 ## Export Daily Apps in Toolboxes
 
@@ -232,8 +238,8 @@ Install eget from https://github.com/zyedidia/eget/releases
 ```bash
 eget junegunn/fzf
 eget mvdan/sh
-eget restic/restic/
-eget oniony/TMSU/
+eget restic/restic
+eget oniony/TMSU
 eget junegunn/fzf
 eget charmbracelet/glow
 ```
