@@ -1,29 +1,39 @@
 use std::{env, fs};
 
 use duct::cmd;
+use lexopt::prelude::*;
 use serde::Deserialize;
+
+pub(crate) fn run() -> anyhow::Result<()> {
+    let mut parser = lexopt::Parser::from_env();
+    if let Some(arg) = parser.next()? {
+        match arg {
+            Value(value) => {
+                let value = value.string()?;
+                match value.as_str() {
+                    "tmp" => {
+                        return tmp();
+                    }
+                    value => {
+                        return Err(anyhow::anyhow!("unknown subcommand '{}'", value));
+                    }
+                }
+            }
+            _ => return Err(anyhow::anyhow!(arg.unexpected())),
+        }
+    } else {
+        all()?;
+    }
+    println!("✨ You have a new shiny machine!");
+
+    Ok(())
+}
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 struct Image {
     id: String,
     names: Option<Vec<String>>,
-}
-
-pub(crate) fn run() -> anyhow::Result<()> {
-    let mut args = pico_args::Arguments::from_env();
-    let target: Option<String> = args.opt_free_from_str()?;
-
-    match target {
-        None => all()?,
-        Some(t) => match t.as_ref() {
-            "tmp" => tmp()?,
-            _ => anyhow::bail!("unknown target: `{}`", t),
-        },
-    }
-    println!("✨ You have a new shiny machine!");
-
-    Ok(())
 }
 
 fn all() -> anyhow::Result<()> {

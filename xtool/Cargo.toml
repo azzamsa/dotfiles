@@ -12,7 +12,7 @@ panic = "abort"
 [dependencies]
 anyhow = "1"
 duct = "0.13.6"
-pico-args = "0.5.0"
+lexopt = "0.3.0"
 
 # age
 humantime = "2"
