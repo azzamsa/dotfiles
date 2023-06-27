@@ -29,7 +29,6 @@ fn parse_args() -> Result<AppArgs, lexopt::Error> {
     let mut port = None;
     let mut kill = None;
 
-
     let mut parser = lexopt::Parser::from_env();
     while let Some(arg) = parser.next()? {
         match arg {
@@ -44,7 +43,6 @@ fn parse_args() -> Result<AppArgs, lexopt::Error> {
         port: port.ok_or("missing required argument PORT")?,
         kill,
     })
-
 }
 
 fn proc_name(port: &str) -> anyhow::Result<()> {

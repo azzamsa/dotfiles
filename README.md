@@ -16,14 +16,15 @@ My personal .dotfiles 🗃️
 ## Current Machine
 
 - 80TU Lenovo ideapad 310-14IKB + NVIDIA GeForce 920MX
-- Fedora Silverblue
+- Fedora Workstation
 
 ## Uh Oh! Where is Your Old Configuration?
 
-- [Debian - i3](https://github.com/azzamsa/dotfiles/tree/i3). 2017 - 2021
-- [Debian - bspwm](https://github.com/azzamsa/dotfiles/tree/bspwm). 2022
-- [Debian - NuShell, Fish, MPV](https://github.com/azzamsa/dotfiles/tree/nushell). 2022
-- [Fedora - GNOME](https://github.com/azzamsa/dotfiles/tree/fedora-gnome). 2023
+- [Debian - i3](https://github.com/azzamsa/dotfiles/commit/f395081a1c0372aa10737f104640da3049a5a8b2). 2017 - 2021
+- [Debian - bspwm](https://github.com/azzamsa/dotfiles/commit/59c6e48ca7024aa810a9c892d55d4dfcb758a989). 2022
+- [Debian - NuShell, Fish, MPV](https://github.com/azzamsa/dotfiles/commit/bfb9686a6bbd8c46010dac0c0505432dcc4fef12). 2022
+- [Fedora - GNOME](https://github.com/azzamsa/dotfiles/commit/6dc9d319cae13f79db0a8b1004aa87b103520415). 2023
+- [Fedora Silverblue - GNOME](https://github.com/azzamsa/dotfiles/tree/4543ab38b5834cd1e4ba549436220c02310264dd). 2023
 
 ## Features
 
@@ -48,6 +49,7 @@ I don't plan to accept any contribution that adds new functionality. But it is O
 
 ## See Also
 
+- [azzamsa/minemacs.d: 📜 My personal MinEmacs configuration](https://github.com/azzamsa/minemacs.d)
 - [azzamsa/doom.d: 📜 My personal Doom Emacs configuration](https://github.com/azzamsa/doom.d)
 - [azzamsa/emacs.d: 📜 My personal Emacs configuration](https://github.com/azzamsa/emacs.d)
 

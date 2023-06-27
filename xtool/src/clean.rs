@@ -43,7 +43,7 @@ fn all() -> anyhow::Result<()> {
     cmd!("kondo", "--older", "1M").unchecked().run()?;
 
     println!("🧽 Cleaning unused layer");
-    cmd!("rpm-ostree", "cleanup", "--base").run()?;
+    cmd!("sudo", "dnf", "autoremove").run()?;
 
     println!("🧽 Cleaning unused flatpak package");
     cmd!("flatpak", "uninstall", "--unused").unchecked().run()?;
@@ -62,7 +62,7 @@ fn all() -> anyhow::Result<()> {
 
 fn tmp() -> anyhow::Result<()> {
     println!("🧽 Cleaning temporary files");
-    let paths = fs::read_dir(format!("{}/.tmp", env::var("HOME")?))?;
+    let paths = fs::read_dir(format!("{}/Downloads", env::var("HOME")?))?;
     for path in paths {
         cmd!("rm", "-rf", path?.path()).run()?;
     }

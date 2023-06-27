@@ -5,8 +5,8 @@ eval "$(fnm env --use-on-cd)"
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
 source "$HOME/.rye/env"
-source "$XDG_DATA_HOME/cargo/env"
-
+source "$HOME/.cargo/env"
+source "$XDG_CONFIG_HOME/broot/launcher/bash/br"
 
 # Broot alias
 function br {
@@ -23,19 +23,11 @@ function br {
     fi
 }
 
-tere() {
-    local result=$(command tere "$@")
-    [ -n "$result" ] && cd -- "$result"
-}
-
-export XPLR_BOOKMARK_FILE="$XDG_DATA_HOME/xplr/bookmarks"
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GRIPHOME="$XDG_CONFIG_HOME"/grip fs
 export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.config/*"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-# export EMACSDIR=$XDG_CONFIG_HOME/emacs
-# export MINEMACSDIR=$XDG_CONFIG_HOME/minemacs
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"

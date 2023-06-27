@@ -10,4 +10,19 @@ ui {
     }
 }
 
-theme "dracula"
+theme "dracula!"
+themes {
+   dracula! {
+        fg "#F8F8F2"
+        bg "#44475a" // Highlight
+        black "#000000"
+        red "#FF5555" // Symbol
+        green "#bd93f9" // Tab border
+        yellow "#F1FA8C"
+        blue "#6272A4"
+        magenta "#FF79C6"
+        cyan "#8BE9FD"
+        white "#FFFFFF"
+        orange "#FFB86C" // Active border
+    }
+}

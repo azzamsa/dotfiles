@@ -45,9 +45,6 @@ box() {
   fi
 }
 
-alias keepassxc-cli='toolbox run -c daily keepassxc-cli'
-alias neofetch='toolbox run -c daily neofetch'
-
 # An rsync that respects gitignore
 rcp() {
   # -a = -rlptgoD
@@ -71,7 +68,6 @@ alias rcpu='rcp --chmod=go='
 alias rcpdu='rcpd --chmod=go='
 
 # exa
-alias ls="exa --group-directories-first --git";
 alias l="exa --binary --long --classify";
 alias ll="exa --all --binary --group --header --inode --long --modified --accessed";
 alias llm='ll --sort=modified'
