@@ -23,11 +23,9 @@ function br {
     fi
 }
 
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GRIPHOME="$XDG_CONFIG_HOME"/grip fs
 export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.config/*"
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
