@@ -37,10 +37,20 @@ struct Image {
 }
 
 fn all() -> anyhow::Result<()> {
+    let home = env::var("HOME")?;
     tmp()?;
 
     println!("🧽 Cleaning dependencies and build artifacts");
-    cmd!("kondo", "--older", "1M").unchecked().run()?;
+    cmd!(
+        "kondo",
+        &home,
+        "--older",
+        "1M",
+        "--ignored-dirs",
+        format!("{}/opt/nodebin", &home)
+    )
+    .unchecked()
+    .run()?;
 
     println!("🧽 Cleaning unused layer");
     cmd!("sudo", "dnf", "autoremove").run()?;
