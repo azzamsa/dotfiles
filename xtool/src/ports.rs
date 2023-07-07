@@ -1,22 +1,21 @@
 use duct::cmd;
-use lexopt::prelude::*;
 
 #[derive(Debug)]
 struct AppArgs {
     port: String,
-    kill: Option<bool>,
+    kill: bool,
 }
 
 pub(crate) fn run() -> anyhow::Result<()> {
     let args = match parse_args() {
         Ok(v) => v,
         Err(e) => {
-            eprintln!("Error: {}.", e);
+            eprintln!("Error a: {}.", e);
             std::process::exit(1);
         }
     };
 
-    if args.kill.is_some() {
+    if args.kill {
         kill(&args.port)?
     } else {
         proc_name(&args.port)?
@@ -25,24 +24,14 @@ pub(crate) fn run() -> anyhow::Result<()> {
     Ok(())
 }
 
-fn parse_args() -> Result<AppArgs, lexopt::Error> {
-    let mut port = None;
-    let mut kill = None;
+fn parse_args() -> Result<AppArgs, pico_args::Error> {
+    let mut pargs = pico_args::Arguments::from_env();
+    let args = AppArgs {
+        port: pargs.free_from_str()?,
+        kill: pargs.contains(["-k", "--kill"]),
+    };
 
-    let mut parser = lexopt::Parser::from_env();
-    while let Some(arg) = parser.next()? {
-        match arg {
-            Short('k') | Long("kill") => {
-                kill = Some(true);
-            }
-            Value(p) => port = Some(p.string()?),
-            _ => return Err(arg.unexpected()),
-        }
-    }
-    Ok(AppArgs {
-        port: port.ok_or("missing required argument PORT")?,
-        kill,
-    })
+    Ok(args)
 }
 
 fn proc_name(port: &str) -> anyhow::Result<()> {

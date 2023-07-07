@@ -50,12 +50,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "453ad9f582a441959e5f0d088b02ce04cfe8d51a8eaf077f12ac6d3e94164ca6"
 
 [[package]]
-name = "lexopt"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "baff4b617f7df3d896f97fe922b64817f6cd9a756bb81d40f8883f2f66dcb401"
-
-[[package]]
 name = "libc"
 version = "0.2.145"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -85,6 +79,12 @@ dependencies = [
  "libc",
  "windows-sys",
 ]
+
+[[package]]
+name = "pico-args"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5be167a7af36ee22fe3115051bc51f6e6c7054c9348e28deb4f49bd6f705a315"
 
 [[package]]
 name = "ppv-lite86"
@@ -334,7 +334,7 @@ dependencies = [
  "anyhow",
  "duct",
  "humantime",
- "lexopt",
+ "pico-args",
  "rand",
  "serde",
  "serde_json",

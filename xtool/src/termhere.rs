@@ -12,23 +12,16 @@
 use std::env;
 
 use duct::cmd;
-use lexopt::prelude::*;
 
 pub(crate) fn run() -> anyhow::Result<()> {
-    let home = env::var("HOME")?;
+    let mut args = pico_args::Arguments::from_env();
+    let pwd: Option<String> = args.opt_free_from_str()?;
 
-    let mut parser = lexopt::Parser::from_env();
-    if let Some(arg) = parser.next()? {
-        match arg {
-            Value(value) => {
-                let value = value.string()?;
-                return here(value.as_str());
-            }
-            _ => return Err(anyhow::anyhow!(arg.unexpected())),
-        }
-    } else {
-        here(&home)?;
-    }
+    let home = env::var("HOME")?;
+    match pwd {
+        None => here(&home)?,
+        Some(p) => here(&p)?,
+    };
 
     Ok(())
 }
