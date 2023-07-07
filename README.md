@@ -45,10 +45,12 @@ done
 
 ## Contribution
 
-I don't plan to accept any contribution that adds new functionality. But it is OK for fixes and improvement. I don't recommend using this repository directly. Instead, use it as a source of inspiration.
+I won't be accepting any functionality or behavior changes. But it is OK for fixes and refinement.
+I don't recommend using this repository directly. Instead, use it as a source of inspiration.
 
 ## See Also
 
+- [azzamsa/camp.d: 🏕️ I want to go camping....](https://github.com/azzamsa/camp.d)
 - [azzamsa/minemacs.d: 📜 My personal MinEmacs configuration](https://github.com/azzamsa/minemacs.d)
 - [azzamsa/doom.d: 📜 My personal Doom Emacs configuration](https://github.com/azzamsa/doom.d)
 - [azzamsa/emacs.d: 📜 My personal Emacs configuration](https://github.com/azzamsa/emacs.d)

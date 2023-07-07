@@ -31,7 +31,7 @@ jobs:
       - name: Extract repository information
         shell: bash
         run: |
-          echo "PROJECT_NAME= ${{ env.PROJECT_NAME }}" >> $GITHUB_ENV
+          echo "PROJECT_NAME=${{ env.PROJECT_NAME }}" >> $GITHUB_ENV
 
       - name: Create tarball
         id: package
@@ -77,4 +77,5 @@ jobs:
           name: "v${{ env.RELEASE_VERSION }}"
           files: ${{ steps.package.outputs.PKG_NAME }}
           prerelease: ${{ contains(github.ref, 'alpha') || contains(github.ref, 'beta') }}
-          generate_release_notes: false
+          generate_release_notes: true
+          body_path: "${{ steps.git-cliff.outputs.changelog }}"
