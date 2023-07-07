@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - 'v*'
+env:
+  PROJECT_NAME: dotfiles
 
 jobs:
   release:
@@ -12,6 +14,10 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
+        with:
+          # It is a must. To generate a changelog.
+          # this operation is chap. It took less than one second.
+          fetch-depth: 0
 
       - name: Set the release version
         shell: bash
@@ -25,7 +31,7 @@ jobs:
       - name: Extract repository information
         shell: bash
         run: |
-          echo "PROJECT_NAME=dotfiles" >> $GITHUB_ENV
+          echo "PROJECT_NAME= ${{ env.PROJECT_NAME }}" >> $GITHUB_ENV
 
       - name: Create tarball
         id: package
@@ -40,7 +46,7 @@ jobs:
           mkdir -p "${ARCHIVE_DIR}"
 
           # Source
-          cp -r "gnupg" "vi" "zellij" "zsh" "git" "vimium" "starship" "docs" "xtool" "$ARCHIVE_DIR"
+          cp -r "docs" "git" "gnupg" "starship" "vi" "vimium" "xtool" "zellij" "zsh" "$ARCHIVE_DIR"
           # README, LICENSE and CHANGELOG files
           cp "README.md" "LICENSE" "CHANGELOG.md" "$ARCHIVE_DIR"
 
@@ -52,11 +58,23 @@ jobs:
           # Let subsequent steps know where to find the compressed package
           echo "PKG_PATH=${PKG_STAGING}/${PKG_NAME}" >> $GITHUB_OUTPUT
 
-      - name: Release
-        uses: svenstaro/upload-release-action@v2
+      - name: Generate a changelog
+        uses: orhun/git-cliff-action@v2
+        id: git-cliff
         with:
-          repo_token: ${{ secrets.GH_TOKEN }}
-          file: ${{ steps.package.outputs.PKG_PATH }}
-          tag: ${{ github.ref }}
-          asset_name: ${{ steps.package.outputs.PKG_NAME }}
-          release_name: "v${{ env.RELEASE_VERSION }}"
+          config: configs/cliff.toml
+          args: -vv --strip header --current 
+        env:
+          OUTPUT: CHANGELOG.md.tmp
+
+      - name: Print the changelog
+        run: cat "${{ steps.git-cliff.outputs.changelog }}"
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          name: "v${{ env.RELEASE_VERSION }}"
+          files: ${{ steps.package.outputs.PKG_NAME }}
+          prerelease: ${{ contains(github.ref, 'alpha') || contains(github.ref, 'beta') }}
+          generate_release_notes: false
