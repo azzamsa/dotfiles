@@ -217,6 +217,9 @@ rye install grip
 
 ## Install More GNOME Extensions
 
+Login to https://extensions.gnome.org/extension/ and click `install`. It should open Extension Manager App.
+It is easier than searching manually inside Extension manager App.
+
 - [Internet Speed Meter - GNOME bash Extensions](https://extensions.gnome.org/extension/2980/internet-speed-meter/)
 - [Lock Keys - GNOME bash Extensions](https://extensions.gnome.org/extension/36/lock-keys/)
 - [AppIndicator and KStatusNotifierItem Support - GNOME bash Extensions](https://extensions.gnome.org/extension/615/appindicator-support/)
