@@ -339,6 +339,14 @@ Go to `Settings` -> `Keyboard`.
 - Application switching: include only applications from the current workspace.
 - Multi-monitor: workspace on primary display only.
 
+### Text Editor
+
+- Disable "Restore sessioon"
+
+## Nautilus (File Manager)
+
+- Enable "Expandable folder in list view"
+
 ## Polish
 
 ### Populate other dotfiles
