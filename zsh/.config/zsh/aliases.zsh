@@ -14,7 +14,6 @@ alias fm='nautilus'
 alias ted='flatpak run org.gnome.TextEditor'
 
 alias in='sudo dnf install --assumeyes'
-alias up='sudo dnf upgrade --assumeyes'
 alias out='sudo dnf remove'
 alias cin='cargo binstall --no-confirm --no-symlinks'
 alias cout='cargo uninstall'

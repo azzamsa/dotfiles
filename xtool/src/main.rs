@@ -18,7 +18,7 @@ const TOOLS: Tools = &[
     ("ports", ports::run),
     ("sfetch", sfetch::run),
     ("termhere", termhere::run),
-    ("upgrade", upgrade::run),
+    ("up", upgrade::run),
 ];
 
 fn main() -> anyhow::Result<()> {
