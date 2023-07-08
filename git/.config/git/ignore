@@ -2,4 +2,6 @@
 
 # Emacs
 .projectile
-.dir-locals.el
+.projectile.el
+.project.el
+.project
