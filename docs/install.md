@@ -285,6 +285,12 @@ Set the timers to:
 - Each 20 minutes work, take 5 minutes rest.
 - Each 3 hours work, take 1 hour rest.
 
+Upadate the `Exec` line in `/usr/share/applications/workrave.desktop`. Otherwise, the tray icon is not displayed.
+
+```bash
+Exec=env GDK_BACKEND="x11" workrave
+```
+
 ## Setup Credentials
 
 To avoid git prompting password every each login.
