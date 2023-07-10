@@ -84,7 +84,7 @@ Use [Gogh](https://github.com/Gogh-Co/Gogh/) to change theme.
 bash -c  "$(curl -sLo- https://git.io/vQgMr)"
 ```
 
-Choose "Dacula (53)" as theme, and "Iosevka Nerd Font 18"
+Choose "Dacula (53)" as theme, and "Iosevka Nerd Font 20"
 
 ## I hate brightness
 
@@ -205,7 +205,7 @@ fnm use v18
 toolbox enter daily
 
 # rust development tool
-cargo binstall --no-confirm --no-symlinks cargo-edit cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch dprint git-cliff git-cliff hurl just tokei watchexec-cli
+cargo binstall --no-confirm --no-symlinks cargo-edit cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch dprint git-cliff git-cliff hurl joshuto just tokei watchexec-cli
 
 # utilities
 cargo binstall --no-confirm --no-symlinks bandwhich bat dua-cli kondo rust-script stylua
