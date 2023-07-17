@@ -4,10 +4,9 @@
 
 # Inactive tabs
 [tabs.inactive]
-
 # Active tabs
 [tabs.active]
-invert=true
+invert = true
 
 ##########################################
 ## Fil Selections.fg = "e-"
@@ -73,7 +72,6 @@ bold = true
 # # https://github.com/sharkdp/vivid/blob/master/config/filetypes.yml
 
 [ext]
-
 #
 # Text  [orange: rgb(255, 184, 108)]
 #

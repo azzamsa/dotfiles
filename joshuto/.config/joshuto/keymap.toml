@@ -1,5 +1,4 @@
 [default_view]
-
 keymap = [
   { keys = ["escape"], command = "escape" },
   { keys = ["ctrl+t"], command = "new_tab" },
@@ -117,7 +116,6 @@ keymap = [
 ]
 
 [task_view]
-
 keymap = [
   # arrow keys
   { keys = ["arrow_up"], command = "cursor_move_up" },
@@ -136,7 +134,6 @@ keymap = [
 ]
 
 [help_view]
-
 keymap = [
   # arrow keys
   { keys = ["arrow_up"], command = "cursor_move_up" },
