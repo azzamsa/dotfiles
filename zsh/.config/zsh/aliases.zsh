@@ -68,13 +68,10 @@ alias rcpu='rcp --chmod=go='
 alias rcpdu='rcpd --chmod=go='
 
 # exa
-alias l="exa --binary --long --classify";
+alias ls="exa --group-directories-first --git";
 alias ll="exa --all --binary --group --header --inode --long --modified --accessed";
 alias llm='ll --sort=modified'
-alias la="LC_COLLATE=C exa -ablF";
 alias tree='exa --tree --git-ignore'
-
-alias rip='rip --graveyard ~/.local/share/Trash'
 
 autoload -U zmv
 
