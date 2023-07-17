@@ -20,7 +20,18 @@ My personal .dotfiles 🗃️
 
 ## Uh Oh! Where is Your Old Configuration?
 
-I have been using Debian since 2017 until 2023. Throughout that time, I have been using the [i3 window manager][debian-i3], specifically from 2017 to 2021.
+tl;dr
+
+- [Debian][debian-i3], 2017 - 2023
+- [Fedora Workstation][fedora-gnome], 2023.
+- [Fedora Silverblue][fedora-silverblue], 2023.
+- [Debian][current-os], current.
+
+<div align="center">
+-== ❧ ==-
+</div>
+
+I have been using Debian since 2017 until 2021. Throughout that time, I have been using the [i3 window manager][debian-i3], specifically from 2017 to 2019.
 
 In 2021, I landed a job, and I have to manage both my personal laptop and office laptop. The static nature of the i3 configuration forces me to use multiple branches for my dotfiles. Hence, in 2022 I migrated to a WM that has a dynamic configuration, [bspwm][debian-bspwm].
 
