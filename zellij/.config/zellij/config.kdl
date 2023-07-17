@@ -64,12 +64,12 @@ keybinds clear-defaults=true {
     }
     scroll {
         bind "Ctrl s" { SwitchToMode "Normal"; }
-        bind "e" { EditScrollback; SwitchToMode "Normal"; }
+        bind "E" { EditScrollback; SwitchToMode "Normal"; }
         bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
 
-        bind "j" "Down" { ScrollDown; }
-        bind "k" "Up" { ScrollUp; }
+        bind "n" "Down" { ScrollDown; }
+        bind "e" "Up" { ScrollUp; }
 
         bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
         bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
@@ -145,8 +145,8 @@ keybinds clear-defaults=true {
 
         bind "Alt m" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt n" "Alt Down" { MoveFocus "Down"; }
-        bind "Alt i" "Alt Up" { MoveFocus "Up"; }
-        bind "Alt o" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Alt e" "Alt Up" { MoveFocus "Up"; }
+        bind "Alt i" "Alt Right" { MoveFocusOrTab "Right"; }
 
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
