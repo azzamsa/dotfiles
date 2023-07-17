@@ -198,7 +198,7 @@ I think I will just use mutable OS an immutable way!
 
 ```bash
 # main
-flatpak install --assume-yes com.github.tchx84.Flatseal org.gnome.seahorse.Application org.keepassxc.KeePassXC org.mozilla.firefox
+flatpak install --assume-yes com.github.tchx84.Flatseal org.gnome.seahorse.Application org.keepassxc.KeePassXC
 
 # productivity
 flatpak install --assume-yes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq com.rafaelmardojai.Blanket
@@ -212,13 +212,26 @@ flatpak install --assume-yes com.github.IsmaelMartinez.teams_for_linux us.zoom.Z
 
 ## Setup Battery Management
 
+Remove GNOME power profiles and instal `TLP`.
+
 ```bash
 sudo nala remove power-profiles-daemon
+sudo nala install --assume-yes tlp tlp-rdw
 
 sudo systemctl enable tlp.service
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
+```
 
-# set `STOP_CHARGE_THRESH_BAT0="1"` in `/etc/tlp.conf``
+Configure `/etc/tlp.conf`.
+
+```diff
+-START_CHARGE_THRESH_BAT0=60
++STOP_CHARGE_THRESH_BAT0="1"
+```
+
+Start `TLP`.
+
+```bash
 sudo tlp start
 sudo tlp-stat -s -c -b
 ```
@@ -264,6 +277,11 @@ sudo nala install --assume-yes zsh
 ```
 
 ## Install More Apps
+
+⚠️ Use non-flatpak version of Firefox. Somehow the Flatpak version have an issue with web pages that use Windows font.
+
+[Get Firefox for desktop — Mozilla (US)](https://www.mozilla.org/en-US/firefox/new/)
+
 
 ```bash
 sudo nala install --assume-yes aspell-id podman podman-compose
@@ -361,8 +379,9 @@ Set the timers to:
 
 Update the `Exec` line in `/usr/share/applications/workrave.desktop`. Otherwise, the tray icon is not displayed.
 
-```bash
-Exec=env GDK_BACKEND="x11" workrave
+```diff
++Exec=workrave
++Exec=env GDK_BACKEND="x11" workrave
 ```
 
 ## Setup Credentials
@@ -432,6 +451,32 @@ To prevent Apps to move to the Laptop monitor during suspension, go to `Display`
 - Enable "Expandable folder in list view"
 
 ## Polish
+
+### Enable [Playmouth](https://wiki.debian.org/plymouth)
+
+```bash
+sudo nala install --assume-yes plymouth plymouth-themes firmware-linux
+```
+
+Add the line below to `/etc/default/grub`, then run `sudo update-grub2`
+
+```diff
+-GRUB_CMDLINE_LINUX_DEFAULT="quiet"
++GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia-drm.modeset=1"
+```
+
+### Enable [ZRAM](https://wiki.debian.org/ZRam)
+
+```bash
+sudo nala install --assume-yes zram-tools
+```
+
+Configure `/etc/default/zramswap`.
+
+```diff
++PERCENT=60
++PERCENT=40
+```
 
 ### Populate other dotfiles
 
