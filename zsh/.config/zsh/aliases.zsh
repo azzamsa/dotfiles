@@ -11,7 +11,7 @@ alias c='clear'
 alias sudo='sudo '
 
 alias fm='nautilus'
-alias ted='flatpak run org.gnome.TextEditor'
+alias ed='flatpak run org.gnome.TextEditor'
 
 alias in='sudo nala install'
 # `remove` doesn't remove app config files
@@ -26,15 +26,10 @@ alias mkdir='mkdir -pv'
 alias path='echo -e ${PATH//:/\\n}'
 
 alias j='just'
-alias mk='make'
-alias crg='cargo'
 alias shf='shfmt --list --write --indent 2'
 alias pip='pip --default-timeout=1000'
 # x means xplore
 alias x='joshuto'
-
-# Can't remember `evcxr`
-alias rrepl='evcxr'
 
 # toolbox alias
 box() {
