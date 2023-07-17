@@ -103,7 +103,7 @@ Source: [No Wayland on Bookworm with Nvidia : debian](https://www.reddit.com/r/d
 Use Nala early on to have its sophisticated `dnf history` like feature.
 
 ```bash
-sudo apt install --assumeyes nala
+sudo apt install --assume-yes nala
 nala fetch
 ```
 
@@ -122,7 +122,7 @@ I hate leaving my prompt.
 Copy the `dotfile` directory to the new machine.
 
 ```bash
-sudo nala install --assumeyes git stow zsh
+sudo nala install --assume-yes git stow zsh
 ```
 
 Populate the dotfiles.
@@ -172,7 +172,7 @@ Install [Soft Brightness Plus](https://extensions.gnome.org/extension/5943/soft-
 ```bash
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-flatpak install --assumeyes flathub com.mattjakeman.ExtensionManager
+flatpak install --assume-yes flathub com.mattjakeman.ExtensionManager
 ```
 
 Open the extension manager and install Soft Brightness.
@@ -191,16 +191,16 @@ I think I will just use mutable OS an immutable way!
 
 ```bash
 # main
-flatpak install --assumeyes com.github.tchx84.Flatseal org.gnome.seahorse.Application org.keepassxc.KeePassXC org.mozilla.firefox
+flatpak install --assume-yes com.github.tchx84.Flatseal org.gnome.seahorse.Application org.keepassxc.KeePassXC org.mozilla.firefox
 
 # productivity
-flatpak install --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq com.rafaelmardojai.Blanket
+flatpak install --assume-yes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq com.rafaelmardojai.Blanket
 
 # utilities
-flatpak install --assumeyes com.github.qarmin.czkawka com.brave.Browser fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.FileRoller org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.libreoffice.LibreOffice org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia
+flatpak install --assume-yes com.github.qarmin.czkawka com.brave.Browser fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.FileRoller org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.libreoffice.LibreOffice org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia
 
 # office
-flatpak install --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
+flatpak install --assume-yes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
 ```
 
 ## Setup Battery Management
@@ -241,16 +241,25 @@ curl -sSL https://install.python-poetry.org | python3 -
 
 ## Setup Toolbx
 
+Install toolbx.
+
+```bash
+sudo nala install --assume-yes podman-toolbox
+```
+
+Setup `daily` container.
+
 ```bash
 toolbox enter daily
 
-sudo nala install --assumeyes zsh
+sudo apt update && sudo apt install --yes nala
+sudo nala install --assume-yes zsh
 ```
 
 ## Install More Apps
 
 ```bash
-sudo nala install --assumeyes aspell-id podman podman-compose
+sudo nala install --assume-yes aspell-id podman podman-compose
 ```
 
 ```bash
@@ -258,13 +267,13 @@ toolbox enter daily
 
 # main
 # mesa-libGL is needed by Foliate
-sudo nala install --assumeyes mesa-libGL
+sudo nala install --assume-yes mesa-libGL
 
 # Tools
-sudo nala install --assumeyes jq pandoc ShellCheck yt-dlp telnet
+sudo nala install --assume-yes jq pandoc ShellCheck yt-dlp telnet
 
 # Rust
-sudo nala install --assumeyes @development-tools clang mold openssl-devel openssl1.1
+sudo nala install --assume-yes @development-tools clang mold openssl-devel openssl1.1
 
 # Javascript
 fnm use v18
@@ -296,7 +305,7 @@ It is easier than searching manually inside the Extension manager App.
 Setup [Pano - Clipboard Manager](https://extensions.gnome.org/extension/5278/pano/).
 
 ```bash
-sudo nala install --assumeyes gir1.2-gda-5.0 gir1.2-gsound-1.0
+sudo nala install --assume-yes gir1.2-gda-5.0 gir1.2-gsound-1.0
 ```
 
 Set the shortcut to `Ctrl + Shift + P`.
