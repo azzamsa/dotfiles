@@ -11,7 +11,7 @@ pub(crate) fn run() -> anyhow::Result<()> {
 fn backup() -> anyhow::Result<()> {
     let target = env::var("_META_BACKUP_INCLUDE")?;
     let exclude_list = env::var("_META_BACKUP_EXCLUDE")?;
-    println!("🚀 Starting backup");
+    println!("💾 Starting backup");
 
     // "--dry-run"
     cmd!(

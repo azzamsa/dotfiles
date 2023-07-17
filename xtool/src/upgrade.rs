@@ -88,20 +88,20 @@ fn all() -> anyhow::Result<()> {
 }
 
 fn flatpak() -> anyhow::Result<()> {
-    println!("🌱 Updating flatpak apps");
+    println!("📥 Updating flatpak apps");
     cmd!("flatpak", "update").unchecked().run()?;
     Ok(())
 }
 
 fn package_manager() -> anyhow::Result<()> {
-    println!("🌱 Upgrading OS package manager apps");
+    println!("📥 Upgrading OS package manager apps");
     cmd!("sudo", "nala", "update").unchecked().run()?;
     cmd!("sudo", "nala", "upgrade").unchecked().run()?;
     Ok(())
 }
 
 fn npm() -> anyhow::Result<()> {
-    println!("🌱 Checking npm apps");
+    println!("📥 Checking npm apps");
     let dir = format!("{}/opt/nodebin", env::var("HOME")?);
     cmd!("taze", "major", "--write").dir(&dir).run()?;
     cmd!("npm", "install").dir(&dir).run()?;
@@ -109,7 +109,7 @@ fn npm() -> anyhow::Result<()> {
 }
 
 fn cargo() -> anyhow::Result<()> {
-    println!("🌱 Checking cargo apps");
+    println!("📥 Checking cargo apps");
     cmd!("cargo", "install-update", "-a").run()?;
     Ok(())
 }

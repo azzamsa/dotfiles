@@ -22,5 +22,5 @@ time = { version = "0.3", features = ["formatting", "local-offset", "parsing"] }
 rand = "0.8"
 
 # clean
-serde = { version = "1.0.163", features = ["derive"] }
-serde_json = "1.0.96"
+serde = { version = "1.0.171", features = ["derive"] }
+serde_json = "1.0.103"

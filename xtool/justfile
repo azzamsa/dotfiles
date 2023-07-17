@@ -1,7 +1,5 @@
 #!/usr/bin/env -S just --justfile
 
-shebang := if os() == 'windows' { 'powershell.exe' } else { '/usr/bin/sh' }
-
 set dotenv-load := true
 
 alias d := dev
@@ -13,13 +11,16 @@ alias p := publish
 _default:
     just --list --unsorted
 
-# Setup the repository
-setup:
-    cargo watch --version || cargo install cargo-watch
+# Setup the repository.
+setup: _setup-dev
+
+# Setup the development tools.
+_setup-dev:
+    just _cargo-install ' cargo-watch  cargo-outdated spacer'
 
 # Develop the app.
 dev:
-    cargo watch -x 'clippy --locked --all-targets --all-features'
+    cargo watch -x 'clippy --locked --all-targets --all-features' | spacer
 
 # Format the codebase.
 fmt:
@@ -48,11 +49,27 @@ comply: fmt lint _doc-check
 check: fmt-check lint _doc-check
 
 # Check dependencies health. Pass `--write` to uppgrade dependencies.
+[unix]
 up arg="":
-    #!{{ shebang }}
+    #!/usr/bin/env bash
     if [ "{{ arg }}" = "--write" ]; then
         cargo upgrade
         cargo update
     else
         cargo outdated --root-deps-only
     fi;
+
+#
+# Helper
+#
+
+[unix]
+_cargo-install tool:
+    #!/usr/bin/env bash
+    if command -v cargo-binstall >/dev/null 2>&1; then
+        echo "cargo-binstall..."
+        cargo binstall --no-confirm --no-symlinks {{ tool }}
+    else
+        echo "Building from source"
+        cargo install --locked {{ tool }}
+    fi
