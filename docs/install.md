@@ -163,7 +163,14 @@ cargo binstall --no-confirm --no-symlinks atuin fnm starship zellij zoxide
 
 ### Look and Feel
 
+```bash
+sudo nala install --assume-yes flatpak
+
+flatpak install flathub com.raggesilver.BlackBox
+```
+
 Get `Iosevka Nerd Fonts` from your previous machine or https://github.com/ryanoasis/nerd-fonts/releases, then copy to `~/.local/share/fonts/`.
+Set BlackBox theme to `Dracula`.
 
 ## I hate brightness
 
