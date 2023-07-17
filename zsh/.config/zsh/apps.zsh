@@ -48,8 +48,11 @@ function joshuto() {
 	  esac
 }
 
+export XCURSOR_THEME=Adwaita
+export WEZTERM_CONFIG_FILE="$XDG_CONFIG_HOME"/wezterm/wezterm.lua
+
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-export GRIPHOME="$XDG_CONFIG_HOME"/grip fs
+export GRIPHOME="$XDG_CONFIG_HOME"/grip
 export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.config/*"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history

@@ -1,29 +1,116 @@
 # Installation Guide
 
-The steps I need to install GNU/Linux to my machine.
+The steps I need to install Debian GNU/Linux on my machine.
 
 ## Current Machine
 
 - 80TU Lenovo ideapad 310-14IKB + NVIDIA GeForce 920MX
-- Fedora Workstation
+- Debian 12 + GNOME
 
 ## Preparing The ISO image
 
-Go to Fedora website. Grab the Workstation ISO, and copy it to your Ventoy USB stick.
+Go to the Debian website. Grab the GNOME-flavored ISO, and copy it to your Ventoy USB stick.
 
-⚠ Wait until the copying proccess is **completely** finished. Otherwise, the file will be corrupted. Make sure to run `sha5sum`.
+⚠ Wait until the copying process is **completely** finished. Otherwise, the file will be corrupted. Make sure to run `sha5sum`.
 
-Follow the regular installation proccess. Make sure you choose 1) Automatic Partition, and 2) Encrypt partition.
+⚠ Always show the password during the prompt. You don't want to repeat the whole process just because you make a typo.
 
-⚠ Always show the password during the prompt. You don't want to repeat the whole procces just because you make a typo.
+## Using BTRFS and LUKS
 
-💡 if you get `nouveau` error during login. Rebot, then append `nouveau.modeset=0` in the grub setting. Press `E` to get into it (in case you forget).
-The parameter above also helps if you have any login related error after NVIDIA proprietary driver installation.
+Debian doesn't support BTRFS and LUKS out of the box. `Expert Install` mode is required.
 
-## Upgrade The Os
+Use manual partition. The default `Guided - use entire disk and set up LVM` uses 500 MB for `/boot`.
+⚠ We need to allocate more than the default value for `/boot`. Otherwise, We will get `zstd error no space left initramfs`.
+
+The partition layout:
 
 ```bash
-sudo dnf update
+Encrypted volume (sda2_crypt) - 238.1 GB Linux device-mapper (crypt)
+     #1        238.1 GB       K      lvm
+LVM VG toph-vg, LV root - 238.1 GB Linux device-mapper (linear)
+     #1         238.1 GB       F      btrfs     /
+
+SCSI1 (©,9,0) (sda) - 250.1 GB ATA Samsung SSD 879
+                1.9 MB             FREE SPACE
+    #1          2.0 GB      F      ext2           /boot
+    #2          238.1 GB    K      crypto        (sda2_crypt)
+    #3          2.0 GB      f      ESP
+                8.0 GB             FREE SPACE
+```
+
+💡I use ZRAM. So I don't need a SWAP partition. I also left some free space as a precaution.
+
+## Improve SSD performance
+
+Press `Ctrl - Alt - F2` to enter the terminal.
+
+```bash
+df
+
+umount /target/boot/efi
+umount /target/boot
+umount /target
+
+mount /dev/mapper/toph--vg-root /mnt
+cd mnt
+ls # check for @rootfs
+
+btrfs subvolume list . # remember the id
+
+# Mostly the id is `256`. But always make sure!
+mount -o rw,noatime,space_cache=v2,ssd,discard=async,compress=zstd:3,subvolid=256 /dev/mapper/toph--vg-root   /target
+mount /dev/sda<num> /target/boot
+mount /dev/sda<num> /target/boot/efi
+
+nano /etc/fstab # then change the `default` to the same SSD options above
+```
+
+## Getting rid of `raspi-firmware`
+
+Can't install any firmware because of this. I am not installing on raspi.
+
+```bash
+sudo apt purge raspi-firmware
+```
+
+## Install GPU Drivers
+
+Upon login, You will get a login loop. This is expected because of the missing NVIDIA driver.
+To see the log you can log in using the tty (`Ctrl` + `Alt` + `F3`). Install the missing driver then reboot.
+
+```bash
+sudo apt install nvidia-detect
+sudo nvidia-detect
+
+sudo apt install nvidia-driver # based on `nvidia-detect` output
+```
+
+Make sure the driver is correctly installed by going to GNOME settings> About page.
+
+## Force Debian GNOME to use Wayland
+
+Debian disables Wayland by default if the NVIDIA driver is installed. I have been using Wayland with NVIDIA driver on Fedora without issue.
+So, I believe it will be seamless.
+
+Go to `/lib/udev/rules.d/61-gdm.rules` and comment everything under `Check if suspend/resume services necessary for working wayland support is avaliable..`. Do the same thing to the lines below `If this is a hybrid graphics laptop with vendor nvidia driver, disable wayland`.
+
+Then add `GRUB_CMDLINE_LINUX="nvidia-drm.modeset=1"` in `/etc/default/grub`. Finally, run `sudo update-grub`.
+
+Source: [No Wayland on Bookworm with Nvidia : debian](https://www.reddit.com/r/debian/comments/11qgvq5/no_wayland_on_bookworm_with_nvidia/)
+
+### Use Nala
+
+Use Nala early on to have its sophisticated `dnf history` like feature.
+
+```bash
+sudo apt install --assumeyes nala
+nala fetch
+```
+
+## Upgrade The OS
+
+```bash
+sudo nala update && sudo nala upgrade
 ```
 
 ## Setting Up Terminal
@@ -35,15 +122,14 @@ I hate leaving my prompt.
 Copy the `dotfile` directory to the new machine.
 
 ```bash
-# util-linux-user contains `chsh`
-sudo dnf install --assumeyes git stow util-linux-user zsh
+sudo nala install --assumeyes git stow zsh
 ```
 
 Populate the dotfiles.
 
 ```bash
 cd ~/dotfiles
-stow --no-folding --restow git zellij zsh
+stow --no-folding --restow git zellij zsh wezterm
 ```
 
 Change the default bash.
@@ -78,13 +164,6 @@ cargo binstall --no-confirm --no-symlinks atuin fnm starship zellij zoxide
 ### Look and Feel
 
 Get `Iosevka Nerd Fonts` from your previous machine or https://github.com/ryanoasis/nerd-fonts/releases, then copy to `~/.local/share/fonts/`.
-Use [Gogh](https://github.com/Gogh-Co/Gogh/) to change theme.
-
-```bash
-bash -c  "$(curl -sLo- https://git.io/vQgMr)"
-```
-
-Choose "Dacula (53)" as theme, and "Iosevka Nerd Font 20"
 
 ## I hate brightness
 
@@ -96,26 +175,19 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak install --assumeyes flathub com.mattjakeman.ExtensionManager
 ```
 
-Open extension manager and install Soft Brigthness.
+Open the extension manager and install Soft Brightness.
 
-## Install GPU Drivers
+## Remove GNOME bloats
 
 ```bash
-# ⚠ don't skip this step. Otherwise you get other version and your card didn't work
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusio
-n.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-sudo dnf install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda
+sudo nala purge aisleriot five-or-more four-in-a-row gnome-2048 gnome-klotski gnome-logs gnome-mahjongg gnome-maps gnome-mines gnome-music gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku gnome-taquin gnome-tetravex gnome-todo hdate-applet hitori iagno im-config kasumi libreoffice-calc libreoffice-draw libreoffice-impress libreoffice-writer lightsoff mlterm mozc-utils-gui quadrapassel rhythmbox shotwell simple-scan swell-foop synaptic tali xiterm+thai xterm firefox-esr
 ```
 
 ## Use Flatpak Version
 
-💡 I don't want to pollute my base system. Using flatpak, I can freely remove application without worrying my system will be breaks.
+💡 I don't want to pollute my base system. Using Flatpak, I can freely remove applications without worrying my system will be broken.
 
-I learn it hard way. I remove one of my Qt project dependency, and suddenly my GNOME network manager is gone. I tried Fedora Silverblue for 107 days.
-It is not my cup of tea. 1) Many application assume it runs on non-containerized environment. Failed to read env variables, font, sending singal, etc. 2) Flashing my qmk keyboard from containerized env doesn't work 3) My company uses a VPN app that writes to `/usr` which is unwritable.
-
-I think I will just use mutable OS the immutable way!
+I think I will just use mutable OS an immutable way!
 
 ```bash
 # main
@@ -129,14 +201,12 @@ flatpak install --assumeyes com.github.qarmin.czkawka com.brave.Browser fr.romai
 
 # office
 flatpak install --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
-
-sudo dnf remove rhythmbox firefox libreoffice*
 ```
 
 ## Setup Battery Management
 
 ```bash
-sudo dnf remove power-profiles-daemon
+sudo nala remove power-profiles-daemon
 
 sudo systemctl enable tlp.service
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
@@ -153,7 +223,7 @@ rustup component add rust-analyzer
 # rustup which --toolchain stable rust-analyzer
 ```
 
-To use `mold` as default linker, put the code below to `.cargo/config`.
+To use `mold` as the default linker, put the code below to `.cargo/config`.
 
 ```toml
 # https://github.com/rui314/mold#how-to-use
@@ -174,28 +244,27 @@ curl -sSL https://install.python-poetry.org | python3 -
 ```bash
 toolbox enter daily
 
-# sqlite3 for dnf completions
-sudo dnf install --assumeyes zsh sqlite3
+sudo nala install --assumeyes zsh
 ```
 
 ## Install More Apps
 
 ```bash
-sudo dnf install --assumeyes aspell-id neofetch
+sudo nala install --assumeyes aspell-id podman podman-compose
 ```
 
 ```bash
 toolbox enter daily
 
 # main
-# mesa-libGL is needed by Olive, Foliate
-sudo dnf install --assumeyes mesa-libGL
+# mesa-libGL is needed by Foliate
+sudo nala install --assumeyes mesa-libGL
 
 # Tools
-sudo dnf install --assumeyes jq pandoc ShellCheck yt-dlp telnet
+sudo nala install --assumeyes jq pandoc ShellCheck yt-dlp telnet
 
 # Rust
-sudo dnf install --assumeyes @development-tools clang mold openssl-devel openssl1.1
+sudo nala install --assumeyes @development-tools clang mold openssl-devel openssl1.1
 
 # Javascript
 fnm use v18
@@ -218,11 +287,19 @@ rye install grip
 ## Install More GNOME Extensions
 
 Login to https://extensions.gnome.org/extension/ and click `install`. It should open Extension Manager App.
-It is easier than searching manually inside Extension manager App.
+It is easier than searching manually inside the Extension manager App.
 
 - [Internet Speed Meter - GNOME bash Extensions](https://extensions.gnome.org/extension/2980/internet-speed-meter/)
 - [Lock Keys - GNOME bash Extensions](https://extensions.gnome.org/extension/36/lock-keys/)
 - [AppIndicator and KStatusNotifierItem Support - GNOME bash Extensions](https://extensions.gnome.org/extension/615/appindicator-support/)
+
+Setup [Pano - Clipboard Manager](https://extensions.gnome.org/extension/5278/pano/).
+
+```bash
+sudo nala install --assumeyes gir1.2-gda-5.0 gir1.2-gsound-1.0
+```
+
+Set the shortcut to `Ctrl + Shift + P`.
 
 ## Install Binaries Manually
 
@@ -253,42 +330,20 @@ cargo install --path ~/opt/ripgrep --features 'pcre2'
 
 ### Emacs
 
-Compile latest Emacs from source. You know how to do it.
-
-### CopyQ
-
-Upadate the `Exec` line in `/usr/share/applications/com.github.hluk.copyq.desktop`
-
-```bash
-Exec=env QT_QPA_PLATFORM=xcb copyq
-```
-
-Tell CopyQ to use emoji. Add the following code to `~/.config/fontconfig/fonts.conf`.
-
-```xml
-<?xml version="1.0"?>
-<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-<fontconfig>
- <match target="pattern">
-    <edit name="family" mode="prepend_first">
-      <string>Twemoji</string>
-    </edit>
-  </match>
-</fontconfig>
-```
+Compile the latest Emacs from the source. You know how to do it.
 
 ## Firefox
 
-Enable `DNS over HTTPs` by going to `Settings` -> `Network Settings` -> `Connection Settings`
+Enable `DNS over HTTPs` by going to `Settings` -> `Network Settings` -> `Connection Settings
 
 ### Workrave
 
 Set the timers to:
 
-- Each 20 minutes work, take 5 minutes rest.
-- Each 3 hours work, take 1 hour rest.
+- Each 20 minutes of work, take 5 minutes rest.
+- Each 3 hours of work, take 1-hour rest.
 
-Upadate the `Exec` line in `/usr/share/applications/workrave.desktop`. Otherwise, the tray icon is not displayed.
+Update the `Exec` line in `/usr/share/applications/workrave.desktop`. Otherwise, the tray icon is not displayed.
 
 ```bash
 Exec=env GDK_BACKEND="x11" workrave
@@ -296,14 +351,14 @@ Exec=env GDK_BACKEND="x11" workrave
 
 ## Setup Credentials
 
-To avoid git prompting password every each login.
-Copy the ssh password to Seahorse app. Open seahorse, go to `Password > Login`. Then paste the password to `Unlock password for: ...`
+To avoid git prompting password every login.
+Copy the ssh password to the Seahorse app. Open Seahorse, and go to `Password > Login`. Then paste the password to `Unlock password for: ...`
 
 ## Setting up VPN
 
 ### ProtonVPN
 
-Go to Network setting. Add new VPN from a file. Fill the required information according to https://account.proton.me/u/0/vpn/OpenVpnIKEv2
+Go to the Network setting. Add a new VPN from a file. Fill in the required information according to https://account.proton.me/u/0/vpn/OpenVpnIKEv2
 
 ## Setting Up DNS
 
@@ -319,6 +374,18 @@ On router.
 
 ## Modify GNOME Settings
 
+### Format
+
+Set time, paper size, and units in British.
+
+```bash
+sudo dpkg-reconfigure locales
+```
+
+Add `en_GB`.
+
+Go to `Settings` -> `Region and Languages`. Set format to `United Kingdom`.
+
 ### Keyboard
 
 Go to `Settings` -> `Keyboard`.
@@ -327,14 +394,10 @@ Go to `Settings` -> `Keyboard`.
   - Move to workspace on the left: Ctrl + Tab
   - Move to workspace on the right: Ctrl + Alt + Tab
   - Switch Windows: Alt + Tab
-- CopyQ
-  - name: CopyQ
-  - command: copyq show
-  - shortcut: Ctrl + Shift + P
 - Flameshot
   - name: Flameshot
   - command: flameshot gui
-  - shortcut: print
+  - shortcut: Ctrl + Shift + B
 
 ### Multitasking
 
@@ -342,9 +405,11 @@ Go to `Settings` -> `Keyboard`.
 - Application switching: include only applications from the current workspace.
 - Multi-monitor: workspace on primary display only.
 
+To prevent Apps to move to the Laptop monitor during suspension, go to `Display` and set it to `Mirror`.
+
 ### Text Editor
 
-- Disable "Restore sessioon"
+- Disable "Restore session"
 
 ## Nautilus (File Manager)
 
@@ -359,26 +424,17 @@ cd ~/dotfiles
 stow --no-folding --restow gnupg starship
 ```
 
-### Set time, paper size and units in British
-
-i.e. weeks starting with Mondays, A4, metric.
-
-Put the code below in `/etc/locale.conf`
-
-```
-LANG=en_US.UTF-8
-LC_TIME=en_GB.UTF-8
-LC_PAPER=en_GB.UTF-8
-LC_MEASUREMENT=en_GB.UTF-8
-```
-
 ### Pin apps
 
-Pin Brave browser. It is installed just for emergency.
+Pin Brave browser. It is installed just for emergencies.
 
 ```
 flatpak mask com.brave.Browser
 ```
+
+## Copy all previous app data
+
+Take a look at `~/.config/meta/backup.include`
 
 ## Clean Up
 

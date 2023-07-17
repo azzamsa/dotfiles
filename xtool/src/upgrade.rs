@@ -95,7 +95,8 @@ fn flatpak() -> anyhow::Result<()> {
 
 fn package_manager() -> anyhow::Result<()> {
     println!("🌱 Upgrading OS package manager apps");
-    cmd!("sudo", "dnf", "upgrade").unchecked().run()?;
+    cmd!("sudo", "nala", "update").unchecked().run()?;
+    cmd!("sudo", "nala", "upgrade").unchecked().run()?;
     Ok(())
 }
 

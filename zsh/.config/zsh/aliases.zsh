@@ -13,8 +13,9 @@ alias sudo='sudo '
 alias fm='nautilus'
 alias ted='flatpak run org.gnome.TextEditor'
 
-alias in='sudo dnf install --assumeyes'
-alias out='sudo dnf remove'
+alias in='sudo nala install'
+# `remove` doesn't remove app config files
+alias out='sudo nala purge'
 alias cin='cargo binstall --no-confirm --no-symlinks'
 alias cout='cargo uninstall'
 

@@ -118,7 +118,8 @@ fn kondo() -> anyhow::Result<()> {
 
 fn package_manager() -> anyhow::Result<()> {
     println!("🧽 Cleaning package manager cache");
-    cmd!("sudo", "dnf", "autoremove").run()?;
+    cmd!("sudo", "apt", "autoremove").run()?;
+    cmd!("sudo", "apt", "autoclean").run()?;
     Ok(())
 }
 
@@ -142,7 +143,7 @@ fn container() -> anyhow::Result<()> {
 
 fn tmp() -> anyhow::Result<()> {
     println!("🧽 Cleaning temporary files");
-    let paths = fs::read_dir(format!("{}/Downloads", env::var("HOME")?))?;
+    let paths = fs::read_dir(format!("{}/tmp", env::var("HOME")?))?;
     for path in paths {
         cmd!("rm", "-rf", path?.path()).run()?;
     }

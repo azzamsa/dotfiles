@@ -16,15 +16,24 @@ My personal .dotfiles 🗃️
 ## Current Machine
 
 - 80TU Lenovo ideapad 310-14IKB + NVIDIA GeForce 920MX
-- Fedora Workstation
+- Debian 12 + GNOME
 
 ## Uh Oh! Where is Your Old Configuration?
 
-- [Debian - i3](https://github.com/azzamsa/dotfiles/commit/f395081a1c0372aa10737f104640da3049a5a8b2). 2017 - 2021
-- [Debian - bspwm](https://github.com/azzamsa/dotfiles/commit/59c6e48ca7024aa810a9c892d55d4dfcb758a989). 2022
-- [Debian - NuShell, Fish, MPV](https://github.com/azzamsa/dotfiles/commit/bfb9686a6bbd8c46010dac0c0505432dcc4fef12). 2022
-- [Fedora - GNOME](https://github.com/azzamsa/dotfiles/commit/6dc9d319cae13f79db0a8b1004aa87b103520415). 2023
-- [Fedora Silverblue - GNOME](https://github.com/azzamsa/dotfiles/tree/4543ab38b5834cd1e4ba549436220c02310264dd). 2023
+I have been using Debian since 2017 until 2023. Throughout that time, I have been using the [i3 window manager][debian-i3], specifically from 2017 to 2021.
+
+In 2021, I landed a job, and I have to manage both my personal laptop and office laptop. The static nature of the i3 configuration forces me to use multiple branches for my dotfiles. Hence, in 2022 I migrated to a WM that has a dynamic configuration, [bspwm][debian-bspwm].
+
+After watching some YouTube videos that praise Fedora, I took my plunge and reinstalled both of them to [Fedora Workstation][fedora-gnome] in 2023.
+
+Several months passed and I break it. I migrate to [Fedora Silverblue][fedora-silverblue] for obvious reasons. Turns out I can't flash my custom keyboard using a containerized environment. At the same time, my office requires me to install an app that writes to `/usr`.
+
+Last week, RedHat goes "closed source" and Fedora attempted to have a telemetry for its user. I go back to where I am from, Debian.
+
+[debian-i3]: https://github.com/azzamsa/dotfiles/commit/f395081a1c0372aa10737f104640da3049a5a8b2
+[debian-bspwm]: https://github.com/azzamsa/dotfiles/commit/59c6e48ca7024aa810a9c892d55d4dfcb758a989
+[fedora-gnome]: https://github.com/azzamsa/dotfiles/commit/6dc9d319cae13f79db0a8b1004aa87b103520415
+[fedora-silverblue]: https://github.com/azzamsa/dotfiles/tree/4543ab38b5834cd1e4ba549436220c02310264dd
 
 ## Features
 
