@@ -122,28 +122,26 @@ I hate leaving my prompt.
 Copy the `dotfile` directory to the new machine.
 
 ```bash
-sudo nala install --assume-yes git stow zsh
+sudo nala install --assume-yes git stow fish
 ```
 
 Populate the dotfiles.
 
 ```bash
 cd ~/dotfiles
-stow --no-folding --restow git zellij zsh wezterm
+stow --no-folding --restow git zellij fish wezterm
 ```
 
 Change the default bash.
 
 ```bash
-sudo chsh -s "$(which zsh)"
+sudo chsh -s "$(which fish)"
 ```
 
-If this is your first time setting up zsh
-copy the code below to `~/.zshenv`
+Change the prompt style.
 
 ```bash
-ZDOTDIR=~/.config/zsh
-source -- "$ZDOTDIR"/.zshenv
+fish_config
 ```
 
 ⚠ The default bash won't change if you don't log out.
@@ -273,7 +271,7 @@ Setup `daily` container.
 toolbox enter daily
 
 sudo apt update && sudo apt install --yes nala
-sudo nala install --assume-yes zsh
+sudo nala install --assume-yes fish
 ```
 
 ## Install More Apps
@@ -483,6 +481,17 @@ Configure `/etc/default/zramswap`.
 ```bash
 cd ~/dotfiles
 stow --no-folding --restow gnupg starship
+```
+
+### Setup apps
+
+```bash
+broot --install
+br
+```
+
+```bash
+atuin gen-completions --shell fish --out-dir ~/.config/fish/completions/
 ```
 
 ### Pin apps

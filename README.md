@@ -78,5 +78,4 @@ I don't recommend using this repository directly. Instead, use it as a source of
 
 ## Credits
 
-- [Henrik Lissner's dotfiles](https://github.com/hlissner/dotfiles/config/zsh) for ZSH configurations
 - [Noto Emoji](https://github.com/googlefonts/noto-emoji) by Google
