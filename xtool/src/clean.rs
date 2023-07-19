@@ -118,8 +118,8 @@ fn kondo() -> anyhow::Result<()> {
 
 fn package_manager() -> anyhow::Result<()> {
     println!("🧽 Cleaning package manager cache");
-    cmd!("sudo", "apt", "autoremove").run()?;
-    cmd!("sudo", "apt", "autoclean").run()?;
+    cmd!("sudo", "nala", "autoremove").run()?;
+    cmd!("sudo", "nala", "autopurge").run()?;
     Ok(())
 }
 
