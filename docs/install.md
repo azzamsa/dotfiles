@@ -223,7 +223,7 @@ sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
 Configure `/etc/tlp.conf`.
 
 ```diff
--START_CHARGE_THRESH_BAT0=60
+-STOP_CHARGE_THRESH_BAT0=60
 +STOP_CHARGE_THRESH_BAT0="1"
 ```
 
