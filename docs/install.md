@@ -185,7 +185,12 @@ Open the extension manager and install Soft Brightness.
 ## Remove GNOME bloats
 
 ```bash
-sudo nala purge aisleriot five-or-more four-in-a-row gnome-2048 gnome-klotski gnome-logs gnome-mahjongg gnome-maps gnome-mines gnome-music gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku gnome-taquin gnome-tetravex gnome-todo hdate-applet hitori iagno im-config kasumi libreoffice-calc libreoffice-draw libreoffice-impress libreoffice-writer lightsoff mlterm mozc-utils-gui quadrapassel rhythmbox shotwell simple-scan swell-foop synaptic tali xiterm+thai xterm firefox-esr
+sudo nala purge aisleriot five-or-more four-in-a-row gnome-2048 gnome-klotski gnome-logs gnome-mahjongg gnome-maps gnome-mines gnome-music gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku gnome-taquin gnome-tetravex gnome-todo hdate-applet hitori iagno im-config kasumi libreoffice-calc libreoffice-draw libreoffice-impress libreoffice-writer lightsoff mlterm mozc-utils-gui quadrapassel rhythmbox shotwell simple-scan swell-foop synaptic tali uim-gtk3 uim-gtk2.0 xiterm+thai xterm firefox-esr
+```
+
+```bashrc
+sudo nala autoremove
+sudo nala autoclean
 ```
 
 ## Use Flatpak Version
@@ -296,7 +301,7 @@ sudo nala install --assume-yes mesa-libGL
 sudo nala install --assume-yes jq pandoc ShellCheck yt-dlp telnet
 
 # Rust
-sudo nala install --assume-yes @development-tools clang mold openssl-devel openssl1.1
+sudo nala install --assume-yes clang mold pkg-config libssl-dev
 
 # Javascript
 fnm use v18
