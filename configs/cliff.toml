@@ -16,7 +16,7 @@ body = """
     ### {{ group | striptags | trim | upper_first }}
     {% for commit in commits %}
         {%- if commit.scope -%}
-            - **{{ commit.scope }}:** {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}]({{ commit.id }}))
+            - **{{ commit.scope }}:** {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/azzamsa/dotfiles/commit/{{ commit.id }}))
             {% if commit.breaking -%}
             {% raw %}  {% endraw %}- **BREAKING!** ⚠️ : {{ commit.breaking_description }}
             {% endif -%}
@@ -24,7 +24,7 @@ body = """
             {% raw %}\n{% endraw %}{% raw %}  {% endraw %}{{ commit.body | indent(width=4) }}{% raw %}\n{% endraw %}
             {% endif -%}
         {% else -%}
-            - {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}]({{ commit.id }}))
+            - {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/azzamsa/dotfiles/commit/{{ commit.id }}))
             {% if commit.breaking -%}
             {% raw %}  {% endraw %}- **BREAKING!** ⚠️ : {{ commit.breaking_description }}
             {% endif -%}
@@ -47,9 +47,9 @@ footer = """"""
 conventional_commits = true
 # regex for parsing and grouping commits
 commit_parsers = [
-  { message = "^feat*", group = "<!-- 0 -->Features" },
-  { message = "^fix*", group = "<!-- 1 -->Bug fixes" },
-  { message = "^perf*", group = "<!-- 2 -->Performance" },
+  { message = "^feat", group = "<!-- 0 -->⛰️ Features" },
+  { message = "^fix", group = "<!-- 1 -->🐛 Bug Fixes" },
+  { message = "^perf", group = "<!-- 2 -->⚡ Performance" },
 ]
 # filter out the commits that are not matched by commit parsers
 filter_commits = true
