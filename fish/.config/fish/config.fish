@@ -55,7 +55,28 @@ zoxide init fish | source
 starship init fish | source
 fnm env | source
 atuin init fish | source
+source "$HOME"/.config/meta/env
 
+# Don't pollute home directory
+set -x CARGO_HOME "$XDG_DATA_HOME"/cargo
+set -x EMACSDIR "$XDG_CONFIG_HOME"/emacs
+set -x GNUPGHOME "$XDG_DATA_HOME"/gnupg
+set -x GRIPHOME "$XDG_CONFIG_HOME"/grip
+# set -x _ZO_EXCLUDE_DIRS "$HOME" "$HOME/.local/*" "$HOME/.config/*"
+alias wget "wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+alias nvidia-settings "nvidia-settings --config=$XDG_CONFIG_HOME/nvidia/settings"
+set -x SQLITE_HISTORY "$XDG_CACHE_HOME"/sqlite_history
+set -x PSQL_HISTORY "$XDG_DATA_HOME/psql_history"
+set -x WINEPREFIX "$XDG_DATA_HOME"/wine
+set -x LESSHISTFILE "$XDG_STATE_HOME"/less/history
+set -x IPYTHONDIR "$XDG_CONFIG_HOME/ipython"
+set -x CUDA_CACHE_PATH "$XDG_CACHE_HOME"/nv
+set -x TERMINFO "$XDG_DATA_HOME"/terminfo
+set -x TERMINFO_DIRS "$XDG_DATA_HOME"/terminfo
+
+#
+# Misc
+#
 
 # Fix Emacs TRAMP hangs
 if test "$TERM" = "dumb"
