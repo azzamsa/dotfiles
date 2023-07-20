@@ -10,7 +10,7 @@ USAGE:
   clean [MODULES]
 
 MODULES:
-  kondo pm flatpak container tmp 
+  kondo pm flatpak container tmp
 ";
 
 #[derive(Debug)]
