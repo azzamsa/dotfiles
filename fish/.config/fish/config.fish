@@ -57,8 +57,13 @@ fnm env | source
 atuin init fish | source
 source "$HOME"/.config/meta/env
 
+#
 # Don't pollute home directory
-set -x CARGO_HOME "$XDG_DATA_HOME"/cargo
+#
+
+# ⚠ Never change the default cargo and rustup directory
+# It will make lsp-mode and eglot rebuild the entire project after each changes!
+
 set -x EMACSDIR "$XDG_CONFIG_HOME"/emacs
 set -x GNUPGHOME "$XDG_DATA_HOME"/gnupg
 set -x GRIPHOME "$XDG_CONFIG_HOME"/grip
