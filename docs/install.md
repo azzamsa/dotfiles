@@ -236,8 +236,9 @@ sudo tlp-stat -s -c -b
 ## Setup Rust Tooling
 
 ```bash
-rustup component add rust-analyzer
-# rustup which --toolchain stable rust-analyzer
+rm ~/.cargo/bin/rust-analyzer
+
+eget rust-lang/rust-analyzer --to ~/.local/bin
 ```
 
 To use `mold` as the default linker, put the code below to `.cargo/config`.
