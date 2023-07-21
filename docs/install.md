@@ -132,12 +132,6 @@ cd ~/dotfiles
 stow --no-folding --restow git zellij fish wezterm
 ```
 
-Change the default bash.
-
-```bash
-sudo chsh -s "$(which fish)"
-```
-
 Change the prompt style.
 
 ```bash

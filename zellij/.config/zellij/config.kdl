@@ -1,3 +1,4 @@
+default_shell "fish"
 copy_command "wl-copy" // wayland
 
 keybinds clear-defaults=true {
