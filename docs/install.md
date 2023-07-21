@@ -201,7 +201,7 @@ flatpak install --assume-yes com.github.tchx84.Flatseal org.gnome.seahorse.Appli
 flatpak install --assume-yes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq com.rafaelmardojai.Blanket
 
 # utilities
-flatpak install --assume-yes com.github.qarmin.czkawka com.brave.Browser fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.FileRoller org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.libreoffice.LibreOffice org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia
+flatpak install --assume-yes com.github.qarmin.czkawka com.brave.Browser fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.libreoffice.LibreOffice org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia
 
 # office
 flatpak install --assume-yes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
@@ -279,7 +279,6 @@ sudo nala install --assume-yes fish
 ⚠️ Use non-flatpak version of Firefox. Somehow the Flatpak version have an issue with web pages that use Windows font.
 
 [Get Firefox for desktop — Mozilla (US)](https://www.mozilla.org/en-US/firefox/new/)
-
 
 ```bash
 sudo nala install --assume-yes aspell-id podman podman-compose
