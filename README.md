@@ -22,6 +22,7 @@ My personal .dotfiles 🗃️
 
 tl;dr
 
+- Ubuntu, 2013 - 2017
 - [Debian][debian-i3], 2017 - 2023
 - [Fedora Workstation][fedora-gnome], 2023.
 - [Fedora Silverblue][fedora-silverblue], 2023.
