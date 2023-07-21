@@ -122,7 +122,7 @@ I hate leaving my prompt.
 Copy the `dotfile` directory to the new machine.
 
 ```bash
-sudo nala install --assume-yes git stow fish
+sudo nala install --assume-yes bash git stow fish
 ```
 
 Populate the dotfiles.
