@@ -6,4 +6,4 @@
 	username = azzam
 
 [core]
-	sshCommand = ssh -o ProxyCommand=\"connect-proxy -S 127.0.0.1:8080 %h %p\"
+	# sshCommand = ssh -o ProxyCommand=\"connect-proxy -S 127.0.0.1:8080 %h %p\"
