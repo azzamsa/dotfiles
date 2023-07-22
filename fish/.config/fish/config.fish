@@ -40,5 +40,4 @@ zoxide init fish | source
 starship init fish | source
 fnm env | source
 atuin init fish | source
-source "$HOME"/.config/meta/env
 

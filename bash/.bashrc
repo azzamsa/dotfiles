@@ -31,6 +31,7 @@ export EDITOR='emacs'
 #
 # Apps
 #
+source "$HOME"/.config/meta/env
 
 #
 # Don't pollute home directory
