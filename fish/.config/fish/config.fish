@@ -30,6 +30,7 @@ alias path 'echo -e $PATH | tr ":" "\\n"'
 alias j 'just'
 alias pip 'pip --default-timeout=1000'
 alias x 'joshuto'
+alias b 'bookmarks'
 
 abbr --add crg cargo
 
