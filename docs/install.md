@@ -104,7 +104,12 @@ Use Nala early on to have its sophisticated `dnf history` like feature.
 
 ```bash
 sudo apt install --assume-yes nala
-nala fetch
+```
+
+Choose the fastest mirors
+
+```bash
+sudo nala fetch
 ```
 
 ## Upgrade The OS
@@ -201,7 +206,7 @@ flatpak install --assume-yes com.github.tchx84.Flatseal org.gnome.seahorse.Appli
 flatpak install --assume-yes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq com.rafaelmardojai.Blanket
 
 # utilities
-flatpak install --assume-yes com.github.qarmin.czkawka com.brave.Browser fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.libreoffice.LibreOffice org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia
+flatpak install --assume-yes com.github.qarmin.czkawka com.brave.Browser fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit com.github.tenderowl.frog org.gimp.GIMP org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.libreoffice.LibreOffice org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia
 
 # office
 flatpak install --assume-yes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
@@ -402,6 +407,26 @@ On router.
 
 ## Modify GNOME Settings
 
+### Tweaks
+
+Fonts:
+
+- Interface Text: "Noto Sans Medium 12"
+- Document Text: "Noto Sans Medium 12"
+- Monospace Text: "Noto Sans Mono Medium 12"
+- Legacy Window Titles: "Noto Sans SemiBold 12"
+- Hinting : Slight
+- Antialiasing: Subpixel (for LCD screens)
+- Scaling Factor: 1.00
+
+Startup Applications:
+
+- You know what to add!
+
+Top Bar:
+
+- Only show hour
+
 ### Format
 
 Set time, paper size, and units in British.
@@ -498,6 +523,10 @@ br
 ```bash
 atuin gen-completions --shell fish --out-dir ~/.config/fish/completions/
 ```
+
+More:
+
+- Increase the default value of "clear clipboard after" in KeepassXC
 
 ### Pin apps
 
