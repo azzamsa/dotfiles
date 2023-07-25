@@ -195,7 +195,7 @@ I think I will just use mutable OS an immutable way!
 
 ```bash
 # main
-flatpak install --assume-yes com.github.tchx84.Flatseal org.gnome.seahorse.Application org.keepassxc.KeePassXC
+flatpak install --assume-yes com.github.tchx84.Flatseal org.gnome.seahorse.Application org.keepassxc.KeePassXC org.mozilla.firefox
 
 # productivity
 flatpak install --assume-yes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq com.rafaelmardojai.Blanket
@@ -275,10 +275,6 @@ sudo nala install --assume-yes fish
 ```
 
 ## Install More Apps
-
-⚠️ Use non-flatpak version of Firefox. Somehow the Flatpak version have an issue with web pages that use Windows font.
-
-[Get Firefox for desktop — Mozilla (US)](https://www.mozilla.org/en-US/firefox/new/)
 
 ```bash
 sudo nala install --assume-yes aspell-id podman podman-compose
@@ -448,6 +444,16 @@ To prevent Apps to move to the Laptop monitor during suspension, go to `Display`
 - Enable "Expandable folder in list view"
 
 ## Polish
+
+### Fix terrible fonts in Flatpak version of Firefox and Thunderbird when using Wayland
+
+⚠️ This issue occurs mostly in Debian and openSUSE based distros with x11 fonts installed. Fedora and RHEL-based distros are usually not affected by default.
+
+```bash
+sudo apt remove xfonts-base xfonts-100dpi xfonts-75dpi
+```
+
+Source: [Fonts look terrible · Issue #4571 · flatpak/flatpak](https://github.com/flatpak/flatpak/issues/4571#issuecomment-1606258732)
 
 ### Enable [Playmouth](https://wiki.debian.org/plymouth)
 
