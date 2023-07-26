@@ -12,12 +12,6 @@ alias q 'exit'
 alias c 'clear'
 alias sudo 'sudo '
 
-alias in 'sudo nala install'
-alias out 'sudo nala purge'
-
-alias cin 'cargo binstall --no-confirm --no-symlinks'
-alias cout 'cargo uninstall'
-
 # Safe Versions of rm, cp, mv, and mkdir
 alias rm 'rm -i'
 alias cp 'cp -i'
@@ -28,7 +22,6 @@ alias mkdir 'mkdir -pv'
 alias path 'echo -e $PATH | tr ":" "\\n"'
 
 alias j 'just'
-alias pip 'pip --default-timeout=1000'
 alias x 'joshuto'
 alias b 'bookmarks'
 
