@@ -1,20 +1,19 @@
-use std::{env, ffi::OsString, fs};
+use std::{env, fs};
 
+use clap::{Parser, ValueEnum};
 use duct::cmd;
 use serde::Deserialize;
 
-const HELP: &str = "\
-clean
+#[derive(Parser)]
+#[command(name = "upgrade")]
+pub struct Opts {
+    /// Port number
+    #[arg(value_enum)]
+    pub modules: Option<Vec<Module>>,
+}
 
-USAGE:
-  clean [MODULES]
-
-MODULES:
-  kondo pm flatpak container tmp
-";
-
-#[derive(Debug)]
-enum Modules {
+#[derive(Debug, Clone, ValueEnum)]
+pub enum Module {
     Kondo,
     PackageManager,
     Flatpak,
@@ -30,61 +29,25 @@ struct Image {
 }
 
 pub(crate) fn run() -> anyhow::Result<()> {
-    let mut args: Vec<_> = std::env::args_os().collect();
-    args.remove(0); // remove the executable path.
-    let mut args = pico_args::Arguments::from_vec(args);
+    let opts = Opts::parse();
 
-    // Help has a higher priority and should be handled separately.
-    if args.contains(["-h", "--help"]) {
-        print!("{}", HELP);
-        std::process::exit(0);
-    }
-
-    let mut valid_mods: Vec<Modules> = Vec::new();
-    let mut invalid_mods: Vec<String> = Vec::new();
-
-    let remaining = args.finish();
-    if !remaining.is_empty() {
-        parse_modules(remaining, &mut valid_mods, &mut invalid_mods)?;
-        execute(valid_mods, invalid_mods)?;
-    } else {
-        all()?;
+    match opts.modules {
+        None => all()?,
+        Some(modules) => execute(modules)?,
     }
 
     println!("✨ You have a new shiny machine!");
     Ok(())
 }
 
-fn execute(valid_mods: Vec<Modules>, invalid_mods: Vec<String>) -> anyhow::Result<()> {
-    if !invalid_mods.is_empty() {
-        anyhow::bail!("Unknown modules `{}`", &invalid_mods.join(", "))
-    } else {
-        for module in valid_mods {
-            match module {
-                Modules::Kondo => kondo()?,
-                Modules::PackageManager => package_manager()?,
-                Modules::Flatpak => flatpak()?,
-                Modules::Container => container()?,
-                Modules::Tmp => tmp()?,
-            }
-        }
-    }
-    Ok(())
-}
-
-fn parse_modules(
-    modules: Vec<OsString>,
-    valid_mods: &mut Vec<Modules>,
-    invalid_mods: &mut Vec<String>,
-) -> anyhow::Result<()> {
+fn execute(modules: Vec<Module>) -> anyhow::Result<()> {
     for module in modules {
-        match module.to_string_lossy().to_string().to_lowercase().as_str() {
-            "kondo" => valid_mods.push(Modules::Kondo),
-            "pm" => valid_mods.push(Modules::PackageManager),
-            "flatpak" => valid_mods.push(Modules::Flatpak),
-            "container" => valid_mods.push(Modules::Container),
-            "tmp" => valid_mods.push(Modules::Tmp),
-            _ => invalid_mods.push(module.to_string_lossy().to_string()),
+        match module {
+            Module::Kondo => kondo()?,
+            Module::PackageManager => package_manager()?,
+            Module::Flatpak => flatpak()?,
+            Module::Container => container()?,
+            Module::Tmp => tmp()?,
         }
     }
     Ok(())

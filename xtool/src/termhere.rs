@@ -11,23 +11,30 @@
 /// ```
 use std::env;
 
+use clap::Parser;
 use duct::cmd;
 
-pub(crate) fn run() -> anyhow::Result<()> {
-    let mut args = pico_args::Arguments::from_env();
-    let pwd: Option<String> = args.opt_free_from_str()?;
+#[derive(Parser)]
+#[command(name = "termhere")]
+pub struct Opts {
+    /// Current working directory
+    pub cwd: Option<String>,
+}
 
+pub(crate) fn run() -> anyhow::Result<()> {
     let home = env::var("HOME")?;
-    match pwd {
+
+    let opts = Opts::parse();
+    match opts.cwd {
         None => here(&home)?,
-        Some(p) => here(&p)?,
+        Some(cwd) => here(&cwd)?,
     };
 
     Ok(())
 }
 
-fn here(pwd: &str) -> anyhow::Result<()> {
-    println!("Opening terminal in `{pwd}`");
-    cmd!("zellij", "action", "new-tab", "--layout", "default", "--cwd", pwd).run()?;
+fn here(cwd: &str) -> anyhow::Result<()> {
+    println!("Opening terminal in `{cwd}`");
+    cmd!("zellij", "action", "new-tab", "--layout", "default", "--cwd", cwd).run()?;
     Ok(())
 }

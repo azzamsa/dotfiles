@@ -1,17 +1,6 @@
 use rand::Rng;
 
-const HELP: &str = "\
-names
-
-USAGE:
-  names [FIGURE] [OPTIONS]
-
-FIGURE:
-  islamic lotr
-
-OPTIONS:
---with-adjective
-";
+use clap::{Parser, ValueEnum};
 
 static ADJECTIVES: &[&str] = &[
     "ambitious",
@@ -116,33 +105,27 @@ static LOTR: &[&str] = &[
     "thranduil", // The Elvenking of Mirkwood, known for his bravery and archery skills.
 ];
 
-#[derive(Debug)]
-enum Figure {
+#[derive(Parser)]
+#[command(name = "names")]
+pub struct Opts {
+    /// Port number
+    #[arg(value_enum)]
+    pub figure: Figure,
+
+    /// Indicate whether to terminate the app or not.
+    #[arg(long)]
+    pub with_adjective: bool,
+}
+
+#[derive(Debug, Clone, ValueEnum)]
+pub enum Figure {
     Islamic,
     Lotr,
 }
 
-#[derive(Debug)]
-struct AppArgs {
-    figure: String,
-    with_adjective: bool,
-}
-
 pub(crate) fn run() -> anyhow::Result<()> {
-    let args = match parse_args() {
-        Ok(v) => v,
-        Err(e) => {
-            eprintln!("Error: {}.", e);
-            std::process::exit(1);
-        }
-    };
-
-    let figure = match args.figure.as_ref() {
-        "islamic" => Figure::Islamic,
-        "lotr" => Figure::Lotr,
-        &_ => anyhow::bail!("Unknown figure"),
-    };
-    print(figure, args.with_adjective)?;
+    let opts = Opts::parse();
+    print(opts.figure, opts.with_adjective)?;
 
     Ok(())
 }
@@ -167,22 +150,6 @@ fn print(figure: Figure, with_adjective: bool) -> anyhow::Result<()> {
     };
     println!("{}", name);
     Ok(())
-}
-
-fn parse_args() -> Result<AppArgs, pico_args::Error> {
-    let mut pargs = pico_args::Arguments::from_env();
-
-    // Help has a higher priority and should be handled separately.
-    if pargs.contains(["-h", "--help"]) {
-        print!("{}", HELP);
-        std::process::exit(0);
-    }
-
-    let args = AppArgs {
-        figure: pargs.free_from_str()?,
-        with_adjective: pargs.contains("--with-adjective"),
-    };
-    Ok(args)
 }
 
 fn get_random_number(length: usize) -> usize {

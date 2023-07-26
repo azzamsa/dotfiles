@@ -1,37 +1,27 @@
+use clap::Parser;
 use duct::cmd;
 
-#[derive(Debug)]
-struct AppArgs {
-    port: String,
-    kill: bool,
+#[derive(Parser)]
+#[command(name = "ports")]
+pub struct Opts {
+    /// Port number
+    pub port: String,
+
+    /// Indicate whether to terminate the app or not.
+    #[arg(long)]
+    pub kill: bool,
 }
 
 pub(crate) fn run() -> anyhow::Result<()> {
-    let args = match parse_args() {
-        Ok(v) => v,
-        Err(e) => {
-            eprintln!("Error a: {}.", e);
-            std::process::exit(1);
-        }
-    };
+    let opts = Opts::parse();
 
-    if args.kill {
-        kill(&args.port)?
+    if opts.kill {
+        kill(&opts.port)?
     } else {
-        proc_name(&args.port)?
+        proc_name(&opts.port)?
     }
 
     Ok(())
-}
-
-fn parse_args() -> Result<AppArgs, pico_args::Error> {
-    let mut pargs = pico_args::Arguments::from_env();
-    let args = AppArgs {
-        port: pargs.free_from_str()?,
-        kill: pargs.contains(["-k", "--kill"]),
-    };
-
-    Ok(args)
 }
 
 fn proc_name(port: &str) -> anyhow::Result<()> {
