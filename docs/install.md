@@ -340,6 +340,7 @@ Install eget from https://github.com/zyedidia/eget/releases
 ```bash
 eget junegunn/fzf --to ~/.local/bin
 eget restic/restic --to ~/.local/bin
+eget rui314/mold --to ~/.local/bin
 ```
 
 ### Ripgrep With Pcre2 Feature
