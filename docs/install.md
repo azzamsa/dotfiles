@@ -351,6 +351,33 @@ git clone --depth 1 https://github.com/BurntSushi/ripgrep.git ~/opt/ripgrep
 cargo install --path ~/opt/ripgrep --features 'pcre2'
 ```
 
+### `udeps` needed wierd dependecies
+
+It is easier to use `distrobox` than `podman`.
+
+Setup distrobox.
+
+```bash
+sudo nala install --assume-yes distrobox
+
+# Debian and Ubuntu doesn't have libssl.so.1.1
+distrobox create --image  quay.io/toolbx-images/archlinux-toolbox --name arch
+distrobox-enter --name arch -- sudo pacman --sync --refresh --needed --noconfirm fish
+```
+
+Install `udeps` dependecies.
+
+```bash
+distrobox-enter --name arch -- sudo pacman --sync --refresh --needed --noconfirm openssl-1.1
+```
+
+Run udeps.
+
+```bash
+distrobox-enter --name arch
+cargo +nightly udeps
+```
+
 ## Setup Apps
 
 ### Flatpak Apps Permission
