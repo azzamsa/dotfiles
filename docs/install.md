@@ -523,6 +523,8 @@ br
 
 ```bash
 atuin gen-completions --shell fish --out-dir ~/.config/fish/completions/
+in gen-completions --shell fish --out-dir ~/.config/fish/completions/
+out gen-completions --shell fish --out-dir ~/.config/fish/completions/
 ```
 
 More:
