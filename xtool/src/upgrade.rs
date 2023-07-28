@@ -53,7 +53,21 @@ fn all() -> anyhow::Result<()> {
 
 fn flatpak() -> anyhow::Result<()> {
     println!("📥 Updating flatpak apps");
-    cmd!("flatpak", "update").unchecked().run()?;
+    cmd!(
+        "flatpak",
+        "update",
+        "com.gitlab.newsflash",
+        "com.github.johnfactotum.Foliate",
+        "com.logseq.Logseq",
+        "com.raggesilver.BlackBox",
+        "org.atheme.audacious",
+        "org.keepassxc.KeePassXC",
+        "org.mozilla.firefox",
+        "org.mozilla.Thunderbird",
+        "rest.insomnia.Insomnia",
+    )
+    .unchecked()
+    .run()?;
     Ok(())
 }
 
