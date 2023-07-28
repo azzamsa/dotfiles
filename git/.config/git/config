@@ -1,17 +1,11 @@
 [user]
-	# Don't guess the user's identity.
-	# https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
-
-	#useConfigOnly = true
 	name = azzamsa
 	email = me@azzamsa.com
 	signingKey = BB727432CD92080C!
 
-
 [credential]
 	helper = cache --timeout=86400
 	username = azzamsa
-
 
 [alias]
 	s = status
@@ -29,23 +23,18 @@
 	#                     │        └─ decorations (branch, heads or tags)
 	#                     └─ hash (abbreviated)
 
-
-
 [color "branch"]
-
 	current = green bold
 	local = green
 	remote = yellow
 
 [color "diff"]
-
 	frag = magenta
 	meta = yellow
 	new = green
 	old = red
 
 [color "status"]
-
 	added = green reverse
 	changed = yellow reverse
 	untracked = red reverse
@@ -60,7 +49,6 @@
 	smtpserverport = 587
 
 [include]
-
 	# Load local configs.
 	# https://git-scm.com/docs/git-config#_includes
 	#
