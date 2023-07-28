@@ -259,7 +259,6 @@ rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
 
 ```bash
 curl -sSf https://rye-up.com/get | bash
-curl -sSL https://install.python-poetry.org | python3 -
 ```
 
 ## Setup Toolbx
@@ -314,6 +313,7 @@ cargo binstall --no-confirm --no-symlinks bandwhich bat dua-cli kondo rust-scrip
 
 ```bash
 rye install grip
+rye install poetry
 ```
 
 ## Install More GNOME Extensions
