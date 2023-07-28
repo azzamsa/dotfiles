@@ -26,6 +26,7 @@ alias x 'joshuto'
 alias b 'bookmarks'
 
 abbr --add crg cargo
+alias rust-udeps 'distrobox-enter --name arch -- cargo +nightly udeps && cargo-machete'
 
 #
 # Apps
