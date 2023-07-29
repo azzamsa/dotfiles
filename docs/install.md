@@ -498,6 +498,22 @@ To prevent Apps to move to the Laptop monitor during suspension, go to `Display`
 
 ## Polish
 
+### Fix `Your clock is n seconds behind`
+
+Go to [Time.is](https://time.is/) and check wheter you get "Your clock is n seconds behind" or "Your time is exact!".
+
+```bash
+sudo nala install --assume-yes ntp
+
+sudo systemctl status ntp
+
+# check ntp servers
+ntpq -p
+
+# check time
+date -R
+```
+
 ### Fix terrible fonts in Flatpak version of Firefox and Thunderbird when using Wayland
 
 ⚠️ This issue occurs mostly in Debian and openSUSE based distros with x11 fonts installed. Fedora and RHEL-based distros are usually not affected by default.
