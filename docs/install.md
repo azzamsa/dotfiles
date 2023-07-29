@@ -243,7 +243,7 @@ sudo tlp-stat -s -c -b
 ```bash
 rm ~/.cargo/bin/rust-analyzer
 
-eget rust-lang/rust-analyzer --to ~/.local/bin
+eget rust-lang/rust-analyzer --to ~/.local/bin --asset "rust-analyzer-x86_64-unknown-linux-gnu.gz"
 ```
 
 To use `mold` as the default linker, put the code below to `.cargo/config`.
