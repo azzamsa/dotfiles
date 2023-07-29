@@ -65,6 +65,7 @@ fn flatpak() -> anyhow::Result<()> {
         "org.mozilla.firefox",
         "org.mozilla.Thunderbird",
         "rest.insomnia.Insomnia",
+        "--no-related"
     )
     .unchecked()
     .run()?;
