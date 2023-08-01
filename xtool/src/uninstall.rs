@@ -1,22 +1,20 @@
-use clap::{Args, CommandFactory, Parser, Subcommand};
-use clap_complete::{generate, generate_to, Shell};
+/// Fish completions
+///
+/// Copy the code below to `~/.config/fish/completions/in.fish`.
+/// ```
+/// # out.fish - Fish shell completions for the 'out' command
+///
+/// complete -c out -n "__fish_use_subcommand" -l nala -d "Use 'nala' as package manager"
+/// complete -c out -n "__fish_use_subcommand" -l cargo -d "Use 'cargo' as package manager"
+/// complete -c out -n "__fish_use_subcommand" -l rye -d "Use 'rye' as package manager"
+/// complete -c out -s h -l help -d "Print help"
+/// ```
+use clap::Parser;
 use duct::cmd;
 
 #[derive(Debug, Parser)]
 #[command(name = "out")]
 pub struct Opts {
-    #[command(subcommand)]
-    command: Cmd,
-}
-
-#[derive(Debug, Subcommand)]
-enum Cmd {
-    Uninstall(UninstallArgs),
-    GenCompletions(GenCompletionsArgs),
-}
-
-#[derive(Debug, Args)]
-struct UninstallArgs {
     /// Package name
     package: String,
 
@@ -33,28 +31,8 @@ struct UninstallArgs {
     rye: bool,
 }
 
-#[derive(Debug, Args)]
-struct GenCompletionsArgs {
-    /// Set the shell for generating completions
-    #[arg(long, short)]
-    shell: Shell,
-
-    /// Set the output directory
-    #[arg(long, short)]
-    out_dir: Option<String>,
-}
-
 pub(crate) fn run() -> anyhow::Result<()> {
     let opts = Opts::parse();
-
-    match &opts.command {
-        Cmd::Uninstall(opts) => uninstall(opts)?,
-        Cmd::GenCompletions(opts) => generate_completions(opts)?,
-    };
-    Ok(())
-}
-
-fn uninstall(opts: &UninstallArgs) -> anyhow::Result<()> {
     let package_name = &opts.package;
 
     if opts.nala {
@@ -74,22 +52,5 @@ fn uninstall(opts: &UninstallArgs) -> anyhow::Result<()> {
     }
 
     println!("✨ You have a new shiny machine!");
-    Ok(())
-}
-
-fn generate_completions(opts: &GenCompletionsArgs) -> anyhow::Result<()> {
-    let shell = opts.shell;
-    let mut cmd = Opts::command();
-    let app_name = cmd.get_name().to_string();
-
-    match &opts.out_dir {
-        Some(out_dir) => {
-            generate_to(shell, &mut cmd, app_name, out_dir)?;
-        }
-        None => {
-            generate(shell, &mut cmd, app_name, &mut std::io::stdout());
-        }
-    }
-
     Ok(())
 }

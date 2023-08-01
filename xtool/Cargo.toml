@@ -12,7 +12,6 @@ panic = "abort"
 [dependencies]
 anyhow = "1"
 clap = { version = "4.3.19", features = ["derive"] }
-clap_complete = "4.3.2"
 duct = "0.13.6"
 
 # age

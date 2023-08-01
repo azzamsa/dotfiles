@@ -1,60 +1,38 @@
-use clap::{Args, CommandFactory, Parser, Subcommand};
-use clap_complete::{generate, generate_to, Shell};
+/// Fish completions
+///
+/// Copy the code below to `~/.config/fish/completions/in.fish`.
+/// ```
+/// # out.fish - Fish shell completions for the 'out' command
+///
+/// complete -c in -n "__fish_use_subcommand" -s n -l nala -d "Use 'nala' as package manager"
+/// complete -c in -n "__fish_use_subcommand" -s c -l cargo -d "Use 'cargo' as package manager"
+/// complete -c in -n "__fish_use_subcommand" -s r -l rye -d "Use 'rye' as package manager"
+/// complete -c in -s h -l help -d "Print help"
+/// ```
+use clap::Parser;
 use duct::cmd;
 
-#[derive(Debug, Parser)]
+#[derive(Parser)]
 #[command(name = "in")]
 pub struct Opts {
-    #[command(subcommand)]
-    command: Cmd,
-}
-
-#[derive(Debug, Subcommand)]
-enum Cmd {
-    Install(InstallArgs),
-    GenCompletions(GenCompletionsArgs),
-}
-
-#[derive(Debug, Args)]
-struct InstallArgs {
     /// Package name
-    package: String,
+    pub package: String,
 
     /// Use `nala` as package manager
-    #[arg(long)]
+    #[arg(short, long)]
     nala: bool,
 
     /// Use `cargo` as package manager
-    #[arg(long)]
+    #[arg(short, long)]
     cargo: bool,
 
     /// Use `rye` as package manager
-    #[arg(long)]
+    #[arg(short, long)]
     rye: bool,
-}
-
-#[derive(Debug, Args)]
-struct GenCompletionsArgs {
-    /// Set the shell for generating completions
-    #[arg(long, short)]
-    shell: Shell,
-
-    /// Set the output directory
-    #[arg(long, short)]
-    out_dir: Option<String>,
 }
 
 pub(crate) fn run() -> anyhow::Result<()> {
     let opts = Opts::parse();
-
-    match &opts.command {
-        Cmd::Install(opts) => install(opts)?,
-        Cmd::GenCompletions(opts) => generate_completions(opts)?,
-    };
-    Ok(())
-}
-
-fn install(opts: &InstallArgs) -> anyhow::Result<()> {
     let package_name = &opts.package;
 
     if opts.nala {
@@ -69,25 +47,7 @@ fn install(opts: &InstallArgs) -> anyhow::Result<()> {
         )
         .run()?;
     } else if opts.rye {
-        cmd!("rye", "install", package_name).run()?;
-    }
-
-    println!("✨ You have a new shiny machine!");
-    Ok(())
-}
-
-fn generate_completions(opts: &GenCompletionsArgs) -> anyhow::Result<()> {
-    let shell = opts.shell;
-    let mut cmd = Opts::command();
-    let app_name = cmd.get_name().to_string();
-
-    match &opts.out_dir {
-        Some(out_dir) => {
-            generate_to(shell, &mut cmd, app_name, out_dir)?;
-        }
-        None => {
-            generate(shell, &mut cmd, app_name, &mut std::io::stdout());
-        }
+        cmd!("rye", "install", opts.package).run()?;
     }
 
     Ok(())

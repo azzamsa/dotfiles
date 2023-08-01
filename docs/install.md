@@ -566,13 +566,12 @@ br
 
 ```bash
 atuin gen-completions --shell fish --out-dir ~/.config/fish/completions/
-in gen-completions --shell fish --out-dir ~/.config/fish/completions/
-out gen-completions --shell fish --out-dir ~/.config/fish/completions/
 ```
 
 More:
 
 - Increase the default value of "clear clipboard after" in KeepassXC
+- Copy fish completions for `in` and `out`
 
 ### Pin apps
 
