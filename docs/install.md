@@ -492,7 +492,18 @@ To prevent Apps to move to the Laptop monitor during suspension, go to `Display`
 
 - Disable "Restore session"
 
-## Nautilus (File Manager)
+## Use Latest Nautilus (File Manager)
+
+The current version in Debian 12 dosen't have image preview in file picker.
+
+```bash
+distrobox-enter --name arch -- sudo pacman --sync --refresh --needed --noconfirm nautilus
+
+distrobox-enter --name arch
+distrobox-export --app nautilus
+
+xdg-mime default ~/.local/share/applications/arch-org.gnome.Nautilus.desktop inode/directory
+```
 
 - Enable "Expandable folder in list view"
 
