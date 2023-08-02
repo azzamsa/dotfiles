@@ -15,8 +15,7 @@ My personal .dotfiles 🗃️
 
 ## Current Machine
 
-- 80TU Lenovo ideapad 310-14IKB + NVIDIA GeForce 920MX
-- Debian 12 + GNOME
+- Fedora + GNOME
 
 ## Uh Oh! Where is Your Old Configuration?
 
@@ -26,7 +25,8 @@ tl;dr
 - [Debian][debian-i3], 2017 - 2023
 - [Fedora Workstation][fedora-gnome], 2023.
 - [Fedora Silverblue][fedora-silverblue], 2023.
-- [Debian][current-os], current.
+- [Debian][current-os], 2023.
+- [Fedora Workstation][current-os], 2023.
 
 <div align="center">
 -== ❧ ==-
@@ -40,18 +40,16 @@ After watching some YouTube videos that praise Fedora, I took my plunge and rein
 
 Several months passed and I break it. I migrate to [Fedora Silverblue][fedora-silverblue] for obvious reasons. Turns out I can't flash my custom keyboard using a containerized environment. At the same time, my office requires me to install an app that writes to `/usr`.
 
-Last week, RedHat goes "closed source" and Fedora attempted to have a telemetry for its user. I go back to where I am from, [Debian][current-os].
+Last week, RedHat goes "closed source" and Fedora attempted to have a telemetry for its user. I go back to where I am from, [Debian][debian-gnome].
+
+Unfortunately, I haven't come across any Linux distribution that offers a desktop experience as polished as [Fedora][current-os].
 
 [debian-i3]: https://github.com/azzamsa/dotfiles/commit/f395081a1c0372aa10737f104640da3049a5a8b2
 [debian-bspwm]: https://github.com/azzamsa/dotfiles/commit/59c6e48ca7024aa810a9c892d55d4dfcb758a989
 [fedora-gnome]: https://github.com/azzamsa/dotfiles/commit/6dc9d319cae13f79db0a8b1004aa87b103520415
 [fedora-silverblue]: https://github.com/azzamsa/dotfiles/tree/4543ab38b5834cd1e4ba549436220c02310264dd
+[debian-gnome]: https://github.com/azzamsa/dotfiles/commit/241d0c322a1511daa7253fea934c072cd05e68c5
 [current-os]: https://github.com/azzamsa/dotfiles
-
-## Features
-
-- Keep your anonymity. No credential is shown anywhere.
-- More ...
 
 ## Usage
 
@@ -61,7 +59,7 @@ $ git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
 
 $ # let GNU stow handle the symlink
 $ for d in ~/dotfiles/*/ ; do
-    stow "$d" --no-folding
+    stow --no-folding --restow "$d"
 done
 ```
 
