@@ -15,6 +15,7 @@ pub struct Opts {
 #[derive(Debug, Clone, ValueEnum)]
 pub enum Module {
     Flatpak,
+    #[clap(name = "pm")]
     PackageManager,
     Npm,
     Cargo,

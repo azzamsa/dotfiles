@@ -15,6 +15,7 @@ pub struct Opts {
 #[derive(Debug, Clone, ValueEnum)]
 pub enum Module {
     Kondo,
+    #[clap(name = "pm")]
     PackageManager,
     Flatpak,
     Container,
