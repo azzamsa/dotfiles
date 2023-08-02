@@ -1,4 +1,5 @@
 use std::env;
+use std::fs;
 
 use clap::{Parser, ValueEnum};
 use duct::cmd;
@@ -62,7 +63,6 @@ fn flatpak() -> anyhow::Result<()> {
         "com.raggesilver.BlackBox",
         "org.atheme.audacious",
         "org.keepassxc.KeePassXC",
-        "org.mozilla.firefox",
         "org.mozilla.Thunderbird",
         "rest.insomnia.Insomnia",
         "--no-related"
@@ -74,7 +74,13 @@ fn flatpak() -> anyhow::Result<()> {
 
 fn package_manager() -> anyhow::Result<()> {
     println!("📥 Upgrading OS package manager apps");
-    cmd!("sudo", "nala", "upgrade").unchecked().run()?;
+    let package_manager = get_package_manager_name();
+    match package_manager {
+        None => anyhow::bail!("built-in package manager not found"),
+        Some(pm) => {
+            cmd!("sudo", pm, "upgrade").unchecked().run()?;
+        }
+    }
     Ok(())
 }
 
@@ -90,4 +96,32 @@ fn cargo() -> anyhow::Result<()> {
     println!("📥 Checking cargo apps");
     cmd!("cargo", "install-update", "-a").run()?;
     Ok(())
+}
+
+fn get_package_manager_name() -> Option<String> {
+    match get_os_name() {
+        None => None,
+        Some(name) => {
+            if name.contains("Fedora") {
+                Some("dnf".to_string())
+            } else if name.contains("Debian") {
+                Some("apt".to_string())
+            } else {
+                None
+            }
+        }
+    }
+}
+
+fn get_os_name() -> Option<String> {
+    if let Ok(contents) = fs::read_to_string("/etc/os-release") {
+        for line in contents.lines() {
+            if let Some(name) = line.strip_prefix("NAME=") {
+                // Extract the name value and remove quotes if present
+                let name = name.trim().trim_matches('"').to_string();
+                return Some(name);
+            }
+        }
+    }
+    None
 }
