@@ -1,4 +1,4 @@
-use std::{env, fs};
+use std::{env, fs, path::PathBuf};
 
 use clap::{Parser, ValueEnum};
 use duct::cmd;
@@ -106,9 +106,22 @@ fn container() -> anyhow::Result<()> {
 
 fn tmp() -> anyhow::Result<()> {
     println!("🧽 Cleaning temporary files");
-    let paths = fs::read_dir(format!("{}/tmp", env::var("HOME")?))?;
-    for path in paths {
-        cmd!("rm", "-rf", path?.path()).run()?;
+    let mut all_paths: Vec<PathBuf> = Vec::new();
+    let home = env::var("HOME").unwrap();
+
+    all_paths.extend(get_paths(&format!("{home}/tmp")));
+    all_paths.extend(get_paths(&format!("{home}/Downloads")));
+    all_paths.extend(get_paths(&format!("{home}/Screenshots")));
+
+    for path in all_paths {
+        cmd!("rm", "-rf", path).run()?;
     }
     Ok(())
+}
+
+fn get_paths(dir: &str) -> Vec<PathBuf> {
+    fs::read_dir(dir)
+        .unwrap()
+        .map(|p| p.unwrap().path())
+        .collect::<Vec<PathBuf>>()
 }
