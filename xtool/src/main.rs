@@ -2,12 +2,10 @@ mod backup;
 mod clean;
 mod cname;
 mod ding;
-mod install;
 mod names;
 mod ports;
 mod sfetch;
 mod termhere;
-mod uninstall;
 mod upgrade;
 
 type Tools<'a> = &'a [(&'a str, fn() -> anyhow::Result<()>)];
@@ -21,8 +19,6 @@ const TOOLS: Tools = &[
     ("sfetch", sfetch::run),
     ("termhere", termhere::run),
     ("up", upgrade::run),
-    ("in", install::run),
-    ("out", uninstall::run),
 ];
 
 fn main() -> anyhow::Result<()> {

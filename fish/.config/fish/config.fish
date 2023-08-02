@@ -12,6 +12,9 @@ alias q 'exit'
 alias c 'clear'
 alias sudo 'sudo '
 
+alias in 'sudo dnf install'
+alias out 'sudo dnf remove'
+
 # Safe Versions of rm, cp, mv, and mkdir
 alias rm 'rm -i'
 alias cp 'cp -i'
