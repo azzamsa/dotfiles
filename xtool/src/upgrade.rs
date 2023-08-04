@@ -61,7 +61,6 @@ fn flatpak() -> anyhow::Result<()> {
         "com.gitlab.newsflash",
         "com.github.johnfactotum.Foliate",
         "com.logseq.Logseq",
-        "com.raggesilver.BlackBox",
         "org.atheme.audacious",
         "org.keepassxc.KeePassXC",
         "org.mozilla.Thunderbird",
