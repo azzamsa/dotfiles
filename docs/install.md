@@ -74,7 +74,7 @@ Use [Gogh](https://github.com/Gogh-Co/Gogh/) to change theme.
 bash -c  "$(curl -sLo- https://git.io/vQgMr)"
 ```
 
-Choose "Catpuccin Mocha" as theme, and "Iosevka Nerd Font 19"
+Choose "Night Owl" as theme (brighten the white color), and "Iosevka Nerd Font 19"
 
 ## I hate brightness
 
@@ -179,6 +179,9 @@ sudo dnf install --assumeyes podman-compose telnet jq pandoc ShellCheck
 # More codecs
 sudo dnf config-manager --set-enabled fedora-cisco-openh264
 sudo dnf install --assumeyes gstreamer1-plugin-openh264
+
+# Rust tooling
+sudo dnf install --assumeyes clang openssl-devel
 ```
 
 ```bash
