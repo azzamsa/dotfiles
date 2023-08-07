@@ -108,14 +108,15 @@ flatpak install flathub --assumeyes com.brave.Browser com.github.qarmin.czkawka 
 flatpak install flathub --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
 ```
 
-## Setup Battery Management
-
-⚠ Skip this step if you are on PC.
-
-Remove GNOME power profiles and instal `TLP`.
+## Setup Power Management
 
 ```bash
 sudo dnf remove power-profiles-daemon
+```
+
+⚠ Skip `tlp` instllation if you are on PC.
+
+```bash
 sudo dnf install --assumeyes tlp tlp-rdw
 
 sudo systemctl enable tlp.service
