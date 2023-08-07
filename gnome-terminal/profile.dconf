@@ -1,0 +1,24 @@
+[/]
+default='5e896642-79ed-470f-9532-bf0e213036fa'
+list=['5e896642-79ed-470f-9532-bf0e213036fa']
+
+[:5e896642-79ed-470f-9532-bf0e213036fa]
+allow-bold=true
+background-color='#28282A2A3636'
+bold-color='#f8f8f8f8f2f2'
+bold-color-same-as-fg=true
+cursor-background-color='#f8f8f8f8f2f2'
+cursor-blink-mode='on'
+cursor-colors-set=true
+cursor-foreground-color='#28282A2A3636'
+cursor-shape='ibeam'
+font='Iosevka Nerd Font 19'
+foreground-color='#f8f8f8f8f2f2'
+palette=['#444447475A5A', '#FFFF55555555', '#5050FAFA7B7B', '#FFFFB8B86C6C', '#8B8BE9E9FDFD', '#BDBD9393F9F9', '#FFFF7979C6C6', '#f8f8f8f8f2f2', '#575756565656', '#FFFF55555555', '#5050FAFA7B7B', '#FFFFB8B86C6C', '#8B8BE9E9FDFD', '#BDBD9393F9F9', '#FFFF7979C6C6', '#FFFFFFFFFFFF']
+scrollback-unlimited=true
+title-mode='ignore'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Dracula'

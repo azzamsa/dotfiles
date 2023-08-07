@@ -67,14 +67,9 @@ cargo binstall --no-confirm --no-symlinks atuin fnm starship zellij zoxide
 
 ### Look and Feel
 
-Get `Iosevka Nerd Fonts` from your previous machine or https://github.com/ryanoasis/nerd-fonts/releases, then copy to `~/.local/share/fonts/`.
-Use [Gogh](https://github.com/Gogh-Co/Gogh/) to change theme.
-
 ```bash
-bash -c  "$(curl -sLo- https://git.io/vQgMr)"
+dconf dump /org/gnome/terminal/legacy/profiles:/ < ~/dotfiles/gnome-terminal/profile.dconf
 ```
-
-Choose "Night Owl" as theme (brighten the white color), and "Iosevka Nerd Font 19"
 
 ## I hate brightness
 
