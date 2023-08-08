@@ -161,16 +161,15 @@ Setup `daily` container.
 
 ```bash
 toolbox enter daily
-
-sudo dnf install --assumeyes fish
+toolbox run -c daily sudo dnf install --assumeyes fish yt-dlp pandoc ShellCheck
 ```
 
 ## Install More Apps
 
 ```bash
-sudo dnf install --assumeyes aspell-id workrave yt-dlp
+sudo dnf install --assumeyes aspell-id workrave
 
-sudo dnf install --assumeyes podman-compose telnet jq pandoc ShellCheck
+sudo dnf install --assumeyes podman-compose telnet jq
 
 # More codecs
 sudo dnf config-manager --set-enabled fedora-cisco-openh264
