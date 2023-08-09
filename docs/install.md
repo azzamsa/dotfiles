@@ -167,7 +167,7 @@ toolbox run -c daily sudo dnf install --assumeyes fish yt-dlp pandoc ShellCheck
 ## Install More Apps
 
 ```bash
-sudo dnf install --assumeyes aspell-id workrave
+sudo dnf install --assumeyes aspell-id workrave copyq
 
 sudo dnf install --assumeyes podman-compose telnet jq
 
@@ -206,14 +206,6 @@ It is easier than searching manually inside the Extension manager App.
 - [Lock Keys - GNOME bash Extensions](https://extensions.gnome.org/extension/36/lock-keys/)
 - [AppIndicator and KStatusNotifierItem Support - GNOME bash Extensions](https://extensions.gnome.org/extension/615/appindicator-support/)
 
-Setup [Pano - Clipboard Manager](https://extensions.gnome.org/extension/5278/pano/).
-
-```bash
-sudo dnf install --assumeyes libgda libgda-sqlite
-```
-
-Set the shortcut to `Ctrl + Alt + P`.
-
 ## Install Binaries Manually
 
 Install eget from https://github.com/zyedidia/eget/releases
@@ -246,6 +238,15 @@ Update the `Exec` line in `/usr/share/applications/workrave.desktop`. Otherwise,
 ```diff
 +Exec=workrave
 +Exec=env GDK_BACKEND="x11" workrave
+```
+
+## CopyQ
+
+Change the `Exec` line in `/usr/share/applications/com.github.hluk.copyq.desktop`.
+
+```diff
++Exec=copyq --start-server show
++Exec=env QT_QPA_PLATFORM=xcb copyq --start-server show
 ```
 
 ## Setting Up DNS
