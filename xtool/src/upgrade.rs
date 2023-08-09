@@ -58,7 +58,7 @@ fn flatpak() -> anyhow::Result<()> {
     cmd!(
         "flatpak",
         "update",
-        "com.gitlab.newsflash",
+        "io.gitlab.news_flash.NewsFlash",
         "com.github.johnfactotum.Foliate",
         "com.logseq.Logseq",
         "org.atheme.audacious",
