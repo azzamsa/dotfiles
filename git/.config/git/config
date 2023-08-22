@@ -12,16 +12,18 @@
 	b = branch
 	cl = clone --depth 1
 	g = log --graph --pretty=custom           # Show custom graph.
-	l = log --pretty=custom --abbrev=7        # Show custom log.
+	l = log --pretty=custom --abbrev=7  --date=format:'%d %b %Y %I:%M %p' # Show custom log.
+	lr = log --pretty=relative --abbrev=7     # Show custom log with relative date.
 
 [pretty]
 
-	custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
-	#                     │        │            │            │             └─ author name
-	#                     │        │            │            └─ message
-	#                     │        │            └─ date (relative)
-	#                     │        └─ decorations (branch, heads or tags)
-	#                     └─ hash (abbreviated)
+	custom = "%C(magenta)%h%C(red)%d %C(yellow)%ad %C(green)%s %C(yellow)(%an)"
+	relative = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+	#                       │        │            │            │             └─ author name
+	#                       │        │            │            └─ message
+	#                       │        │            └─ date (relative)
+	#                       │        └─ decorations (branch, heads or tags)
+	#                       └─ hash (abbreviated)
 
 [color "branch"]
 	current = green bold
