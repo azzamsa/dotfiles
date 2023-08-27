@@ -1,0 +1,75 @@
+" vim: filetype=vim
+" When reading this file, keep in mind that I am a Colemak-DH user
+
+" This wipes all existing settings. This means that if a setting in this file
+" is removed, then it will return to default. In other words, this file serves
+" as an enforced single point of truth for Tridactyl's configuration.
+sanitize tridactyllocal tridactylsync
+
+" Just use a blank page for new tab. It would be nicer to use the standard
+" Firefox homepage, but Tridactyl doesn't support this yet.
+set newtab about:blank
+
+" Use vim in tmux for editor.
+set editorcmd emacs
+
+" Ctrl-F should use the browser's native 'find' functionality.
+unbind <C-f>
+
+" The default jump of 10 is a bit much.
+unbind j
+bind n scrollline 5
+unbind k
+bind e scrollline -5
+
+" N and E should move between tabs. x should close them.
+unbind J
+bind N tabprev
+unbind K
+bind E tabnext
+unbind d
+bind x tabclose
+
+" History
+unbind m
+bind m back
+unbind M
+bind M forward
+
+" But also support Tridactyl search too.
+bind / fillcmdline find
+bind ? fillcmdline find -?
+bind k findnext 1
+bind K findnext -1
+
+" Clipboard
+unbind yy
+unbind ys
+unbind yc
+unbind ym
+unbind yt
+" bind y clipboard yankshort
+bind y clipboard yank
+bind ty hint -p
+bind Y composite js window.getSelection().toString() | yank
+
+" Remove search highlighting.
+bind ,<Space> nohlsearch
+" Use sensitive case. Smart case would be nice here, but it doesn't work.
+set findcase sensitive
+
+" Smooth scrolling, yes please. This is still a bit janky in Tridactyl.
+set smoothscroll true
+
+
+" Don't run Tridactyl on some web sites because it doesn't work well, or
+" because the web site has its own keybindings.
+autocmd DocStart mail.google.com mode ignore
+
+" Sometimes the status bar in the bottom left corner overlaps the Tridactyl
+" command line, so set an option to move the status bar to the right.
+guiset_quiet hoverlink right
+
+" Use most used Colemak-DH keys for hints
+set hintchars arstghneioudcmlkwfjvbxzy
+
