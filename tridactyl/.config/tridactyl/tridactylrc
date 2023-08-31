@@ -22,12 +22,16 @@ bind n scrollline 5
 unbind k
 bind e scrollline -5
 
+" I want to avoid hand strain from constantly holding Ctrl for scrolling on long pages
+bind d scrollpage 0.5
+bind u scrollpage -0.5
+bind <C-u> undo window
+
 " N and E should move between tabs. x should close them.
 unbind J
 bind N tabprev
 unbind K
 bind E tabnext
-unbind d
 bind x tabclose
 
 " History
