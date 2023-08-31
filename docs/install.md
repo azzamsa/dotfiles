@@ -152,7 +152,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
 ## Setup Python Tooling
 
 ```bash
-curl -sSf https://rye-up.com/get | bash
+python3 -m pip install --user qmk grip
+python3 -m pip install --user black python-lsp-server
 ```
 
 ## Setup Toolbx

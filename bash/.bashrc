@@ -53,6 +53,7 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo
+export VIRTUALFISH_HOME="$XDG_DATA_HOME"/virtualfish
 
 #
 # Set .bashrc to drop into Fish
