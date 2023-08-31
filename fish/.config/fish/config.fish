@@ -1,6 +1,11 @@
 set fish_greeting # no greeting
 
 #
+# Bindings
+#
+bind \cH backward-kill-word
+
+#
 # Aliases
 #
 

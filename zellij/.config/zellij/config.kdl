@@ -173,9 +173,11 @@ keybinds clear-defaults=true {
     shared_except "tab" "locked" {
         bind "Ctrl t" { SwitchToMode "Tab"; }
     }
-    shared_except "move" "locked" {
-        bind "Ctrl h" { SwitchToMode "Move"; }
-    }
+    // I want to use Ctrl+Backspace to delete word.
+    // In most terminal, Ctrl+H translated as Backspace
+    // shared_except "move" "locked" {
+    //     bind "Ctrl h" { SwitchToMode "Move"; }
+    // }
     shared_except "tmux" "locked" {
         bind "Ctrl b" { SwitchToMode "Tmux"; }
     }
