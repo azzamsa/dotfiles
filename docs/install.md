@@ -250,6 +250,19 @@ Change the `Exec` line in `/usr/share/applications/com.github.hluk.copyq.desktop
 +Exec=env QT_QPA_PLATFORM=xcb copyq --start-server show
 ```
 
+Add CopyQ commands.
+
+```
+[Command]
+Name=Play Sound on Copy
+Automatic=true
+Command="
+    copyq:
+    if ( isClipboard() )
+      execute('pw-play', '/usr/share/sounds/gnome/default/alerts/click.ogg')"
+Icon=\xf028
+```
+
 ## Setting Up DNS
 
 On laptop.
