@@ -5,6 +5,7 @@ mod ding;
 mod names;
 mod ports;
 mod sfetch;
+mod tax_import;
 mod termhere;
 mod upgrade;
 
@@ -19,6 +20,7 @@ const TOOLS: Tools = &[
     ("sfetch", sfetch::run),
     ("termhere", termhere::run),
     ("up", upgrade::run),
+    ("tax-import", tax_import::run),
 ];
 
 fn main() -> anyhow::Result<()> {
