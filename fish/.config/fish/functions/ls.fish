@@ -1,17 +1,17 @@
 function l
-    exa --group-directories-first --git $argv
+    eza --group-directories-first --git $argv
 end
 
 function ls
-    exa --group-directories-first --git $argv
+    eza --group-directories-first --git $argv
 end
 
 function la
-    exa --group-directories-first --git --all $argv
+    eza --group-directories-first --git --all $argv
 end
 
 function ll
-    exa --all --binary --group --header --inode --long --modified --accessed $argv
+    eza --all --binary --group --header --inode --long --modified --accessed $argv
 end
 
 function llm
@@ -19,5 +19,5 @@ function llm
 end
 
 function tree
-    exa --tree --git-ignore $argv
+    eza --tree --git-ignore $argv
 end
