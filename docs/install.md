@@ -41,16 +41,37 @@ Populate the dotfiles.
 
 ```bash
 cd ~/dotfiles
-stow --no-folding --restow git zellij fish wezterm
+stow --no-folding --restow git zellij fish bash
 ```
 
-Change the prompt style.
+Make sure bash doesn't fail to load.
+
+```bash
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+mkdir -p "$XDG_DATA_HOME"
+mkdir -p "$XDG_CONFIG_HOME"
+mkdir -p "$XDG_STATE_HOME"
+mkdir -p "$XDG_CACHE_HOME"
+
+mkdir -p "$HOME"/.config/meta
+touch "$HOME"/.config/meta/env
+```
+
+Load `bash`.
+
+```bash
+bash # Yes, type `bash`!
+```
+
+Change the prompt style to `Dracula`.
 
 ```bash
 fish_config
 ```
-
-⚠ The default bash won't change if you don't log out.
 
 ### Prompt Tools
 
@@ -59,9 +80,12 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup default stable
+```
+
+```bash
+sudo dnf install --assumeyes clang
 
 cargo install cargo-binstall
-
 cargo binstall --no-confirm --no-symlinks atuin fnm starship zellij zoxide
 ```
 
@@ -73,15 +97,13 @@ dconf dump /org/gnome/terminal/legacy/profiles:/ < ~/dotfiles/gnome-terminal/pro
 
 ## I hate brightness
 
-Install [Soft Brightness Plus](https://extensions.gnome.org/extension/5943/soft-brightness-plus/).
-
 ```bash
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 flatpak install flathub --assumeyes com.mattjakeman.ExtensionManager
 ```
 
-Open the extension manager and install Soft Brightness.
+Install [Brightness control](https://extensions.gnome.org/extension/2645/brightness-control-using-ddcutil/).
 
 ## Use Flatpak Version
 
@@ -105,11 +127,11 @@ flatpak install flathub --assumeyes com.github.IsmaelMartinez.teams_for_linux us
 
 ## Setup Power Management
 
+⚠ Skip this step if you are on PC.
+
 ```bash
 sudo dnf remove power-profiles-daemon
 ```
-
-⚠ Skip `tlp` instllation if you are on PC.
 
 ```bash
 sudo dnf install --assumeyes tlp tlp-rdw
@@ -152,7 +174,7 @@ rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
 ## Setup Python Tooling
 
 ```bash
-python3 -m pip install --user qmk grip
+python3 -m pip install --user qmk grip poetry
 python3 -m pip install --user black python-lsp-server
 ```
 
@@ -168,16 +190,13 @@ toolbox run -c daily sudo dnf install --assumeyes fish yt-dlp pandoc ShellCheck
 ## Install More Apps
 
 ```bash
-sudo dnf install --assumeyes aspell-id workrave copyq
+sudo dnf install --assumeyes aspell-id copyq gnome-tweaks workrave
 
-sudo dnf install --assumeyes podman-compose telnet jq
+sudo dnf install --assumeyes jq podman-compose telnet
 
 # More codecs
 sudo dnf config-manager --set-enabled fedora-cisco-openh264
 sudo dnf install --assumeyes gstreamer1-plugin-openh264
-
-# Rust tooling
-sudo dnf install --assumeyes clang openssl-devel
 ```
 
 ```bash
@@ -191,11 +210,6 @@ cargo binstall --no-confirm --no-symlinks cargo-edit cargo-machete cargo-nextest
 
 # utilities
 cargo binstall --no-confirm --no-symlinks bandwhich bat dua-cli kondo rust-script stylua
-```
-
-```bash
-rye install grip
-rye install poetry
 ```
 
 ## Install More GNOME Extensions
