@@ -3,5 +3,4 @@ docs
 assets
 git/.config/git/hooks
 git/.config/git/.stow-local-ignore
-vimium
 bin/xtool

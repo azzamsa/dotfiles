@@ -51,6 +51,7 @@ commit_parsers = [
   { message = "^feat", group = "<!-- 0 -->⛰️ Features" },
   { message = "^fix", group = "<!-- 1 -->🐛 Bug Fixes" },
   { message = "^perf", group = "<!-- 2 -->⚡ Performance" },
+  { message = "^rm", group = "<!-- 3 -->🧹 Cleanup" },
 ]
 # filter out the commits that are not matched by commit parsers
 filter_commits = true

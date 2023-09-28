@@ -46,7 +46,7 @@ jobs:
           mkdir -p "${ARCHIVE_DIR}"
 
           # Source
-          cp -r "docs" "git" "gnupg" "starship" "vi" "tridactyl" "xtool" "zellij" "fish" "$ARCHIVE_DIR"
+          cp -r "docs" "git" "gnupg" "starship" "tridactyl" "xtool" "zellij" "fish" "$ARCHIVE_DIR"
           # README, LICENSE and CHANGELOG files
           cp "README.md" "LICENSE" "CHANGELOG.md" "$ARCHIVE_DIR"
 
