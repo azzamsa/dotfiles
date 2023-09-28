@@ -46,7 +46,7 @@ jobs:
           mkdir -p "${ARCHIVE_DIR}"
 
           # Source
-          cp -r "docs" "git" "gnupg" "starship" "tridactyl" "xtool" "zellij" "fish" "$ARCHIVE_DIR"
+          cp -r "bash" "docs" "fish" "git" "gnupg" "joshuto" "starship" "tridactyl" "wezterm" "xtool" "zellij" "$ARCHIVE_DIR"
           # README, LICENSE and CHANGELOG files
           cp "README.md" "LICENSE" "CHANGELOG.md" "$ARCHIVE_DIR"
 
@@ -63,7 +63,7 @@ jobs:
         id: git-cliff
         with:
           config: configs/cliff.toml
-          args: -vv --strip header --current 
+          args: -vv --strip header --current
         env:
           OUTPUT: CHANGELOG.md.tmp
 
