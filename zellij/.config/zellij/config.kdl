@@ -3,6 +3,7 @@ copy_command "wl-copy" // wayland
 
 keybinds clear-defaults=true {
     normal {
+        unbind "Ctrl q"
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
