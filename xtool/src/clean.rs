@@ -109,7 +109,6 @@ fn tmp() -> anyhow::Result<()> {
     let mut all_paths: Vec<PathBuf> = Vec::new();
     let home = env::var("HOME").unwrap();
 
-    all_paths.extend(get_paths(&format!("{home}/tmp")));
     all_paths.extend(get_paths(&format!("{home}/Downloads")));
     all_paths.extend(get_paths(&format!("{home}/Screenshots")));
 
