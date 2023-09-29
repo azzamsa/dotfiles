@@ -30,11 +30,9 @@ alias mkdir 'mkdir -pv'
 alias path 'echo -e $PATH | tr ":" "\\n"'
 
 alias j 'just'
-alias x 'joshuto'
-alias b 'bookmarks'
+alias x 'fyazi'
 
 abbr --add crg cargo
-alias rust-udeps 'distrobox-enter --name arch -- cargo +nightly udeps && cargo-machete'
 
 #
 # Apps
@@ -44,3 +42,48 @@ starship init fish | source
 fnm env | source
 atuin init fish | source
 
+
+#
+# Functions
+#
+
+#
+# ls
+function l
+    eza --group-directories-first --git $argv
+end
+
+function ls
+    eza --group-directories-first --git $argv
+end
+
+function la
+    eza --group-directories-first --git --all $argv
+end
+
+function tree
+    eza --tree --git-ignore $argv
+end
+
+
+#
+# yazi
+function fyazi
+    set tmp (mktemp -t "yazi-cwd.XXXXX")
+    yazi --cwd-file="$tmp"
+    if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+
+
+#
+# toolbox
+function box
+    if test -z $argv
+        toolbox enter daily
+    else
+        toolbox enter $argv[1]
+    end
+end
