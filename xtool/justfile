@@ -13,7 +13,7 @@ _default:
 
 # Setup the repository.
 setup: _areyousure
-    just _cargo-install ' cargo-watch  cargo-outdated spacer'
+    just _cargo-install 'cargo-watch cargo-outdated bacon'
 
 # Link the binaries
 publish: check
@@ -29,7 +29,7 @@ check: fmt-check lint _doc-check
 
 # Develop the app.
 dev:
-    cargo watch -x 'clippy --locked --all-targets --all-features' | spacer
+    bacon
 
 # Format the codebase.
 fmt:
