@@ -206,7 +206,7 @@ fnm use v18
 
 ```bash
 # rust development tool
-cargo binstall --no-confirm --no-symlinks cargo-edit cargo-machete cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch dprint git-cliff git-cliff hurl joshuto just tokei watchexec-cli
+cargo binstall --no-confirm --no-symlinks cargo-edit cargo-machete cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch dprint git-cliff git-cliff hurl just tokei watchexec-cli
 
 # utilities
 cargo binstall --no-confirm --no-symlinks bandwhich bat dua-cli kondo rust-script stylua
