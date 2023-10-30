@@ -197,19 +197,34 @@ ui {
     }
 }
 
-theme "kanagawa!"
+theme "dracufall"
 themes {
-   kanagawa! {
-        fg "#DCD7BA"
-        bg "#16161D" // Highlight
-        black "#1F1F28"
-        red "#C34043" // Symbol
-        green "#DCA561" // Tab border
-        yellow "#DCA561"
-        blue "#223249"
-        magenta "#E82424"
-        cyan "#6A9589"
-        white "#DCD7BA"
-        orange "#FF9E3B" // Active border
+   dracufall {
+        // Primary color
+        // Color of Zellij logo and help prefix
+        // Casablanca
+        white "#f8b659"
+        // Color of tab background and border
+        green "#f8b659"
+        // Color of foreground in help footer
+        // Citrine White
+        fg "#f9f5d7"
+        // Color of highlight block
+        // Charade
+        /* bg "#282a36" */
+        // Can't use Charade, as it will be the same as the background color
+        bg "#44475A"
+        // Color of symbol
+        // SamuraiRed
+        red "#e82424"
+        // Color of active border
+        orange "#f8b659"
+
+        // Not used colors
+        black "#282a36"
+        yellow "#f1fa8c"
+        blue "#6272a4"
+        magenta "#ff79c6"
+        cyan "#8be9fd"
     }
 }

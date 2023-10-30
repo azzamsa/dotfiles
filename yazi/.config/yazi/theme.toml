@@ -6,26 +6,26 @@
 cwd = { fg = "#7AA89F" }
 
 # Hovered
-hovered = { fg = "#1F1F28", bg = "#FFA066" }
+hovered = { fg = "#1F1F28", bg = "#f8b659" }
 preview_hovered = { underline = true }
 
 # Find
-find_keyword = { fg = "#E5C283", italic = true }
-find_position = { fg = "#957FB8", bg = "reset", italic = true }
+find_keyword = { fg = "#E82424", italic = true }
+find_position = { fg = "#BD93F9", bg = "reset", italic = true }
 
 # Marker
 marker_selected = { fg = "#9EC967", bg = "#9EC967" }
-marker_copied = { fg = "#E5C283", bg = "#E5C283" }
+marker_copied = { fg = "#E82424", bg = "#E82424" }
 marker_cut = { fg = "#E46A78", bg = "#E46A78" }
 
 # Tab
-tab_active = { fg = "#1F1F28", bg = "#614A82" }
-tab_inactive = { fg = "#DDD8BB", bg = "#363644" }
+tab_active = { fg = "#1F1F28", bg = "#BD93F9" }
+tab_inactive = { fg = "#DDD8BB", bg = "#44475A" }
 tab_width = 1
 
 # Border
 border_symbol = "│"
-border_style = { fg = "#7AA89F" }
+border_style = { fg = "#f8b659" }
 
 # Offset
 folder_offset = [1, 0, 1, 0]
@@ -41,30 +41,30 @@ syntect_theme = ""
 [status]
 separator_open = ""
 separator_close = ""
-separator_style = { fg = "#363644", bg = "#363644" }
+separator_style = { fg = "#44475A", bg = "#44475A" }
 # Mode
-mode_normal = { fg = "#1F1F28", bg = "#614A82", bold = true }
+mode_normal = { fg = "#1F1F28", bg = "#BD93F9", bold = true }
 mode_select = { fg = "#1F1F28", bg = "#9EC967", bold = true }
-mode_unset = { fg = "#1F1F28", bg = "#957FB8", bold = true }
+mode_unset = { fg = "#1F1F28", bg = "#BD93F9", bold = true }
 
 # Progress
 progress_label = { bold = true }
-progress_normal = { fg = "#7EB3C9", bg = "#1F1F28" }
+progress_normal = { fg = "#8BE9FD", bg = "#1F1F28" }
 progress_error = { fg = "#E46A78", bg = "#1F1F28" }
 
 # Permissions
 permissions_t = { fg = "#9EC967" }
-permissions_r = { fg = "#E5C283" }
+permissions_r = { fg = "#E82424" }
 permissions_w = { fg = "#E46A78" }
-permissions_x = { fg = "#7AA89F" }
-permissions_s = { fg = "#363644", bg = "#363644" }
+permissions_x = { fg = "#f8b659" }
+permissions_s = { fg = "#44475A", bg = "#44475A" }
 
 # : }}}
 
 # : Input {{{
 
 [input]
-border = { fg = "#7EB3C9" }
+border = { fg = "#8BE9FD" }
 title = {}
 value = {}
 selected = { reversed = true }
@@ -74,8 +74,8 @@ selected = { reversed = true }
 # : Select {{{
 
 [select]
-border = { fg = "#7EB3C9" }
-active = { fg = "#957FB8" }
+border = { fg = "#8BE9FD" }
+active = { fg = "#BD93F9" }
 inactive = {}
 
 # : }}}
@@ -83,7 +83,7 @@ inactive = {}
 # : Tasks {{{
 
 [tasks]
-border = { fg = "#7EB3C9" }
+border = { fg = "#8BE9FD" }
 title = {}
 hovered = { underline = true }
 
@@ -93,22 +93,22 @@ hovered = { underline = true }
 
 [which]
 mask = { bg = "#1F1F28" }
-cand = { fg = "#7AA89F" }
-rest = { fg = "#363644" }
-desc = { fg = "#957FB8" }
+cand = { fg = "#f8b659" }
+rest = { fg = "#44475A" }
+desc = { fg = "#BD93F9" }
 separator = "  "
-separator_style = { fg = "#363644" }
+separator_style = { fg = "#44475A" }
 
 # : }}}
 
 # : Help {{{
 
 [help]
-on = { fg = "#957FB8" }
-exec = { fg = "#7AA89F" }
-desc = { fg = "#363644" }
-hovered = { bg = "#363644", bold = true }
-footer = { fg = "#1F1F28", bg = "#614A82" }
+on = { fg = "#BD93F9" }
+exec = { fg = "#f8b659" }
+desc = { fg = "#44475A" }
+hovered = { bg = "#44475A", bold = true }
+footer = { fg = "#1F1F28", bg = "#BD93F9" }
 
 # : }}}
 
@@ -124,12 +124,12 @@ rules = [
   { mime = "audio/*", fg = "#FFB86C" },
 
   # Archives
-  { mime = "application/zip", fg = "#FF79C6" },
-  { mime = "application/gzip", fg = "#FF79C6" },
-  { mime = "application/x-tar", fg = "#FF79C6" },
-  { mime = "application/x-bzip", fg = "#FF79C6" },
-	{ mime = "application/x-7z-compressed", fg = "#FF79C6" },
-	{ mime = "application/x-rar",           fg = "#FF79C6" },
+  { mime = "application/zip", fg = "#E82424" },
+  { mime = "application/gzip", fg = "#E82424" },
+  { mime = "application/x-tar", fg = "#E82424" },
+  { mime = "application/x-bzip", fg = "#001440" },
+  { mime = "application/x-7z-compressed", fg = "#001440" },
+  { mime = "application/x-rar", fg = "#44475A" },
 
   # Custom color for Rust files
   { name = "*.rs", fg = "#ea580c" },

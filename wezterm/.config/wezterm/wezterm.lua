@@ -7,7 +7,7 @@ end)
 
 return {
     default_cursor_style = "BlinkingBar",
-    font_size = 21.0,
+    font_size = 22.0,
     font = wezterm.font("Iosevka Nerd Font"),
     warn_about_missing_glyphs = false,
     check_for_updates = true,
@@ -89,45 +89,33 @@ return {
             }),
         },
     },
-
-    force_reverse_video_cursor = true,
     colors = {
-        foreground = "#DDD8BB", -- Foreground color
-        background = "#1F1F28", -- Background color
+        background = "#282a36",
+        foreground = "#f9f5d7",
 
-        cursor_bg = "#E6E0C2", -- Cursor background color
-        cursor_fg = "#E6E0C2", -- Cursor foreground color
-        cursor_border = "#E6E0C2", -- Cursor border color
-
-        selection_fg = "#E6E0C2", -- Selection foreground color
-        selection_bg = "#49473E", -- Selection background color
-
-        scrollbar_thumb = "#16161D", -- Scrollbar thumb color
-        split = "#16161D", -- Split color
+        cursor_bg = "#f8b659",
+        cursor_fg = "#f8b659",
+        cursor_border = "#f9f5d7",
 
         ansi = {
-            "#1F1F28", -- Black
-            "#E46A78", -- Red
-            "#98BC6D", -- Green
-            "#E5C283", -- Yellow
-            "#7EB3C9", -- Blue (Customized)
-            "#957FB8", -- Magenta
-            "#7EB3C9", -- Cyan
-            "#DDD8BB", -- White
+            "#21222c",
+            "#ff5555",
+            "#50fa7b",
+            "#f1fa8c",
+            "#bd93f9",
+            "#ff79c6",
+            "#8be9fd",
+            "#f8f8f2",
         },
         brights = {
-            "#A8A48D", -- Bright Black
-            "#EC818C", -- Bright Red
-            "#9EC967", -- Bright Green
-            "#F1C982", -- Bright Yellow
-            "#7BC2DF", -- Bright Blue (Customized)
-            "#A98FD2", -- Bright Magenta
-            "#7BC2DF", -- Bright Cyan
-            "#DDD8BB", -- Bright White
-        },
-        indexed = {
-            [16] = "#614A82", -- Active tab background
-            [17] = "#363644", -- Inactive tab background
+            "#6272a4",
+            "#ff6e6e",
+            "#69ff94",
+            "#ffffa5",
+            "#d6acff",
+            "#ff92df",
+            "#a4ffff",
+            "#ffffff",
         },
     },
 }

@@ -89,28 +89,28 @@ function box
 end
 
 #
-# Theme
+# Theme (Fally)
 #
 
-# It is a mixed of KanagawaBones and Dracula
-# Kanagawa color is too dimmed for me.
+# It is a mixed of Kanagawa, Gruvbox, and Dracula
+# Inspired by begie and orange colors of fall season.
 
 # Colors
-set -l foreground DCD7BA
-set -l selection 49473E
-set -l comment 6272A4  # Use Dracula's Comment color
-set -l red E46A78
-set -l orange FF9E64
-set -l yellow E5C283
-set -l green 98BC6D
-set -l purple BD93F9  # Use Dracula's Purple color
-set -l cyan 8BE9FD  # Use Dracula's Cyan color
-set -l pink FF79C6  # Use Dracula's Pink color
-set -l blue B10D91  # Use a custom blue color from DRACULA palette
+set -l foreground f9f5d7 #f9f5d7
+set -l selection 49473e #49473e
+set -l comment 6272a4 #6272a4
+set -l red ff5d62 #ff5d62
+set -l orange f8b659 #f8b659
+set -l yellow e5c283 #e5c283
+set -l green 98bb6c #98bb6c
+set -l purple bd93f9 #bd93f9
+set -l cyan 8be9fd #8be9fd
+set -l pink d27e99 #ff79c6
+set -l blue b10d91 #b10d91
 
 # Syntax Highlighting Colors
 set -g fish_color_normal $foreground
-set -g fish_color_command $cyan
+set -g fish_color_command $orange
 set -g fish_color_keyword $pink
 set -g fish_color_quote $yellow
 set -g fish_color_redirection $foreground
