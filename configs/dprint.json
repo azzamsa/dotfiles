@@ -1,8 +1,7 @@
 {
   "markdown": {
   },
-  "toml": {
-  },
+  "toml": {},
   "includes": ["**/*.{md,toml}"],
   "excludes": [],
   "plugins": [

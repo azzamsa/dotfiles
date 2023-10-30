@@ -6,7 +6,6 @@ wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
 end)
 
 return {
-    color_scheme = "Dracula",
     default_cursor_style = "BlinkingBar",
     font_size = 21.0,
     font = wezterm.font("Iosevka Nerd Font"),
@@ -88,6 +87,47 @@ return {
                 family = "VictorMono Nerd Font",
                 style = "Italic",
             }),
+        },
+    },
+
+    force_reverse_video_cursor = true,
+    colors = {
+        foreground = "#DDD8BB", -- Foreground color
+        background = "#1F1F28", -- Background color
+
+        cursor_bg = "#E6E0C2", -- Cursor background color
+        cursor_fg = "#E6E0C2", -- Cursor foreground color
+        cursor_border = "#E6E0C2", -- Cursor border color
+
+        selection_fg = "#E6E0C2", -- Selection foreground color
+        selection_bg = "#49473E", -- Selection background color
+
+        scrollbar_thumb = "#16161D", -- Scrollbar thumb color
+        split = "#16161D", -- Split color
+
+        ansi = {
+            "#1F1F28", -- Black
+            "#E46A78", -- Red
+            "#98BC6D", -- Green
+            "#E5C283", -- Yellow
+            "#7EB3C9", -- Blue (Customized)
+            "#957FB8", -- Magenta
+            "#7EB3C9", -- Cyan
+            "#DDD8BB", -- White
+        },
+        brights = {
+            "#A8A48D", -- Bright Black
+            "#EC818C", -- Bright Red
+            "#9EC967", -- Bright Green
+            "#F1C982", -- Bright Yellow
+            "#7BC2DF", -- Bright Blue (Customized)
+            "#A98FD2", -- Bright Magenta
+            "#7BC2DF", -- Bright Cyan
+            "#DDD8BB", -- Bright White
+        },
+        indexed = {
+            [16] = "#614A82", -- Active tab background
+            [17] = "#363644", -- Inactive tab background
         },
     },
 }

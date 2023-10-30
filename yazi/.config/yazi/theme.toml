@@ -1,34 +1,118 @@
-[tab]
-active = { fg = "#BD93F9", bg = "#282A36" }
-inactive = { fg = "#6272A4", bg = "#44475A" }
-max_width = 1
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# : Manager {{{
+
+[manager]
+cwd = { fg = "#7AA89F" }
+
+# Hovered
+hovered = { fg = "#1F1F28", bg = "#FFA066" }
+preview_hovered = { underline = true }
+
+# Find
+find_keyword = { fg = "#E5C283", italic = true }
+find_position = { fg = "#957FB8", bg = "reset", italic = true }
+
+# Marker
+marker_selected = { fg = "#9EC967", bg = "#9EC967" }
+marker_copied = { fg = "#E5C283", bg = "#E5C283" }
+marker_cut = { fg = "#E46A78", bg = "#E46A78" }
+
+# Tab
+tab_active = { fg = "#1F1F28", bg = "#614A82" }
+tab_inactive = { fg = "#DDD8BB", bg = "#363644" }
+tab_width = 1
+
+# Border
+border_symbol = "│"
+border_style = { fg = "#7AA89F" }
+
+# Offset
+folder_offset = [1, 0, 1, 0]
+preview_offset = [1, 1, 1, 1]
+
+# Highlighting
+syntect_theme = ""
+
+# : }}}
+
+# : Status {{{
 
 [status]
-primary = { normal = "#BD93F9", select = "#FF79C6", unset = "#FF5555" }
-secondary = { normal = "#6272A4", select = "#44475A", unset = "#44475A" }
-tertiary = { normal = "#A4A6B3", select = "#A4A6B3", unset = "#A4A6B3" }
-body = { normal = "#44475A", select = "#44475A", unset = "#44475A" }
-emphasis = { normal = "#C7C7C7", select = "#C7C7C7", unset = "#C7C7C7" }
-info = { normal = "#8BE9FD", select = "#8BE9FD", unset = "#8BE9FD" }
-success = { normal = "#50FA7B", select = "#50FA7B", unset = "#50FA7B" }
-warning = { normal = "#FFB86C", select = "#FFB86C", unset = "#FFB86C" }
-danger = { normal = "#FF5555", select = "#FF5555", unset = "#FF5555" }
-separator = { opening = "", closing = "" }
+separator_open = ""
+separator_close = ""
+separator_style = { fg = "#363644", bg = "#363644" }
+# Mode
+mode_normal = { fg = "#1F1F28", bg = "#614A82", bold = true }
+mode_select = { fg = "#1F1F28", bg = "#9EC967", bold = true }
+mode_unset = { fg = "#1F1F28", bg = "#957FB8", bold = true }
 
-[progress]
-gauge = { fg = "#FF79C6", bg = "#44475A" }
-label = { fg = "#FFFFFF", bold = true }
+# Progress
+progress_label = { bold = true }
+progress_normal = { fg = "#7EB3C9", bg = "#1F1F28" }
+progress_error = { fg = "#E46A78", bg = "#1F1F28" }
 
-[selection]
-hovered = { fg = "#BD93F9", bg = "#282A36" }
+# Permissions
+permissions_t = { fg = "#9EC967" }
+permissions_r = { fg = "#E5C283" }
+permissions_w = { fg = "#E46A78" }
+permissions_x = { fg = "#7AA89F" }
+permissions_s = { fg = "#363644", bg = "#363644" }
 
-[marker]
-selecting = { fg = "#50FA7B", bg = "#50FA7B" }
-selected = { fg = "#FFB86C", bg = "#FFB86C" }
+# : }}}
 
-[preview]
+# : Input {{{
+
+[input]
+border = { fg = "#7EB3C9" }
+title = {}
+value = {}
+selected = { reversed = true }
+
+# : }}}
+
+# : Select {{{
+
+[select]
+border = { fg = "#7EB3C9" }
+active = { fg = "#957FB8" }
+inactive = {}
+
+# : }}}
+
+# : Tasks {{{
+
+[tasks]
+border = { fg = "#7EB3C9" }
+title = {}
 hovered = { underline = true }
-syntect_theme = "~/.config/bat/themes/Dracula.tmTheme"
+
+# : }}}
+
+# : Which {{{
+
+[which]
+mask = { bg = "#1F1F28" }
+cand = { fg = "#7AA89F" }
+rest = { fg = "#363644" }
+desc = { fg = "#957FB8" }
+separator = "  "
+separator_style = { fg = "#363644" }
+
+# : }}}
+
+# : Help {{{
+
+[help]
+on = { fg = "#957FB8" }
+exec = { fg = "#7AA89F" }
+desc = { fg = "#363644" }
+hovered = { bg = "#363644", bold = true }
+footer = { fg = "#1F1F28", bg = "#614A82" }
+
+# : }}}
+
+# : File-specific styles {{{
 
 [filetype]
 rules = [
@@ -44,13 +128,15 @@ rules = [
   { mime = "application/gzip", fg = "#FF79C6" },
   { mime = "application/x-tar", fg = "#FF79C6" },
   { mime = "application/x-bzip", fg = "#FF79C6" },
-  { mime = "application/x-bzip2", fg = "#FF79C6" },
-  { mime = "application/x-7z-compressed", fg = "#FF79C6" },
-  { mime = "application/x-rar", fg = "#FF79C6" },
+	{ mime = "application/x-7z-compressed", fg = "#FF79C6" },
+	{ mime = "application/x-rar",           fg = "#FF79C6" },
+
+  # Custom color for Rust files
+  { name = "*.rs", fg = "#ea580c" },
 
   # Fallback
-  { name = "*", fg = "#C7C7C7" },
-  { name = "*/", fg = "#6272a4" },
+  { name = "*", fg = "white" },
+  { name = "*/", fg = "#7BC2DF" },
 ]
 
 [icons]
@@ -146,3 +232,5 @@ rules = [
 # Default
 "*" = ""
 "*/" = ""
+
+# : }}}

@@ -62,7 +62,7 @@ function la
 end
 
 function tree
-    eza --tree --git-ignore $argv
+    eza --tree $argv
 end
 
 
@@ -87,3 +87,45 @@ function box
         toolbox enter $argv[1]
     end
 end
+
+#
+# Theme
+#
+
+# It is a mixed of KanagawaBones and Dracula
+# Kanagawa color is too dimmed for me.
+
+# Colors
+set -l foreground DCD7BA
+set -l selection 49473E
+set -l comment 6272A4  # Use Dracula's Comment color
+set -l red E46A78
+set -l orange FF9E64
+set -l yellow E5C283
+set -l green 98BC6D
+set -l purple BD93F9  # Use Dracula's Purple color
+set -l cyan 8BE9FD  # Use Dracula's Cyan color
+set -l pink FF79C6  # Use Dracula's Pink color
+set -l blue B10D91  # Use a custom blue color from DRACULA palette
+
+# Syntax Highlighting Colors
+set -g fish_color_normal $foreground
+set -g fish_color_command $cyan
+set -g fish_color_keyword $pink
+set -g fish_color_quote $yellow
+set -g fish_color_redirection $foreground
+set -g fish_color_end $orange
+set -g fish_color_error $red
+set -g fish_color_param $purple
+set -g fish_color_comment $comment
+set -g fish_color_selection --background=$selection
+set -g fish_color_search_match --background=$selection
+set -g fish_color_operator $green
+set -g fish_color_escape $pink
+set -g fish_color_autosuggestion $comment
+
+# Completion Pager Colors
+set -g fish_pager_color_progress $comment
+set -g fish_pager_color_prefix $cyan
+set -g fish_pager_color_completion $foreground
+set -g fish_pager_color_description $comment

@@ -197,19 +197,19 @@ ui {
     }
 }
 
-theme "dracula!"
+theme "kanagawa!"
 themes {
-   dracula! {
-        fg "#F8F8F2"
-        bg "#44475a" // Highlight
-        black "#000000"
-        red "#FF5555" // Symbol
-        green "#bd93f9" // Tab border
-        yellow "#F1FA8C"
-        blue "#6272A4"
-        magenta "#FF79C6"
-        cyan "#8BE9FD"
-        white "#FFFFFF"
-        orange "#FFB86C" // Active border
+   kanagawa! {
+        fg "#DCD7BA"
+        bg "#16161D" // Highlight
+        black "#1F1F28"
+        red "#C34043" // Symbol
+        green "#DCA561" // Tab border
+        yellow "#DCA561"
+        blue "#223249"
+        magenta "#E82424"
+        cyan "#6A9589"
+        white "#DCD7BA"
+        orange "#FF9E3B" // Active border
     }
 }
