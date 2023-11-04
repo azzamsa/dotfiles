@@ -89,33 +89,5 @@ return {
             }),
         },
     },
-    colors = {
-        background = "#282a36",
-        foreground = "#f9f5d7",
-
-        cursor_bg = "#f8b659",
-        cursor_fg = "#f8b659",
-        cursor_border = "#f9f5d7",
-
-        ansi = {
-            "#21222c",
-            "#ff5555",
-            "#50fa7b",
-            "#f1fa8c",
-            "#bd93f9",
-            "#ff79c6",
-            "#8be9fd",
-            "#f8f8f2",
-        },
-        brights = {
-            "#6272a4",
-            "#ff6e6e",
-            "#69ff94",
-            "#ffffa5",
-            "#d6acff",
-            "#ff92df",
-            "#a4ffff",
-            "#ffffff",
-        },
-    },
+    color_scheme = "Catppuccin Mocha",
 }
