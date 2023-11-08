@@ -262,7 +262,7 @@ Automatic=true
 Command="
     copyq:
     if ( isClipboard() )
-      execute('pw-play', '/usr/share/sounds/gnome/default/alerts/click.ogg')"
+      execute('pw-play', '/usr/share/sounds/gnome/default/alerts/hum.ogg')"
 Icon=\xf028
 ```
 
