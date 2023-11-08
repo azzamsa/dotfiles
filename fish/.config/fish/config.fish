@@ -92,30 +92,37 @@ end
 # Theme
 #
 
-# preferred_background: 1e1e2e
-set -g fish_color_normal cdd6f4
-set -g fish_color_command 89b4fa
-set -g fish_color_param f2cdcd
-set -g fish_color_keyword f38ba8
-set -g fish_color_quote a6e3a1
-set -g fish_color_redirection f5c2e7
-set -g fish_color_end fab387
-set -g fish_color_comment 7f849c
-set -g fish_color_error f38ba8
-set -g fish_color_gray 6c7086
-set -g fish_color_selection --background=313244
-set -g fish_color_search_match --background=313244
-set -g fish_color_option a6e3a1
-set -g fish_color_operator f5c2e7
-set -g fish_color_escape eba0ac
-set -g fish_color_autosuggestion 6c7086
-set -g fish_color_cancel f38ba8
-set -g fish_color_cwd f9e2af
-set -g fish_color_user 94e2d5
-set -g fish_color_host 89b4fa
-set -g fish_color_host_remote a6e3a1
-set -g fish_color_status f38ba8
-set -g fish_pager_color_progress 6c7086
-set -g fish_pager_color_prefix f5c2e7
-set -g fish_pager_color_completion cdd6f4
-set -g fish_pager_color_description 6c7086
+set -l c1 6272a4 #6272a4
+set -l c2 bd93f9 #bd93f9
+set -l c3 ff79c6 #ff79c6
+set -l c4 ffb86c #ffb86c
+set -l c5 50fa7b #50fa7b
+set -l c6 ff79c6 #ff79c6
+set -l c7 f1fa8c #f1fa8c
+set -l c8 8be9fd #8be9fd
+set -l c9 8be9fd #8be9fd
+set -l c10 ff6e6e #ff6e6e
+set -l c11 282a36 #282a36
+
+set -g fish_color_normal $c1
+set -g fish_color_command $c2
+set -g fish_color_param $c3
+set -g fish_color_keyword $c4
+set -g fish_color_quote $c5
+set -g fish_color_redirection $c6
+set -g fish_color_end $c7
+set -g fish_color_comment $c8
+set -g fish_color_error $c4
+set -g fish_color_gray $c9
+set -g fish_color_selection --background=$c11
+set -g fish_color_search_match --background=$c11
+set -g fish_color_option $c5
+set -g fish_color_operator $c6
+set -g fish_color_escape $c10
+set -g fish_color_autosuggestion $c9
+set -g fish_color_cancel $c4
+set -g fish_color_status $c4
+set -g fish_pager_color_progress $c9
+set -g fish_pager_color_prefix $c6
+set -g fish_pager_color_completion $c1
+set -g fish_pager_color_description $c9

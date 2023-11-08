@@ -3,24 +3,24 @@
 # : Manager {{{
 
 [manager]
-cwd = { fg = "#7AA89F" }
+cwd = { fg = "#8BE9FD" }
 
 # Hovered
-hovered = { fg = "#1F1F28", bg = "#f8b659" }
+hovered = { fg = "#282A36", bg = "#BD93F9" }
 preview_hovered = { underline = true }
 
 # Find
-find_keyword = { fg = "#E82424", italic = true }
+find_keyword = { fg = "#F8F8F2", bold = true }
 find_position = { fg = "#BD93F9", bg = "reset", italic = true }
 
 # Marker
-marker_selected = { fg = "#9EC967", bg = "#9EC967" }
-marker_copied = { fg = "#E82424", bg = "#E82424" }
-marker_cut = { fg = "#E46A78", bg = "#E46A78" }
+marker_selected = { fg = "#50FA7B", bg = "#50FA7B" }
+marker_copied = { fg = "#FF5555", bg = "#FF5555" }
+marker_cut = { fg = "#FFB86C", bg = "#FFB86C" }
 
 # Tab
-tab_active = { fg = "#1F1F28", bg = "#BD93F9" }
-tab_inactive = { fg = "#DDD8BB", bg = "#44475A" }
+tab_active = { fg = "#282A36", bg = "#BD93F9" }
+tab_inactive = { fg = "#DDD8BB", bg = "#6272A4" }
 tab_width = 1
 
 # Border
@@ -41,23 +41,24 @@ syntect_theme = ""
 [status]
 separator_open = ""
 separator_close = ""
-separator_style = { fg = "#44475A", bg = "#44475A" }
+separator_style = { fg = "#282A36", bg = "#282A36" }
+
 # Mode
-mode_normal = { fg = "#1F1F28", bg = "#BD93F9", bold = true }
-mode_select = { fg = "#1F1F28", bg = "#9EC967", bold = true }
-mode_unset = { fg = "#1F1F28", bg = "#BD93F9", bold = true }
+mode_normal = { fg = "#282A36", bg = "#BD93F9", bold = true }
+mode_select = { fg = "#282A36", bg = "#50FA7B", bold = true }
+mode_unset = { fg = "#282A36", bg = "#BD93F9", bold = true }
 
 # Progress
 progress_label = { bold = true }
-progress_normal = { fg = "#8BE9FD", bg = "#1F1F28" }
-progress_error = { fg = "#E46A78", bg = "#1F1F28" }
+progress_normal = { fg = "#8BE9FD", bg = "#282A36" }
+progress_error = { fg = "#FFB86C", bg = "#282A36" }
 
 # Permissions
-permissions_t = { fg = "#9EC967" }
-permissions_r = { fg = "#E82424" }
-permissions_w = { fg = "#E46A78" }
+permissions_t = { fg = "#50FA7B" }
+permissions_r = { fg = "#FF5555" }
+permissions_w = { fg = "#FFB86C" }
 permissions_x = { fg = "#f8b659" }
-permissions_s = { fg = "#44475A", bg = "#44475A" }
+permissions_s = { fg = "#282A36", bg = "#282A36" }
 
 # : }}}
 
@@ -92,23 +93,23 @@ hovered = { underline = true }
 # : Which {{{
 
 [which]
-mask = { bg = "#1F1F28" }
-cand = { fg = "#f8b659" }
-rest = { fg = "#44475A" }
-desc = { fg = "#BD93F9" }
+mask = { bg = "#282A36" }
+cand = { fg = "#BD93F9" }
+rest = { fg = "#282A36" }
+desc = { fg = "#F8F8F2" }
 separator = "  "
-separator_style = { fg = "#44475A" }
+separator_style = { fg = "#282A36" }
 
 # : }}}
 
 # : Help {{{
 
 [help]
-on = { fg = "#BD93F9" }
-exec = { fg = "#f8b659" }
-desc = { fg = "#44475A" }
+on = { fg = "#8BE9FD" }
+exec = { fg = "#BD93F9" }
+desc = { fg = "#F8F8F2" }
 hovered = { bg = "#44475A", bold = true }
-footer = { fg = "#1F1F28", bg = "#BD93F9" }
+footer = { fg = "#BD93F9", bg = "#282a36" }
 
 # : }}}
 
@@ -124,19 +125,29 @@ rules = [
   { mime = "audio/*", fg = "#FFB86C" },
 
   # Archives
-  { mime = "application/zip", fg = "#E82424" },
-  { mime = "application/gzip", fg = "#E82424" },
-  { mime = "application/x-tar", fg = "#E82424" },
-  { mime = "application/x-bzip", fg = "#001440" },
-  { mime = "application/x-7z-compressed", fg = "#001440" },
-  { mime = "application/x-rar", fg = "#44475A" },
+  { mime = "application/zip", fg = "#FF5555" },
+  { mime = "application/gzip", fg = "#FF5555" },
+  { mime = "application/x-tar", fg = "#FF5555" },
+  { mime = "application/x-bzip", fg = "#FF5555" },
+  { mime = "application/x-7z-compressed", fg = "#FF5555" },
+  { mime = "application/x-rar", fg = "#FF5555" },
 
-  # Custom color for Rust files
-  { name = "*.rs", fg = "#ea580c" },
+  # Custom color for common programming languages
+  { name = "*.rs", fg = "#FFB86C" },
+  { name = "*.toml", fg = "#FF79C6" },
+  { name = "*.md", fg = "#8BE9FD" },
+  { name = "*.sh", fg = "#b8bb26" },
+  { name = "*.js", fg = "#FFB86C" },
+  { name = "*.json", fg = "#FFB86C" },
+  { name = "*.py", fg = "#8BE9FD" },
+  { name = "*.c", fg = "#8BE9FD" },
+  { name = "*.html", fg = "#FF5555" },
 
   # Fallback
-  { name = "*", fg = "white" },
-  { name = "*/", fg = "#7BC2DF" },
+  # file
+  { name = "*", fg = "#F8F8F2" },
+  # directory
+  { name = "*/", fg = "#BD93F9" },
 ]
 
 [icons]

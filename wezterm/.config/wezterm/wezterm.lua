@@ -8,6 +8,7 @@ end)
 return {
     default_cursor_style = "BlinkingBar",
     font_size = 22.0,
+    -- https://github.com/braver/programmingfonts
     font = wezterm.font("Iosevka Nerd Font"),
     warn_about_missing_glyphs = false,
     check_for_updates = true,
@@ -89,5 +90,6 @@ return {
             }),
         },
     },
-    color_scheme = "Catppuccin Mocha",
+    -- https://wezfurlong.org/wezterm/colorschemes/index.html
+    color_scheme = "Dracula (Official)",
 }

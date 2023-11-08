@@ -113,10 +113,10 @@ keymap = [
   { on = ["w"], exec = "tasks_show", desc = "Show the tasks manager" },
 
   # Goto
-  { on = ["g", "h"], exec = "cd ~", desc = "➡️  ~/" },
-  { on = ["g", "l"], exec = "cd ~/playground", desc = "➡️  ~/Playground" },
-  { on = ["g", "p"], exec = "cd ~/projects", desc = "➡️  ~/Projects" },
-  { on = ["g", "d"], exec = "cd ~/Downloads", desc = "➡️  ~/Downloads" },
+  { on = ["g", "h"], exec = "cd ~", desc = "~/" },
+  { on = ["g", "l"], exec = "cd ~/playground", desc = "~/Playground" },
+  { on = ["g", "p"], exec = "cd ~/projects", desc = "~/Projects" },
+  { on = ["g", "d"], exec = "cd ~/Downloads", desc = "~/Downloads" },
   { on = ["g", "<Space>"], exec = "cd --interactive", desc = "Jump interactively" },
 
   # Help

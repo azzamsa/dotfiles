@@ -197,4 +197,32 @@ ui {
     }
 }
 
-theme "catppuccin-mocha"
+// https://zellij.dev/documentation/theme-gallery
+theme "tema"
+themes {
+   tema {
+        // Primary color
+        // Color of Zellij logo and help prefix
+        white "#bd93f9"
+        // Color of tab background and border
+        green "#bd93f9"
+        // Color of foreground in help footer
+        fg "#f8f8f2"
+        // Color of highlight block
+        // bg "#282a36"
+        // Can't use Charade, as it will be the same as the background color
+        bg "#44475A"
+        // Color of symbol
+        red "#ff5555"
+        // Color of active border
+        orange "#FFB86C"
+
+        // Not used colors
+        black "#282a36"
+        yellow "#f1fa8c"
+        blue "#6272a4"
+        magenta "#ff79c6"
+        cyan "#8be9fd"
+    }
+}
+
