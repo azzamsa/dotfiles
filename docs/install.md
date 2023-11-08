@@ -248,7 +248,7 @@ Update the `Exec` line in `/usr/share/applications/workrave.desktop`. Otherwise,
 Change the `Exec` line in `/usr/share/applications/com.github.hluk.copyq.desktop`.
 
 ```diff
-+Exec=copyq --start-server show
+-Exec=copyq --start-server show
 +Exec=env QT_QPA_PLATFORM=xcb copyq --start-server show
 ```
 
