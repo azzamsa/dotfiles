@@ -67,12 +67,6 @@ Load `bash`.
 bash # Yes, type `bash`!
 ```
 
-Change the prompt style to `Dracula`.
-
-```bash
-fish_config
-```
-
 ### Prompt Tools
 
 ```bash
@@ -87,12 +81,6 @@ sudo dnf install --assumeyes clang
 
 cargo install cargo-binstall
 cargo binstall --no-confirm --no-symlinks atuin fnm starship zellij zoxide
-```
-
-### Look and Feel
-
-```bash
-dconf dump /org/gnome/terminal/legacy/profiles:/ < ~/dotfiles/gnome-terminal/profile.dconf
 ```
 
 ## I hate brightness
