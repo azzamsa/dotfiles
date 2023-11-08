@@ -279,12 +279,12 @@ On laptop.
 
 Fonts:
 
-- Interface Text: "Noto Sans Medium 12"
-- Document Text: "Noto Sans Medium 12"
-- Monospace Text: "Noto Sans Mono Medium 12"
-- Legacy Window Titles: "Noto Sans SemiBold 12"
+- Interface Text: "Cantarell Regular 12"
+- Document Text: "Cantarell Regular 12"
+- Monospace Text: "Iosevka Nerd Font Regular 12"
+- Legacy Window Titles: "Cantarell Bold 12"
 - Hinting : Slight
-- Antialiasing: Subpixel (for LCD screens)
+- Antialiasing: Standard (greyscale)
 - Scaling Factor: 1.00
 
 Startup Applications:
