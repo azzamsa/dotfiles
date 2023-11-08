@@ -107,7 +107,8 @@ flatpak install flathub --assumeyes com.github.tchx84.Flatseal org.gnome.seahors
 flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq com.rafaelmardojai.Blanket
 
 # utilities
-flatpak install flathub --assumeyes com.brave.Browser com.github.qarmin.czkawka com.github.tenderowl.frog com.github.tenderowl.frog com.gitlab.newsflash fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.seadve.Kooha org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia
+flatpak install flathub --assumeyes com.brave.Browser com.github.qarmin.czkawka com.github.tenderowl.frog com.gitlab.newsflash com.github.huluti.Curtail com.github.maoschanz.drawing io.dbeaver.DBeaverCommunity io.github.adrienverge.PhotoCollage io.github.flattool.Warehouse io.github.seadve.Kooha net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia fr.romainvigier.MetadataCleaner
+
 
 # office
 flatpak install flathub --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
