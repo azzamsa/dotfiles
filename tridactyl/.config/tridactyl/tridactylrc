@@ -52,9 +52,10 @@ unbind ys
 unbind yc
 unbind ym
 unbind yt
-" bind y clipboard yankshort
-bind y clipboard yank
+bind yy clipboard yank
 bind ty hint -p
+" Copy URL as markdown
+bind ym composite js "[" + document.title + "](" + document.URL + ")" | yank
 bind Y composite js window.getSelection().toString() | yank
 
 " Remove search highlighting.
@@ -64,7 +65,6 @@ set findcase sensitive
 
 " Smooth scrolling, yes please. This is still a bit janky in Tridactyl.
 set smoothscroll true
-
 
 " Don't run Tridactyl on some web sites because it doesn't work well, or
 " because the web site has its own keybindings.
@@ -76,4 +76,3 @@ guiset_quiet hoverlink right
 
 " Use most used Colemak-DH keys for hints
 set hintchars arstghneioudcmlkwfjvbxzy
-
