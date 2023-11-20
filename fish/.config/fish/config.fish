@@ -92,37 +92,44 @@ end
 # Theme
 #
 
-set -l c1 6272a4 #6272a4
-set -l c2 bd93f9 #bd93f9
-set -l c3 ff79c6 #ff79c6
-set -l c4 ffb86c #ffb86c
-set -l c5 50fa7b #50fa7b
-set -l c6 ff79c6 #ff79c6
-set -l c7 f1fa8c #f1fa8c
-set -l c8 8be9fd #8be9fd
-set -l c9 8be9fd #8be9fd
-set -l c10 ff6e6e #ff6e6e
-set -l c11 282a36 #282a36
+# See https://fishshell.com/docs/current/interactive.html#syntax-highlighting
 
-set -g fish_color_normal $c1
-set -g fish_color_command $c2
-set -g fish_color_param $c3
-set -g fish_color_keyword $c4
-set -g fish_color_quote $c5
-set -g fish_color_redirection $c6
-set -g fish_color_end $c7
-set -g fish_color_comment $c8
-set -g fish_color_error $c4
-set -g fish_color_gray $c9
-set -g fish_color_selection --background=$c11
-set -g fish_color_search_match --background=$c11
-set -g fish_color_option $c5
-set -g fish_color_operator $c6
-set -g fish_color_escape $c10
-set -g fish_color_autosuggestion $c9
-set -g fish_color_cancel $c4
-set -g fish_color_status $c4
-set -g fish_pager_color_progress $c9
-set -g fish_pager_color_prefix $c6
-set -g fish_pager_color_completion $c1
-set -g fish_pager_color_description $c9
+set -l bat 282a36 #282a36 background
+set -l cat 44475a #44475a current line
+set -l swan f8f8f2 #f8f8f2 foreground
+set -l cow 6272a4 #6272a4 comment
+set -l fox bd93f9 #bd93f9
+set -l owl ff79c6 #ff79c6
+set -l bee ffb86c #ffb86c
+set -l elk 50fa7b #50fa7b
+set -l puma f1fa8c #f1fa8c
+set -l duck 8be9fd #8be9fd
+set -l ant ff6e6e #ff6e6e
+
+# Syntax highlighting colors
+set -g fish_color_normal $swan
+set -g fish_color_command $fox
+set -g fish_color_keyword $duck
+set -g fish_color_param $owl
+set -g fish_color_quote $elk
+set -g fish_color_redirection $owl
+set -g fish_color_end $puma
+set -g fish_color_comment $duck
+set -g fish_color_error $bee
+set -g fish_color_gray $duck
+set -g fish_color_selection --background=$bat
+set -g fish_color_search_match --background=$bat
+set -g fish_color_option $elk
+set -g fish_color_operator $owl
+set -g fish_color_escape $ant
+set -g fish_color_autosuggestion $duck
+set -g fish_color_cancel $bee
+set -g fish_color_status $bee
+
+# Completion pager colors
+set -g fish_pager_color_progress $cow
+set -g fish_pager_color_prefix $fox
+set -g fish_pager_color_completion $swan
+set -g fish_pager_color_description $cow
+set -g fish_pager_color_selected_background --background=$fox
+set -g fish_pager_color_selected_completion $bat
