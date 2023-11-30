@@ -6,6 +6,7 @@ wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
 end)
 
 return {
+    default_prog = { "zellij" },
     default_cursor_style = "BlinkingBar",
     font_size = 22.0,
     -- https://github.com/braver/programmingfonts

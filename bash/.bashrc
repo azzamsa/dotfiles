@@ -54,15 +54,3 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo
 export VIRTUALFISH_HOME="$XDG_DATA_HOME"/virtualfish
-
-#
-# Set .bashrc to drop into Fish
-#
-
-# Drop to Fish automatically from Bash. Otherwise, we'll have to type 'fish' every time outside `zellij`.
-# https://wiki.archlinux.org/title/Fish#Setting_fish_as_interactive_shell_only
-if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
-then
-	shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
-	exec fish $LOGIN_OPTION
-fi
