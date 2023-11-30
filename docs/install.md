@@ -347,6 +347,7 @@ br
 
 ```bash
 atuin gen-completions --shell fish --out-dir ~/.config/fish/completions/
+just --completions fish > ~/.config/fish/completions/just.fish
 ```
 
 More:
