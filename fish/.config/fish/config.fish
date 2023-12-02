@@ -89,6 +89,20 @@ function box
 end
 
 #
+# toor
+function r # root
+    set project_root (toor 2>/dev/null)
+
+    if test -n "$project_root"
+        # If successful, change to the project root directory
+        cd "$project_root"
+        echo "Changed to project root: $project_root"
+    else
+        echo "Project root not found. I dont' go anywhere 📍"
+    end
+end
+
+#
 # Theme
 #
 
