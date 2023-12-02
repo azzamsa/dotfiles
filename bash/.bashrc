@@ -32,6 +32,7 @@ export EDITOR='emacs'
 # Apps
 #
 source "$HOME"/.config/meta/env
+eval "$(fnm env --use-on-cd)"
 
 #
 # Don't pollute home directory
