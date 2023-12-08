@@ -11,20 +11,15 @@ jobs:
 
     steps:
     - name: Checkout source code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - uses: Swatinem/rust-cache@v2
 
-    - name: Install just
-      uses: taiki-e/install-action@just
-
-    - name: Install dprint
-      uses: taiki-e/install-action@dprint
-
-    - name: Install stylua
-      uses: taiki-e/install-action@v2
+    - uses: taiki-e/install-action@just
+    - uses: taiki-e/install-action@dprint
+    - uses: taiki-e/install-action@v2
       with:
-        tool: stylua
+        tool: typos-cli,stylua
 
     - name: Install prerequisites
       run: |
