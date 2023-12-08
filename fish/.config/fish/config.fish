@@ -39,7 +39,7 @@ abbr --add crg cargo
 #
 zoxide init fish | source
 starship init fish | source
-fnm env | source
+fnm env --use-on-cd | source
 atuin init fish | source
 
 
