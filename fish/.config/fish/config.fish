@@ -108,17 +108,16 @@ end
 
 # See https://fishshell.com/docs/current/interactive.html#syntax-highlighting
 
-set -l bat 282a36 #282a36 background
-set -l cat 44475a #44475a current line
-set -l swan f8f8f2 #f8f8f2 foreground
-set -l cow 6272a4 #6272a4 comment
-set -l fox bd93f9 #bd93f9
-set -l owl ff79c6 #ff79c6
-set -l bee ffb86c #ffb86c
-set -l elk 50fa7b #50fa7b
-set -l puma f1fa8c #f1fa8c
-set -l duck 8be9fd #8be9fd
-set -l ant ff6e6e #ff6e6e
+set -l bat 1e1e2e #1e1e2e background
+set -l swan cdd6f4 #cdd6f4 foreground
+set -l cow 9399b2 #9399b2 comment
+set -l fox cba6f7 #cba6f7
+set -l owl f5c2e7 #f5c2e7
+set -l bee fab387 #fab387
+set -l elk a6e3a1 #a6e3a1
+set -l puma f9e2af #f9e2af
+set -l duck 94e2d5 #94e2d5
+set -l ant f38ba8 #f38ba8
 
 # Syntax highlighting colors
 set -g fish_color_normal $swan

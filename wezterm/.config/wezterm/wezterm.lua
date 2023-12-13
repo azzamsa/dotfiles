@@ -92,5 +92,5 @@ return {
         },
     },
     -- https://wezfurlong.org/wezterm/colorschemes/index.html
-    color_scheme = "Dracula (Official)",
+    color_scheme = "Catppuccin Mocha",
 }
