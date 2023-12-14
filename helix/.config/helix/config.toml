@@ -1,0 +1,108 @@
+theme = "catppuccin_mocha"
+
+[editor]
+mouse = false
+line-number = "relative"
+bufferline = "multiple"
+auto-save = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+
+#
+# Movement
+
+# h, left
+m = "move_char_left"
+# j, down
+n = "move_visual_line_down"
+# k, up
+e = "move_visual_line_up"
+# l, right
+i = "move_char_right"
+
+# e
+f = "move_next_word_end"
+# E
+F = "move_next_long_word_end"
+
+# f
+t = "find_next_char"
+# F
+T = "find_prev_char"
+# t
+j = "find_till_char"
+# T
+J = "till_prev_char"
+
+#
+# Changes
+
+# i
+u = "insert_mode"
+# I
+U = "insert_at_line_start"
+
+# u
+l = "undo"
+# U
+L = "redo"
+
+#
+# Search
+
+# n
+k = "search_next"
+# N
+K = "search_prev"
+
+[keys.normal.space]
+p = "paste_clipboard_after"
+P = "paste_clipboard_before"
+
+y = "yank_to_clipboard"
+Y = "yank_main_selection_to_clipboard"
+
+W = ":write"
+Q = ":quit"
+
+[keys.select]
+#
+# Movement
+
+# h, left
+m = "move_char_left"
+# j, down
+n = "move_visual_line_down"
+# k, up
+e = "move_visual_line_up"
+# l, right
+i = "move_char_right"
+
+#
+# Selection manipulation
+
+# J
+N = "join_selections"
+# A-J
+A-N = "join_selections_space"
+
+#
+# Picker
+#
+
+# Remapping currently not supported.
+
+#
+# Prompt
+#
+
+# Remapping currently not supported.
