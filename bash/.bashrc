@@ -34,6 +34,9 @@ export EDITOR='emacs'
 source "$HOME"/.config/meta/env
 eval "$(fnm env --use-on-cd)"
 
+# Use plists for lsp-mode deserialization.
+export LSP_USE_PLISTS=true
+
 #
 # Don't pollute home directory
 #
