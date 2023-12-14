@@ -54,13 +54,11 @@ Unfortunately, I haven't come across any Linux distribution that offers a deskto
 ## Usage
 
 ```bash
-$ # clone the repository
+$ # Clone the repository
 $ git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
 
-$ # let GNU stow handle the symlink
-$ for d in ~/dotfiles/*/ ; do
-    stow --no-folding --restow "$d"
-done
+$ # Let GNU stow handle the symlink
+$ stow --no-folding --restow <directory>
 ```
 
 ## Contribution
