@@ -68,10 +68,16 @@ I don't recommend using this repository directly. Instead, use it as a source of
 
 ## See Also
 
-- [azzamsa/camp.d: 🏕️ I want to go camping....](https://github.com/azzamsa/camp.d)
-- [azzamsa/minemacs.d: 📜 My personal MinEmacs configuration](https://github.com/azzamsa/minemacs.d)
-- [azzamsa/doom.d: 📜 My personal Doom Emacs configuration](https://github.com/azzamsa/doom.d)
-- [azzamsa/emacs.d: 📜 My personal Emacs configuration](https://github.com/azzamsa/emacs.d)
+Nvim Configuration
+
+- [LazyVim](https://github.com/azzamsa/roof), 2023.
+
+Emacs Configuration
+
+- [Vanila Emacs (Evil Mode)](https://github.com/azzamsa/camp.d), 2023.
+- [MineEmacs (Evil Mode)](https://github.com/azzamsa/minemacs.d), 2023
+- [Doom Emacs (Evil Mode)](https://github.com/azzamsa/doom.d), 2022-2023
+- [Vanila Emacs](https://github.com/azzamsa/emacs.d), 2017-2022
 
 ## Credits
 
