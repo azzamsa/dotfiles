@@ -25,8 +25,8 @@ export PATH=~/opt/bin:~/.local/bin:~/.cargo/bin:$PATH
 export PATH=~/.rye/shims:~/opt/bin:~/.local/bin:~/.cargo/bin:$PATH
 export PATH=~/opt/nodebin/node_modules/.bin:$PATH
 
-export VISUAL='emacs'
-export EDITOR='emacs'
+export VISUAL='neovide'
+export EDITOR='neovide'
 
 #
 # Apps
