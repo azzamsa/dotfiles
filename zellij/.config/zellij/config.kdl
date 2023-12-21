@@ -1,8 +1,8 @@
 default_shell "fish"
 copy_command "wl-copy" // wayland
-default_layout "compact"
 pane_frames false
-simplified_ui true
+// simplified_ui true
+// default_layout "compact"
 
 keybinds clear-defaults=true {
     normal {
@@ -206,19 +206,19 @@ themes {
    tema {
         // Primary color
         // Color of Zellij logo and help prefix
-        white "#cdd6f4"
+        white "#7ac9f8"
         // Color of tab background and border
-        green "#a6e3a1"
-        // Color of foreground in help footer
-        fg "#cdd6f4"
+        green "#9ece6a"
         // Color of background in footer
-        black "#1e1e2e"
+        black "#1a1b26"
+        // Color of background in help footer
+        fg "#6b8dd7"
+        // Color of symbol in help footer
+        red "#b9c2ec"
         // Color of highlight block
-        bg "#585b70"
-        // Color of symbol
-        red "#f38ba8"
+        bg "#292E42"
         // Color of active border
-        orange "#fab387"
+        orange "#ff9e64"
 
         // Not used colors
         yellow "#f38ba8"
@@ -227,4 +227,3 @@ themes {
         cyan "#f38ba8"
     }
 }
-
