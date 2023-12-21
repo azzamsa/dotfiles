@@ -12,9 +12,9 @@ bind \cH backward-kill-word
 alias .. 'cd ..'
 alias ... 'cd ../..'
 
-alias g 'git'
-alias q 'exit'
-alias c 'clear'
+alias g git
+alias q exit
+alias c clear
 alias sudo 'sudo '
 
 alias in 'sudo dnf install'
@@ -29,8 +29,9 @@ alias mkdir 'mkdir -pv'
 # Display PATH with each directory on a new line
 alias path 'echo -e $PATH | tr ":" "\\n"'
 
-alias j 'just'
-alias x 'fyazi'
+alias j just
+alias n neovide
+alias x fyazi
 
 abbr --add crg cargo
 
@@ -108,16 +109,16 @@ end
 
 # See https://fishshell.com/docs/current/interactive.html#syntax-highlighting
 
-set -l bat 1e1e2e #1e1e2e background
-set -l swan cdd6f4 #cdd6f4 foreground
-set -l cow 9399b2 #9399b2 comment
-set -l fox cba6f7 #cba6f7
-set -l owl f5c2e7 #f5c2e7
-set -l bee fab387 #fab387
-set -l elk a6e3a1 #a6e3a1
-set -l puma f9e2af #f9e2af
-set -l duck 94e2d5 #94e2d5
-set -l ant f38ba8 #f38ba8
+set -l bat  1e1e2e #1a1b26 background
+set -l swan c0caf5 #c0caf5 foreground
+set -l cow  565f89 #565f89 comment
+set -l fox  7dcfff #7dcfff
+set -l owl  fca7ea #fca7ea
+set -l bee  fab387 #ff9e64
+set -l elk  a6e3a1 #9ece6a
+set -l puma e0af68 #e0af68
+set -l duck 9d7cd8 #9d7cd8
+set -l ant  f7768e #f7768e
 
 # Syntax highlighting colors
 set -g fish_color_normal $swan

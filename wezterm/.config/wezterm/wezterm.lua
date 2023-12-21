@@ -92,5 +92,5 @@ return {
         },
     },
     -- https://wezfurlong.org/wezterm/colorschemes/index.html
-    color_scheme = "Catppuccin Mocha",
+    color_scheme = "Tokyo Night",
 }
