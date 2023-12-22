@@ -118,6 +118,7 @@ keymap = [
   { on = ["g", "P"], exec = "cd ~/projects", desc = "~/Projects" },
   { on = ["g", "d"], exec = "cd ~/dotfiles", desc = "~/dotfiles" },
   { on = ["g", "D"], exec = "cd ~/Downloads", desc = "~/Downloads" },
+  { on = ["g", "o"], exec = "cd ~/office", desc = "~/office" },
   { on = ["g", "<Space>"], exec = "cd --interactive", desc = "Jump interactively" },
 
   # Help
