@@ -18,6 +18,7 @@ keybinds clear-defaults=true {
         bind "n" "Down" { Resize "Increase Down"; }
         bind "e" "Up" { Resize "Increase Up"; }
         bind "i" "Right" { Resize "Increase Right"; }
+
         bind "M" { Resize "Decrease Left"; }
         bind "N" { Resize "Decrease Down"; }
         bind "E" { Resize "Decrease Up"; }
@@ -35,9 +36,9 @@ keybinds clear-defaults=true {
         bind "i" "Right" { MoveFocus "Right"; }
 
         bind "p" { SwitchFocus; }
-        bind "N" { NewPane; SwitchToMode "Normal"; }
-        bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
-        bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "k" { NewPane; SwitchToMode "Normal"; }
+        bind "s" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "v" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
         bind "z" { TogglePaneFrames; SwitchToMode "Normal"; }
@@ -62,14 +63,14 @@ keybinds clear-defaults=true {
         bind "m" "Left" "Up" "e" { GoToPreviousTab; }
         bind "i" "Right" "Down" "n" { GoToNextTab; }
 
-        bind "N" { NewTab; SwitchToMode "Normal"; }
+        bind "k" { NewTab; SwitchToMode "Normal"; }
         bind "x" { CloseTab; SwitchToMode "Normal"; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
         bind "Tab" { ToggleTab; }
     }
     scroll {
         bind "Ctrl s" { SwitchToMode "Normal"; }
-        bind "E" { EditScrollback; SwitchToMode "Normal"; }
+        bind "f" { EditScrollback; SwitchToMode "Normal"; }
         bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
 
