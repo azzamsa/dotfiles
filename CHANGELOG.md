@@ -2,6 +2,85 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.1.0] - 2023-12-24
+
+### ⛰️ Features
+
+- Use Kanagawa theme ([772de48](https://github.com/azzamsa/dotfiles/commit/772de48b0969f6fd1030710854284991cd7075b8))
+- **yazi:** Add more bookmarks ([350a3ec](https://github.com/azzamsa/dotfiles/commit/350a3ec6f110786f92fea6946837ab74f925c63e))
+- Migrate to Tokyo Night ([5723b2f](https://github.com/azzamsa/dotfiles/commit/5723b2f80204d9e90033aa76e39dadb812364b3c))
+- **yazi:** Add more bookmarks ([5fc0bcb](https://github.com/azzamsa/dotfiles/commit/5fc0bcb402d617123d050425d1c841535d81c92b))
+- **helix:** Initial support ([509abf3](https://github.com/azzamsa/dotfiles/commit/509abf33757e4142b18e17054559a68d06793240))
+- Catppuccin Mocha ([a949e5c](https://github.com/azzamsa/dotfiles/commit/a949e5cc3e4f7f1efc3cebe6d95fd6022e4cc205))
+- **fish:** Integrate `toor` ([acc29aa](https://github.com/azzamsa/dotfiles/commit/acc29aa7225a7d3658041eb1688bc04c686b0cd8))
+- **tridactyl:** Copy link as markdown ([84e679a](https://github.com/azzamsa/dotfiles/commit/84e679aa7faa243bf4fd00ee687e308a5812662f))
+- Migrate to Catppuccin Mocha ([7cd0ab7](https://github.com/azzamsa/dotfiles/commit/7cd0ab7f4fde51c08983bfd13285e273f620dbe2))
+
+  I wanted a Dracula theme with orange colors reminiscent of the fall season.
+  I had tried Kanagawa and Gruvbox themes, but I fell in love with Catppuccin.
+  It's more accessible and widely available, so I don't need to port it myself.
+
+- Port Dracula to Dracufall ([9625e74](https://github.com/azzamsa/dotfiles/commit/9625e7467a8b9d1f1f17dfe07fc884314dfab0bc))
+
+  Dracufall is my customized version of Dracula.
+  It emphasizes the colors of the fall season.
+
+- **wezterm:** Welcome ([1b6f5fe](https://github.com/azzamsa/dotfiles/commit/1b6f5fe8a07b0c27cf64b33b6103d2500e5e2f10))
+- **xtool:** Calculate import tax ([da4de31](https://github.com/azzamsa/dotfiles/commit/da4de3104382948a8831489b023def36bb1c1ea5))
+- **tridactyl:** Avoid pain from constantly holding Ctrl for scrolling ([9a21d4b](https://github.com/azzamsa/dotfiles/commit/9a21d4b22e27fd4489f6d2e2ffb4c28740e0fdad))
+- **fish:** Use common key to delete word ([a3c2b30](https://github.com/azzamsa/dotfiles/commit/a3c2b300746ed857915b59f0ec559b2d0c8dffc0))
+
+  I prefer to use Ctrl+Backspace to delete word backward.
+  Most app use this instead of Alt-Backspace.
+
+- **tridactyl:** Initial ([3a8d1e2](https://github.com/azzamsa/dotfiles/commit/3a8d1e2df9bccc5c819e2a57e8d7055465cf3758))
+
+  It is better and has better vim emulation than Vimium-FF.
+
+- **git:** Add absolute date ([a1ab553](https://github.com/azzamsa/dotfiles/commit/a1ab553ca224adac552e6a369369f0299b074541))
+
+### 🐛 Bug Fixes
+
+- **bash:** Nvim complaints about missing $TERM variable ([fef568a](https://github.com/azzamsa/dotfiles/commit/fef568aba023c287b4ad25dab78792857057cc84))
+- **zellij:** Adopt `wbolster/colemak` mappings ([5aadba2](https://github.com/azzamsa/dotfiles/commit/5aadba28cd4e1026537e87da0d2fe5bea7d603c8))
+- **bash:** Change $EDITOR to `neovide` ([391a15c](https://github.com/azzamsa/dotfiles/commit/391a15ce9eee9a457ac8252296ba2e146bc3b2df))
+- **bash:** Emacs can't find `node` ([25c180a](https://github.com/azzamsa/dotfiles/commit/25c180a612568722453e56e7fcde956a42a54de7))
+- **wezterm:** `__bp_install: command not found` ([33c51a4](https://github.com/azzamsa/dotfiles/commit/33c51a450628ad00612bb71c1848066112543690))
+
+  I removed the `fish` hook in my bash config and set `zellij` as the default
+  program in Wezterm. My default shell in `zellij` is `fish`. So, the problem is solved!
+
+  Now, I get the bonus of not having to type `zellij` every time I open `wezterm`.
+
+- **fish:** Unreadable theme in pager page ([6ebab6f](https://github.com/azzamsa/dotfiles/commit/6ebab6f6e0bfccd0c876ace9cd66d7734ceceaee))
+- Revert back to Dracula. ([6354ca2](https://github.com/azzamsa/dotfiles/commit/6354ca24143e223b36e4356701ab5dfad0538809))
+
+  I am lost, help!
+
+- **yazi:** Upgrade to v0.1.5 ([437b43f](https://github.com/azzamsa/dotfiles/commit/437b43f742750019163132daf8d35bbba67bf0dc))
+- **yazi:** Go to description is too long ([e72a3f8](https://github.com/azzamsa/dotfiles/commit/e72a3f80f0d319410bc65266d1502d3f78d1c17a))
+- **xtool:** `tmp` is replaced by `Downloads` ([1aa46af](https://github.com/azzamsa/dotfiles/commit/1aa46af521b8261837e0df27da9f688866b68c8e))
+- **fish:** Autoload doesn't work reliably ([11e9ac5](https://github.com/azzamsa/dotfiles/commit/11e9ac5ed97172fb98eca539fb3243990e726c0e))
+- **zellij:** Don't quit accidentally ([99b364a](https://github.com/azzamsa/dotfiles/commit/99b364a93378f2b2ed83c9870b3f0471fe40ce8e))
+- **fish:** `exa` is unmaintained ([6699f0a](https://github.com/azzamsa/dotfiles/commit/6699f0a8ffff7d9ee3516b57d9de9fdb72f55ba7))
+- **xtool:** It's dnf! ([86b7438](https://github.com/azzamsa/dotfiles/commit/86b7438460d418d3fe2c47d7109a7f9260c8a49a))
+- **xtool:** Remove the 'flatpak' and 'package-manager' upgrade steps ([bf4a6c9](https://github.com/azzamsa/dotfiles/commit/bf4a6c9c5f6583b01ad14668e9e3e9a9c8b9f8fa))
+
+  Nowadays, I have an optical cable connection and no longer need to worry about internet quotas.
+
+- **xtool:** `newsflash` id changed ([cab96fd](https://github.com/azzamsa/dotfiles/commit/cab96fd9f350770aab6cff575a1da3deae802834))
+
+### ⚡ Performance
+
+- **bash:** Use `plists` for `lsp-mode` deserialization. ([6bc5ce7](https://github.com/azzamsa/dotfiles/commit/6bc5ce71227009ace990d3442a67d00790c5ed6f))
+- **fish:** Load `fnm` only on node project ([4e181e9](https://github.com/azzamsa/dotfiles/commit/4e181e9e984255fab0181d102e88db017528302a))
+
+### 🧹 Cleanup
+
+- **joshuto:** I prefer single pane layout ([dbabf44](https://github.com/azzamsa/dotfiles/commit/dbabf44d0080357a93cb58c5d6c2d5906ad66a0c))
+- **gnome-terminal:** I want to give wezterm a chance ([5a58430](https://github.com/azzamsa/dotfiles/commit/5a58430e6ceaf2af0fb6ad779a7c7c6442ad4437))
+- **vi:** I never use any vi related app anymore ([490cb4e](https://github.com/azzamsa/dotfiles/commit/490cb4ea236cae6fac239ace35afded0c87a07ee))
+
 ## [5.0.0] - 2023-08-09
 
 ### 🚚 Migrations
