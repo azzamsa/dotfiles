@@ -109,41 +109,37 @@ end
 
 # See https://fishshell.com/docs/current/interactive.html#syntax-highlighting
 
-set -l bat  1e1e2e #1a1b26 background
-set -l swan c0caf5 #c0caf5 foreground
-set -l cow  565f89 #565f89 comment
-set -l fox  7dcfff #7dcfff
-set -l owl  fca7ea #fca7ea
-set -l bee  fab387 #ff9e64
-set -l elk  a6e3a1 #9ece6a
-set -l puma e0af68 #e0af68
-set -l duck 9d7cd8 #9d7cd8
-set -l ant  f7768e #f7768e
+set -l cow  ffa066 #ffa066 # command, prefix
+set -l elk  ff5d62 #ff5d62 # invalid command, error
+set -l puma 957fb8 #957fb8 # params,
+set -l duck 727169 #727169 # suggestion, comment
 
-# Syntax highlighting colors
-set -g fish_color_normal $swan
-set -g fish_color_command $fox
-set -g fish_color_keyword $duck
-set -g fish_color_param $owl
-set -g fish_color_quote $elk
-set -g fish_color_redirection $owl
-set -g fish_color_end $puma
-set -g fish_color_comment $duck
-set -g fish_color_error $bee
-set -g fish_color_gray $duck
-set -g fish_color_selection --background=$bat
-set -g fish_color_search_match --background=$bat
-set -g fish_color_option $elk
-set -g fish_color_operator $owl
-set -g fish_color_escape $ant
+set -l foreground dcd7ba #dcd7ba
+set -l selection  2D4F67 #2D4F67
+set -l orange     ff9e64 #ff9e64
+set -l yellow     c0a36e #c0a36e
+set -l green      76946a #76946a
+set -l pink       d27e99 #d27e99
+
+# Syntax Highlighting Colors
+set -g fish_color_command $cow
+set -g fish_color_error $elk
+set -g fish_color_param $puma
 set -g fish_color_autosuggestion $duck
-set -g fish_color_cancel $bee
-set -g fish_color_status $bee
+set -g fish_color_comment $duck
+set -g fish_color_normal $foreground
+set -g fish_color_keyword $pink
+set -g fish_color_quote $yellow
+set -g fish_color_redirection $foreground
+set -g fish_color_end $orange
+set -g fish_color_selection --background=$selection
+set -g fish_color_search_match --background=$selection
+set -g fish_color_operator $green
+set -g fish_color_escape $pink
 
-# Completion pager colors
-set -g fish_pager_color_progress $cow
-set -g fish_pager_color_prefix $fox
-set -g fish_pager_color_completion $swan
-set -g fish_pager_color_description $cow
-set -g fish_pager_color_selected_background --background=$fox
-set -g fish_pager_color_selected_completion $bat
+# Completion Pager Colors
+set -g fish_pager_color_prefix $cow
+
+set -g fish_pager_color_progress $comment
+set -g fish_pager_color_completion $foreground
+set -g fish_pager_color_description $comment

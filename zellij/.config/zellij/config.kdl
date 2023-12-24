@@ -205,21 +205,23 @@ ui {
 theme "tema"
 themes {
    tema {
-        // Primary color
+        // Primary color (brand color)
         // Color of Zellij logo and help prefix
-        white "#7ac9f8"
+        white "#ffa066"
         // Color of tab background and border
-        green "#9ece6a"
-        // Color of background in footer
-        black "#1a1b26"
-        // Color of background in help footer
-        fg "#6b8dd7"
-        // Color of symbol in help footer
-        red "#b9c2ec"
+        green "#98bb6c"
+        // Color of fg in footer and header bg
+        // Must be same as Wezterm `background` color, otherwise it is not transparent.
+        black "#1f1f28"
+        // Color of bg footer
+        fg "#2d4f67"
+        // Color of prefix char in footer
+        red "#957fb8"
         // Color of highlight block
-        bg "#292E42"
+        // Terminal bg color is set in Wezterm `background`
+        bg "#223249"
         // Color of active border
-        orange "#ff9e64"
+        orange "#dcd7ba"
 
         // Not used colors
         yellow "#f38ba8"
