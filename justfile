@@ -22,13 +22,13 @@ check: fmt-check lint
 fmt:
     just --justfile xtool/justfile fmt
     dprint fmt --config configs/dprint.json
-    stylua -g '*.lua' -g '!target' --allow-hidden .
+    stylua --config-path configs/stylua.toml --allow-hidden .
 
 # Check is the codebase properly formatted.
 fmt-check:
     just --justfile xtool/justfile fmt-check
     dprint check --config configs/dprint.json
-    stylua -g '*.lua' -g '!target' --allow-hidden --check .
+    stylua --config-path configs/stylua.toml --allow-hidden --check .
 
 # Lint the codebase.
 lint:
