@@ -27,6 +27,8 @@ export PATH=~/opt/nodebin/node_modules/.bin:$PATH
 
 export VISUAL='neovide'
 export EDITOR='neovide'
+# Nvim complaints about missing $TERM variable
+export TERM='xterm-256color'
 
 #
 # Apps
