@@ -27,6 +27,7 @@ return {
     disable_default_key_bindings = false,
     keys = {
         { key = "y", mods = "CTRL", action = act({ PasteFrom = "Clipboard" }) },
+        { key = "V", mods = "CTRL|SHIFT", action = act({ PasteFrom = "Clipboard" }) },
     },
     mouse_bindings = {
         -- Ctrl-click will open the link under the mouse cursor
@@ -92,5 +93,19 @@ return {
         },
     },
     -- https://wezfurlong.org/wezterm/colorschemes/index.html
-    color_scheme = "Tokyo Night",
+    force_reverse_video_cursor = true,
+    colors = {
+        foreground = "#dcd7ba",
+        background = "#1f1f28",
+
+        cursor_bg = "#c8c093",
+        cursor_fg = "#c8c093",
+        cursor_border = "#c8c093",
+
+        -- stylua: ignore start
+        ansi    = { "#727169", "#ff5d62", "#98bb6c", "#e6c384", "#7fb4ca", "#957fb8", "#7aa89f", "#dcd7ba"  },
+        brights = { "#727169", "#ff5d62", "#98bb6c", "#e6c384", "#7fb4ca", "#957fb8", "#7aa89f", "#dcd7ba" },
+        -- stylua: ignore end
+        indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
+    },
 }
