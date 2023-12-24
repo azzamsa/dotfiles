@@ -70,14 +70,14 @@ I don't recommend using this repository directly. Instead, use it as a source of
 
 Nvim Configuration
 
-- [LazyVim](https://github.com/azzamsa/roof), 2023.
+- [Vanilla Nvim](https://github.com/azzamsa/roof), 2023.
 
 Emacs Configuration
 
-- [Vanila Emacs (Evil Mode)](https://github.com/azzamsa/camp.d), 2023.
+- [Vanilla Emacs (Evil Mode)](https://github.com/azzamsa/camp.d), 2023.
 - [MineEmacs (Evil Mode)](https://github.com/azzamsa/minemacs.d), 2023
 - [Doom Emacs (Evil Mode)](https://github.com/azzamsa/doom.d), 2022-2023
-- [Vanila Emacs](https://github.com/azzamsa/emacs.d), 2017-2022
+- [Vanilla Emacs](https://github.com/azzamsa/emacs.d), 2017-2022
 
 ## Credits
 
