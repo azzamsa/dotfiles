@@ -12,7 +12,6 @@ bind \cH backward-kill-word
 alias .. 'cd ..'
 alias ... 'cd ../..'
 
-alias g git
 alias q exit
 alias c clear
 alias sudo 'sudo '
@@ -30,7 +29,6 @@ alias mkdir 'mkdir -pv'
 alias path 'echo -e $PATH | tr ":" "\\n"'
 
 alias j just
-alias n neovide
 alias x fyazi
 
 abbr --add crg cargo
@@ -109,37 +107,37 @@ end
 
 # See https://fishshell.com/docs/current/interactive.html#syntax-highlighting
 
-set -l cow  ffa066 #ffa066 # command, prefix
-set -l elk  ff5d62 #ff5d62 # invalid command, error
-set -l puma 957fb8 #957fb8 # params,
-set -l duck 727169 #727169 # suggestion, comment
+set -l fg dcd7ba #dcd7ba  # fg in completion page,
+set -l selection 2d4f67 #2d4f67 # selection
 
-set -l foreground dcd7ba #dcd7ba
-set -l selection  2D4F67 #2D4F67
-set -l orange     ff9e64 #ff9e64
-set -l yellow     c0a36e #c0a36e
-set -l green      76946a #76946a
-set -l pink       d27e99 #d27e99
+set -l cow ffa066 #ffa066 # command, prefix
+set -l elk ff5d62 #ff5d62 # error, invalid command,
+set -l puma e6c384 #e6c384 # params, (~, *), 
+set -l duck 727169 #727169 # suggestion, comment
+set -l owl 98bb6c #98bb6c # string
+set -l bear 7e9cd8 #7e9cd8 # options
+# set -l <foo> 957fb8 #957fb8 # params
 
 # Syntax Highlighting Colors
-set -g fish_color_command $cow
-set -g fish_color_error $elk
-set -g fish_color_param $puma
+set -g fish_color_normal $fg
+set -g fish_color_redirection $fg
+set -g fish_pager_color_completion $fg
+
+set -g fish_pager_color_description $comment
+set -g fish_pager_color_progress $comment
+
 set -g fish_color_autosuggestion $duck
 set -g fish_color_comment $duck
-set -g fish_color_normal $foreground
-set -g fish_color_keyword $pink
-set -g fish_color_quote $yellow
-set -g fish_color_redirection $foreground
-set -g fish_color_end $orange
-set -g fish_color_selection --background=$selection
-set -g fish_color_search_match --background=$selection
-set -g fish_color_operator $green
-set -g fish_color_escape $pink
 
-# Completion Pager Colors
+set -g fish_color_quote $owl
 set -g fish_pager_color_prefix $cow
 
-set -g fish_pager_color_progress $comment
-set -g fish_pager_color_completion $foreground
-set -g fish_pager_color_description $comment
+set -g fish_color_selection --background=$selection
+set -g fish_pager_color_selected_background --background=$selection
+set -g fish_color_search_match --background=$selection
+
+set -g fish_color_param $puma
+set -g fish_color_operator $puma
+
+set -g fish_color_command $cow
+set -g fish_color_option $bear

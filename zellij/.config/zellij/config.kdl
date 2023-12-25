@@ -63,7 +63,7 @@ keybinds clear-defaults=true {
         bind "m" "Left" "Up" "e" { GoToPreviousTab; }
         bind "i" "Right" "Down" "n" { GoToNextTab; }
 
-        bind "k" { NewTab; SwitchToMode "Normal"; }
+        bind "t" { NewTab; SwitchToMode "Normal"; }
         bind "x" { CloseTab; SwitchToMode "Normal"; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
         bind "Tab" { ToggleTab; }
@@ -207,16 +207,16 @@ themes {
    tema {
         // Primary color (brand color)
         // Color of Zellij logo and help prefix
-        white "#ffa066"
+        white "#e4c183"
         // Color of tab background and border
         green "#98bb6c"
         // Color of fg in footer and header bg
         // Must be same as Wezterm `background` color, otherwise it is not transparent.
         black "#1f1f28"
         // Color of bg footer
-        fg "#2d4f67"
+        fg "#7e9cd8"
         // Color of prefix char in footer
-        red "#957fb8"
+        red "#dcd7ba"
         // Color of highlight block
         // Terminal bg color is set in Wezterm `background`
         bg "#223249"

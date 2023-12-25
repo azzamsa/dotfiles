@@ -98,14 +98,46 @@ return {
         foreground = "#dcd7ba",
         background = "#1f1f28",
 
-        cursor_bg = "#c8c093",
-        cursor_fg = "#c8c093",
-        cursor_border = "#c8c093",
+        cursor_bg = "#dcd7ba",
+        cursor_fg = "#dcd7ba",
+        cursor_border = "#dcd7ba",
 
-        -- stylua: ignore start
-        ansi    = { "#727169", "#ff5d62", "#98bb6c", "#e6c384", "#7fb4ca", "#957fb8", "#7aa89f", "#dcd7ba"  },
-        brights = { "#727169", "#ff5d62", "#98bb6c", "#e6c384", "#7fb4ca", "#957fb8", "#7aa89f", "#dcd7ba" },
-        -- stylua: ignore end
-        indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
+        ansi = {
+            -- Atuin page title
+            "#ffa066",
+            -- VCS status
+            "#7e9cd8",
+            -- Atuin time elapsed
+            "#98bb6c",
+            -- Starship elapsed time, `ls` file with extension
+            "#7e9cd8",
+            -- `ls` directory
+            "#e6c384",
+            -- VCS branch
+            "#957fb8",
+            -- Project name
+            "#e6c384",
+            -- `taze` progress bar
+            "#7aa89f",
+        },
+        brights = {
+            -- Atuin page title
+            "#ffa066",
+            -- VCS status
+            "#7e9cd8",
+            -- Atuin time elapsed
+            "#98bb6c",
+            -- Starship elapsed time, `ls` file with extension
+            "#7e9cd8",
+            -- `ls` directory
+            "#e6c384",
+            -- VCS branch
+            "#957fb8",
+            -- Project name
+            "#e6c384",
+            -- `taze` progress bar
+            "#7aa89f",
+        },
+        indexed = { [16] = "#ffa066", [17] = "#dcd7ba" },
     },
 }

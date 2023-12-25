@@ -47,10 +47,12 @@ footer = """"""
 conventional_commits = true
 # regex for parsing and grouping commits
 commit_parsers = [
+  # Distro, theme migrations
   { message = "^migrate", group = "<!-- 0 --> 🚚 Migrations" },
   { message = "^feat", group = "<!-- 1 -->⛰️ Features" },
   { message = "^fix", group = "<!-- 2 -->🐛 Bug Fixes" },
   { message = "^perf", group = "<!-- 3 -->⚡ Performance" },
+  # Ditching or replacing an app
   { message = "^rm", group = "<!-- 4 -->🧹 Cleanup" },
 ]
 # filter out the commits that are not matched by commit parsers
