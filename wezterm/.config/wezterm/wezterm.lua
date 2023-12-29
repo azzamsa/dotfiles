@@ -1,7 +1,8 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
+wezterm.on("format-window-title", function(_, _, _, _, _)
+    -- Hide window title
     return ""
 end)
 
@@ -58,7 +59,7 @@ return {
 
     font_rules = {
         {
-            -- used by `box`, `slidev`
+            -- Used by `box`, `slidev`
             intensity = "Half",
             font = wezterm.font({
                 family = "Iosevka Nerd Font",
@@ -95,49 +96,49 @@ return {
     -- https://wezfurlong.org/wezterm/colorschemes/index.html
     force_reverse_video_cursor = true,
     colors = {
-        foreground = "#dcd7ba",
-        background = "#1f1f28",
+        foreground = "#c8d3f5",
+        background = "#222436",
 
-        cursor_bg = "#dcd7ba",
-        cursor_fg = "#dcd7ba",
-        cursor_border = "#dcd7ba",
+        cursor_bg = "#c8d3f5",
+        cursor_fg = "#222436",
+        cursor_border = "#c8d3f5",
 
         ansi = {
             -- Atuin page title
-            "#ffa066",
-            -- VCS status
-            "#7e9cd8",
+            "#ff966c",
+            -- Starship VCS status
+            "#ffc777",
             -- Atuin time elapsed
-            "#98bb6c",
-            -- Starship elapsed time, `ls` file with extension
-            "#7e9cd8",
-            -- `ls` directory
-            "#e6c384",
-            -- VCS branch
-            "#957fb8",
-            -- Project name
-            "#e6c384",
+            "#c3e88d",
+            --`ls` file with extension, Starship elapsed time
+            "#fca7ea",
+            -- `ls` directory, Starship version
+            "#86e1fc",
+            -- Starship VCS branch
+            "#c099ff",
+            -- Starship Project name
+            "#82aaff",
             -- `taze` progress bar
-            "#7aa89f",
+            "#4fd6be",
         },
         brights = {
             -- Atuin page title
-            "#ffa066",
+            "#ff966c",
             -- VCS status
-            "#7e9cd8",
+            "#ffc777",
             -- Atuin time elapsed
-            "#98bb6c",
-            -- Starship elapsed time, `ls` file with extension
-            "#7e9cd8",
+            "#c3e88d",
+            --`ls` file with extension, Starship elapsed time,
+            "#fca7ea",
             -- `ls` directory
-            "#e6c384",
+            "#86e1fc",
             -- VCS branch
-            "#957fb8",
-            -- Project name
-            "#e6c384",
+            "#c099ff",
+            -- Starship Project name
+            "#82aaff",
             -- `taze` progress bar
-            "#7aa89f",
+            "#4fd6be",
         },
-        indexed = { [16] = "#ffa066", [17] = "#dcd7ba" },
+        indexed = { [16] = "#ff966c", [17] = "#c8d3f5" },
     },
 }

@@ -12,7 +12,6 @@ bind \cH backward-kill-word
 alias .. 'cd ..'
 alias ... 'cd ../..'
 
-alias q exit
 alias c clear
 alias sudo 'sudo '
 
@@ -107,16 +106,15 @@ end
 
 # See https://fishshell.com/docs/current/interactive.html#syntax-highlighting
 
-set -l fg dcd7ba #dcd7ba  # fg in completion page,
-set -l selection 2d4f67 #2d4f67 # selection
+set -l fg c8d3f5 #c8d3f5  # fg in completion page,
+set -l sel 2d3f76 #2d3f76 # selection
 
-set -l cow ffa066 #ffa066 # command, prefix
-set -l elk ff5d62 #ff5d62 # error, invalid command,
-set -l puma e6c384 #e6c384 # params, (~, *), 
-set -l duck 727169 #727169 # suggestion, comment
-set -l owl 98bb6c #98bb6c # string
-set -l bear 7e9cd8 #7e9cd8 # options
-# set -l <foo> 957fb8 #957fb8 # params
+set -l cow 86e1fc #86e1fc # command, prefix
+set -l elk ff757f #ff757f # error, invalid command,
+set -l puma fca7ea #fca7ea # params, (~, *),
+set -l duck 636da6 #636da6 # suggestion, comment
+set -l owl c3e88d #c3e88d # string
+set -l bear 82aaff #82aaff # options, |
 
 # Syntax Highlighting Colors
 set -g fish_color_normal $fg
@@ -129,15 +127,18 @@ set -g fish_pager_color_progress $comment
 set -g fish_color_autosuggestion $duck
 set -g fish_color_comment $duck
 
-set -g fish_color_quote $owl
-set -g fish_pager_color_prefix $cow
-
-set -g fish_color_selection --background=$selection
-set -g fish_pager_color_selected_background --background=$selection
-set -g fish_color_search_match --background=$selection
+set -g fish_color_selection --background=$sel
+set -g fish_pager_color_selected_background --background=$sel
+set -g fish_color_search_match --background=$sel
 
 set -g fish_color_param $puma
 set -g fish_color_operator $puma
 
-set -g fish_color_command $cow
 set -g fish_color_option $bear
+set -g fish_color_end $bear
+
+set -g fish_pager_color_prefix $cow
+set -g fish_color_command $cow
+
+set -g fish_color_quote $owl
+set -g fish_color_error $elk
