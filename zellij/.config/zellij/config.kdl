@@ -1,8 +1,8 @@
 default_shell "fish"
-copy_command "wl-copy" // wayland
-pane_frames false
-// simplified_ui true
-// default_layout "compact"
+copy_command "wl-copy" // I am using Wayland
+// Without the frames, it is hard to distinguish the boundary between the content (command output)
+// and the footer tooltip. I need some space between them.
+pane_frames true
 
 keybinds clear-defaults=true {
     normal {
@@ -208,7 +208,7 @@ themes {
         // Primary color (brand color)
         // Logo and help prefix
         white "#86e1fc"
-        // Header tab bg and border
+        // Header tab bg and frames border
         green "#c3e88d"
         // Footer tab bg
         fg "#c8d3f5"
