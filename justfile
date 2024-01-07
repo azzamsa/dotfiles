@@ -21,14 +21,14 @@ check: fmt-check lint
 # Format the codebase.
 fmt:
     just --justfile xtool/justfile fmt
-    dprint fmt --config configs/dprint.json
-    stylua --config-path configs/stylua.toml --allow-hidden .
+    dprint fmt
+    stylua --allow-hidden .
 
 # Check is the codebase properly formatted.
 fmt-check:
     just --justfile xtool/justfile fmt-check
-    dprint check --config configs/dprint.json
-    stylua --config-path configs/stylua.toml --allow-hidden --check .
+    dprint check
+    stylua --allow-hidden --check .
 
 # Lint the codebase.
 lint:
