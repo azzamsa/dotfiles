@@ -34,6 +34,7 @@ fmt-check:
 lint:
     just --justfile xtool/justfile lint
     typos --config configs/typos.toml
+    selene . --quiet
 
 # Create a new release. Example `just release v2.2.0`
 release version:
