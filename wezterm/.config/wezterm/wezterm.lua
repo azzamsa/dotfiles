@@ -9,9 +9,8 @@ end)
 return {
     default_prog = { "zellij" },
     default_cursor_style = "BlinkingBar",
-    font_size = 22.0,
-    -- https://github.com/braver/programmingfonts
-    font = wezterm.font("Iosevka Nerd Font"),
+    font_size = 20.0, -- default: 12.0
+    font = wezterm.font("JetBrainsMono Nerd Font"),
     warn_about_missing_glyphs = false,
     check_for_updates = true,
 
@@ -57,42 +56,6 @@ return {
         },
     },
 
-    font_rules = {
-        {
-            -- Used by `box`, `slidev`
-            intensity = "Half",
-            font = wezterm.font({
-                family = "Iosevka Nerd Font",
-                weight = "Light",
-            }),
-        },
-        {
-            italic = true,
-            intensity = "Bold",
-            font = wezterm.font({
-                family = "VictorMono Nerd Font",
-                weight = "Bold",
-                style = "Italic",
-            }),
-        },
-        {
-            italic = true,
-            intensity = "Half",
-            font = wezterm.font({
-                family = "VictorMono Nerd Font",
-                weight = "DemiBold",
-                style = "Italic",
-            }),
-        },
-        {
-            italic = true,
-            intensity = "Normal",
-            font = wezterm.font({
-                family = "VictorMono Nerd Font",
-                style = "Italic",
-            }),
-        },
-    },
     -- https://wezfurlong.org/wezterm/colorschemes/index.html
     force_reverse_video_cursor = true,
     colors = {
