@@ -107,8 +107,7 @@ flatpak install flathub --assumeyes com.github.tchx84.Flatseal org.gnome.seahors
 flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq com.rafaelmardojai.Blanket
 
 # utilities
-flatpak install flathub --assumeyes com.brave.Browser com.github.qarmin.czkawka com.github.tenderowl.frog com.gitlab.newsflash com.github.huluti.Curtail com.github.maoschanz.drawing io.dbeaver.DBeaverCommunity io.github.adrienverge.PhotoCollage io.github.flattool.Warehouse io.github.seadve.Kooha net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia fr.romainvigier.MetadataCleaner
-
+flatpak install flathub --assumeyes com.brave.Browser com.github.finefindus.eyedropper com.github.huluti.Curtail com.github.qarmin.czkawka com.github.tenderowl.frog com.gitlab.newsflash fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.adrienverge.PhotoCollage io.github.flattool.Warehouse io.github.seadve.Kooha net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia
 
 # office
 flatpak install flathub --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
@@ -164,7 +163,7 @@ rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
 
 ```bash
 python3 -m pip install --user qmk grip poetry
-python3 -m pip install --user black python-lsp-server
+python3 -m pip install --user black
 ```
 
 ## Setup Toolbx
@@ -218,13 +217,11 @@ Install eget from https://github.com/zyedidia/eget/releases
 eget junegunn/fzf --to ~/.local/bin
 eget restic/restic --to ~/.local/bin
 eget rui314/mold --to ~/.local/bin
+eget getzola/zola --to ~/.local/bin
+eget neovide/neovide --to ~/.local/bin/neovide --asset "neovide.AppImage"
 ```
 
 ## Setup Apps
-
-### Emacs
-
-Compile the latest Emacs from the source. You know how to do it. Then copy the appropriate `emacs.desktop` file.
 
 ## Firefox
 
@@ -266,6 +263,8 @@ Command="
 Icon=\xf028
 ```
 
+Load custom themes from `~/dotfiles/copyq`
+
 ## Setting Up DNS
 
 On laptop.
@@ -282,7 +281,7 @@ Fonts:
 
 - Interface Text: "Cantarell Regular 12"
 - Document Text: "Cantarell Regular 12"
-- Monospace Text: "Iosevka Nerd Font Regular 12"
+- Monospace Text: "Dejavu Sans Mono Regular 12"
 - Legacy Window Titles: "Cantarell Bold 12"
 - Hinting : Slight
 - Antialiasing: Standard (greyscale)
@@ -353,7 +352,6 @@ just --completions fish > ~/.config/fish/completions/just.fish
 More:
 
 - Increase the default value of "clear clipboard after" in KeepassXC
-- Change Pano keys from `Super + Shift + V` to `Ctrl + Alt + P`
 
 ## Copy all previous app data
 
