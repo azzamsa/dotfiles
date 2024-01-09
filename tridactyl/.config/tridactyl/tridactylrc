@@ -11,7 +11,7 @@ sanitize tridactyllocal tridactylsync
 set newtab about:blank
 
 " Use vim in tmux for editor.
-set editorcmd neovide
+set editorcmd wezterm start --class triedit nvim -c 'setf markdown' +startinsert
 
 " Ctrl-F should use the browser's native 'find' functionality.
 unbind <C-f>
