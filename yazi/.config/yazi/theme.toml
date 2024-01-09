@@ -6,7 +6,7 @@
 cwd = { fg = "#86e1fc" }
 
 # Hovered
-hovered = { fg = "#c8d3f5", bg = "#2f334d", bold = true  }
+hovered = { fg = "#c8d3f5", bg = "#2f334d", bold = true }
 preview_hovered = { underline = true }
 
 # Find
@@ -133,15 +133,16 @@ rules = [
   { mime = "application/x-rar", fg = "#ff757f" },
 
   # Custom color for common programming languages
-  { name = "*.rs", fg = "#ffa066" },
-  { name = "*.toml", fg = "#7e9cd8" },
-  { name = "*.py", fg = "#7e9cd8" },
-  { name = "*.md", fg = "#7e9cd8" },
-  { name = "*.sh", fg = "#c3e88d" },
-  { name = "*.js", fg = "#86e1fc" },
-  { name = "*.json", fg = "#86e1fc" },
-  { name = "*.c", fg = "#86e1fc" },
-  { name = "*.html", fg = "#ff757f" },
+  # https://github.com/kujitegemea/language-colors/blob/main/css/language-colors.css
+  { name = "*.rs", fg = "#dea584" },
+  { name = "*.toml", fg = "#9c4221" },
+  { name = "*.py", fg = "#3572a5" },
+  { name = "*.md", fg = "#198ce7" },
+  { name = "*.sh", fg = "#89e051" },
+  { name = "*.js", fg = "#f1e05a" },
+  # { name = "*.json", fg = "#292929" },
+  # { name = "*.c", fg = "#555555" },
+  { name = "*.html", fg = "#e34c26" },
 
   # Fallback
   # file
