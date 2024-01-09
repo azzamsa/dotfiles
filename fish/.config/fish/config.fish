@@ -1,5 +1,13 @@
 set fish_greeting # no greeting
 
+# Force true-color support; otherwise, the Neovim Terminal inside Neovide
+# (not the case with Neovim inside the Terminal) will use slightly different colors,
+# which is sometimes annoying and hard to read. I've been having a hard time solving this issue,
+# ranging from setting `vim.g.terminal_color_n` and other approaches.
+# It turns out it's an issue with the Fish shell.
+# All credits due to @fredizzimo (Neovide maintainer) for finding this solution.
+set -g fish_term24bit 1
+
 #
 # Bindings
 #
@@ -64,15 +72,15 @@ function tree
 end
 
 
-#
-# yazi
+# Changing working directory when exiting Yazi
+# https://yazi-rs.github.io/docs/quick-start/#changing-working-directory-when-exiting-yazi
 function fyazi
     set tmp (mktemp -t "yazi-cwd.XXXXX")
     yazi --cwd-file="$tmp"
     if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
         cd -- "$cwd"
     end
-    rm -f -- "$tmp"
+    # rm -f -- "$tmp"
 end
 
 
