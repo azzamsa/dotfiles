@@ -45,10 +45,7 @@ jobs:
           ARCHIVE_DIR="${PKG_STAGING}/${PKG_BASENAME}/"
           mkdir -p "${ARCHIVE_DIR}"
 
-          # Source
-          cp -r "bash" "docs" "fish" "git" "gnupg" "yazi" "starship" "tridactyl" "wezterm" "xtool" "zellij" "helix" "$ARCHIVE_DIR"
-          # README, LICENSE and CHANGELOG files
-          cp "README.md" "LICENSE" "CHANGELOG.md" "$ARCHIVE_DIR"
+          cp -r * "$ARCHIVE_DIR"
 
           # Compress
           pushd "${PKG_STAGING}/" >/dev/null
