@@ -117,38 +117,38 @@ footer = { fg = "#c8d3f5", bg = "#222436" }
 
 [filetype]
 rules = [
-  # Images
-  { mime = "image/*", fg = "#86e1fc" },
+    # Images
+    { mime = "image/*", fg = "#86e1fc" },
 
-  # Videos
-  { mime = "video/*", fg = "#86e1fc" },
-  { mime = "audio/*", fg = "#86e1fc" },
+    # Videos
+    { mime = "video/*", fg = "#86e1fc" },
+    { mime = "audio/*", fg = "#86e1fc" },
 
-  # Archives
-  { mime = "application/zip", fg = "#ff757f" },
-  { mime = "application/gzip", fg = "#ff757f" },
-  { mime = "application/x-tar", fg = "#ff757f" },
-  { mime = "application/x-bzip", fg = "#ff757f" },
-  { mime = "application/x-7z-compressed", fg = "#ff757f" },
-  { mime = "application/x-rar", fg = "#ff757f" },
+    # Archives
+    { mime = "application/zip", fg = "#ff757f" },
+    { mime = "application/gzip", fg = "#ff757f" },
+    { mime = "application/x-tar", fg = "#ff757f" },
+    { mime = "application/x-bzip", fg = "#ff757f" },
+    { mime = "application/x-7z-compressed", fg = "#ff757f" },
+    { mime = "application/x-rar", fg = "#ff757f" },
 
-  # Custom color for common programming languages
-  # https://github.com/kujitegemea/language-colors/blob/main/css/language-colors.css
-  { name = "*.rs", fg = "#dea584" },
-  { name = "*.toml", fg = "#9c4221" },
-  { name = "*.py", fg = "#3572a5" },
-  { name = "*.md", fg = "#198ce7" },
-  { name = "*.sh", fg = "#89e051" },
-  { name = "*.js", fg = "#f1e05a" },
-  # { name = "*.json", fg = "#292929" },
-  # { name = "*.c", fg = "#555555" },
-  { name = "*.html", fg = "#e34c26" },
+    # Custom color for common programming languages
+    # https://github.com/kujitegemea/language-colors/blob/main/css/language-colors.css
+    { name = "*.rs", fg = "#dea584" },
+    { name = "*.toml", fg = "#9c4221" },
+    { name = "*.py", fg = "#3572a5" },
+    { name = "*.md", fg = "#198ce7" },
+    { name = "*.sh", fg = "#89e051" },
+    { name = "*.js", fg = "#f1e05a" },
+    # { name = "*.json", fg = "#292929" },
+    # { name = "*.c", fg = "#555555" },
+    { name = "*.html", fg = "#e34c26" },
 
-  # Fallback
-  # file
-  { name = "*", fg = "#7e9cd8" },
-  # directory
-  { name = "*/", fg = "#c8d3f5" },
+    # Fallback
+    # file
+    { name = "*", fg = "#7e9cd8" },
+    # directory
+    { name = "*/", fg = "#c8d3f5" },
 ]
 
 [icons]

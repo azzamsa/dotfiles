@@ -15,54 +15,54 @@ cache_dir = ""
 
 [opener]
 folder = [
-  { exec = 'open -R "$@"', desc = "Reveal in Finder" },
-  { exec = '$EDITOR "$@"' },
+    { exec = 'open -R "$@"', desc = "Reveal in Finder" },
+    { exec = '$EDITOR "$@"' },
 ]
 archive = [
-  { exec = 'unar "$1"', desc = "Extract here" },
+    { exec = 'unar "$1"', desc = "Extract here" },
 ]
 text = [
-  { exec = '$EDITOR "$@"', block = true },
+    { exec = '$EDITOR "$@"', block = true },
 ]
 image = [
-  { exec = 'open "$@"', desc = "Open" },
-  { exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
+    { exec = 'open "$@"', desc = "Open" },
+    { exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
 ]
 video = [
-  { exec = 'mpv "$@"' },
-  { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
+    { exec = 'mpv "$@"' },
+    { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]
 audio = [
-  { exec = 'mpv "$@"' },
-  { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
+    { exec = 'mpv "$@"' },
+    { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]
 fallback = [
-  { exec = 'open "$@"', desc = "Open" },
-  { exec = 'open -R "$@"', desc = "Reveal in Finder" },
+    { exec = 'open "$@"', desc = "Open" },
+    { exec = 'open -R "$@"', desc = "Reveal in Finder" },
 ]
 
 [open]
 rules = [
-  { name = "*/", use = "folder" },
+    { name = "*/", use = "folder" },
 
-  { mime = "text/*", use = "text" },
-  { mime = "image/*", use = "image" },
-  { mime = "video/*", use = "video" },
-  { mime = "audio/*", use = "audio" },
-  { mime = "inode/x-empty", use = "text" },
+    { mime = "text/*", use = "text" },
+    { mime = "image/*", use = "image" },
+    { mime = "video/*", use = "video" },
+    { mime = "audio/*", use = "audio" },
+    { mime = "inode/x-empty", use = "text" },
 
-  { mime = "application/json", use = "text" },
-  { mime = "*/javascript", use = "text" },
+    { mime = "application/json", use = "text" },
+    { mime = "*/javascript", use = "text" },
 
-  { mime = "application/zip", use = "archive" },
-  { mime = "application/gzip", use = "archive" },
-  { mime = "application/x-tar", use = "archive" },
-  { mime = "application/x-bzip", use = "archive" },
-  { mime = "application/x-bzip2", use = "archive" },
-  { mime = "application/x-7z-compressed", use = "archive" },
-  { mime = "application/x-rar", use = "archive" },
+    { mime = "application/zip", use = "archive" },
+    { mime = "application/gzip", use = "archive" },
+    { mime = "application/x-tar", use = "archive" },
+    { mime = "application/x-bzip", use = "archive" },
+    { mime = "application/x-bzip2", use = "archive" },
+    { mime = "application/x-7z-compressed", use = "archive" },
+    { mime = "application/x-rar", use = "archive" },
 
-  { mime = "*", use = "fallback" },
+    { mime = "*", use = "fallback" },
 ]
 
 [tasks]
