@@ -8,7 +8,6 @@ Usage:
 
 from typing import List
 
-import os
 import subprocess
 import sys
 
@@ -49,7 +48,7 @@ def update_changelog(version: str) -> None:
             ],
         )
     except subprocess.CalledProcessError as e:
-        print(f"Failed to update the changelog")
+        print("Failed to update the changelog")
         print(f"stderr: {e.stderr}")
         sys.exit(1)
 

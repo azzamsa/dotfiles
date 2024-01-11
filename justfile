@@ -36,6 +36,9 @@ lint:
     typos --config configs/typos.toml
     selene . --quiet
 
+    ruff check .
+    ./_scripts/mypy
+
 # Create a new release. Example `just release v2.2.0`
 release version:
     python scripts/release.py {{ version }}
