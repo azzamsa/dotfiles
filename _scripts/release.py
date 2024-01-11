@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 
+"""Create a release.
+
+Usage:
+    ./release.py v1.0.0
 """
-Usage example:
-python scripts/release.py v1.0.0
-"""
+
+from typing import List
 
 import os
 import subprocess
 import sys
 
 
-def run(command):
+def run(command: List[str]) -> None:
     subprocess.run(command, check=True)
 
 
-def check_working_directory():
+def check_working_directory() -> None:
     # Check for untracked files
     untracked_files = subprocess.check_output(
         ["git", "ls-files", ".", "--exclude-standard", "--others"], text=True
@@ -24,14 +27,14 @@ def check_working_directory():
         sys.exit(1)
 
 
-def check_tag():
+def check_tag() -> None:
     # Check if a tag is provided
     if len(sys.argv) < 2:
         print("Error: Please provide a tag!")
         sys.exit(1)
 
 
-def update_changelog(version):
+def update_changelog(version: str) -> None:
     print("Updating the changelog")
     try:
         run(
@@ -58,13 +61,13 @@ def update_changelog(version):
         sys.exit(1)
 
 
-def update_version_file(version):
+def update_version_file(version: str) -> None:
     # Write the new_version to a file 'version'
     with open("version", "w") as version_file:
         version_file.write(version)
 
 
-def commit(version):
+def commit(version: str) -> None:
     run(["git", "add", "--all"])
     run(["git", "commit", "--message=" + version])
     run(["git", "show"])
@@ -82,7 +85,7 @@ def commit(version):
     run(["git", "tag", "--verify", version])
 
 
-def main():
+def main() -> None:
     version = sys.argv[1]
     version_number = version.replace("v", "")
 
