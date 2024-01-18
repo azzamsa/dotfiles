@@ -21,9 +21,26 @@ jobs:
       with:
         tool: typos-cli,stylua,selene
 
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 20.x
+
     - name: Install prerequisites
       run: |
         just setup
+
+        npm install -g prettier
+        python3 -m pip install -U mypy black ruff
+
+    - name: Show version information
+      shell: bash
+      run: |
+        dprint --version
+        stylua --version
+        prettier --version
+        black --version
+        ruff --version
+        mypy --version
 
     - name: Check
       run: |

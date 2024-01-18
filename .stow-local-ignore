@@ -3,5 +3,7 @@ docs
 assets
 git/.config/git/hooks
 git/.config/git/.stow-local-ignore
+CHANGELOG.md
+
 xtool
 _scripts

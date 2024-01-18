@@ -57,9 +57,10 @@
 
     "custom/ddcutil": {
         "format": " {percentage}%",
-        "interval": 2,
-        "exec": "~/.config/waybar/scripts/ddcutil.py",
-        "return-type": "json"
+        "interval": 1,
+        "exec": "~/.config/waybar/scripts/ddcutil",
+        "return-type": "json",
+        "on-click": "com.sidevesh.Luminance"
     },
 
     "pulseaudio": {

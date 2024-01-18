@@ -8,14 +8,16 @@ set fish_greeting # no greeting
 # All credits due to @fredizzimo (Neovide maintainer) for finding this solution.
 set -g fish_term24bit 1
 
-# Add directories to the beginning of the PATH variable
-set -x PATH ~/opt/bin ~/.local/bin ~/.cargo/bin $PATH
-
-# Add directories to the beginning of the PATH variable with additional directory
-set -x PATH ~/.rye/shims ~/opt/bin ~/.local/bin ~/.cargo/bin $PATH
-
-# Add directories to the beginning of the PATH variable
-set -x PATH ~/opt/nodebin/node_modules/.bin $PATH
+# # Add directories to the beginning of the PATH variable
+# set -x PATH ~/opt/bin ~/.local/bin ~/.cargo/bin $PATH
+#
+# # Add directories to the beginning of the PATH variable with additional directory
+# set -x PATH ~/.rye/shims ~/opt/bin ~/.local/bin ~/.cargo/bin $PATH
+#
+# # Add directories to the beginning of the PATH variable
+# set -x PATH ~/opt/nodebin/node_modules/.bin $PATH
+#
+# set -U SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 
 
 #

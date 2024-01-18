@@ -32,7 +32,7 @@ fmt-check:
     dprint check
     stylua . --allow-hidden --check
     prettier . --check --log-level error
-    check . --quiet
+    black . --check
 
 # Lint the codebase.
 lint:
