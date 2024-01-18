@@ -24,7 +24,6 @@ fmt:
     dprint fmt
     stylua . --allow-hidden
     prettier . --write --log-level error
-    black . --quiet
 
 # Check is the codebase properly formatted.
 fmt-check:
@@ -32,7 +31,6 @@ fmt-check:
     dprint check
     stylua . --allow-hidden --check
     prettier . --check --log-level error
-    black . --check
 
 # Lint the codebase.
 lint:

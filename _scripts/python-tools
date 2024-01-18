@@ -15,6 +15,7 @@ def lint() -> None:
     for path in TARGET_FILES:
         _run(["ruff", "check", path])
         _run(["mypy", path])
+        _run(["ruff", "format", path])
 
 
 def main():
