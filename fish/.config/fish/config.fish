@@ -135,16 +135,16 @@ set -l tokyonight_moon c8d3f5 \
 # [2] #2d4f67 selection
 # [3] #ffa066 command, prefix
 # [4] #e46876 error, invalid command
-# [5] #e6c384 params, (~, *)
-# [6] #938056 suggestion, comment
+# [5] #68ad99 params, (~, *)
+# [6] #c8c093 suggestion, comment
 # [7] #98bb6c string
 # [8] #7e9cd8 options, |
 set -l kanagawa dcd7ba \
     2d4f67 \
     ffa066 \
     e46876 \
-    e6c384 \
-    938056 \
+    68ad99 \
+    c8c093 \
     98bb6c \
     7e9cd8
 

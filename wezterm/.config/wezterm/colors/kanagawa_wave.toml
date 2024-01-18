@@ -20,10 +20,10 @@ split = "#54546D"
 # [5] `ls` directory, Starship version
 # [6] Starship VCS branch
 # [7] Starship Project name
-# [8] ` taze` progress bar
-ansi = ["#090618", "#ff5d62", "#98bb6c", "#e6c384", "#7e9cd8", "#957fb8", "#a3d4d5", "#c8c093"]
+# [8] `taze` progress bar
+ansi = ["#090618", "#ff5d62", "#98bb6c", "#e6c384", "#7e9cd8", "#68AD99", "#a3d4d5", "#c8c093"]
 # [1] Atuin page title
-brights = ["#938056", "#ff5d62", "#98bb6c", "#e6c384", "#7e9cd8", "#957fb8", "#a3d4d5", "#dcd7ba"]
+brights = ["#c8c093", "#ff5d62", "#98bb6c", "#e6c384", "#7e9cd8", "#68AD99", "#a3d4d5", "#dcd7ba"]
 
 [colors.tab_bar]
 inactive_tab_edge = "#1e2030"

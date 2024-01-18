@@ -209,9 +209,9 @@ themes {
    kanagawa_wave {
         white "#dcd7ba"
         green "#e6c384"
-        fg "#c8c093"
+        fg "#b8b4d0"
         black "#1f1f28"
-        red "#c34043"
+        red "#252535"
         bg "#2d4f67"
         orange "#e6c384"
 
