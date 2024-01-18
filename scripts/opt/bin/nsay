@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # Script Name: nsay
-# # Description: I keep forgetting the `cowsay` binary replacement name!
+# Description: I keep forgetting the `cowsay` binary replacement name!
 #
 # Usage: ./nsay <word>
 #
