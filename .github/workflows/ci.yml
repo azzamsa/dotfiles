@@ -29,7 +29,7 @@ jobs:
       run: |
         just setup
 
-        npm install -g prettier
+        npm install -g @biomejs/biome
         python3 -m pip install -U mypy ruff
 
     - name: Show version information
@@ -37,7 +37,7 @@ jobs:
       run: |
         dprint --version
         stylua --version
-        prettier --version
+        biome --version
         ruff --version
         mypy --version
 
