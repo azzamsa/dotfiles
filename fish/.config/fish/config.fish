@@ -114,6 +114,23 @@ end
 
 # See https://fishshell.com/docs/current/interactive.html#syntax-highlighting
 
+# [1] #cdd6f4 fg in completion page
+# [2] #313244 selection
+# [3] #89b4fa command, prefix
+# [4] #f38ba8 error, invalid command
+# [5] #f2cdcd params, (~, *)
+# [6] #9399b2 suggestion, comment
+# [7] #a6e3a1 string
+# [8] #89b4fa options,|
+set -l catppuccin_mocha cdd6f4 \
+    313244 \
+    89b4fa \
+    f38ba8 \
+    f2cdcd \
+    9399b2 \
+    a6e3a1 \
+    89b4fa
+
 # [1] #c8d3f5 fg in completion page
 # [2] #2d3f76 selection
 # [3] #86e1fc command, prefix
@@ -165,8 +182,7 @@ set -l kanagawa dcd7ba \
     98bb6c \
     7e9cd8
 
-# set -l colors $tokyonight_moon
-set -l colors $tokyonight_day
+set -l colors $catppuccin_mocha
 
 set -l fg $colors[1]
 set -l sel $colors[2]

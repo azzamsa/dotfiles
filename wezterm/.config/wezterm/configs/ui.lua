@@ -64,8 +64,7 @@ function M.append(config)
         font_size = 22, -- default: 12.0
         font = wezterm.font("JetBrainsMono Nerd Font"),
 
-        -- color_scheme = "tokyonight_moon",
-        color_scheme = "kanagawa_wave",
+        color_scheme = "catppuccin_mocha",
 
         enable_scroll_bar = true, -- default: false
         scrollback_lines = 10000, --defauls: 3500
