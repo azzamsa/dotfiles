@@ -1,32 +1,31 @@
 # vim:fileencoding=utf-8:foldmethod=marker
-# Catppuccin Mocha with Macchiato background
 
 # : Manager {{{
 
 [manager]
-cwd = { fg = "#94e2d5" }
+cwd = { fg = "#86e1fc" }
 
 # Hovered
-hovered = { fg = "#ee99a0", bg = "#363a4f", bold = true }
+hovered = { fg = "#c8d3f5", bg = "#2f334d", bold = true }
 preview_hovered = { underline = true }
 
 # Find
-find_keyword = { fg = "#11111b", bg = "#f5e0dc", bold = true, italic = true }
-find_position = { fg = "#f5e0dc", bg = "reset", italic = true }
+find_keyword = { fg = "#54546d", bg = "#c8d3f5", bold = true, italic = true }
+find_position = { fg = "#c8d3f5", bg = "reset", italic = true }
 
 # Marker
-marker_selected = { fg = "#a6e3a1", bg = "#a6e3a1" }
-marker_copied = { fg = "#f38ba8", bg = "#f38ba8" }
-marker_cut = { fg = "#fab387", bg = "#fab387" }
+marker_selected = { fg = "#c3e88d", bg = "#c3e88d" }
+marker_copied = { fg = "#ff757f", bg = "#ff757f" }
+marker_cut = { fg = "#86e1fc", bg = "#86e1fc" }
 
 # Tab
-tab_active = { fg = "#1e1e2e", bg = "#f5e0dc" }
-tab_inactive = { fg = "#DDD8BB", bg = "#9399b2" }
+tab_active = { fg = "#222436", bg = "#c8d3f5" }
+tab_inactive = { fg = "#ffc777", bg = "#9399b2" }
 tab_width = 1
 
 # Border
 border_symbol = "│"
-border_style = { fg = "#f8b659" }
+border_style = { fg = "#ff966c" }
 
 # Offset
 folder_offset = [1, 0, 1, 0]
@@ -42,31 +41,31 @@ syntect_theme = ""
 [status]
 separator_open = ""
 separator_close = ""
-separator_style = { fg = "#1e1e2e", bg = "#1e1e2e" }
+separator_style = { fg = "#222436", bg = "#222436" }
 
 # Mode
-mode_normal = { fg = "#1e1e2e", bg = "#f5e0dc", bold = true }
-mode_select = { fg = "#1e1e2e", bg = "#a6e3a1", bold = true }
-mode_unset = { fg = "#1e1e2e", bg = "#f5e0dc", bold = true }
+mode_normal = { fg = "#222436", bg = "#c8d3f5", bold = true }
+mode_select = { fg = "#222436", bg = "#c3e88d", bold = true }
+mode_unset = { fg = "#222436", bg = "#c8d3f5", bold = true }
 
 # Progress
 progress_label = { bold = true }
-progress_normal = { fg = "#94e2d5", bg = "#1e1e2e" }
-progress_error = { fg = "#fab387", bg = "#1e1e2e" }
+progress_normal = { fg = "#86e1fc", bg = "#222436" }
+progress_error = { fg = "#86e1fc", bg = "#222436" }
 
 # Permissions
-permissions_t = { fg = "#a6e3a1" }
-permissions_r = { fg = "#f38ba8" }
-permissions_w = { fg = "#fab387" }
-permissions_x = { fg = "#f8b659" }
-permissions_s = { fg = "#1e1e2e", bg = "#24273a" }
+permissions_t = { fg = "#c3e88d" }
+permissions_r = { fg = "#ff757f" }
+permissions_w = { fg = "#86e1fc" }
+permissions_x = { fg = "#ff966c" }
+permissions_s = { fg = "#222436", bg = "#222436" }
 
 # : }}}
 
 # : Input {{{
 
 [input]
-border = { fg = "#94e2d5" }
+border = { fg = "#86e1fc" }
 title = {}
 value = {}
 selected = { reversed = true }
@@ -76,8 +75,8 @@ selected = { reversed = true }
 # : Select {{{
 
 [select]
-border = { fg = "#94e2d5" }
-active = { fg = "#f5e0dc" }
+border = { fg = "#86e1fc" }
+active = { fg = "#c8d3f5" }
 inactive = {}
 
 # : }}}
@@ -85,7 +84,7 @@ inactive = {}
 # : Tasks {{{
 
 [tasks]
-border = { fg = "#94e2d5" }
+border = { fg = "#86e1fc" }
 title = {}
 hovered = { underline = true }
 
@@ -94,23 +93,23 @@ hovered = { underline = true }
 # : Which {{{
 
 [which]
-mask = { bg = "#1e1e2e" }
-cand = { fg = "#f5e0dc" }
-rest = { fg = "#1e1e2e" }
+mask = { bg = "#222436" }
+cand = { fg = "#c8d3f5" }
+rest = { fg = "#222436" }
 desc = { fg = "#cdd6f4" }
 separator = "  "
-separator_style = { fg = "#1e1e2e" }
+separator_style = { fg = "#222436" }
 
 # : }}}
 
 # : Help {{{
 
 [help]
-on = { fg = "#94e2d5" }
-exec = { fg = "#f5e0dc" }
+on = { fg = "#86e1fc" }
+exec = { fg = "#c8d3f5" }
 desc = { fg = "#cdd6f4" }
-hovered = { bg = "#44475A", bold = true }
-footer = { fg = "#f5e0dc", bg = "#1e1e2e" }
+hovered = { bg = "#2f334d", bold = true }
+footer = { fg = "#c8d3f5", bg = "#222436" }
 
 # : }}}
 
@@ -119,35 +118,36 @@ footer = { fg = "#f5e0dc", bg = "#1e1e2e" }
 [filetype]
 rules = [
     # Images
-    { mime = "image/*", fg = "#94e2d5" },
+    { mime = "image/*", fg = "#86e1fc" },
 
     # Videos
-    { mime = "video/*", fg = "#fab387" },
-    { mime = "audio/*", fg = "#fab387" },
+    { mime = "video/*", fg = "#86e1fc" },
+    { mime = "audio/*", fg = "#86e1fc" },
 
     # Archives
-    { mime = "application/zip", fg = "#f38ba8" },
-    { mime = "application/gzip", fg = "#f38ba8" },
-    { mime = "application/x-tar", fg = "#f38ba8" },
-    { mime = "application/x-bzip", fg = "#f38ba8" },
-    { mime = "application/x-7z-compressed", fg = "#f38ba8" },
-    { mime = "application/x-rar", fg = "#f38ba8" },
+    { mime = "application/zip", fg = "#ff757f" },
+    { mime = "application/gzip", fg = "#ff757f" },
+    { mime = "application/x-tar", fg = "#ff757f" },
+    { mime = "application/x-bzip", fg = "#ff757f" },
+    { mime = "application/x-7z-compressed", fg = "#ff757f" },
+    { mime = "application/x-rar", fg = "#ff757f" },
 
     # Custom color for common programming languages
-    # https://github.com/kujitegemea/language-colors/blob/main/css/language-colors.css
-    { name = "*.rs", fg = "#fab387" },
-    { name = "*.toml", fg = "#f38ba8" },
-    { name = "*.md", fg = "#89b4fa" },
-    { name = "*.sh", fg = "#a6e3a1" },
-    { name = "*.js", fg = "#f9e2af" },
-    { name = "*.c", fg = "#94e2d5" },
-    { name = "*.html", fg = "#fab387" },
+    { name = "*.rs", fg = "#ffa066" },
+    { name = "*.toml", fg = "#7e9cd8" },
+    { name = "*.py", fg = "#7e9cd8" },
+    { name = "*.md", fg = "#7e9cd8" },
+    { name = "*.sh", fg = "#c3e88d" },
+    { name = "*.js", fg = "#86e1fc" },
+    { name = "*.json", fg = "#86e1fc" },
+    { name = "*.c", fg = "#86e1fc" },
+    { name = "*.html", fg = "#ff757f" },
 
     # Fallback
     # file
-    { name = "*", fg = "#f5c2e7" },
+    { name = "*", fg = "#7e9cd8" },
     # directory
-    { name = "*/", fg = "#89b4fa" },
+    { name = "*/", fg = "#c8d3f5" },
 ]
 
 [icons]
