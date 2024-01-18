@@ -1,0 +1,8 @@
+#!/bin/fish
+
+set selection (cliphist list | fuzzel --dmenu | cliphist decode)
+
+if test "$selection" != ""
+    echo "$selection" | wl-copy
+end
+
