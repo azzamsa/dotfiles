@@ -95,9 +95,12 @@
     },
 
     "network": {
-        "format-wifi": " {signalStrength}%",
+        "interface": "wlp2s0",
+        "format-wifi": " {bandwidthDownBytes}",
         "format-ethernet": " {signalStrength}%",
-        "format-disconnected": "󰤭"
+        "format-disconnected": "󰤭",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) "
     },
 
     "tray": {

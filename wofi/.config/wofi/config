@@ -1,0 +1,10 @@
+# default: 50%
+width=60%
+
+show=drun
+
+allow_images=true
+image_size=40
+
+allow_markup=true
+

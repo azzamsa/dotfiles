@@ -1,8 +1,10 @@
 #!/bin/fish
 
-set selection (cliphist list | fuzzel --dmenu | cliphist decode)
+# set selection (cliphist list | fuzzel --dmenu | cliphist decode)
+# set selection (cliphist list | wofi --show dmenu | cliphist decode)
+set selection (cliphist list | anyrun --plugins libstdin.so | cliphist decode)
 
 if test "$selection" != ""
-    echo "$selection" | wl-copy
+    # Using `echo` will strip the new lines
+    printf "%s" "$selection" | wl-copy
 end
-

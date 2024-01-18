@@ -7,13 +7,13 @@ Config(
   x: Fraction(0.5),
 
   // The vertical position, works the same as `x`
-  y: Fraction(0.4),
+  y: Fraction(0.5),
 
   // The width of the runner
-  width: Absolute(620),
+  width: Absolute(800),
 
   // The minimum height of the runner, the runner will expand to fit all the entries
-  height: Absolute(400),
+  height: Absolute(700),
 
   // Hide match and plugin info icons
   hide_icons: false,
