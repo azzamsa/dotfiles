@@ -163,7 +163,7 @@ rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
 
 ```bash
 python3 -m pip install --user qmk grip poetry
-python3 -m pip install --user black
+python3 -m pip install --user ruff black
 ```
 
 ## Setup Toolbx
@@ -189,15 +189,18 @@ sudo dnf install --assumeyes gstreamer1-plugin-openh264
 
 ```bash
 # Javascript
-fnm use v18
+fnm use <version> # To get LTS version, see https://endoflife.date/nodejs
 ```
 
 ```bash
-# rust development tool
-cargo binstall --no-confirm --no-symlinks cargo-edit cargo-machete cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch dprint git-cliff git-cliff hurl just tokei watchexec-cli
+# Development tool
+cargo binstall --no-confirm --no-symlinks cargo-edit cargo-machete cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch dprint git-cliff git-cliff hurl just rust-script selene stylua tokei typos-cli watchexec-cli
 
-# utilities
-cargo binstall --no-confirm --no-symlinks bandwhich bat dua-cli kondo rust-script stylua
+# Utilities
+cargo binstall --no-confirm --no-symlinks bandwhich bat dua-cli kondo yazi-fm
+
+# Flex
+cargo binstall --no-confirm --no-symlinks lolcrab macchina
 ```
 
 ## Install More GNOME Extensions
@@ -211,7 +214,7 @@ It is easier than searching manually inside the Extension manager App.
 
 ## Install Binaries Manually
 
-Install eget from https://github.com/zyedidia/eget/releases
+Install `eget` from https://github.com/zyedidia/eget/releases
 
 ```bash
 eget junegunn/fzf --to ~/.local/bin
@@ -259,11 +262,33 @@ Automatic=true
 Command="
     copyq:
     if ( isClipboard() )
-      execute('pw-play', '/usr/share/sounds/gnome/default/alerts/hum.ogg')"
+      execute('pw-play', '/home/user/sounds/slick.ogg')"
 Icon=\xf028
 ```
 
 Load custom themes from `~/dotfiles/copyq`
+
+## Flameshot
+
+Change the `Exec` line in `/usr/share/applications/org.flameshot.Flameshot.desktop`.
+
+```diff
+[Desktop Entry]
+-Exec=flameshot
++Exec=/home/user/opt/bin/nflameshot
+
+[Desktop Action Configure]
+-Exec=flameshot config
++Exec=/home/user/opt/bin/nflameshot config
+
+[Desktop Action Capture]
+-Exec=flameshot gui --delay 500
++Exec=/home/user/opt/bin/nflameshot gui --delay 500
+
+[Desktop Action Launcher]
+-Exec=flameshot launcher
++Exec=/home/user/opt/bin/nflameshot launcher
+```
 
 ## Setting Up DNS
 
@@ -277,15 +302,27 @@ On laptop.
 
 ### Tweaks
 
+```bash
+# https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/
+sudo dnf install --assumeyes papirus-icon-theme
+
+# https://github.com/ful1e5/Bibata_Cursor
+```
+
 Fonts:
 
-- Interface Text: "Cantarell Regular 12"
+- Interface Text: "JetBrains Mono Nerd Font Regular 13"
 - Document Text: "Cantarell Regular 12"
-- Monospace Text: "Dejavu Sans Mono Regular 12"
+- Monospace Text: "JetBrains Mono Nerd Font Regular 12"
 - Legacy Window Titles: "Cantarell Bold 12"
 - Hinting : Slight
 - Antialiasing: Standard (greyscale)
 - Scaling Factor: 1.00
+
+Appearance:
+
+- Cursor: Bibata-Modern-Classic
+- Icons: Papirus-Dark
 
 Startup Applications:
 
@@ -313,7 +350,7 @@ Go to `Settings` -> `Keyboard`.
   - Close windows: Super + Shift + Q (Super + F4)
 - Flameshot
   - name: Flameshot
-  - command: flameshot gui
+  - command: /home/user/opt/bin/nflameshot gui
   - shortcut: PrtScn
 
 ### Multitasking
