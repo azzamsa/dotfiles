@@ -1,11 +1,12 @@
 {
+    "margin-top": 0,
+    "margin-left": 30,
+    "margin-bottom": 0,
+    "margin-right": 30,
+    "height": 60,
     "layer": "top",
     "position": "top",
-    "mod": "dock",
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": true,
-    "height": 31,
+    "spacing": 10, // default: 4
     "modules-left": ["clock", "hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
@@ -13,13 +14,16 @@
         "network",
         "pulseaudio",
         "pulseaudio#microphone",
-        "tray",
+        // Can't hide empty tray?
+        // https://github.com/Alexays/Waybar/issues/2673
+        // "tray",
         "custom/powermenu"
     ],
 
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 70
+    "clock": {
+        "format": "{:  %I:%M %p}",
+        "tooltip-format": "<big>{:%m %B %Y}</big>",
+        "on-click": "gnome-calendar"
     },
 
     "hyprland/workspaces": {
@@ -47,24 +51,15 @@
         }
     },
 
-    "tray": {
-        "icon-size": 19,
-        "spacing": 10
+    "hyprland/window": {
+        "max-length": 60
     },
 
-    "clock": {
-        "format": "{:  %I:%M %p}",
-        "tooltip-format": "<big>{:%m %B %Y}</big>",
-        "on-click": "gnome-calendar"
-    },
-
-    "backlight": {
-        "device": "amd_backlight",
-        "format": "{icon} {percent}%",
-        "format-icons": ["󰃞", "󰃟", "󰃠"],
-        "on-scroll-up": "brightnessctl set 2%+",
-        "on-scroll-down": "brightnessctl set 2%-",
-        "min-length": 6
+    "custom/ddcutil": {
+        "format": " {percentage}%",
+        "interval": 2,
+        "exec": "~/.config/waybar/scripts/ddcutil.py",
+        "return-type": "json"
     },
 
     "pulseaudio": {
@@ -87,7 +82,6 @@
             "default": ["", "", ""]
         }
     },
-
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}%",
@@ -99,29 +93,19 @@
         "scroll-step": 5
     },
 
+    "network": {
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": " {signalStrength}%",
+        "format-disconnected": "󰤭"
+    },
+
+    "tray": {
+        "show-passive-items": false
+    },
+
     "custom/powermenu": {
         "format": "",
         "on-click": "wlogout --buttons-per-row 2",
         "tooltip": false
-    },
-
-    "network": {
-        "interface": "wlp2s0",
-        "format": "{ifname}",
-        "format-wifi": " {bandwidthDownBytes}",
-        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-        "format-disconnected": "", //An empty format will hide the module.
-        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-        "tooltip-format-ethernet": "{ifname} ",
-        "tooltip-format-disconnected": "Disconnected",
-        "max-length": 50
-    },
-
-    "custom/ddcutil": {
-        "format": " {percentage}%",
-        "interval": 2,
-        "exec": "~/.config/waybar/scripts/ddcutil.py",
-        "return-type": "json"
     }
 }

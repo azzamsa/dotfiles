@@ -1,0 +1,7 @@
+#!/usr/bin/env fish
+
+flatpak run --command=keepassxc-cli org.keepassxc.KeePassXC show \
+    $_PASSFILE_PATH \
+    $argv
+
+# vim: ft=fish

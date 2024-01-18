@@ -1,25 +1,40 @@
+@import "../colors/tokyonight-moon.css";
+
 window {
     font-family: JetBrainsMono Nerd Font;
     font-size: 16pt;
-    color: #c8d3f5;
+    color: @fg;
     background: transparent;
 }
 
 button {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 25%;
-    border: 4px solid #2d3f76;
+    background-color: @bg;
+    border-bottom-color: @bg1;
+
+    border-radius: 10px;
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+
+    /* Margin between buttons */
     margin: 5px;
+
     transition:
         box-shadow 0.2s ease-in-out,
         background-color 0.2s ease-in-out;
-    color: #c8d3f5;
+
+    /*  icon */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
 }
 
 button:hover {
-    color: #c8d3f5;
-    background-color: #2d3f76;
+    background-color: @bg;
+    border-color: @fg;
+
+    font-size: 18pt;
+    font-weight: bold;
+    background-size: 26%;
 }
 
 #lock {
