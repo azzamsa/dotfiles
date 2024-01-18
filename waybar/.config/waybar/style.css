@@ -1,4 +1,4 @@
-@import "../colors/tokyonight-moon.css";
+@import "../colors/kanagawa-wave.css";
 
 * {
     font-family:
@@ -60,11 +60,10 @@
 }
 
 #workspaces button:hover {
-    background: @green;
-    border-bottom-color: @green1;
+    background: @yellow1;
+    border-bottom-color: @yellow1;
 
-    border: 1.5px solid @green1;
-    border-radius: 10px 10px 10px 10px;
+    border: 2px solid @yellow2;
 }
 
 window#waybar {

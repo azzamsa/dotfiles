@@ -16,7 +16,7 @@
         "pulseaudio#microphone",
         // Can't hide empty tray?
         // https://github.com/Alexays/Waybar/issues/2673
-        // "tray",
+        "tray",
         "custom/powermenu"
     ],
 

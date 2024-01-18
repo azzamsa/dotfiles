@@ -1,0 +1,34 @@
+/*
+See https://github.com/rebelot/kanagawa.nvim
+
+All the color is taken from `Kanagawa`, unless otherwise mentioned.
+
+Other color are taken from https://mdigi.tools/color-shades/.
+
+These colors are designed around `Waybar`.
+Other additional colors are used for other apps.
+
+The higher the number, the darker the color.
+*/
+
+@define-color fg #dcd7ba; /* fujiWhite */
+@define-color fg1 #c8c093; /* oldWhite */
+
+@define-color bg #1f1f28; /* sumiink1 */
+@define-color bg1 #54546D; /* sumiInk4 */
+@define-color bg2 #2A2A37; /* sumiInk2 */
+
+@define-color red  #ff5d62; /* peachRed */
+@define-color red1 #c34043; /* autumnRed */
+
+@define-color green #98bb6c; /* springGreen */
+@define-color green1 #76946A; /* autumnGreen */
+
+@define-color blue  #7fb4ca; /* lightBlue */
+@define-color blue1 #7e9cd8; /* springBlue */
+
+@define-color cyan #a3d4d5;
+
+@define-color yellow #e6c384;
+@define-color yellow1 #c0a36e;
+@define-color yellow2 #938056;

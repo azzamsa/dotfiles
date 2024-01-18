@@ -17,10 +17,10 @@
     "keybind" : "r"
 }
 {
-    "label" : "shutdown",
+    "label" : "poweroff",
     "action" : "poweroff",
-    "text" : "Shutdown",
-    "keybind" : "s"
+    "text" : "Power Off",
+    "keybind" : "p"
 }
 
 

@@ -8,18 +8,6 @@ set fish_greeting # no greeting
 # All credits due to @fredizzimo (Neovide maintainer) for finding this solution.
 set -g fish_term24bit 1
 
-# # Add directories to the beginning of the PATH variable
-# set -x PATH ~/opt/bin ~/.local/bin ~/.cargo/bin $PATH
-#
-# # Add directories to the beginning of the PATH variable with additional directory
-# set -x PATH ~/.rye/shims ~/opt/bin ~/.local/bin ~/.cargo/bin $PATH
-#
-# # Add directories to the beginning of the PATH variable
-# set -x PATH ~/opt/nodebin/node_modules/.bin $PATH
-#
-# set -U SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
-
-
 #
 # Bindings
 #
@@ -126,15 +114,51 @@ end
 
 # See https://fishshell.com/docs/current/interactive.html#syntax-highlighting
 
-set -l fg c8d3f5 #c8d3f5  # fg in completion page,
-set -l sel 2d3f76 #2d3f76 # selection
+# [1] #c8d3f5 fg in completion page
+# [2] #2d3f76 selection
+# [3] #86e1fc command, prefix
+# [4] #ff757f error, invalid command
+# [5] #fca7ea params, (~, *)
+# [6] #636da6 suggestion, comment
+# [7] #c3e88d string
+# [8] #82aaff options,|
+set -l tokyonight_moon c8d3f5 \
+    2d3f76 \
+    86e1fc \
+    ff757f \
+    fca7ea \
+    636da6 \
+    c3e88d \
+    82aaff
 
-set -l cow 86e1fc #86e1fc # command, prefix
-set -l elk ff757f #ff757f # error, invalid command,
-set -l puma fca7ea #fca7ea # params, (~, *),
-set -l duck 636da6 #636da6 # suggestion, comment
-set -l owl c3e88d #c3e88d # string
-set -l bear 82aaff #82aaff # options, |
+# [1] #dcd7ba fg in completion page
+# [2] #2d4f67 selection
+# [3] #ffa066 command, prefix
+# [4] #e46876 error, invalid command
+# [5] #e6c384 params, (~, *)
+# [6] #938056 suggestion, comment
+# [7] #98bb6c string
+# [8] #7e9cd8 options, |
+set -l kanagawa dcd7ba \
+    2d4f67 \
+    ffa066 \
+    e46876 \
+    e6c384 \
+    938056 \
+    98bb6c \
+    7e9cd8
+
+# set -l colors $tokyonight_moon
+set -l colors $kanagawa
+
+set -l fg $colors[1]
+set -l sel $colors[2]
+set -l cow $colors[3]
+set -l elk $colors[4]
+set -l puma $colors[5]
+set -l duck $colors[6]
+set -l owl $colors[7]
+set -l bear $colors[8]
 
 # Syntax Highlighting Colors
 set -g fish_color_normal $fg

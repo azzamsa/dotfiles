@@ -1,17 +1,17 @@
 [colors]
-foreground = "#c8d3f5"
-background = "#222436"
+foreground = "#dcd7ba"
+background = "#1f1f28"
 
-cursor_bg = "#c8d3f5"
-cursor_fg = "#222436"
-cursor_border = "#c8d3f5"
-compose_cursor = "#86e1fc"
+cursor_bg = "#c8c093"
+cursor_fg = "#c8c093"
+cursor_border = "#c8c093"
+compose_cursor = "#e6c384"
 
-selection_bg = "#2d3f76"
-selection_fg = "#c8d3f5"
+selection_fg = "#c8c093"
+selection_bg = "#2d4f67"
 
-split = "#82aaff"
-scrollbar_thumb = "#2F334D"
+scrollbar_thumb = "#54546D"
+split = "#54546D"
 
 # [1]
 # [2] Starship VCS status
@@ -21,9 +21,9 @@ scrollbar_thumb = "#2F334D"
 # [6] Starship VCS branch
 # [7] Starship Project name
 # [8] ` taze` progress bar
-ansi = ["#1b1d2b", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#828bb8"]
+ansi = ["#090618", "#ff5d62", "#98bb6c", "#e6c384", "#7e9cd8", "#957fb8", "#a3d4d5", "#c8c093"]
 # [1] Atuin page title
-brights = ["#444a73", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#c8d3f5"]
+brights = ["#938056", "#ff5d62", "#98bb6c", "#e6c384", "#7e9cd8", "#957fb8", "#a3d4d5", "#dcd7ba"]
 
 [colors.tab_bar]
 inactive_tab_edge = "#1e2030"
@@ -31,22 +31,22 @@ background = "#222436"
 
 [colors.tab_bar.active_tab]
 fg_color = "#1e2030"
-bg_color = "#82aaff"
+bg_color = "#a3d4d5"
 
 [colors.tab_bar.inactive_tab]
 fg_color = "#545c7e"
 bg_color = "#2f334d"
 
 [colors.tab_bar.inactive_tab_hover]
-fg_color = "#82aaff"
+fg_color = "#a3d4d5"
 bg_color = "#2f334d"
 # intensity = "Bold"
 
 [colors.tab_bar.new_tab_hover]
-fg_color = "#82aaff"
+fg_color = "#a3d4d5"
 bg_color = "#222436"
 intensity = "Bold"
 
 [colors.tab_bar.new_tab]
-fg_color = "#82aaff"
+fg_color = "#a3d4d5"
 bg_color = "#222436"

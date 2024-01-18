@@ -202,9 +202,26 @@ ui {
 }
 
 // https://zellij.dev/documentation/theme-gallery
-theme "tema"
+// theme "tokyonight_moon"
+theme "kanagawa_wave"
+
 themes {
-   tema {
+   kanagawa_wave {
+        white "#dcd7ba"
+        green "#e6c384"
+        fg "#c8c093"
+        black "#1f1f28"
+        red "#c34043"
+        bg "#2d4f67"
+        orange "#e6c384"
+
+        // Not used colors
+        yellow "#f38ba8"
+        blue "#f38ba8"
+        magenta "#f38ba8"
+        cyan "#f38ba8"
+    }
+   tokyonight_moon {
         // Primary color (brand color)
         // Logo and help prefix
         white "#86e1fc"

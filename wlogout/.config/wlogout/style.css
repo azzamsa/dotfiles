@@ -1,4 +1,4 @@
-@import "../colors/tokyonight-moon.css";
+@import "../colors/kanagawa-wave.css";
 
 window {
     font-family: JetBrainsMono Nerd Font;
@@ -9,7 +9,8 @@ window {
 
 button {
     background-color: @bg;
-    border-bottom-color: @bg1;
+    border-color: @bg;
+    border-bottom-color: @bg2;
 
     border-radius: 10px;
     border-bottom-width: 5px;
@@ -29,8 +30,7 @@ button {
 }
 
 button:hover {
-    background-color: @bg;
-    border-color: @fg;
+    border-color: @yellow;
 
     font-size: 18pt;
     font-weight: bold;
@@ -38,29 +38,17 @@ button:hover {
 }
 
 #lock {
-    background-image: image(url("./lock.png"));
-}
-#lock:hover {
-    background-image: image(url("./lock-hover.png"));
+    background-image: image(url("./icons/lock.svg"));
 }
 
 #logout {
-    background-image: image(url("./logout.png"));
-}
-#logout:hover {
-    background-image: image(url("./logout-hover.png"));
-}
-
-#shutdown {
-    background-image: image(url("./poweroff.png"));
-}
-#shutdown:hover {
-    background-image: image(url("./poweroff-hover.png"));
+    background-image: image(url("./icons/logout.svg"));
 }
 
 #reboot {
-    background-image: image(url("./reboot.png"));
+    background-image: image(url("./icons/reboot.svg"));
 }
-#reboot:hover {
-    background-image: image(url("./reboot-hover.png"));
+
+#poweroff {
+    background-image: image(url("./icons/poweroff.svg"));
 }

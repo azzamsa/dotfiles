@@ -63,7 +63,9 @@ function M.append(config)
         default_cursor_style = "BlinkingBar", -- default: 'SteadyBlock'
         font_size = 22, -- default: 12.0
         font = wezterm.font("JetBrainsMono Nerd Font"),
-        color_scheme = "tokyonight_moon",
+
+        -- color_scheme = "tokyonight_moon",
+        color_scheme = "kanagawa_wave",
 
         enable_scroll_bar = true, -- default: false
         scrollback_lines = 10000, --defauls: 3500
