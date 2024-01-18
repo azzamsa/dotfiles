@@ -4,7 +4,10 @@ local M = {}
 
 -- Hide window title
 wezterm.on("format-window-title", function(_, _, _, _, _)
-    return "Wezterm"
+    -- Hyprland doesn't have an Alt-tab previewer, so you can get lost easily.
+    -- You need to add a title to the app.
+    -- return "Wezterm"
+    return ""
 end)
 
 -- This function returns the suggested title for a tab.
@@ -76,7 +79,11 @@ function M.append(config)
         -- Tab Bar Options
         -- GTK tab-bar is looking awful.
         use_fancy_tab_bar = false, -- default: true
-        hide_tab_bar_if_only_one_tab = true, -- default: false
+
+        -- Hiding the tab-bar also means hiding the right status
+        -- Means you lose viseal feedback of sticky keys.
+        -- It is better to set it to `false`
+        hide_tab_bar_if_only_one_tab = false, -- default: false
 
         inactive_pane_hsb = {
             saturation = 0.70,

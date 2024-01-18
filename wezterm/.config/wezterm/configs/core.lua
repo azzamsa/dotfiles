@@ -2,9 +2,15 @@ local M = {}
 
 function M.append(config)
     local options = {
-        default_prog = { "zellij" },
-        -- default: true, but it will not start in Hyprland.
-        enable_wayland = false,
+        -- Set to `zellij` if you are in Hyprland.
+        -- Sticky keys don't work there because of `enable_wayland: false`,
+        -- so you need `zellij` as a replacement.
+        -- Otherwise, set it to `fish`
+        default_prog = { "fish" },
+        -- Enabled by default but it will not start in Hyprland.
+        -- Set to `false` if you are in Hyprland, Otherwise leave as is.
+        enable_wayland = true, -- default: true,
+
         -- I want to get confirmation for ANY process.
         skip_close_confirmation_for_processes_named = {}, -- default: many process
 
