@@ -1,0 +1,24 @@
+#!/usr/bin/env fish
+
+# Script Name: git-remove-merged
+# Description: Remove merged branches in Git
+#
+# Usage: ./git-remove-merged#
+#
+# Example: ./git-remove-merged
+#
+# Dependencies: git, grep
+
+set merged_branches (git branch --merged | grep -v -E "(^\*|master|main|dev|devel|next)")
+
+if [ -n "$merged_branches" ]
+    echo "::: Merged branches: $merged_branches"
+    echo "::: Fetching remote ..."
+    git fetch $argv[1]
+    echo "::: Delete local branch"
+    git branch -d $merged_branches
+    echo "::: Prune remote branch"
+    git remote prune $argv[1]
+else
+    echo "No merged branch found"
+end
