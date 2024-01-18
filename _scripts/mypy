@@ -1,4 +1,0 @@
-#!/usr/bin/env fish
-
-mypy .
-mypy scripts/opt/bin/wallpaper

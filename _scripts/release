@@ -12,7 +12,7 @@ import subprocess
 import sys
 
 
-def run(command: List[str]) -> None:
+def _run(command: List[str]) -> None:
     subprocess.run(command, check=True)
 
 
@@ -36,7 +36,7 @@ def check_tag() -> None:
 def update_changelog(version: str) -> None:
     print("Updating the changelog")
     try:
-        run(
+        _run(
             [
                 "git-cliff",
                 "--config",
@@ -54,7 +54,7 @@ def update_changelog(version: str) -> None:
 
     # Run formatting with just
     try:
-        run(["just", "fmt"])
+        _run(["just", "fmt"])
     except subprocess.CalledProcessError as e:
         print(f"Error running just fmt: {e}")
         sys.exit(1)
@@ -67,10 +67,10 @@ def update_version_file(version: str) -> None:
 
 
 def commit(version: str) -> None:
-    run(["git", "add", "--all"])
-    run(["git", "commit", "--message=" + version])
-    run(["git", "show"])
-    run(
+    _run(["git", "add", "--all"])
+    _run(["git", "commit", "--message=" + version])
+    _run(["git", "show"])
+    _run(
         [
             "git",
             "tag",
@@ -81,7 +81,7 @@ def commit(version: str) -> None:
             "--message=For details, see the CHANGELOG.md",
         ],
     )
-    run(["git", "tag", "--verify", version])
+    _run(["git", "tag", "--verify", version])
 
 
 def main() -> None:
@@ -97,3 +97,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# vim: ft=python

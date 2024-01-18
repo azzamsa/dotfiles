@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+
+onefetch --image ~/Pictures/profile/me-stand.png
+
+# vim: ft=fish

@@ -1,0 +1,51 @@
+window {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 16pt;
+    color: #c8d3f5;
+    background: transparent;
+}
+
+button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    border: 4px solid #2d3f76;
+    margin: 5px;
+    transition:
+        box-shadow 0.2s ease-in-out,
+        background-color 0.2s ease-in-out;
+    color: #c8d3f5;
+}
+
+button:hover {
+    color: #c8d3f5;
+    background-color: #2d3f76;
+}
+
+#lock {
+    background-image: image(url("./lock.png"));
+}
+#lock:hover {
+    background-image: image(url("./lock-hover.png"));
+}
+
+#logout {
+    background-image: image(url("./logout.png"));
+}
+#logout:hover {
+    background-image: image(url("./logout-hover.png"));
+}
+
+#shutdown {
+    background-image: image(url("./poweroff.png"));
+}
+#shutdown:hover {
+    background-image: image(url("./poweroff-hover.png"));
+}
+
+#reboot {
+    background-image: image(url("./reboot.png"));
+}
+#reboot:hover {
+    background-image: image(url("./reboot-hover.png"));
+}

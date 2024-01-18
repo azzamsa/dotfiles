@@ -9,8 +9,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 # Bash history
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
-export HISTSIZE=100000                   # big big history
-export HISTFILESIZE=100000               # big big history
+export HISTSIZE=100000     # big big history
+export HISTFILESIZE=100000 # big big history
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTCONTROL="ignoreboth"
 # Save and reload the history after each command finishes
@@ -22,7 +22,6 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 export PATH
 export PATH=~/opt/bin:~/.local/bin:~/.cargo/bin:$PATH
-export PATH=~/.rye/shims:~/opt/bin:~/.local/bin:~/.cargo/bin:$PATH
 export PATH=~/opt/nodebin/node_modules/.bin:$PATH
 
 export VISUAL='neovide'

@@ -22,13 +22,17 @@ check: fmt-check lint
 fmt:
     just --justfile xtool/justfile fmt
     dprint fmt
-    stylua --allow-hidden .
+    stylua . --allow-hidden
+    prettier . --write --log-level error
+    black . --quiet
 
 # Check is the codebase properly formatted.
 fmt-check:
     just --justfile xtool/justfile fmt-check
     dprint check
-    stylua --allow-hidden --check .
+    stylua . --allow-hidden --check
+    prettier . --check --log-level error
+    check . --quiet
 
 # Lint the codebase.
 lint:
@@ -36,9 +40,8 @@ lint:
     typos --config configs/typos.toml
     selene . --quiet
 
-    ruff check .
-    ./_scripts/mypy
+    ./_scripts/python-tools
 
 # Create a new release. Example `just release v2.2.0`
 release version:
-    python scripts/release.py {{ version }}
+    ./_scripts/release.py {{ version }}

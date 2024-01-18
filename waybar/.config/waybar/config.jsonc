@@ -1,0 +1,127 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 31,
+    "modules-left": ["clock", "hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "custom/ddcutil",
+        "network",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "tray",
+        "custom/powermenu"
+    ],
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 70
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format_focused": "< %g ● >",
+        // I don't use more than 5
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+            "default": "",
+            "urgent": "",
+            "focused": ""
+        }
+    },
+
+    "tray": {
+        "icon-size": 19,
+        "spacing": 10
+    },
+
+    "clock": {
+        "format": "{:  %I:%M %p}",
+        "tooltip-format": "<big>{:%m %B %Y}</big>",
+        "on-click": "gnome-calendar"
+    },
+
+    "backlight": {
+        "device": "amd_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 2%+",
+        "on-scroll-down": "brightnessctl set 2%-",
+        "min-length": 6
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": "",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "on-click-right": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"],
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "ignored-sinks": ["Easy Effects Sink"],
+        "scroll-step": 5
+    },
+
+    "custom/powermenu": {
+        "format": "",
+        "on-click": "wlogout --buttons-per-row 2",
+        "tooltip": false
+    },
+
+    "network": {
+        "interface": "wlp2s0",
+        "format": "{ifname}",
+        "format-wifi": " {bandwidthDownBytes}",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+
+    "custom/ddcutil": {
+        "format": " {percentage}%",
+        "interval": 2,
+        "exec": "~/.config/waybar/scripts/ddcutil.py",
+        "return-type": "json"
+    }
+}

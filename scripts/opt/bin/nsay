@@ -1,0 +1,15 @@
+#!/usr/bin/env fish
+
+# Script Name: nsay
+# # Description: I keep forgetting the `cowsay` binary replacement name!
+#
+# Usage: ./nsay <word>
+#
+# Example: ./nsay "Hi, Mom!"
+#
+# Dependencies: fsays, lolcrab
+
+set phrase $argv[1]
+fsays $phrase | lolcrab --gradient warm
+
+# vim: ft=fish

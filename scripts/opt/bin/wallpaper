@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+
+"""Set the wallpaper with a randomly selected file.
+
+Usage:
+    ./wallpaper
+"""
+
+import os
+import random
+import subprocess
+
+
+def random_wallpaper(location: str) -> str:
+    blacklist = ["me.png"]
+    # Get a random file from the directory
+    filename = random.choice(os.listdir(location))
+
+    if filename in blacklist:
+        filename = random_wallpaper(location)
+
+    return filename
+
+
+def main() -> None:
+    wallpaper_dir = os.path.expanduser("~/Pictures/wallpapers")
+    random_wallpaper_name = random_wallpaper(wallpaper_dir)
+    # Set the full path to the random file
+    img = os.path.join(wallpaper_dir, random_wallpaper_name)
+
+    # Kill any existing swaybg processes
+    subprocess.run(["killall", "swaybg"])
+    # Run swaybg with the selected random file
+    subprocess.Popen(["swaybg", "--image", img])
+
+
+if __name__ == "__main__":
+    main()
+
+# vim: ft=python

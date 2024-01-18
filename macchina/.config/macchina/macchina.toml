@@ -1,0 +1,10 @@
+theme = "Magic"
+
+# Toggle between displaying the number of physical or logical cores of your
+# processor.
+physical_cores = true
+show = [
+    "Distribution",
+    "DesktopEnvironment",
+    "Packages",
+]

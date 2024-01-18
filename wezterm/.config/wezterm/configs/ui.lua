@@ -4,7 +4,7 @@ local M = {}
 
 -- Hide window title
 wezterm.on("format-window-title", function(_, _, _, _, _)
-    return ""
+    return "Wezterm"
 end)
 
 -- This function returns the suggested title for a tab.
@@ -61,7 +61,7 @@ end)
 function M.append(config)
     local options = {
         default_cursor_style = "BlinkingBar", -- default: 'SteadyBlock'
-        font_size = 21, -- default: 12.0
+        font_size = 22, -- default: 12.0
         font = wezterm.font("JetBrainsMono Nerd Font"),
         color_scheme = "tokyonight_moon",
 
@@ -75,6 +75,7 @@ function M.append(config)
         -- Tab Bar Options
         -- GTK tab-bar is looking awful.
         use_fancy_tab_bar = false, -- default: true
+        hide_tab_bar_if_only_one_tab = true, -- default: false
 
         inactive_pane_hsb = {
             saturation = 0.70,

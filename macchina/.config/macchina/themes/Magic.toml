@@ -1,0 +1,48 @@
+#
+# Magic theme
+#
+
+hide_ascii = false
+
+spacing = 3
+key_color = "#86e1fc"
+separator = ""
+
+[box]
+title = " Hi, Folk! 🍦"
+border = "rounded"
+visible = true
+
+[palette]
+glyph = "● "
+visible = true
+
+[bar]
+glyph = "●"
+hide_delimiters = true
+visible = true
+
+[box.inner_margin]
+x = 2
+y = 1
+
+[custom_ascii]
+color = "#c3e88d"
+path = "~/.config/macchina/ascii/icecream"
+
+[keys]
+kernel = "Kernel"
+battery = "Battery"
+os = "OS"
+de = "DE"
+wm = "WM"
+distro = "Distro"
+terminal = "Terminal"
+shell = "Shell"
+packages = "Packages"
+uptime = "Uptime"
+memory = "Memory"
+backlight = "Brightness"
+resolution = "Resolution"
+cpu = "CPU"
+gpu = "GPU"

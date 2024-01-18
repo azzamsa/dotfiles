@@ -1,0 +1,9 @@
+# Ignore all files
+*
+
+# Include all folders
+!**/
+
+# Whitelist files
+!*.css
+!*.jsonc

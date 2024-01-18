@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+from typing import List
+
+import subprocess
+
+TARGET_FILES = ["scripts/opt/bin/wallpaper"]
+
+
+def _run(command: List[str]) -> None:
+    subprocess.run(command, check=True)
+
+
+def lint() -> None:
+    for path in TARGET_FILES:
+        _run(["ruff", "check", path])
+        _run(["mypy", path])
+
+
+def main():
+    lint()
+
+
+if __name__ == "__main__":
+    main()
+
+    # vim: ft=python

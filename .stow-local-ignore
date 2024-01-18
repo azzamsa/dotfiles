@@ -3,4 +3,5 @@ docs
 assets
 git/.config/git/hooks
 git/.config/git/.stow-local-ignore
-bin/xtool
+xtool
+_scripts
