@@ -131,6 +131,23 @@ set -l tokyonight_moon c8d3f5 \
     c3e88d \
     82aaff
 
+# [1] #3760bf fg in completion page
+# [2] #b6bfe2 selection
+# [3] #007197 command, prefix
+# [4] #f52a65 error, invalid command
+# [5] #7847bd params, (~, *)
+# [6] #848cb5 suggestion, comment
+# [7] #587539 string
+# [8] #b15c00 options,|
+set -l tokyonight_day 3760bf \
+    b6bfe2 \
+    007197 \
+    f52a65 \
+    7847bd \
+    848cb5 \
+    587539 \
+    b15c00
+
 # [1] #dcd7ba fg in completion page
 # [2] #2d4f67 selection
 # [3] #ffa066 command, prefix
@@ -149,7 +166,7 @@ set -l kanagawa dcd7ba \
     7e9cd8
 
 # set -l colors $tokyonight_moon
-set -l colors $kanagawa
+set -l colors $tokyonight_day
 
 set -l fg $colors[1]
 set -l sel $colors[2]
