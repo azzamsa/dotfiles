@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Script Name: nflameshot
+# Description: In GNOME, Flameshot only works if started from shell
+#
+# Usage: ./nflameshot <flameshot arg>
+#
+# Example: ./nflameshot gui
+#
+# Dependencies: flameshot
+
+# This file needs to be a BASH script. Fish doesn't work.
+# Maybe because it is executed from /usr/share/applications/org.flameshot.Flameshot.desktop
+
+flameshot "$@"
