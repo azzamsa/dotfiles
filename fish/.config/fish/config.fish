@@ -21,6 +21,7 @@ alias .. 'cd ..'
 alias ... 'cd ../..'
 
 alias c clear
+alias g git
 alias sudo 'sudo '
 
 alias in 'sudo dnf install'
