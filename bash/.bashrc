@@ -38,6 +38,15 @@ eval "$(fnm env --use-on-cd)"
 # Use plists for lsp-mode deserialization.
 export LSP_USE_PLISTS=true
 
+export ZDOTDIR=~/.config/zsh
+
+# If inside toolbx do something
+if [[ "$(hostname)" = "toolbox" ]]; then
+	# I don't change my default $SHELL
+	# So I need to run my preferred shell at toolbx startup
+	zsh
+fi
+
 #
 # Don't pollute home directory
 #
@@ -56,6 +65,6 @@ export WINEPREFIX="$XDG_DATA_HOME"/wine
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export VIRTUALFISH_HOME="$XDG_DATA_HOME"/virtualfish
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo
-export VIRTUALFISH_HOME="$XDG_DATA_HOME"/virtualfish
