@@ -100,17 +100,23 @@ Install [Brightness control](https://extensions.gnome.org/extension/2645/brightn
 I think I will just use mutable OS an immutable way!
 
 ```bash
-# main
+# Main
 flatpak install flathub --assumeyes com.github.tchx84.Flatseal org.gnome.seahorse.Application org.keepassxc.KeePassXC
 
-# productivity
+# Productivity tools
 flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq com.rafaelmardojai.Blanket
 
-# utilities
-flatpak install flathub --assumeyes com.brave.Browser com.github.finefindus.eyedropper com.github.huluti.Curtail com.github.qarmin.czkawka com.github.tenderowl.frog com.gitlab.newsflash fr.romainvigier.MetadataCleaner io.dbeaver.DBeaverCommunity io.github.adrienverge.PhotoCollage io.github.flattool.Warehouse io.github.seadve.Kooha net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC rest.insomnia.Insomnia
+# Work
+flatpak install flathub --assumeyes com.usebruno.Bruno dev.vencord.Vesktop io.dbeaver.DBeaverCommunity rest.insomnia.Insomnia
 
-# office
+# Utilities
+flatpak install flathub --assumeyes com.github.finefindus.eyedropper com.github.huluti.Curtail com.github.qarmin.czkawka com.github.tenderowl.frog com.gitlab.newsflash fr.romainvigier.MetadataCleaner io.github.adrienverge.PhotoCollage io.github.flattool.Warehouse io.github.seadve.Kooha net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gnome.Fractal org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC
+
+# Office
 flatpak install flathub --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
+
+# Emergency
+flatpak install flathub --assumeyes com.google.Chromue
 ```
 
 ## Setup Power Management
@@ -153,10 +159,15 @@ eget rust-lang/rust-analyzer --to ~/.local/bin --asset "rust-analyzer-x86_64-unk
 To use `mold` as the default linker, put the code below to `.cargo/config`.
 
 ```toml
+# Use mold as default linker
 # https://github.com/rui314/mold#how-to-use
 [target.x86_64-unknown-linux-gnu]
 linker = "clang"
 rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
+
+# https://blog.rust-lang.org/inside-rust/2023/01/30/cargo-sparse-protocol.html
+[registries.crates-io]
+protocol = "sparse"
 ```
 
 ## Setup Python Tooling
@@ -172,7 +183,11 @@ Setup `daily` container.
 
 ```bash
 toolbox enter daily
-toolbox run -c daily sudo dnf install --assumeyes fish yt-dlp pandoc ShellCheck
+
+# Main prompt
+toolbox run -c daily sudo dnf install --assumeyes fish zsh
+
+toolbox run -c daily sudo dnf install --assumeyes yt-dlp ffmpeg
 ```
 
 ## Install More Apps
@@ -211,6 +226,8 @@ It is easier than searching manually inside the Extension manager App.
 - [Internet Speed Meter - GNOME bash Extensions](https://extensions.gnome.org/extension/2980/internet-speed-meter/)
 - [Lock Keys - GNOME bash Extensions](https://extensions.gnome.org/extension/36/lock-keys/)
 - [AppIndicator and KStatusNotifierItem Support - GNOME bash Extensions](https://extensions.gnome.org/extension/615/appindicator-support/)
+- [Caffeine - GNOME Shell Extensions](https://extensions.gnome.org/extension/517/caffeine/)
+- [Wallpaper Slideshow - GNOME Shell Extensions](https://extensions.gnome.org/extension/6281/wallpaper-slideshow/)
 
 ## Install Binaries Manually
 
@@ -311,9 +328,9 @@ sudo dnf install --assumeyes papirus-icon-theme
 
 Fonts:
 
-- Interface Text: "JetBrains Mono Nerd Font Regular 13"
+- Interface Text: "JetBrains Mono Regular 13"
 - Document Text: "Cantarell Regular 12"
-- Monospace Text: "JetBrains Mono Nerd Font Regular 12"
+- Monospace Text: "JetBrains Mono Regular 12"
 - Legacy Window Titles: "Cantarell Bold 12"
 - Hinting : Slight
 - Antialiasing: Standard (greyscale)
@@ -396,4 +413,9 @@ Take a look at `~/.config/meta/backup.include`
 
 ## Clean Up
 
-Remove unnecessary bash configuration.
+- Remove unnecessary bash configuration.
+- Remove uninteresting default apps
+
+```bash
+sudo dnf remove gnome-maps
+```
