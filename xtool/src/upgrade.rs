@@ -48,7 +48,7 @@ fn all() -> anyhow::Result<()> {
 fn npm() -> anyhow::Result<()> {
     println!("📥 Checking npm apps");
     let dir = format!("{}/opt/nodebin", env::var("HOME")?);
-    cmd!("taze", "major", "--write").dir(&dir).run()?;
+    cmd!("npx", "taze", "major", "--write").dir(&dir).run()?;
     cmd!("npm", "install").dir(&dir).run()?;
     Ok(())
 }
