@@ -91,6 +91,11 @@ function M.append(config)
             { key = "PageUp", mods = "SHIFT", action = act.ScrollByPage(-1) },
             { key = "PageDown", mods = "SHIFT", action = act.ScrollByPage(1) },
 
+            { key = "RightArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
+            { key = "LeftArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
+            { key = "UpArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
+            { key = "DownArrow", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
+
             {
                 key = "h",
                 mods = "LEADER",
@@ -159,6 +164,7 @@ function M.append(config)
                 -- Vertical in Wezterm is different than Emacs/Neovim
                 { key = "s", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
                 { key = "v", action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
+                { key = "p", action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
 
                 { key = "k", action = act({ CloseCurrentPane = { confirm = true } }) },
                 { key = "z", action = act.TogglePaneZoomState },
