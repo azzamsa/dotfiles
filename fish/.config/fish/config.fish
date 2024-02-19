@@ -37,7 +37,7 @@ alias mkdir 'mkdir -pv'
 alias path 'echo -e $PATH | tr ":" "\\n"'
 
 alias j just
-alias x fyazi
+alias x nyazi
 
 abbr --add crg cargo
 
@@ -75,13 +75,13 @@ end
 
 # Changing working directory when exiting Yazi
 # https://yazi-rs.github.io/docs/quick-start/#changing-working-directory-when-exiting-yazi
-function fyazi
+function nyazi
     set tmp (mktemp -t "yazi-cwd.XXXXX")
-    yazi --cwd-file="$tmp"
+    yazi $argv --cwd-file="$tmp"
     if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
         cd -- "$cwd"
     end
-    # rm -f -- "$tmp"
+    rm -f -- "$tmp"
 end
 
 
