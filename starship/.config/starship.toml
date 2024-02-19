@@ -3,8 +3,8 @@
 command_timeout = 700
 
 [character]
-success_symbol = '[🦄](bold green)'
-error_symbol = '[🙊](bold red)'
+# success_symbol = '[🦄](bold green)'
+# error_symbol = '[🙊](bold red)'
 
 [container]
 style = 'bold blue dimmed'
@@ -16,3 +16,12 @@ when = "cname"
 symbol = '🫙'
 style = 'bold blue dimmed'
 format = "[$symbol $output]($style) "
+
+[shell]
+fish_indicator = '🐡'
+zsh_indicator = '🐔'
+# bash_indicator = '🐚'
+nu_indicator = '🐘'
+unknown_indicator = 'mystery shell'
+
+disabled = false
