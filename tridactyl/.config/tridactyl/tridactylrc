@@ -18,9 +18,9 @@ unbind <C-f>
 
 " The default jump of 10 is a bit much.
 unbind j
-bind n scrollline 5
+bind e scrollline 5
 unbind k
-bind e scrollline -5
+bind i scrollline -5
 
 " I want to avoid hand strain from constantly holding Ctrl for scrolling on long pages
 bind d scrollpage 0.5
@@ -29,16 +29,18 @@ bind <C-u> undo window
 
 " N and E should move between tabs. x should close them.
 unbind J
-bind N tabprev
+bind E tabprev
 unbind K
-bind E tabnext
-bind x tabclose
+bind I tabnext
+" Using `x` will always accitedally close the tab.
+" Because I use Super-x to go to first workspac.
+bind X tabclose
 
 " History
 unbind m
-bind m back
+bind n back
 unbind M
-bind M forward
+bind O forward
 
 " But also support Tridactyl search too.
 bind / fillcmdline find
@@ -69,6 +71,7 @@ set smoothscroll true
 " Don't run Tridactyl on some web sites because it doesn't work well, or
 " because the web site has its own keybindings.
 autocmd DocStart mail.google.com mode ignore
+autocmd DocStart pajak.go.id mode ignore
 
 " Sometimes the status bar in the bottom left corner overlaps the Tridactyl
 " command line, so set an option to move the status bar to the right.
