@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+
+# Script Name: noffice
+# Description: Open office related apps
+#
+# Usage: ./noffice
+
+firefox https://outlook.office365.com/ && firefox https://teams.microsoft.com/
