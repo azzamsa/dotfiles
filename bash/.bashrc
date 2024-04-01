@@ -30,6 +30,8 @@ export TERM='xterm-256color'
 #
 # Apps
 #
+
+source "$HOME/.rye/env"
 source "$HOME"/.config/meta/env
 eval "$(fnm env --use-on-cd)"
 
