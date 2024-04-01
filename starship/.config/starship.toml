@@ -20,7 +20,7 @@ format = "[$symbol $output]($style) "
 [shell]
 fish_indicator = '🐡'
 zsh_indicator = '🐔'
-# bash_indicator = '🐚'
+bash_indicator = '🐚'
 nu_indicator = '🐘'
 unknown_indicator = 'mystery shell'
 
