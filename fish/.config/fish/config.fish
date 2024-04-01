@@ -24,6 +24,8 @@ alias c clear
 alias g git
 alias sudo 'sudo '
 
+alias cat bat
+
 alias in 'sudo dnf install'
 alias out 'sudo dnf remove'
 
@@ -44,7 +46,7 @@ abbr --add crg cargo
 #
 # Apps
 #
-zoxide init fish | source
+zoxide init --cmd cd fish | source
 starship init fish | source
 fnm env --use-on-cd | source
 atuin init fish | source
@@ -65,7 +67,7 @@ function ls
 end
 
 function la
-    eza --group-directories-first --git --all $argv
+    eza --group-directories-first --git --all --octal-permissions --long $argv
 end
 
 function tree
@@ -79,7 +81,7 @@ function nyazi
     set tmp (mktemp -t "yazi-cwd.XXXXX")
     yazi $argv --cwd-file="$tmp"
     if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-        cd -- "$cwd"
+        cd "$cwd"
     end
     rm -f -- "$tmp"
 end
