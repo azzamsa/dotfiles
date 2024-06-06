@@ -1,3 +1,5 @@
+# Custom Catppuccin Mocha
+# Mocha colors with macchiato background make it more readable
 [colors]
 ansi = [
     '#45475a',
@@ -9,7 +11,6 @@ ansi = [
     '#94e2d5',
     '#bac2de',
 ]
-# Mocha colors with macchiato background make it more readable
 background = '#24273a'
 brights = [
     '#585b70',
