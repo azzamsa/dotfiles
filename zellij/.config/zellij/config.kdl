@@ -14,15 +14,15 @@ keybinds clear-defaults=true {
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
 
-        bind "m" "Left" { Resize "Increase Left"; }
-        bind "n" "Down" { Resize "Increase Down"; }
-        bind "e" "Up" { Resize "Increase Up"; }
-        bind "i" "Right" { Resize "Increase Right"; }
+        bind "n" "Left" { Resize "Increase Left"; }
+        bind "e" "Down" { Resize "Increase Down"; }
+        bind "i" "Up" { Resize "Increase Up"; }
+        bind "o" "Right" { Resize "Increase Right"; }
 
-        bind "M" { Resize "Decrease Left"; }
-        bind "N" { Resize "Decrease Down"; }
-        bind "E" { Resize "Decrease Up"; }
-        bind "I" { Resize "Decrease Right"; }
+        bind "N" { Resize "Decrease Left"; }
+        bind "E" { Resize "Decrease Down"; }
+        bind "I" { Resize "Decrease Up"; }
+        bind "O" { Resize "Decrease Right"; }
 
         bind "=" "+" { Resize "Increase"; }
         bind "-" { Resize "Decrease"; }
@@ -30,10 +30,10 @@ keybinds clear-defaults=true {
     pane {
         bind "Ctrl p" { SwitchToMode "Normal"; }
 
-        bind "m" "Left" { MoveFocus "Left"; }
-        bind "n" "Down" { MoveFocus "Down"; }
-        bind "e" "Up" { MoveFocus "Up"; }
-        bind "i" "Right" { MoveFocus "Right"; }
+        bind "n" "Left" { MoveFocus "Left"; }
+        bind "e" "Down" { MoveFocus "Down"; }
+        bind "i" "Up" { MoveFocus "Up"; }
+        bind "o" "Right" { MoveFocus "Right"; }
 
         bind "p" { SwitchFocus; }
         bind "k" { NewPane; SwitchToMode "Normal"; }
@@ -51,17 +51,17 @@ keybinds clear-defaults=true {
         bind "n" "Tab" { MovePane; }
         bind "p" { MovePaneBackwards; }
 
-        bind "m" "Left" { MovePane "Left"; }
-        bind "n" "Down" { MovePane "Down"; }
-        bind "e" "Up" { MovePane "Up"; }
-        bind "i" "Right" { MovePane "Right"; }
+        bind "n" "Left" { MovePane "Left"; }
+        bind "e" "Down" { MovePane "Down"; }
+        bind "i" "Up" { MovePane "Up"; }
+        bind "o" "Right" { MovePane "Right"; }
     }
     tab {
         bind "Ctrl t" { SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
 
-        bind "m" "Left" "Up" "e" { GoToPreviousTab; }
-        bind "i" "Right" "Down" "n" { GoToNextTab; }
+        bind "n" "Left" "Up" "e" { GoToPreviousTab; }
+        bind "o" "Right" "Down" "n" { GoToNextTab; }
 
         bind "t" { NewTab; SwitchToMode "Normal"; }
         bind "x" { CloseTab; SwitchToMode "Normal"; }
@@ -117,32 +117,6 @@ keybinds clear-defaults=true {
         bind "Ctrl o" { SwitchToMode "Normal"; }
         bind "Ctrl s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
-    }
-    tmux {
-        bind "[" { SwitchToMode "Scroll"; }
-        bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }
-        bind "\"" { NewPane "Down"; SwitchToMode "Normal"; }
-        bind "%" { NewPane "Right"; SwitchToMode "Normal"; }
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
-        bind "c" { NewTab; SwitchToMode "Normal"; }
-        bind "," { SwitchToMode "RenameTab"; }
-        bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
-        bind "N" { GoToNextTab; SwitchToMode "Normal"; }
-
-        bind "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
-        bind "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
-        bind "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }
-        bind "Up" { MoveFocus "Up"; SwitchToMode "Normal"; }
-
-        bind "m" { MoveFocus "Left"; SwitchToMode "Normal"; }
-        bind "n" { MoveFocus "Down"; SwitchToMode "Normal"; }
-        bind "e" { MoveFocus "Up"; SwitchToMode "Normal"; }
-        bind "i" { MoveFocus "Right"; SwitchToMode "Normal"; }
-
-        bind "o" { FocusNextPane; }
-        bind "d" { Detach; }
-        bind "Space" { NextSwapLayout; }
-        bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
