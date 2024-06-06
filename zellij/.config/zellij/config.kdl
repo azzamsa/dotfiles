@@ -202,11 +202,26 @@ ui {
 }
 
 // https://zellij.dev/documentation/theme-gallery
-// theme "tokyonight_moon"
-theme "kanagawa_wave"
+theme "cmocha"
 
 themes {
-   kanagawa_wave {
+    // Custom Catppuccin Mocha
+    cmocha {
+        // mocha's surface0 is too dimmed on macchiato base
+        bg "#24273a" // macchiato: base
+        fg "#cdd6f4"
+        red "#fe640b" // latte: Peach
+        green "#a6e3a1"
+        blue "#89b4fa"
+        yellow "#f9e2af"
+        magenta "#f5c2e7"
+        orange "#fab387"
+        cyan "#89dceb"
+        black "#24273a" // macchiato: base
+
+        white "#cdd6f4"
+    }
+    kanagawa_wave {
         white "#dcd7ba"
         green "#e6c384"
         fg "#b8b4d0"
