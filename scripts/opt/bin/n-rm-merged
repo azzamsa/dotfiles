@@ -3,13 +3,13 @@
 # Script Name: git-remove-merged
 # Description: Remove merged branches in Git
 #
-# Usage: ./git-remove-merged#
+# Usage: ./git-remove-merged <remote>
 #
-# Example: ./git-remove-merged
+# Example: ./git-remove-merged upstream
 #
 # Dependencies: git, grep
 
-set merged_branches (git branch --merged | grep -v -E "(^\*|master|main|dev|devel|next)")
+set merged_branches (git branch --merged | grep -v -E "(^\*|master|main|dev|devel|next)" | awk '{$1=$1};1')
 
 if [ -n "$merged_branches" ]
     echo "::: Merged branches: $merged_branches"
