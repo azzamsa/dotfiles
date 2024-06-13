@@ -112,6 +112,12 @@ function r # root
 end
 
 #
+# Hurl with pretty printed JSON
+function hurlj
+    hurl $argv | jaq
+end
+
+#
 # Theme
 #
 
