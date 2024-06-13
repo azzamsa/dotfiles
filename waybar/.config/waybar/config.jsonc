@@ -17,13 +17,13 @@
         // Can't hide empty tray?
         // https://github.com/Alexays/Waybar/issues/2673
         "tray",
-        "custom/powermenu"
+        "custom/powermenu",
     ],
 
     "clock": {
         "format": "{:  %I:%M %p}",
         "tooltip-format": "<big>{:%m %B %Y}</big>",
-        "on-click": "gnome-calendar"
+        "on-click": "gnome-calendar",
     },
 
     "hyprland/workspaces": {
@@ -47,12 +47,12 @@
             "10": "十",
             "default": "",
             "urgent": "",
-            "focused": ""
-        }
+            "focused": "",
+        },
     },
 
     "hyprland/window": {
-        "max-length": 60
+        "max-length": 60,
     },
 
     "custom/ddcutil": {
@@ -60,7 +60,7 @@
         "interval": 1,
         "exec": "~/.config/waybar/scripts/ddcutil",
         "return-type": "json",
-        "on-click": "com.sidevesh.Luminance"
+        "on-click": "com.sidevesh.Luminance",
     },
 
     "pulseaudio": {
@@ -80,8 +80,8 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
-        }
+            "default": ["", "", ""],
+        },
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
@@ -91,7 +91,7 @@
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
         "ignored-sinks": ["Easy Effects Sink"],
-        "scroll-step": 5
+        "scroll-step": 5,
     },
 
     "network": {
@@ -100,16 +100,16 @@
         "format-ethernet": " {signalStrength}%",
         "format-disconnected": "󰤭",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) "
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
     },
 
     "tray": {
-        "show-passive-items": false
+        "show-passive-items": false,
     },
 
     "custom/powermenu": {
         "format": "",
         "on-click": "wlogout --buttons-per-row 2",
-        "tooltip": false
-    }
+        "tooltip": false,
+    },
 }
