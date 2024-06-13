@@ -23,14 +23,14 @@ fmt:
     just --justfile xtool/justfile fmt
     dprint fmt
     stylua . --allow-hidden
-    biome format . --write --log-level error
+    prettier . --write --log-level error
 
 # Check is the codebase properly formatted.
 fmt-check:
     just --justfile xtool/justfile fmt-check
     dprint check
     stylua . --allow-hidden --check
-    biome format . --write --log-level error
+    prettier . --check --log-level error
 
 # Lint the codebase.
 lint:
