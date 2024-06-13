@@ -67,7 +67,7 @@ function M.append(config)
         font_size = 22, -- default: 12.0
         font = wezterm.font_with_fallback({ "JetBrainsMono Nerd Font", "Noto Color Emoji" }),
 
-        color_scheme = "catppuccin_mocha",
+        color_scheme = "cmocha",
 
         enable_scroll_bar = true, -- default: false
         scrollback_lines = 10000, --defauls: 3500
@@ -83,7 +83,7 @@ function M.append(config)
         -- Hiding the tab-bar also means hiding the right status
         -- Means you lose viseal feedback of sticky keys.
         -- It is better to set it to `false`
-        hide_tab_bar_if_only_one_tab = false, -- default: false
+        hide_tab_bar_if_only_one_tab = true, -- default: false
 
         inactive_pane_hsb = {
             saturation = 0.70,
