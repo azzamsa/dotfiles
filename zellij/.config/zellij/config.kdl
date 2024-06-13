@@ -181,8 +181,7 @@ theme "cmocha"
 themes {
     // Custom Catppuccin Mocha
     cmocha {
-        // mocha's surface0 is too dimmed on macchiato base
-        bg "#24273a" // macchiato: base
+        bg "#363a4f" // macchiato: Surface0
         fg "#cdd6f4"
         red "#fe640b" // latte: Peach
         green "#a6e3a1"
