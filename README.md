@@ -44,13 +44,6 @@ Last week, RedHat goes "closed source" and Fedora attempted to have a telemetry 
 
 Unfortunately, I haven't come across any Linux distribution that offers a desktop experience as polished as [Fedora][current-os].
 
-[debian-i3]: https://github.com/azzamsa/dotfiles/commit/f395081a1c0372aa10737f104640da3049a5a8b2
-[debian-bspwm]: https://github.com/azzamsa/dotfiles/commit/59c6e48ca7024aa810a9c892d55d4dfcb758a989
-[fedora-gnome]: https://github.com/azzamsa/dotfiles/commit/6dc9d319cae13f79db0a8b1004aa87b103520415
-[fedora-silverblue]: https://github.com/azzamsa/dotfiles/tree/4543ab38b5834cd1e4ba549436220c02310264dd
-[debian-gnome]: https://github.com/azzamsa/dotfiles/commit/241d0c322a1511daa7253fea934c072cd05e68c5
-[current-os]: https://github.com/azzamsa/dotfiles
-
 ## Usage
 
 ```bash
@@ -82,3 +75,10 @@ Emacs Configuration
 ## Credits
 
 - [Noto Emoji](https://github.com/googlefonts/noto-emoji) by Google
+
+[debian-i3]: https://github.com/azzamsa/dotfiles/tree/f395081a1c0372aa10737f104640da3049a5a8b2
+[debian-bspwm]: https://github.com/azzamsa/dotfiles/tree/59c6e48ca7024aa810a9c892d55d4dfcb758a989
+[fedora-gnome]: https://github.com/azzamsa/dotfiles/tree/6dc9d319cae13f79db0a8b1004aa87b103520415
+[fedora-silverblue]: https://github.com/azzamsa/dotfiles/tree/4543ab38b5834cd1e4ba549436220c02310264dd
+[debian-gnome]: https://github.com/azzamsa/dotfiles/tree/241d0c322a1511daa7253fea934c072cd05e68c5
+[current-os]: https://github.com/azzamsa/dotfiles
