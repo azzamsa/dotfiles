@@ -1,0 +1,94 @@
+#!/usr/bin/env -S cargo +nightly -Zscript
+---
+[package]
+edition = "2021"
+
+[dependencies]
+chrono = "0.4.38"
+owo-colors = "4.0"
+anyhow = "1.0"
+---
+//! Timezones
+//!
+//! Shows the timezones of my friends and companies.
+//!
+//! Usage:
+//!
+//! Just run it as normal executable file:
+//!
+//! ```shell
+//! $ ./tz
+//! ```
+//!
+//! Development:
+//!
+//! ```
+//! $ rustfmt tz
+//! ```
+
+use anyhow::anyhow;
+use chrono::prelude::*;
+use owo_colors::OwoColorize;
+
+fn main() -> anyhow::Result<()> {
+    run()?;
+
+    Ok(())
+}
+
+// FixedOffset::east -> Use this when the local time is ahead of UTC.
+// Examples: Japan (UTC+9), Norway (UTC+2)
+//
+// FixedOffset::west -> Use this when the local time is behind UTC.
+// Examples: New York (UTC-5), Los Angeles (UTC-8)
+fn run() -> anyhow::Result<()> {
+    let now = Utc::now();
+
+    // Cape Town, South Africa (UTC+2)
+    show_time(now, &offset(Direction::East, 2)?, "Cape Town, South Africa");
+    let friends = vec!["Alice"];
+    show_friends(&friends);
+
+    // San Francisco, USA (UTC-7)
+    show_time(now, &offset(Direction::West, 7)?, "San Francisco, USA");
+    let friends = vec!["Bob", "Aragorn"];
+    show_friends(&friends);
+
+    Ok(())
+}
+
+// offset direction
+enum Direction {
+    West,
+    East,
+}
+
+// Get offset
+fn offset(direction: Direction, hour: i32) -> anyhow::Result<FixedOffset> {
+    let hour_ = |n: i32| n * 3600;
+
+    match direction {
+        Direction::West => Ok(FixedOffset::west_opt(hour_(hour)).ok_or(anyhow!("Wrong offset"))?),
+        Direction::East => Ok(FixedOffset::east_opt(hour_(hour)).ok_or(anyhow!("Wrong offset"))?),
+    }
+}
+
+// Show the related time
+fn show_time(now: DateTime<Utc>, offset: &FixedOffset, location: &str) {
+    let time = now.with_timezone(offset);
+    println!(
+        "{}",
+        format!("{}: {}", location, time.format("%I:%M %p"))
+            .bold()
+            .green()
+    );
+}
+
+// Show friends or companies
+fn show_friends(items: &[&str]) {
+    for item in items {
+        println!("- {}", item);
+    }
+}
+
+// vim: ft=rust
