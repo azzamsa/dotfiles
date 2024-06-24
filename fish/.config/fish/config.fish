@@ -117,6 +117,30 @@ function hurlj
     hurl $argv | jaq
 end
 
+
+#
+# Create and cd to new dir
+function take
+    mkdir -p "$argv[1]"
+    cd "$argv[1]"
+end
+
+#
+# Clone any repo then cd into it.
+# `gcl` stands for `git clone`
+function gcl
+    if test (count $argv) -ne 1
+        echo "Usage: gcl <repository-url>"
+        return 1
+    end
+
+    set repo_url $argv[1]
+    set repo_name (basename $repo_url .git)
+
+    git clone --depth 1 $repo_url
+    cd $repo_name
+end
+
 #
 # Theme
 #
