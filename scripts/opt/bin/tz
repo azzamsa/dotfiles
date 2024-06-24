@@ -67,10 +67,12 @@ enum Direction {
 fn offset(direction: Direction, hour: i32) -> anyhow::Result<FixedOffset> {
     let hour_ = |n: i32| n * 3600;
 
-    match direction {
-        Direction::West => Ok(FixedOffset::west_opt(hour_(hour)).ok_or(anyhow!("Wrong offset"))?),
-        Direction::East => Ok(FixedOffset::east_opt(hour_(hour)).ok_or(anyhow!("Wrong offset"))?),
-    }
+    let result = match direction {
+        Direction::West => FixedOffset::west_opt(hour_(hour)),
+        Direction::East => FixedOffset::east_opt(hour_(hour)),
+    };
+
+    Ok(result.ok_or(anyhow!("Wrong offset"))?)
 }
 
 // Show the related time
