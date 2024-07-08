@@ -168,62 +168,6 @@ ui {
 }
 
 // https://zellij.dev/documentation/theme-gallery
-theme "cmocha"
+theme "tokyonight_moon_folke"
 
-themes {
-    // Custom Catppuccin Mocha
-    cmocha {
-        bg "#363a4f" // macchiato: Surface0
-        fg "#cdd6f4"
-        red "#fe640b" // latte: Peach
-        green "#a6e3a1"
-        blue "#89b4fa"
-        yellow "#f9e2af"
-        magenta "#f5c2e7"
-        orange "#fab387"
-        cyan "#89dceb"
-        black "#24273a" // macchiato: base
 
-        white "#cdd6f4"
-    }
-    kanagawa_wave {
-        white "#dcd7ba"
-        green "#e6c384"
-        fg "#b8b4d0"
-        black "#1f1f28"
-        red "#252535"
-        bg "#2d4f67"
-        orange "#e6c384"
-
-        // Not used colors
-        yellow "#f38ba8"
-        blue "#f38ba8"
-        magenta "#f38ba8"
-        cyan "#f38ba8"
-    }
-   tokyonight_moon {
-        // Primary color (brand color)
-        // Logo and help prefix
-        white "#86e1fc"
-        // Header tab bg and frames border
-        green "#c3e88d"
-        // Footer tab bg
-        fg "#c8d3f5"
-        // Footer fg, header bg
-        // ⚠️  Must be same as Wezterm `background` color, otherwise it is not transparent.
-        black "#222436"
-        //  Prefix char in footer
-        red "#3e68d7"
-        // Selection
-        // ⚠️  Terminal bg color is set in Wezterm `background`
-        bg "#2d3f76"
-        // Active border
-        orange "#ff966c"
-
-        // Not used colors
-        yellow "#f38ba8"
-        blue "#f38ba8"
-        magenta "#f38ba8"
-        cyan "#f38ba8"
-    }
-}
