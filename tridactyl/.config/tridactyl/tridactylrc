@@ -29,18 +29,18 @@ bind <C-u> undo window
 
 " N and E should move between tabs. x should close them.
 unbind J
-bind E tabprev
+bind n tabprev
 unbind K
-bind I tabnext
+bind o tabnext
 " Using `x` will always accitedally close the tab.
 " Because I use Super-x to go to first workspac.
 bind X tabclose
 
 " History
 unbind m
-bind n back
+bind h back
 unbind M
-bind O forward
+bind H forward
 
 " But also support Tridactyl search too.
 bind / fillcmdline find
@@ -71,6 +71,7 @@ set smoothscroll true
 " Don't run Tridactyl on some web sites because it doesn't work well, or
 " because the web site has its own keybindings.
 autocmd DocStart mail.google.com mode ignore
+autocmd DocStart excalidraw.com mode ignore
 autocmd DocStart pajak.go.id mode ignore
 
 " Sometimes the status bar in the bottom left corner overlaps the Tridactyl

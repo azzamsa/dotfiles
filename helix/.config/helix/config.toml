@@ -1,4 +1,4 @@
-theme = "catppuccin_mocha"
+theme = "tokyonight_moon"
 
 [editor]
 mouse = false
@@ -20,14 +20,20 @@ esc = ["collapse_selection", "keep_primary_selection"]
 #
 # Movement
 
+#      ^
+#      i
+#  < n   o >
+#      e
+#      v
+
 # h, left
-m = "move_char_left"
+n = "move_char_left"
 # j, down
-n = "move_visual_line_down"
+e = "move_visual_line_down"
 # k, up
-e = "move_visual_line_up"
+i = "move_visual_line_up"
 # l, right
-i = "move_char_right"
+o = "move_char_right"
 
 # e
 f = "move_next_word_end"
@@ -79,13 +85,13 @@ Q = ":quit"
 # Movement
 
 # h, left
-m = "move_char_left"
+n = "move_char_left"
 # j, down
-n = "move_visual_line_down"
+e = "move_visual_line_down"
 # k, up
-e = "move_visual_line_up"
+i = "move_visual_line_up"
 # l, right
-i = "move_char_right"
+o = "move_char_right"
 
 #
 # Selection manipulation

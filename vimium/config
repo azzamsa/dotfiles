@@ -1,0 +1,83 @@
+# Vimium + Colemak-DH + Miryoku
+
+# Movement
+
+#      ^
+#      i
+#  < n   o >
+#      e
+#      v
+
+
+# https://github.com/philc/vimium/blob/47c85e97dd0388bd4c64bb8598558ded6e53f596/background_scripts/commands.js#L389
+
+unmapAll
+
+# Navigating the current page
+map e scrollDown
+map i scrollUp
+map gg scrollToTop
+map G scrollToBottom
+map d scrollPageDown
+map u scrollPageUp
+map r reload
+map R hardReload
+map yy copyCurrentUrl
+map p openCopiedUrlInCurrentTab
+map P openCopiedUrlInNewTab
+
+// Scrolling
+map e scrollDown
+map i scrollUp
+map gg scrollToTop
+
+// Link hints
+map f LinkHints.activateMode
+map F LinkHints.activateModeToOpenInNewTab
+map <a-f> LinkHints.activateModeWithQueue
+map yf LinkHints.activateModeToCopyLinkUrl
+
+// Using find
+map / enterFindMode
+map k performFind
+map K performBackwardsFind
+
+// Vomnibar
+map o Vomnibar.activate
+map O Vomnibar.activateInNewTab
+map T Vomnibar.activateTabSelection
+map b Vomnibar.activateBookmarks
+map B Vomnibar.activateBookmarksInNewTab
+map ge Vomnibar.activateEditUrl
+map gE Vomnibar.activateEditUrlInNewTab
+
+// Navigating history
+map h goBack
+map H goForward
+
+// Manipulating tabs
+map o nextTab
+map n previousTab
+map gt nextTab
+map gT previousTab
+map ^ visitPreviousTab
+map << moveTabLeft
+map >> moveTabRight
+map g0 firstTab
+map g$ lastTab
+map W moveTabToNewWindow
+map t createTab
+map yt duplicateTab
+map x removeTab
+map X restoreTab
+map <a-p> togglePinTab
+map <a-m> toggleMuteTab
+
+// Marks
+map m Marks.activateCreateMode
+map ` Marks.activateGotoMode
+
+// Misc
+map ? showHelp
+map gs toggleViewSource
+
