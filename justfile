@@ -20,22 +20,22 @@ check: fmt-check lint
 
 # Format the codebase.
 fmt:
-    just --justfile xtool/justfile fmt
+    just --justfile cli/xtool/justfile fmt
     dprint fmt
     stylua . --allow-hidden
     prettier . --write --log-level error
 
 # Check is the codebase properly formatted.
 fmt-check:
-    just --justfile xtool/justfile fmt-check
+    just --justfile cli/xtool/justfile fmt-check
     dprint check
     stylua . --allow-hidden --check
     prettier . --check --log-level error
 
 # Lint the codebase.
 lint:
-    just --justfile xtool/justfile lint
-    typos --config configs/typos.toml
+    just --justfile cli/xtool/justfile lint
+    typos
     selene . --quiet
 
     ./_scripts/python-tools

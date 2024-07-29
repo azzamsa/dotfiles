@@ -1,12 +1,12 @@
 <div align="center">
 <h1>.dotfiles</h1>
 
-<img src='assets/logo.png' width=150px/>
+<img src='_assets/logo.png' width=150px/>
 
 My personal .dotfiles 🗃️
 
-<a href="https://github.com/azzamsa/dotfiles/workflows/ci.yml">
-    <img src="https://github.com/azzamsa/dotfiles/workflows/ci/badge.svg" alt="Build status" />
+<a href="https://github.com/azzamsa/dotfiles/actions/workflows/ci.yml">
+    <img src="https://github.com/azzamsa/dotfiles/actions/workflows/ci.yml/badge.svg" alt="Build status" />
 </a>
 
 </div>
@@ -16,6 +16,18 @@ My personal .dotfiles 🗃️
 ## Current Machine
 
 - Fedora + GNOME
+
+Refer to [bombadil.toml](bombadil.toml) to see the tools I'm currently using.
+
+## Usage
+
+```bash
+$ # Clone the repository
+$ git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
+
+$ # cd ~/dotfiles
+$ ./setup.sh
+```
 
 ## Uh Oh! Where is Your Old Configuration?
 
@@ -43,16 +55,6 @@ Several months passed and I break it. I migrate to [Fedora Silverblue][fedora-si
 Last week, RedHat goes "closed source" and Fedora attempted to have a telemetry for its user. I go back to where I am from, [Debian][debian-gnome].
 
 Unfortunately, I haven't come across any Linux distribution that offers a desktop experience as polished as [Fedora][current-os].
-
-## Usage
-
-```bash
-$ # Clone the repository
-$ git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
-
-$ # Let GNU stow handle the symlink
-$ stow --no-folding --restow <directory>
-```
 
 ## Contribution
 

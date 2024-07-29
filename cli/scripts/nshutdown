@@ -1,0 +1,24 @@
+#!/usr/bin/env fish
+
+# Script Name: n-poweroff
+# Description: Close all app gracefully then shutdown the machine
+#
+# Usage: ./n-poweroff
+#
+# Example: ./n-poweroff
+
+# Define the list of applications to be killed
+set apps neovide \
+    firefox \
+    Logseq \
+    Discord \
+    keepassxc \
+    wezterm-gui \
+    telegram-desktop \
+    nautilus
+
+for app in $apps
+    killall $app
+end
+
+poweroff

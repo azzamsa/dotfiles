@@ -1,0 +1,37 @@
+dotfiles_dir = "dotfiles"
+
+[settings.dots]
+# https://github.com/oknozor/toml-bombadil/issues/161
+# current workaround `mkdir -p ~/.config/yazi ~/.config/fish`
+
+#
+# Terminals
+
+# Shell
+bashrc = { source = "terminals/bash/.bashrc", target = ".bashrc" }
+bash_profile = { source = "terminals/bash/.bash_profile", target = ".bash_profile" }
+fish = { source = "terminals/fish/config.fish", target = ".config/fish/config.fish" }
+fish_theme = { source = "terminals/fish/themes", target = ".config/fish/themes" }
+
+# Prompt
+starship = { source = "terminals/starship", target = ".config/starship" }
+
+# Term
+zellij = { source = "terminals/zellij", target = ".config/zellij" }
+wezterm = { source = "terminals/wezterm", target = ".config/wezterm" }
+
+#
+# CLI Apps
+git = { source = "cli/git", target = ".config/git" }
+# current workaround: `cp cli/yazi/theme.toml ~/.config/yazi/`
+yazi = { source = "cli/yazi", target = ".config/yazi", ignore = ["_themes/*", "theme.toml"] }
+macchina = { source = "cli/macchina", target = ".config/macchina" }
+scripts = { source = "cli/scripts", target = "opt/bin", ignore = ["age", "tz"] }
+# xtool is self-bootstrapped
+
+#
+# GUI Apps
+tridactyl = { source = "gui/browsers/tridactyl", target = ".config/tridactyl" }
+
+#
+# Misc

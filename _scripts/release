@@ -40,7 +40,7 @@ def update_changelog(version: str) -> None:
             [
                 "git-cliff",
                 "--config",
-                "configs/cliff.toml",
+                ".cliff.toml",
                 "--tag",
                 version,
                 "--output",
