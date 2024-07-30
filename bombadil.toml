@@ -26,6 +26,7 @@ git = { source = "cli/git", target = ".config/git" }
 # current workaround: `cp cli/yazi/theme.toml ~/.config/yazi/`
 yazi = { source = "cli/yazi", target = ".config/yazi", ignore = ["_themes/*", "theme.toml"] }
 macchina = { source = "cli/macchina", target = ".config/macchina" }
+fastfetch = { source = "cli/fastfetch/themes", target = ".config/fastfetch/themes" }
 scripts = { source = "cli/scripts", target = "opt/bin", ignore = ["age", "tz"] }
 # xtool is self-bootstrapped
 

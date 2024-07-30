@@ -1,0 +1,12 @@
+#!/usr/bin/env fish
+
+set nvim_version (nvim -v | head -n 1)
+set neovide_version (neovide --version | head -n 1)
+set wezterm_version (wezterm --version)
+
+echo "nvim: $nvim_version"
+echo "neovide: $neovide_version"
+echo "wezterm: $wezterm_version"
+
+echo ---
+fastfetch -c ~/.config/fastfetch/themes/ci.jsonc
