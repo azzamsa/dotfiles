@@ -14,7 +14,7 @@ fish = { source = "terminals/fish/config.fish", target = ".config/fish/config.fi
 fish_theme = { source = "terminals/fish/themes", target = ".config/fish/themes" }
 
 # Prompt
-starship = { source = "terminals/starship", target = ".config/starship" }
+starship = { source = "terminals/starship/starship.toml", target = ".config/starship.toml" }
 
 # Term
 zellij = { source = "terminals/zellij", target = ".config/zellij" }
