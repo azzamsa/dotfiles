@@ -15,6 +15,7 @@ fish_theme = { source = "terminals/fish/themes", target = ".config/fish/themes" 
 
 # Prompt
 starship = { source = "terminals/starship/starship.toml", target = ".config/starship.toml" }
+atuin = { source = "terminals/atuin", target = ".config/atuin" }
 
 # Term
 zellij = { source = "terminals/zellij", target = ".config/zellij" }
