@@ -8,10 +8,14 @@ dotfiles_dir = "dotfiles"
 # Terminals
 
 # Shell
-bashrc = { source = "terminals/bash/.bashrc", target = ".bashrc" }
-bash_profile = { source = "terminals/bash/.bash_profile", target = ".bash_profile" }
 fish = { source = "terminals/fish/config.fish", target = ".config/fish/config.fish" }
 fish_theme = { source = "terminals/fish/themes", target = ".config/fish/themes" }
+
+bashrc = { source = "terminals/bash/bashrc", target = ".bashrc" }
+bash_profile = { source = "terminals/bash/bash_profile", target = ".bash_profile" }
+zsh = { source = "terminals/zsh", target = ".config/zsh" }
+zsh_env = { source = "terminals/zsh/zshenv", target = ".zshenv" }
+nu = { source = "terminals/nu", target = ".config/nushell" }
 
 # Prompt
 starship = { source = "terminals/starship/starship.toml", target = ".config/starship.toml" }

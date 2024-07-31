@@ -17,7 +17,7 @@ mkdir ~/.local/share/atuin
 
 starship init nu | save -f ~/.cache/starship/init.nu
 atuin init nu | save -f ~/.local/share/atuin/init.nu
-zoxide init nushell | save -f ~/.local/share/zoxide/init.nu
+zoxide init nushell --cmd cd | save -f ~/.local/share/zoxide/init.nu
 
 #
 # Functions
@@ -42,12 +42,12 @@ def r [] {
 #
 # Changing working directory when exiting Yazi
 # https://yazi-rs.github.io/docs/quick-start/#changing-working-directory-when-exiting-yazi
-def --env x [] {
-  let tmp = (mktemp -t "yazi-cwd.XXXXX")
-	yazi --cwd-file $tmp
+def --env y [...args] {
+	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
+	yazi ...$args --cwd-file $tmp
 	let cwd = (open $tmp)
 	if $cwd != "" and $cwd != $env.PWD {
 		cd $cwd
 	}
-	rm -f $tmp
+	rm -fp $tmp
 }

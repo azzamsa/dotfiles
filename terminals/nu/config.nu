@@ -13,4 +13,8 @@ $env.config = {
     rm: {
         always_trash: true # default: false
     }
+
+    history: {
+        file_format: "sqlite" # default: plaintext
+    }
 }
