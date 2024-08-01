@@ -33,6 +33,7 @@ depends = ["shell"]
 [nushell.files]
 "shells/nushell" = "~/.config/nushell"
 "shells/nushell/themes" = { target = "~/.config/nushell/themes", type = "symbolic" }
+"shells/nushell/extras" = { target = "~/.config/nushell/extras", type = "symbolic" }
 
 #
 # Terminals
