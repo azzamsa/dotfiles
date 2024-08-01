@@ -1,0 +1,73 @@
+[gnome]
+depends = ["global"]
+
+#
+# Shell
+[shell.files]
+# Will always be the default shell,
+# otherwise cause unpopular app to breaks!
+"shells/bash/bashrc" = "~/.bashrc"
+"shells/bash/bash_profile" = "~/.bash_profile"
+
+[shell.variables]
+# defined in local variables
+install = "echo not defined"
+uninstall = "echo not defined"
+
+[fish]
+depends = ["shell"]
+
+[fish.files]
+"shells/fish" = "~/.config/fish"
+
+[zsh]
+depends = ["shell"]
+
+[zsh.files]
+"shells/zsh/zshenv" = "~/.zshenv"
+"shells/zsh" = "~/.config/zsh"
+
+[nu]
+depends = ["shell"]
+
+[nu.files]
+"shells/nu" = "~/.config/nu"
+"shells/nu/themes" = { target = "~/.config/nu/themes", type = "symbolic" }
+
+#
+# Terminals
+[wezterm.files]
+"terms/wezterm" = "~/.config/wezterm"
+
+#
+# CLI
+[starship.files]
+"cli/starship/starship.toml" = "~/.config/starship.toml"
+
+[atuin.files]
+"cli/atuin" = "~/.config/atuin"
+
+[zellij.files]
+"cli/zellij" = "~/.config/zellij"
+
+[git.files]
+"cli/git" = "~/.config/git"
+
+[yazi.files]
+"cli/yazi" = "~/.config/yazi"
+"cli/yazi/theme.toml" = { target = "~/.config/yazi/theme.toml", type = "symbolic" }
+"cli/yazi/_themes" = { target = "~/.config/yazi/themes", type = "symbolic" }
+
+[fastfetch.files]
+"fetchers/fastfetch" = "~/.config/fastfetch"
+
+[scripts.files]
+"cli/scripts" = "~/.opt/bin"
+
+[helix.files]
+"editors/helix" = "~/.config/helix"
+
+#
+# GUI Apps
+[tridactyl.files]
+"browsers/tridactyl" = "~/.config/tridactyl"

@@ -73,6 +73,7 @@ set smoothscroll true
 autocmd DocStart mail.google.com mode ignore
 autocmd DocStart excalidraw.com mode ignore
 autocmd DocStart pajak.go.id mode ignore
+autocmd DocStart hemi.kualta.dev mode ignore
 
 " Sometimes the status bar in the bottom left corner overlaps the Tridactyl
 " command line, so set an option to move the status bar to the right.

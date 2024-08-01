@@ -7,8 +7,8 @@ alias c='clear'
 alias g='git'
 alias sudo='sudo '
 
-alias in='sudo dnf install'
-alias out='sudo dnf remove'
+alias in='{{ install }}'
+alias out='{{ uninstall }}'
 
 # Safe Versions of rm, cp, mv, and mkdir
 alias rm='rm -i'

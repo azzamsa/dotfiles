@@ -5,6 +5,7 @@
 use ~/.cache/starship/init.nu
 source ~/.local/share/atuin/init.nu
 source ~/.local/share/zoxide/init.nu
+source ~/.cache/carapace/init.nu
 
 $env.config = {
     # disable the welcome banner at startup

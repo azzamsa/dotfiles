@@ -5,8 +5,8 @@
 alias c = clear
 alias j = just
 
-alias in = sudo dnf install
-alias out = sudo dnf remove
+alias in = '{{ install }}'
+alias out = '{{ uninstall }}'
 
 #
 # Apps
@@ -14,10 +14,13 @@ alias out = sudo dnf remove
 
 mkdir ~/.cache/starship
 mkdir ~/.local/share/atuin
+mkdir ~/.cache/carapace
 
 starship init nu | save -f ~/.cache/starship/init.nu
 atuin init nu | save -f ~/.local/share/atuin/init.nu
 zoxide init nushell --cmd cd | save -f ~/.local/share/zoxide/init.nu
+# $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 #
 # Functions

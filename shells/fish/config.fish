@@ -26,8 +26,8 @@ alias sudo 'sudo '
 
 alias cat bat
 
-alias in 'sudo dnf install'
-alias out 'sudo dnf remove'
+alias in '{{ install }}'
+alias out '{{ uninstall }}'
 
 # Safe Versions of rm, cp, mv, and mkdir
 alias rm 'rm -i'
