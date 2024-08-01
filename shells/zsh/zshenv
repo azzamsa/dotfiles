@@ -9,8 +9,7 @@
 # This tells ZSH that all my zsh-related files are in the `Z-DOT directory`,
 # not in the $HOME directory as the default.
 
-# source "$HOME"/.config/meta/env
-ZGEN_DIR=~/.local/share/zgenom
+export ZGEN_DIR=~/.local/share/zgenom
 
 function _cache {
   (( $+commands[$1] )) || return 1

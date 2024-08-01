@@ -1,11 +1,6 @@
 #!/usr/bin/env zsh
 
-alias ..='cd ..'
-alias ...='cd ../..'
-
 alias c='clear'
-alias g='git'
-alias sudo='sudo '
 
 alias in='{{ install }}'
 alias out='{{ uninstall }}'
