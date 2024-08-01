@@ -21,11 +21,11 @@ publish: check
 
 # Tasks to make the code-base comply with the rules. Mostly used in git hooks.
 comply: fmt lint _doc-check
-    just --justfile ../justfile comply
+    just --justfile ../../justfile comply
 
 # Check if the repository comply with the rules and ready to be pushed.
 check: fmt-check lint _doc-check
-    just --justfile ../justfile check
+    just --justfile ../../justfile check
 
 # Develop the app.
 dev:

@@ -11,7 +11,7 @@ panic = "abort"
 
 [dependencies]
 anyhow = "1"
-clap = { version = "4.4.18", features = ["derive"] }
+clap = { version = "4.5.13", features = ["derive"] }
 duct = "0.13.7"
 
 # names
@@ -19,5 +19,5 @@ rand = "0.8"
 
 # clean
 num-format = "0.4.4"
-serde = { version = "1.0.196", features = ["derive"] }
-serde_json = "1.0.113"
+serde = { version = "1.0.204", features = ["derive"] }
+serde_json = "1.0.121"
