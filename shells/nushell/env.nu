@@ -5,8 +5,8 @@
 alias c = clear
 alias j = just
 
-alias in = '{{ install }}'
-alias out = '{{ uninstall }}'
+alias in = {{ install }}
+alias out = {{ uninstall }}
 
 #
 # Apps

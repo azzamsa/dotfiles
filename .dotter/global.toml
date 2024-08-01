@@ -27,12 +27,12 @@ depends = ["shell"]
 "shells/zsh/zshenv" = "~/.zshenv"
 "shells/zsh" = "~/.config/zsh"
 
-[nu]
+[nushell]
 depends = ["shell"]
 
-[nu.files]
-"shells/nu" = "~/.config/nu"
-"shells/nu/themes" = { target = "~/.config/nu/themes", type = "symbolic" }
+[nushell.files]
+"shells/nushell" = "~/.config/nushell"
+"shells/nushell/themes" = { target = "~/.config/nushell/themes", type = "symbolic" }
 
 #
 # Terminals
@@ -71,3 +71,8 @@ depends = ["shell"]
 # GUI Apps
 [tridactyl.files]
 "browsers/tridactyl" = "~/.config/tridactyl"
+
+#
+# Programming Languages
+[cargo.files]
+"langs/cargo/config.toml" = "~/.cargo/config.toml"
