@@ -1,0 +1,15 @@
+includes = [".dotter/include/fedora.toml"]
+
+packages = [
+    "shell",
+    "fish",
+    "wezterm",
+    "starship",
+    "atuin",
+    "zellij",
+    "git",
+    "yazi",
+    "fastfetch",
+    "scripts",
+    "tridactyl",
+]

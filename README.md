@@ -17,7 +17,7 @@ My personal .dotfiles 🗃️
 
 - Fedora + GNOME
 
-Refer to [bombadil.toml](bombadil.toml) to see the tools I'm currently using.
+Refer to [local.toml](.dotter/local.example.toml) to see the tools I'm currently using.
 
 ## Usage
 
