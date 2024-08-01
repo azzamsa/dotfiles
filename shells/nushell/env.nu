@@ -56,7 +56,7 @@ def r [] {
 #
 # Changing working directory when exiting Yazi
 # https://yazi-rs.github.io/docs/quick-start/#changing-working-directory-when-exiting-yazi
-def --env y [...args] {
+def --env x [...args] {
 	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
 	yazi ...$args --cwd-file $tmp
 	let cwd = (open $tmp)
