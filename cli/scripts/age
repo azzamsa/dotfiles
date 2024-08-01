@@ -26,7 +26,7 @@ anyhow = "1.0"
 //! Development:
 //!
 //! ```
-//! $ rustfmt age
+//! $ rustfmt +nightly age
 //! ```
 
 use chrono_humanize as humanize;

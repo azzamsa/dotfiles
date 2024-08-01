@@ -1,3 +1,14 @@
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+---
+[package]
+edition = "2021"
+
+[dependencies]
+duct = "0.13.7"
+clap = "4.5.13"
+anyhow = "1.0"
+---
+
 /// Terminal Here
 ///
 /// Open terminal in given directory.
@@ -38,3 +49,5 @@ fn here(cwd: &str) -> anyhow::Result<()> {
     cmd!("zellij", "action", "new-tab", "--layout", "default", "--cwd", cwd).run()?;
     Ok(())
 }
+
+// vim: ft=rust

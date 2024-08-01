@@ -11,8 +11,8 @@ style = 'bold blue dimmed'
 format = '($style)'
 
 [custom.container_name]
-command = "cname"
-when = "cname"
+command = "container_name"
+when = "container_name"
 symbol = '🫙'
 style = 'bold blue dimmed'
 format = "[$symbol $output]($style) "

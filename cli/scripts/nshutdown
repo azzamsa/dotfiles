@@ -17,5 +17,5 @@ def main [] {
   }
 
   # Shutdown the machine
-  # poweroff
+  poweroff
 }

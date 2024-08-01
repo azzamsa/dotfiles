@@ -1,9 +1,18 @@
-/// Container Name
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+---
+[package]
+edition = "2021"
+
+[dependencies]
+duct = "0.13.7"
+anyhow = "1.0"
+---
+
 use std::{fs, io, process};
 
 use duct::cmd;
 
-pub(crate) fn run() -> anyhow::Result<()> {
+fn main() -> anyhow::Result<()> {
     if is_inside_container().is_err() {
         process::exit(1);
     };
@@ -22,3 +31,5 @@ pub(crate) fn run() -> anyhow::Result<()> {
 fn is_inside_container() -> Result<String, io::Error> {
     cmd!("test", "-e", "/run/.containerenv").read()
 }
+
+// vim: ft=rust

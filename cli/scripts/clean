@@ -1,3 +1,14 @@
+
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+---
+[package]
+edition = "2021"
+
+[dependencies]
+duct = "0.13.7"
+clap = "4.5.13"
+anyhow = "1.0"
+---
 use std::{env, fs, path::PathBuf};
 
 use clap::{Parser, ValueEnum};
@@ -124,3 +135,5 @@ fn get_paths(dir: &str) -> Vec<PathBuf> {
         .map(|p| p.unwrap().path())
         .collect::<Vec<PathBuf>>()
 }
+
+// vim: ft=rust
