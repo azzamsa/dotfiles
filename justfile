@@ -38,8 +38,6 @@ lint:
     typos
     selene . --quiet
 
-    ./_scripts/python-tools
-
 # Create a new release. Example `just release v2.2.0`
 release version:
     ./_scripts/release.py {{ version }}

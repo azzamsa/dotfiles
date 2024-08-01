@@ -1,8 +1,0 @@
-#!/usr/bin/env fish
-
-# Script Name: nip
-# Description: Get current public IP
-#
-# Usage: ./nip
-
-curl ifconfig.me

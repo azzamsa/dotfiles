@@ -30,7 +30,6 @@ jobs:
         just setup
 
         npm install -g prettier
-        python3 -m pip install -U mypy ruff
 
     - name: Show version information
       shell: bash
@@ -38,8 +37,6 @@ jobs:
         dprint --version
         stylua --version
         prettier --version
-        ruff --version
-        mypy --version
 
     - name: Check
       run: |

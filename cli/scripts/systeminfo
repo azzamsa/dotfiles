@@ -1,0 +1,17 @@
+#!/usr/bin/env nu
+
+# Get versions of applications
+let nvim_version = (nvim -v | lines | first)
+let neovide_version = (neovide --version | lines | first)
+let wezterm_version = (wezterm --version | lines | first)
+
+# Display versions
+echo $"nvim: ($nvim_version)"
+echo $"neovide: ($neovide_version)"
+echo $"wezterm: ($wezterm_version)"
+
+# Separator
+echo ---
+
+# Run fastfetch with specified config
+fastfetch -c ~/.config/fastfetch/themes/ci.jsonc

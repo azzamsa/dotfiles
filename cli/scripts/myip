@@ -1,0 +1,5 @@
+#!/usr/bin/env nu
+
+# Get My current public IP
+
+curl ifconfig.me
