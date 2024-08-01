@@ -1,4 +1,3 @@
 [shell.variables]
-shell = "nu"
 install = "sudo dnf install"
 uninstall = "sudo dnf remove"

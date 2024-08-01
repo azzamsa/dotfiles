@@ -13,3 +13,6 @@ packages = [
     "scripts",
     "tridactyl",
 ]
+
+[variables]
+shell = "fish"
