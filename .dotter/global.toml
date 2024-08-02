@@ -63,7 +63,7 @@ depends = ["shell"]
 "fetchers/fastfetch" = "~/.config/fastfetch"
 
 [scripts.files]
-"cli/scripts" = "~/opt/bin"
+"cli/scripts" = "~/.local/bin"
 
 [helix.files]
 "editors/helix" = "~/.config/helix"
