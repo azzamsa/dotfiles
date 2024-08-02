@@ -40,6 +40,9 @@ depends = ["shell"]
 [wezterm.files]
 "terms/wezterm" = "~/.config/wezterm"
 
+[kitty.files]
+"terms/kitty" = "~/.config/kitty"
+
 #
 # Fetchers
 [fastfetch.files]
