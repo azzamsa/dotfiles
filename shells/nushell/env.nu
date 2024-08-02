@@ -19,7 +19,7 @@ mkdir ~/.cache/carapace
 starship init nu | save -f ~/.cache/starship/init.nu
 atuin init nu | save -f ~/.local/share/atuin/init.nu
 zoxide init nushell --cmd cd | save -f ~/.local/share/zoxide/init.nu
-# $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 #
