@@ -1,0 +1,10 @@
+[misc]
+# "rye"
+only = ["system", "custom_commands", "flatpak"]
+
+# Custom commands
+[commands]
+"Upgrade cargo binaries" = "cargo install-update -a"
+"Upgrade Rust stable toolchain" = "rustup update stable"
+
+# "Fish Update Completions" = "fish -c fish_update_completions"

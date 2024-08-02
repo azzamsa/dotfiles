@@ -68,6 +68,9 @@ depends = ["shell"]
 [helix.files]
 "editors/helix" = "~/.config/helix"
 
+[topgrade.files]
+"cli/topgrade" = "~/.config/topgrade"
+
 #
 # GUI Apps
 [tridactyl.files]
