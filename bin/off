@@ -1,19 +1,16 @@
 #!/usr/bin/env nu
 
-# Script Name: n-poweroff
+# Script Name: off
 # Description: Close all app gracefully then shutdown the machine
-#
-# Usage: ./n-poweroff
-#
-# Example: ./n-poweroff
 
 def main [] {
   # Define the list of applications to be killed
-  let apps = ["neovide", "firefox", "Discord", "keepassxc", "wezterm-gui", "telegram-desktop", "nautilus"]
+  let apps = ["neovide",
+     "firefox", "keepassxc", "wezterm-gui", "telegram-desktop", "nautilus", "Logseq"]
 
   # kill each application
   for app in $apps {
-    killall $app
+    do --ignore-errors { killall $app }
   }
 
   # Shutdown the machine
