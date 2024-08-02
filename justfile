@@ -20,21 +20,18 @@ check: fmt-check lint
 
 # Format the codebase.
 fmt:
-    just --justfile cli/xtool/justfile fmt
     dprint fmt
     stylua . --allow-hidden
     prettier . --write --log-level error
 
 # Check is the codebase properly formatted.
 fmt-check:
-    just --justfile cli/xtool/justfile fmt-check
     dprint check
     stylua . --allow-hidden --check
     prettier . --check --log-level error
 
 # Lint the codebase.
 lint:
-    just --justfile cli/xtool/justfile lint
     typos
     selene . --quiet
 
