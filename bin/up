@@ -1,0 +1,24 @@
+#!/usr/bin/env nu
+
+def "main cargo" [] {
+  print "📥 Upgrading cargo apps"
+  cargo install-update -a
+}
+
+def "main flatpak" [] {
+  print "📥 Upgrading flatpak apps"
+  flatpak update
+}
+
+def "main system" [] {
+  print "📥 Upgrading system apps"
+  sudo dnf upgrade
+}
+
+def main [] {
+  main cargo
+  print ""
+  main flatpak
+  print ""
+  main system
+}

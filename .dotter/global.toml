@@ -77,9 +77,6 @@ depends = ["shell"]
 "utils/yazi/theme.toml" = { target = "~/.config/yazi/theme.toml", type = "symbolic" }
 "utils/yazi/_themes" = { target = "~/.config/yazi/themes", type = "symbolic" }
 
-[topgrade.files]
-"utils/topgrade" = "~/.config/topgrade"
-
 #
 # Browsers
 [tridactyl.files]
