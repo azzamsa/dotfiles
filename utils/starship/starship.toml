@@ -1,10 +1,10 @@
 # https://starship.rs/config/
 
-command_timeout = 700
+command_timeout = 700 # default: 500
 
 [character]
-# success_symbol = '[🦄](bold green)'
-# error_symbol = '[🙊](bold red)'
+success_symbol = '[🦄](bold green)'
+error_symbol = '[🙊](bold red)'
 
 [container]
 style = 'bold blue dimmed'
@@ -18,10 +18,9 @@ style = 'bold blue dimmed'
 format = "[$symbol $output]($style) "
 
 [shell]
+disabled = true
 fish_indicator = '🐡'
 zsh_indicator = '🐔'
 bash_indicator = '🐚'
 nu_indicator = '🦊'
 unknown_indicator = 'mystery shell'
-
-disabled = false

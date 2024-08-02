@@ -41,38 +41,47 @@ depends = ["shell"]
 "terms/wezterm" = "~/.config/wezterm"
 
 #
-# CLI
-[starship.files]
-"cli/starship/starship.toml" = "~/.config/starship.toml"
-
-[atuin.files]
-"cli/atuin" = "~/.config/atuin"
-
-[zellij.files]
-"cli/zellij" = "~/.config/zellij"
-
-[git.files]
-"cli/git" = "~/.config/git"
-
-[yazi.files]
-"cli/yazi" = "~/.config/yazi"
-"cli/yazi/theme.toml" = { target = "~/.config/yazi/theme.toml", type = "symbolic" }
-"cli/yazi/_themes" = { target = "~/.config/yazi/themes", type = "symbolic" }
-
+# Fetchers
 [fastfetch.files]
 "fetchers/fastfetch" = "~/.config/fastfetch"
 
-[scripts.files]
-"cli/scripts" = "~/.local/bin"
+[macchina.files]
+"fetchers/macchina" = "~/.config/macchina"
 
+#
+# Scripts
+[bin.files]
+"bin" = "~/.local/bin"
+
+#
+# Editor
 [helix.files]
 "editors/helix" = "~/.config/helix"
 
+#
+# Utils
+[starship.files]
+"utils/starship/starship.toml" = "~/.config/starship.toml"
+
+[atuin.files]
+"utils/atuin" = "~/.config/atuin"
+
+[zellij.files]
+"utils/zellij" = "~/.config/zellij"
+
+[git.files]
+"utils/git" = "~/.config/git"
+
+[yazi.files]
+"utils/yazi" = "~/.config/yazi"
+"utils/yazi/theme.toml" = { target = "~/.config/yazi/theme.toml", type = "symbolic" }
+"utils/yazi/_themes" = { target = "~/.config/yazi/themes", type = "symbolic" }
+
 [topgrade.files]
-"cli/topgrade" = "~/.config/topgrade"
+"utils/topgrade" = "~/.config/topgrade"
 
 #
-# GUI Apps
+# Browsers
 [tridactyl.files]
 "browsers/tridactyl" = "~/.config/tridactyl"
 

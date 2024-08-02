@@ -1,5 +1,5 @@
 sync_address = "https://atuin.azzamsa.com" # default: https://api.atuin.sh
 search_mode = "skim" # default: fuzzy
-inline_height = 20 # default: 0
+# inline_height = 20 # default: 0
 # If enabled, upon hitting enter Atuin will immediately execute the command.
-enter_accept = true
+enter_accept = true # default: false
