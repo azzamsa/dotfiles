@@ -26,7 +26,7 @@ $ # Clone the repository
 $ git clone https://github.com/azzamsa/dotfiles ~/dotfiles/
 
 $ # cd ~/dotfiles
-$ ./setup.sh
+$ dotter deploy
 ```
 
 ## Uh Oh! Where is Your Old Configuration?
