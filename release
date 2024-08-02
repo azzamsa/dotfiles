@@ -22,7 +22,7 @@ def main [
     just fmt
 
     # Write the new_version to a file 'version'
-    $tag | save version
+    $tag | save version --force
 
     # Commit a release
     git add --all

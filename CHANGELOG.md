@@ -2,16 +2,165 @@
 
 All notable changes to this project will be documented in this file.
 
-## [5.1.0] - 2023-12-24
+## [6.0.0] - 2024-08-02
+
+### 🚚 Migrations
+
+- **wezterm:** Migrate back to GNOME ([3275834](https://github.com/azzamsa/dotfiles/commit/3275834a7d32a769b7d4531af3f04340b6811d26))
+
+  After spending a full, solid week with Hyprland,
+  I've come to the conclusion that a _Window Manager_ isn't my cup of tea.
+
+  CopyQ doesn't work reliably; sometimes the text gets registered to the keyring, sometimes it doesn't.
+  This forced me to use `cliphist` with a dynamic menu (anyrun/wofi/fuzzel/).
+  However, none of them can preview images in the clipboard history,
+  a crucial feature for my workflow, especially when I've taken annotated images during PR reviews or submissions.
+  Some dynamic menus even strip newlines inside clipboard content, causing a loss of structure when pasting.
+  Additionally, each dynamic menu requires fine-tuning,
+  needing a bigger and wider window for selecting clipboard history but not for searching applications.
+
+  I lack visual feedback for mic/speaker/brightness.
+  While [Ags][ags] could provide this, it heavily depends on GJS,
+  making it necessary to keep an eye on breaking changes.
+  This is my assumption only, as I've noticed that with every GNOME release, extensions tend to break.
+  I assume Ags is subject to the same fate.
+  However, one thing I believe is never wrong: creating a similar GNOME experience with Ags demands a lot of free time.
+  Features like window switcher, Alt-tab preview, sliders, etc., need considerable effort.
+
+  I've lost the ability to see my calendar, weather, world clock, and notifications in my notification center.
+  Switching my speaker right from the menu is no longer possible, and I need to build them with Ags.
+
+  Workrave doesn't function well, and though Stretchly is a viable option, it can't detect [idle time][idle].
+
+  Waybar's network speed appears to be not real-time.
+
+- From `Iosevka` to JetBrains Mono ([ebcf633](https://github.com/azzamsa/dotfiles/commit/ebcf6330d78cda23070b22231ac422d9198d5798))
+- Use `Tokyo Night` theme ([783a327](https://github.com/azzamsa/dotfiles/commit/783a3270bad344d20f470ef781131ea5fa655e29))
+
+  The moon variant.
+
+- Refactor Kangawa theme ([3535d5a](https://github.com/azzamsa/dotfiles/commit/3535d5aa83c582b4647182f6998e48a1c12c7eab))
+- Use Kanagawa theme ([fb0d7f1](https://github.com/azzamsa/dotfiles/commit/fb0d7f18ff5d501c6a3bbd64398de91cf0703ded))
+- Catppuccin Mocha ([64df9a0](https://github.com/azzamsa/dotfiles/commit/64df9a0aa6705c847755ce90217541c62a8383e9))
 
 ### ⛰️ Features
 
-- Use Kanagawa theme ([772de48](https://github.com/azzamsa/dotfiles/commit/772de48b0969f6fd1030710854284991cd7075b8))
-- **yazi:** Add more bookmarks ([350a3ec](https://github.com/azzamsa/dotfiles/commit/350a3ec6f110786f92fea6946837ab74f925c63e))
-- Migrate to Tokyo Night ([5723b2f](https://github.com/azzamsa/dotfiles/commit/5723b2f80204d9e90033aa76e39dadb812364b3c))
-- **yazi:** Add more bookmarks ([5fc0bcb](https://github.com/azzamsa/dotfiles/commit/5fc0bcb402d617123d050425d1c841535d81c92b))
-- **helix:** Initial support ([509abf3](https://github.com/azzamsa/dotfiles/commit/509abf33757e4142b18e17054559a68d06793240))
-- Catppuccin Mocha ([a949e5c](https://github.com/azzamsa/dotfiles/commit/a949e5cc3e4f7f1efc3cebe6d95fd6022e4cc205))
+- **scripts:** Nushell works better for scripting than Rust ([fbc150e](https://github.com/azzamsa/dotfiles/commit/fbc150e50131dedac55e7c2424f697aa4cbc32b1))
+- **scripts:** Just use `topgrade` ([caed680](https://github.com/azzamsa/dotfiles/commit/caed680b3f6df14bfb30027778391243219ac444))
+- **scripts:** Port to nushell ([afce27f](https://github.com/azzamsa/dotfiles/commit/afce27f740c4da4c91f3b989076a6ee70193a51a))
+- **nushell:** Add extras ([618099d](https://github.com/azzamsa/dotfiles/commit/618099dd63e96a57e660c140d91d025498574f82))
+- **cargo:** Manage cargo config ([080b69d](https://github.com/azzamsa/dotfiles/commit/080b69d03d61a115ce0f305c9e33debb50f027e0))
+- Migrate to more popular dotfile manager ([3bb716d](https://github.com/azzamsa/dotfiles/commit/3bb716d5594650973ee42bb5cbb797fd901bae85))
+- Manage more shells ([4bee5cd](https://github.com/azzamsa/dotfiles/commit/4bee5cd68366636e11393e4ed61ed47f73a945a9))
+- **atuin:** Manage atuin ([cd2471e](https://github.com/azzamsa/dotfiles/commit/cd2471e674df062c6262032461ed7698bcb4511f))
+- **alacritty:** Initial config ([8ea48ef](https://github.com/azzamsa/dotfiles/commit/8ea48ef46d6b2010e85b67ab12aef7baa50ef25f))
+- **scripts:** Systeminfo ([d7692d0](https://github.com/azzamsa/dotfiles/commit/d7692d06d20a47128535b1b4bec723e4dd3d361b))
+- Migrate to bombadil ([4c4a613](https://github.com/azzamsa/dotfiles/commit/4c4a6136d953eb083994d9e17486a1677324e770))
+- Sync keybindings ([d385c1f](https://github.com/azzamsa/dotfiles/commit/d385c1f52aff4b282e3fd00dd7ab91a8ad794698))
+- Use Tokyonight v4 by folke ([6eaf60e](https://github.com/azzamsa/dotfiles/commit/6eaf60e42e6a234a507f0e47ba5b39de420ea321))
+- **fish:** Add more helpful commands ([850981f](https://github.com/azzamsa/dotfiles/commit/850981fa2410bf57d68c8216b0a35bf730c2bf83))
+
+  - take: Create a directory, then `cd` into it.
+    - gcl: Clone a git repo with a shallow copy, then `cd` into it.
+
+- **scripts:** Tz ([3059c91](https://github.com/azzamsa/dotfiles/commit/3059c9152fc496d12df5c2793adf9dbc53bd41e0))
+
+  Shows the timezones of my friends and companies.
+
+- **scripts:** Age ([9ac0038](https://github.com/azzamsa/dotfiles/commit/9ac0038a79333dc26cc0afdef7c93b5cba975664))
+- **fish:** Avoid repeatedly writing `hurl .. | jq` ([e0eeb89](https://github.com/azzamsa/dotfiles/commit/e0eeb8944c0a848775402c0357370cab1d8c4f04))
+- **zellij:** Add custom Catpuccin theme ([b83fda1](https://github.com/azzamsa/dotfiles/commit/b83fda108e763ddf3f96520d1fc1679153696dc3))
+- **fish:** Turn more knobs ([72ab089](https://github.com/azzamsa/dotfiles/commit/72ab089de794f80474ce62556a93f080ac5e6f8b))
+- **bash:** Support rye ([b864e6f](https://github.com/azzamsa/dotfiles/commit/b864e6f6b90d3f800732caa0db91234da6f27561))
+- **bash:** Enable starship prompt ([28ead92](https://github.com/azzamsa/dotfiles/commit/28ead92ddc027b0a0461abb48871b6a20399e250))
+- **tridactyl:** Migrate from `mnei` to `neio` ([aec0918](https://github.com/azzamsa/dotfiles/commit/aec09185ae236869acb1f6539539a82ada699cd1))
+- **starship:** I use so many shell ([2c85eb9](https://github.com/azzamsa/dotfiles/commit/2c85eb98e238f3f070464108350861a9497a04b3))
+- **zsh:** Bring it back ([97ebd9b](https://github.com/azzamsa/dotfiles/commit/97ebd9bccdff628ff1c42480c4fdadc0b91373f1))
+- **yazi:** Yazi 0.2 doesn't require a copy of entire config ([90996db](https://github.com/azzamsa/dotfiles/commit/90996db4ceee3b10729256da085ae519298ce8e0))
+
+  This version has `prepend` and `append` keybinds feature.
+
+- **wezterm:** Faster pane navigation ([ca2007c](https://github.com/azzamsa/dotfiles/commit/ca2007ccdd8049c78714c55d6077ee444b6ed807))
+- **scripts:** Add 'nip' script ([d7ad53e](https://github.com/azzamsa/dotfiles/commit/d7ad53eeb4e963d2d1eb12d26da435b8da192d9c))
+
+  Enables easy retrieval of my public IP address.
+
+- **hyprland:** Match GNOME keymaps ([9f193be](https://github.com/azzamsa/dotfiles/commit/9f193be49943fb554057e6d908bf25421e052353))
+- **scripts:** Add more ([559980c](https://github.com/azzamsa/dotfiles/commit/559980ce9af340ca3ad7cbdb0b7dc072415d9d64))
+- **scripts:** Custom Flameshot scripts ([e544206](https://github.com/azzamsa/dotfiles/commit/e5442068a07d8c1c80fb6f0a1ebf7caa24b39239))
+
+  In GNOME, Flameshot only works when started from the shell.
+
+- **yazi:** Themes ([0143f7a](https://github.com/azzamsa/dotfiles/commit/0143f7afd6f7c9d82018eb768dd1bb498ef2bb1e))
+- **scripts:** Remove merged branches in Git ([9946008](https://github.com/azzamsa/dotfiles/commit/994600815399059cc69b203c1773624bac3a98f5))
+- Catppuccin mocha theme ([fea290f](https://github.com/azzamsa/dotfiles/commit/fea290ffb1a316f8672cfd62d1c584c1c89d7708))
+- Tokyonight day theme ([40f4b94](https://github.com/azzamsa/dotfiles/commit/40f4b948993573eab6574476d7269c43744f06d6))
+- **hyprland:** Turn more Hyprland knobs ([52bde4c](https://github.com/azzamsa/dotfiles/commit/52bde4c0e3c352e5ae5e9bdb50575b1447dff739))
+- Choose more contrast color for Kanagawa ([dc61fb2](https://github.com/azzamsa/dotfiles/commit/dc61fb25fd3e4b24334fd3a555349b29fcb1e6ca))
+- Kanagawa theme ([2ac1fde](https://github.com/azzamsa/dotfiles/commit/2ac1fde5060bd497a97fc2803cc4030ad651a4d5))
+- **hyprland:** Turn more Hyprland knobs ([2fe2860](https://github.com/azzamsa/dotfiles/commit/2fe2860fb26cd3acdd4b568ac63da514cf8b8432))
+- **hyprland:** New hyprland theme ([41cf7b5](https://github.com/azzamsa/dotfiles/commit/41cf7b50065c6c81a129fdadf9d6aa9b848df695))
+- **hyprland:** Use Hyprland 🎉 ([219b3f4](https://github.com/azzamsa/dotfiles/commit/219b3f4803b629cfeb2a5141c9e18e22517e87cf))
+
+  In an attempt to distance myself from the uncertainties of GNOME,
+  I tried switching to Hyprland back on June 26, 2023.
+  I desired something over which I could have full control.
+  Unfortunately, it wasn't installable on Fedora due to numerous errors and missing dependencies,
+  leading me to revert back to GNOME.
+
+  Last week, I was disappointed to learn that GNOME wasn't included in SteamVR for Linux support.
+  It seemed like GNOME's development was lagging behind compared to others.
+
+  ```
+  Some compatible window managers/compositors include:
+
+      All X11 Window Managers and Compositors
+      KDE Plasma Wayland
+      Most wlroots based compositors:
+          Sway
+          LabWC
+          Hyprland
+  ```
+
+  Upon seeing that announcement, I thought, "It's time to give Hyprland another shot."
+
+  Back then and even now,
+  my mission remains the same - I don't want someone or a company to force me to change my workflow.
+  GNOME is always evolving, and I worry that someday GNOME 5.x might change everything,
+  similar to the shift from GNOME 2.x to 3.x.
+
+  The installation was smooth,
+  thanks to someone packaging everything for Fedora. Everything worked seamlessly.
+
+- **yazi:** Use Github color for files ([e317547](https://github.com/azzamsa/dotfiles/commit/e317547e42f57cef5e1449ca6851632dc18b0bf6))
+- **nushell:** Nushell 🎉 ([6684a82](https://github.com/azzamsa/dotfiles/commit/6684a82e4f1ba3acb4246a1c6ff60d7b8595fb1c))
+
+  Welcome to the club!
+
+  However, after several hours of setup. Nushell is not ready for daily usage.
+
+  - [nushell: atuin should not always trigger on ⬆️ · Issue #1025 · atuinsh/atuin](https://github.com/atuinsh/atuin/issues/1025)
+  - [`column_not_found` in Nushell · sxyazi/yazi · Discussion #501](https://github.com/sxyazi/yazi/discussions/501)
+  - [Generated .zoxide.nu has incorrect syntax · Issue #661 · ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide/issues/661)
+  - [Nushell support · Issue #463 · Schniz/fnm](https://github.com/Schniz/fnm/issues/463)
+  - Syntax highlighting still requires manual setup.
+    - https://github.com/nushell/tree-sitter-nu/blob/main/installation/neovim.md#manual-installation
+  - nufmt is still very much in beta.
+
+- **wezterm:** Use `wezterm` as a replacement for `zellij`. ([20e5147](https://github.com/azzamsa/dotfiles/commit/20e51477af2eb388dceeeba04d0d984f0bed8a78))
+
+  - Some emojis in Zellij fallback to symbols.
+    - Wezterm already has all the features I need from Zellij.
+    - Wezterm has `key_tables` to mimic `zellij` leader keys, so I don't have to memorize new keys.
+    - Thanks to Lua, I can customize Wezterm _however_ I want.
+
+    I always run Zellij on top of Wezterm, and I find it redundant.
+
+- **copyq:** Add `Tokyo Night Moon` theme ([e035f62](https://github.com/azzamsa/dotfiles/commit/e035f625ff399628d686992f506be71df6f4936e))
+- **yazi:** Add more bookmarks ([8cd07ae](https://github.com/azzamsa/dotfiles/commit/8cd07aeea5d573ceddf5f22ec73efc9f04b4566c))
+- Migrate to Tokyo Night ([bb09176](https://github.com/azzamsa/dotfiles/commit/bb09176b09c73fc2916e794cc3e5f268d685bb17))
+- **yazi:** Add more bookmarks ([eae05c0](https://github.com/azzamsa/dotfiles/commit/eae05c0015991fc8a04a2f98ceaf5ee903cf4d03))
+- **helix:** Initial support ([953bec5](https://github.com/azzamsa/dotfiles/commit/953bec5eed63068e0dc3ff78755eb2b84b388c0f))
 - **fish:** Integrate `toor` ([acc29aa](https://github.com/azzamsa/dotfiles/commit/acc29aa7225a7d3658041eb1688bc04c686b0cd8))
 - **tridactyl:** Copy link as markdown ([84e679a](https://github.com/azzamsa/dotfiles/commit/84e679aa7faa243bf4fd00ee687e308a5812662f))
 - Migrate to Catppuccin Mocha ([7cd0ab7](https://github.com/azzamsa/dotfiles/commit/7cd0ab7f4fde51c08983bfd13285e273f620dbe2))
@@ -41,9 +190,77 @@ All notable changes to this project will be documented in this file.
 
 ### 🐛 Bug Fixes
 
-- **bash:** Nvim complaints about missing $TERM variable ([fef568a](https://github.com/azzamsa/dotfiles/commit/fef568aba023c287b4ad25dab78792857057cc84))
-- **zellij:** Adopt `wbolster/colemak` mappings ([5aadba2](https://github.com/azzamsa/dotfiles/commit/5aadba28cd4e1026537e87da0d2fe5bea7d603c8))
-- **bash:** Change $EDITOR to `neovide` ([391a15c](https://github.com/azzamsa/dotfiles/commit/391a15ce9eee9a457ac8252296ba2e146bc3b2df))
+- **scripts:** Wrong scripts location ([d470bc9](https://github.com/azzamsa/dotfiles/commit/d470bc915b45dfcd7b8f532d522504978d917676))
+- Wrong starship config location ([282097c](https://github.com/azzamsa/dotfiles/commit/282097cdaa4bd00b63885b4ce6c987b569f6a642))
+- **fish:** My fish tokyonight was merged upstream ([c176358](https://github.com/azzamsa/dotfiles/commit/c17635859c7d17bf29694053c30a3bfbbf63434a))
+- **zellij:** Use `k` to close a pane/window ([0b64c9f](https://github.com/azzamsa/dotfiles/commit/0b64c9f9e057a7a6fdcdc41b465da2fcbf6dc0ce))
+
+  I am familiar with `k` due to my old muscle memory of `(k)ill buffers`.
+
+- **scripts:** Don't show compiling progress ([2df8b86](https://github.com/azzamsa/dotfiles/commit/2df8b862c33019958e34956b78c007c5a8a8556e))
+- **zellij:** Use the same background color as terminal ([29457a0](https://github.com/azzamsa/dotfiles/commit/29457a0b8150a2e6f5506b78db9b577a2c7a7dfe))
+- **wezterm:** Go back to Zellij ([065d3dc](https://github.com/azzamsa/dotfiles/commit/065d3dce716b873ae437ac6cd5120dba4a2e2089))
+
+  - My Wezterm keys are hard to access and remember, so I always resort to using the mouse to navigate the tabs.
+    - I almost always forget about the keys because I don't have hints similar to Zellij or Which-Key.
+    - In Wezterm, it is `Ctrl-SPC t <nav key>` (mine), compared to Zellij's `Ctrl-t <nav key>`.
+    - I could mimic Zellij's keys, but what I miss the most is the visual feedback Zellij gives me. All I have in Wezterm is just echoing the current key status in the top bar.
+
+- **scripts:** Fail to remove merged-branch because of leading whitespace ([83d38f5](https://github.com/azzamsa/dotfiles/commit/83d38f5b9ae35fac459e748940b6b1740e8de8a1))
+- **wezterm:** Use distinguishable name for custom theme ([9270b2c](https://github.com/azzamsa/dotfiles/commit/9270b2cf0934600b271d2b61580f5fcec58c103a))
+- **zellij:** Adopt new navigation keys ([7b88e24](https://github.com/azzamsa/dotfiles/commit/7b88e24334fe8b934628094078d5d2b11c848d4a))
+- **scripts:** Remove `office` to private repo ([1bbaef2](https://github.com/azzamsa/dotfiles/commit/1bbaef2637b0f89a44a8ba87d1202e3176856322))
+- **wezterm:** Fallback to Nerd font ([666e030](https://github.com/azzamsa/dotfiles/commit/666e0301b1dd43751e8a8e2231e2f1bfb1516f9a))
+
+  My intention to use non-Nerd font is so that the
+  emoji fallback to Noto first than Nerd. Turns out it doesn't work.
+
+- **fish:** Nyazi code is outdated ([135589e](https://github.com/azzamsa/dotfiles/commit/135589edbbc99ac6d4390cfe40b4e4c4b826ece4))
+- **fish:** Old habit die hard ([3e9e45a](https://github.com/azzamsa/dotfiles/commit/3e9e45ad59904afbaaaed15bed15fefc058e8f4a))
+
+  I always mistype `g` for `git`
+
+- **wezterm:** Wezterm doesn't need Nerd font ([3ee2d3b](https://github.com/azzamsa/dotfiles/commit/3ee2d3b45287805cdcc14ee21baa6ee90b068a77))
+- **xtool:** Prevent automatic installation of `@antfu/nu` when installing `@antfu/taze` ([c4ad62d](https://github.com/azzamsa/dotfiles/commit/c4ad62d5597d2c757f080d54997079409b51a746))
+
+  This package is consistently installed automatically whenever `@antfu/taze` is installed.
+
+- **hyprland:** CopyQ is not reliable in Hyprland ([5d50a95](https://github.com/azzamsa/dotfiles/commit/5d50a95b3d8d9a29c136d86611c84e5f8f335076))
+
+  Most of the time, I need to press the copy key multiple times before it
+  registers in CopyQ, and sometimes I need to move the cursor to the top
+  in the CopyQ 'show history' to make it work.
+
+  The combination of 'cliphist' and 'wl-clipboard' works well here. It is
+  very reliable in Hyprland. However, I can't find a runner that is able to
+  show a clipboard history with an image preview feature.
+
+  I use audio feedback for both of them. That's why I know when my text has
+  not landed in the primary clipboard.
+
+- **fish:** Neovide uses different color in built-in Terminal ([ef18dad](https://github.com/azzamsa/dotfiles/commit/ef18dad949f1bc2f8bace25f8f4fd48744d33cc0))
+
+  Force true-color support; otherwise, the Neovim Terminal inside Neovide
+  (not the case with Neovim inside the Terminal) will use slightly different colors,
+  which is sometimes annoying and hard to read. I've been having a hard time solving this issue,
+  ranging from setting `vim.g.terminal_color_n` and other approaches.
+  It turns out it's an issue with the Fish shell.
+  All credits due to fredizzimo (Neovide maintainer) for finding this solution.
+
+- Place formatter and linter configs in the root directory ([cf854bd](https://github.com/azzamsa/dotfiles/commit/cf854bd11958583b40432768a023532c18a4cead))
+
+  Otherwise, we would have to deal with a custom `--config-path` for every possible formatter on Earth.
+  It's okay to let them clutter the directory (check out the Neovim repo).
+  Even if they are visible on the GitHub repo, locally they are hidden by your favorite editor.
+
+- **zellij:** Enable border frames ([8e853e6](https://github.com/azzamsa/dotfiles/commit/8e853e682891bec427ff3fcafd2c4e84e75319b3))
+
+  Without the frames, it is hard to distinguish the boundary between the content (command output)
+  and the footer tooltip. I need some space between them.
+
+- **bash:** Nvim complaints about missing $TERM variable ([c5c4a4e](https://github.com/azzamsa/dotfiles/commit/c5c4a4e03e14eef293b23c4cb64e6e8ce645a8f4))
+- **zellij:** Adopt `wbolster/colemak` mappings ([0ac6599](https://github.com/azzamsa/dotfiles/commit/0ac659913524005cfdfb931fbc743149a7083787))
+- **bash:** Change $EDITOR to `neovide` ([d98c1d5](https://github.com/azzamsa/dotfiles/commit/d98c1d58199fb3eb5c653e3f658de919349f2d88))
 - **bash:** Emacs can't find `node` ([25c180a](https://github.com/azzamsa/dotfiles/commit/25c180a612568722453e56e7fcde956a42a54de7))
 - **wezterm:** `__bp_install: command not found` ([33c51a4](https://github.com/azzamsa/dotfiles/commit/33c51a450628ad00612bb71c1848066112543690))
 
@@ -72,7 +289,7 @@ All notable changes to this project will be documented in this file.
 
 ### ⚡ Performance
 
-- **bash:** Use `plists` for `lsp-mode` deserialization. ([6bc5ce7](https://github.com/azzamsa/dotfiles/commit/6bc5ce71227009ace990d3442a67d00790c5ed6f))
+- **bash:** Use `plists` for `lsp-mode` deserialization. ([6bb05eb](https://github.com/azzamsa/dotfiles/commit/6bb05eb04c31953a1fa87ca86501fc621035fe95))
 - **fish:** Load `fnm` only on node project ([4e181e9](https://github.com/azzamsa/dotfiles/commit/4e181e9e984255fab0181d102e88db017528302a))
 
 ### 🧹 Cleanup
