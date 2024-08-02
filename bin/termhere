@@ -1,53 +1,18 @@
-#!/usr/bin/env -S cargo +nightly -Zscript --quiet
----
-[package]
-edition = "2021"
+#!/usr/bin/env nu
 
-[dependencies]
-duct = "0.13.7"
-clap = "4.5.13"
-anyhow = "1.0"
----
-
-/// Terminal Here
-///
-/// Open terminal in given directory.
-///
-/// Usage from other application:
-/// ``` lisp
-/// (defun terminal-here ()
-///   (interactive)
-///   (message "Opening terminal in %s" default-directory)
-///   (start-process "" nil "termhere" default-directory))
-/// ```
-use std::env;
-
-use clap::Parser;
-use duct::cmd;
-
-#[derive(Parser)]
-#[command(name = "termhere")]
-pub struct Opts {
-    /// Current working directory
-    pub cwd: Option<String>,
+def main [
+  cwd?: string, # Current working directory
+  ] {
+    if ($cwd | is-empty) {
+      open_terminal $env.HOME
+    } else {
+      open_terminal $cwd
+    }
 }
 
-pub(crate) fn run() -> anyhow::Result<()> {
-    let home = env::var("HOME")?;
-
-    let opts = Opts::parse();
-    match opts.cwd {
-        None => here(&home)?,
-        Some(cwd) => here(&cwd)?,
-    };
-
-    Ok(())
+def open_terminal [
+  cwd: string, # Target path
+  ] {
+    print $"Opening terminal in ($cwd)"
+    zellij action new-tab --layout default --cwd $cwd
 }
-
-fn here(cwd: &str) -> anyhow::Result<()> {
-    println!("Opening terminal in `{cwd}`");
-    cmd!("zellij", "action", "new-tab", "--layout", "default", "--cwd", cwd).run()?;
-    Ok(())
-}
-
-// vim: ft=rust

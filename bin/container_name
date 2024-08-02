@@ -1,35 +1,17 @@
-#!/usr/bin/env -S cargo +nightly -Zscript --quiet
----
-[package]
-edition = "2021"
+#!/usr/bin/env nu
 
-[dependencies]
-duct = "0.13.7"
-anyhow = "1.0"
----
+# Get current toolbox container name for shell prompt
+def main [] {
+  let file_path = "/run/.containerenv"
 
-use std::{fs, io, process};
+  if not ($file_path | path exists) {
+    print "Exiting. Not inside a container"
+    exit 1
+  }
 
-use duct::cmd;
+  open $file_path | lines | split column "=" |
+    where column1 == 'name' | get column2.0 | str trim --char '"'
 
-fn main() -> anyhow::Result<()> {
-    if is_inside_container().is_err() {
-        process::exit(1);
-    };
-
-    let env = fs::read_to_string("/run/.containerenv")?;
-    let name = env
-        .split_once("name=\"")
-        .and_then(|it| it.1.split_once('\"'))
-        .map(|it| it.0)
-        .ok_or_else(|| anyhow::format_err!("can't find name field in the env file"))?;
-    println!("{}", name);
-
-    Ok(())
+  # other approach
+  # with-env (open $file_path | lines | parse '{env_key}="{env_value}"' | transpose -rd) { $env.name }
 }
-
-fn is_inside_container() -> Result<String, io::Error> {
-    cmd!("test", "-e", "/run/.containerenv").read()
-}
-
-// vim: ft=rust

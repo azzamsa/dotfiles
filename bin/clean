@@ -1,0 +1,9 @@
+#!/usr/bin/env nu
+
+def main [] {
+  kondo --older 2w --ignored-dirs ~/opt/nodebin/ --all
+  docker system prune
+  podman system prune
+  sudo dnf autoremove
+  cargo cache --autoclean
+}
