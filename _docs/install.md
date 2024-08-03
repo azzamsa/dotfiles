@@ -34,14 +34,14 @@ I hate leaving my prompt.
 Copy the `dotfile` directory to the new machine.
 
 ```bash
-sudo dnf install --assumeyes bash git stow fish
+sudo dnf install --assumeyes bash git fish
 ```
 
 Populate the dotfiles.
 
 ```bash
 cd ~/dotfiles
-stow --no-folding --restow git zellij fish bash
+dotter deploy
 ```
 
 Make sure bash doesn't fail to load.
@@ -104,19 +104,19 @@ I think I will just use mutable OS an immutable way!
 flatpak install flathub --assumeyes com.github.tchx84.Flatseal org.gnome.seahorse.Application org.keepassxc.KeePassXC
 
 # Productivity tools
-flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq com.rafaelmardojai.Blanket
+flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq
 
 # Work
-flatpak install flathub --assumeyes com.usebruno.Bruno dev.vencord.Vesktop io.dbeaver.DBeaverCommunity rest.insomnia.Insomnia
+flatpak install flathub --assumeyes org.gnome.Evolution org.mozilla.Thunderbird com.usebruno.Bruno io.dbeaver.DBeaverCommunity rest.insomnia.Insomnia
 
 # Utilities
-flatpak install flathub --assumeyes com.github.finefindus.eyedropper com.github.huluti.Curtail com.github.qarmin.czkawka com.github.tenderowl.frog com.gitlab.newsflash fr.romainvigier.MetadataCleaner io.github.adrienverge.PhotoCollage io.github.flattool.Warehouse io.github.seadve.Kooha net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gnome.Fractal org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.mozilla.Thunderbird org.telegram.desktop org.videolan.VLC
+flatpak install flathub --assumeyes com.github.finefindus.eyedropper com.github.huluti.Curtail com.github.qarmin.czkawka com.github.tenderowl.frog com.gitlab.newsflash fr.romainvigier.MetadataCleaner io.github.adrienverge.PhotoCollage io.github.flattool.Warehouse com.dec05eba.gpu_screen_recorder net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gnome.Fractal org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.telegram.desktop org.videolan.VLC
 
 # Office
 flatpak install flathub --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
 
 # Emergency
-flatpak install flathub --assumeyes com.google.Chromue
+flatpak install flathub --assumeyes com.brave.Browser
 ```
 
 ## Setup Power Management
@@ -148,33 +148,10 @@ sudo tlp start
 sudo tlp-stat -s -c -b
 ```
 
-## Setup Rust Tooling
-
-```bash
-rm ~/.cargo/bin/rust-analyzer
-
-eget rust-lang/rust-analyzer --to ~/.local/bin --asset "rust-analyzer-x86_64-unknown-linux-gnu.gz"
-```
-
-To use `mold` as the default linker, put the code below to `.cargo/config`.
-
-```toml
-# Use mold as default linker
-# https://github.com/rui314/mold#how-to-use
-[target.x86_64-unknown-linux-gnu]
-linker = "clang"
-rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
-
-# https://blog.rust-lang.org/inside-rust/2023/01/30/cargo-sparse-protocol.html
-[registries.crates-io]
-protocol = "sparse"
-```
-
 ## Setup Python Tooling
 
 ```bash
 python3 -m pip install --user qmk grip poetry
-python3 -m pip install --user ruff black
 ```
 
 ## Setup Toolbx
@@ -193,7 +170,7 @@ toolbox run -c daily sudo dnf install --assumeyes yt-dlp ffmpeg
 ## Install More Apps
 
 ```bash
-sudo dnf install --assumeyes aspell-id copyq gnome-tweaks workrave
+sudo dnf install --assumeyes aspell-id gnome-tweaks workrave
 
 sudo dnf install --assumeyes jq podman-compose telnet
 
@@ -209,7 +186,7 @@ fnm use <version> # To get LTS version, see https://endoflife.date/nodejs
 
 ```bash
 # Development tool
-cargo binstall --no-confirm --no-symlinks cargo-edit cargo-machete cargo-nextest cargo-outdated cargo-tarpaulin cargo-watch dprint git-cliff git-cliff hurl just rust-script selene stylua tokei typos-cli watchexec-cli
+cargo binstall --no-confirm --no-symlinks cargo-edit cargo-nextest cargo-outdated cargo-tarpaulin dprint git-cliff git-cliff hurl just selene stylua tokei typos-cli watchexec-cli rye
 
 # Utilities
 cargo binstall --no-confirm --no-symlinks bandwhich bat dua-cli kondo yazi-fm
@@ -223,11 +200,14 @@ cargo binstall --no-confirm --no-symlinks lolcrab macchina
 Login to https://extensions.gnome.org/extension/ and click `install`. It should open Extension Manager App.
 It is easier than searching manually inside the Extension manager App.
 
+- [Pano - Clipboard Manager - GNOME Shell Extensions](https://extensions.gnome.org/extension/5278/pano/)
 - [Internet Speed Meter - GNOME bash Extensions](https://extensions.gnome.org/extension/2980/internet-speed-meter/)
 - [Lock Keys - GNOME bash Extensions](https://extensions.gnome.org/extension/36/lock-keys/)
 - [AppIndicator and KStatusNotifierItem Support - GNOME bash Extensions](https://extensions.gnome.org/extension/615/appindicator-support/)
 - [Caffeine - GNOME Shell Extensions](https://extensions.gnome.org/extension/517/caffeine/)
 - [Wallpaper Slideshow - GNOME Shell Extensions](https://extensions.gnome.org/extension/6281/wallpaper-slideshow/)
+- [Burn My Windows - GNOME Shell Extensions](https://extensions.gnome.org/extension/4679/burn-my-windows/)
+- [Blur my Shell - GNOME Shell Extensions](https://extensions.gnome.org/extension/3193/blur-my-shell/)
 
 ## Install Binaries Manually
 
@@ -235,7 +215,6 @@ Install `eget` from https://github.com/zyedidia/eget/releases
 
 ```bash
 eget junegunn/fzf --to ~/.local/bin
-eget restic/restic --to ~/.local/bin
 eget rui314/mold --to ~/.local/bin
 eget getzola/zola --to ~/.local/bin
 eget neovide/neovide --to ~/.local/bin/neovide --asset "neovide.AppImage"
@@ -261,30 +240,6 @@ Update the `Exec` line in `/usr/share/applications/workrave.desktop`. Otherwise,
 +Exec=env GDK_BACKEND="x11" workrave
 ```
 
-## CopyQ
-
-Change the `Exec` line in `/usr/share/applications/com.github.hluk.copyq.desktop`.
-
-```diff
--Exec=copyq --start-server show
-+Exec=env QT_QPA_PLATFORM=xcb copyq --start-server show
-```
-
-Add CopyQ commands.
-
-```
-[Command]
-Name=Play Sound on Copy
-Automatic=true
-Command="
-    copyq:
-    if ( isClipboard() )
-      execute('pw-play', '/home/user/sounds/slick.ogg')"
-Icon=\xf028
-```
-
-Load custom themes from `~/dotfiles/copyq`
-
 ## Flameshot
 
 Change the `Exec` line in `/usr/share/applications/org.flameshot.Flameshot.desktop`.
@@ -292,19 +247,19 @@ Change the `Exec` line in `/usr/share/applications/org.flameshot.Flameshot.deskt
 ```diff
 [Desktop Entry]
 -Exec=flameshot
-+Exec=/home/user/opt/bin/nflameshot
++Exec=/home/user/.local/bin/nflameshot
 
 [Desktop Action Configure]
 -Exec=flameshot config
-+Exec=/home/user/opt/bin/nflameshot config
++Exec=/home/user/.local/bin/nflameshot config
 
 [Desktop Action Capture]
 -Exec=flameshot gui --delay 500
-+Exec=/home/user/opt/bin/nflameshot gui --delay 500
++Exec=/home/user/.local/bin/nflameshot gui --delay 500
 
 [Desktop Action Launcher]
 -Exec=flameshot launcher
-+Exec=/home/user/opt/bin/nflameshot launcher
++Exec=/home/user/.local/bin/nflameshot launcher
 ```
 
 ## Setting Up DNS
@@ -328,9 +283,9 @@ sudo dnf install --assumeyes papirus-icon-theme
 
 Fonts:
 
-- Interface Text: "JetBrains Mono Regular 13"
-- Document Text: "Cantarell Regular 12"
-- Monospace Text: "JetBrains Mono Regular 12"
+- Interface Text: "JetBrains Mono Nerd Font Regular 13"
+- Document Text: "JetBrains Mono Nerd Font Regular 12"
+- Monospace Text: "JetBrains Mono Nerd Font Regular 12"
 - Legacy Window Titles: "Cantarell Bold 12"
 - Hinting : Slight
 - Antialiasing: Standard (greyscale)
@@ -359,16 +314,12 @@ Go to `Settings` -> `Region and Languages`. Set format to `United Kingdom`.
 
 Go to `Settings` -> `Keyboard`.
 
-- Navigation
-  - Move to workspace on the left: Ctrl + Tab (Super + PageUp)
-  - Move to workspace on the right: Ctrl + Alt + Tab (Super + PageUp)
-  - Switch Windows: Alt + Tab
-- Wondows
-  - Close windows: Super + Shift + Q (Super + F4)
 - Flameshot
   - name: Flameshot
-  - command: /home/user/opt/bin/nflameshot gui
+  - command: /home/user/.local/bin/nflameshot gui
   - shortcut: PrtScn
+
+I always use the same keybindings. See [keymaps.conf](https://github.com/azzamsa/dotfiles/blob/master/wm/hypr/keymaps.conf)
 
 ### Multitasking
 
@@ -383,13 +334,6 @@ To prevent Apps to move to the Laptop monitor during suspension, go to `Display`
 - Disable "Restore session"
 
 ## Polish
-
-### Populate other dotfiles
-
-```bash
-cd ~/dotfiles
-stow --no-folding --restow gnupg starship
-```
 
 ### Setup apps
 
