@@ -9,9 +9,9 @@ def main [] {
     exit 1
   }
 
-  open $file_path | lines | split column "=" |
-    where column1 == 'name' | get column2.0 | str trim --char '"'
+  open $file_path | lines | parse '{key}="{value}"' | where key == 'name' | get value.0
 
-  # other approach
+  # other approaches
+  # open $file_path | lines | split column "=" | where column1 == 'name' | get column2.0 | str trim --char '"'
   # with-env (open $file_path | lines | parse '{env_key}="{env_value}"' | transpose -rd) { $env.name }
 }
