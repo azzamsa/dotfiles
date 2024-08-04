@@ -10,6 +10,13 @@ def "main flatpak" [] {
   flatpak update
 }
 
+def "main node" [] {
+  print "📥 Upgrading node apps"
+  cd ~/opt/nodebin
+  npx taze major --write
+  npm install
+}
+
 def "main system" [] {
   print "📥 Upgrading system apps"
   sudo dnf upgrade
@@ -18,7 +25,12 @@ def "main system" [] {
 def main [] {
   main cargo
   print ""
-  main flatpak
+  # Most of the time, I don't want to pull huge chunks of upgrades
+  do --ignore-errors { main flatpak }
   print ""
-  main system
+  main node
+  print ""
+  # Most of the time, I don't want to update my kernel
+  do --ignore-errors { main system }
+
 }
