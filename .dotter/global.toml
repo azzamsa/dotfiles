@@ -58,6 +58,9 @@ depends = ["shell"]
 
 #
 # Editor
+[neovide.files]
+"editors/neovide" = "~/.config/neovide"
+
 [helix.files]
 "editors/helix" = "~/.config/helix"
 

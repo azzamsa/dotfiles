@@ -3,6 +3,7 @@ includes = [".dotter/include/fedora.toml"]
 packages = [
     "shell",
     "fish",
+    "nushell",
     "wezterm",
     "starship",
     "atuin",
@@ -10,7 +11,9 @@ packages = [
     "git",
     "yazi",
     "fastfetch",
-    "scripts",
+    "bin",
+    "helix",
+    "neovide",
     "tridactyl",
 ]
 
