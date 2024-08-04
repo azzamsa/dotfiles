@@ -1,21 +1,40 @@
 includes = [".dotter/include/fedora.toml"]
 
 packages = [
+    #
+    # Shell
     "shell",
     "fish",
     "nushell",
+    #
+    # Terminals
     "wezterm",
     "starship",
     "atuin",
-    "zellij",
-    "git",
-    "jj",
-    "yazi",
+    #
+    # Fetchers
     "fastfetch",
-    "bin",
+    #
+    # Editor
     "helix",
     "neovide",
+    #
+    # Scripts
+    "bin",
+    #
+    # VSC
+    "git",
+    "jj",
+    #
+    # Utils
+    "zellij",
+    "yazi",
+    #
+    # Browsers
     "tridactyl",
+    #
+    # Programming Languages
+    "cargo",
 ]
 
 [variables]
