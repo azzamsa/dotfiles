@@ -1,0 +1,11 @@
+#!/usr/bin/env nu
+
+def "main now" [] {
+  print (date now | format date "%a, %d %b %Y %I:%M:%S %p")
+}
+
+def "main today" [] {
+  print (date now | format date "%a, %d %b %Y")
+}
+
+def main [] {}

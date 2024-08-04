@@ -50,7 +50,7 @@ zoxide init --cmd cd fish | source
 starship init fish | source
 fnm env --use-on-cd | source
 atuin init fish | source
-
+jj util completion fish | source
 
 #
 # Functions
