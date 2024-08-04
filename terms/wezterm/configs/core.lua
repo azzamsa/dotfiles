@@ -6,7 +6,7 @@ function M.append(config)
         -- Sticky keys don't work there because of `enable_wayland: false`,
         -- so you need `zellij` as a replacement.
         -- Otherwise, set it to `fish`
-        default_prog = { "zellij" },
+        default_prog = { "fish" },
         -- Enabled by default but it will not start in Hyprland.
         -- Set to `false` if you are in Hyprland, Otherwise leave as is.
         enable_wayland = true, -- default: true,

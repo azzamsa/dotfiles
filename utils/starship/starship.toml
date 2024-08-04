@@ -1,4 +1,4 @@
-# https://starship.rs/config/
+# https://starship.rs/config
 
 command_timeout = 700 # default: 500
 
