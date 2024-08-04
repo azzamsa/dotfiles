@@ -9,6 +9,7 @@ packages = [
     "atuin",
     "zellij",
     "git",
+    "jj",
     "yazi",
     "fastfetch",
     "bin",

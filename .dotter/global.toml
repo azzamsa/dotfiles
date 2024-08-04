@@ -65,6 +65,14 @@ depends = ["shell"]
 "editors/helix" = "~/.config/helix"
 
 #
+# VCS
+[git.files]
+"vcs/git" = "~/.config/git"
+
+[jj.files]
+"vcs/jj" = "~/.config/jj"
+
+#
 # Utils
 [starship.files]
 "utils/starship/starship.toml" = "~/.config/starship.toml"
@@ -74,9 +82,6 @@ depends = ["shell"]
 
 [zellij.files]
 "utils/zellij" = "~/.config/zellij"
-
-[git.files]
-"utils/git" = "~/.config/git"
 
 [yazi.files]
 "utils/yazi" = "~/.config/yazi"
