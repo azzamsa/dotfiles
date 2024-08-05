@@ -1,0 +1,25 @@
+#!/usr/bin/env nu
+
+def show_time (description: string, timezone: string ) {
+    let now = (date now)
+    let time = $now | date to-timezone $timezone | format date "%H:%M"
+    let hour = ($time | str substring ..1) | into int
+
+    # Red is non working hour time
+    let time = if $hour >= 23 or $hour < 8 {
+        $'(ansi red)($time)(ansi reset)'
+    } else {
+        $'(ansi green)($time)(ansi reset)'
+
+    }
+    print $"(ansi white_bold)($description)(ansi reset): ($time)"
+
+
+}
+def main [] {
+    # https://time.is/Norway (UTC+2)
+    show_time "Oslo (UTC+2)" "Europe/Oslo"
+    # https://time.is/California (UTC-7)
+    show_time "California (UTC-7)" "America/Phoenix"
+}
+
