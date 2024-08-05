@@ -141,6 +141,18 @@ function gcl
     cd $repo_name
 end
 
+# Gently try to delete merged branches, excluding the checked out one
+function git_gone
+    set merged_branches (git branch --merged | grep -v '\*' | string trim)
+
+    # Iterate over each branch and delete it if it's not 'master' or 'main'
+    for branch in $merged_branches
+        if test $branch != master -a $branch != main
+            git branch -d $branch
+        end
+    end
+end
+
 #
 # Theme
 #
