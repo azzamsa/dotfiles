@@ -1,3 +1,6 @@
 [user]
 name = "Azzam S.A"
 email = "noreply@azzamsa.com"
+
+[template-aliases]
+'format_short_signature(signature)' = 'signature.username()' # default: 'signature.email()'
