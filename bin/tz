@@ -19,8 +19,8 @@ def show_time (description: string, timezone: string ) {
 }
 def main [] {
     # https://time.is/Norway (UTC+2)
-    show_time "Oslo (UTC+2)" "Europe/Oslo"
+    show_time "Oslo, Norway (UTC+2)" "Europe/Oslo"
     # https://time.is/California (UTC-7)
-    show_time "California (UTC-7)" "America/Phoenix"
+    show_time "California, US (UTC-7)" "America/Phoenix"
 }
 
