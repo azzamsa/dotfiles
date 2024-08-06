@@ -1,182 +1,49 @@
-#!/usr/bin/env -S cargo +nightly -Zscript --quiet
----
-[package]
-edition = "2021"
+#!/usr/bin/env nu
 
-[dependencies]
-chrono = "0.4.34"
-chrono-humanize = "0.2.3"
-owo-colors = "4.0"
-num-format = "0.4"
-anyhow = "1.0"
----
+let people = [
+  { name: "John Doe" dob: "1998-6-15" },
+  { name: "Baby Doe" dob: "2021-1-20" },
+]
 
-//! Age
-//!
-//! All my family age.
-//!
-//! Usage:
-//!
-//! Just run it as normal executable file:
-//!
-//! ```shell
-//! $ ./age
-//! ```
-//!
-//! Development:
-//!
-//! ```
-//! $ rustfmt +nightly age
-//! ```
-
-use chrono_humanize as humanize;
-use owo_colors::OwoColorize;
-
-// Use internal type. Chrono API changes very often
-pub type Date = chrono::NaiveDate;
-pub type DateTime = chrono::NaiveDateTime;
-
-struct Person {
-    name: String,
-    dob: chrono::naive::NaiveDate,
+def birthdays [] {
+  for person in $people {
+    print $"👶🏼 (ansi magenta_bold)($person.name) age (ansi reset)"
+    let dob = $"(ansi default_underline)($person.dob | format date '%a, %d %b %Y')(ansi reset)"
+    print $"Born at: ($dob)"
+    print $"Age: ($person.dob |  date humanize) \n"
+  }
 }
 
-struct Company {
-    name: String,
-    join_date: chrono::naive::NaiveDate,
+def marriage [] {
+    let date = "2015-6-10"
+    print $"(ansi magenta_bold)💍 Marriage (ansi reset)"
+    let pretty_date = ($date | format date '%a, %d %b %Y')
+    print $"You got married on (ansi default_underline)($pretty_date)(ansi reset)";
+    print $"It has been ($date | date humanize) \n";
 }
 
-fn main() -> anyhow::Result<()> {
-    birthdays()?;
-    println!();
-    marriage()?;
-    println!();
-    jobs()?;
+let companies = [
+  { name: "Acme Corp", join_date: "2010-4-15" },
+  { name: "Globex Inc.", join_date: "2018-9-1" },
+];
 
-    Ok(())
-}
+def jobs [] {
+  for company in $companies {
+    print $"(ansi magenta_bold)🛠  Work️ (ansi reset)"
+    let company_name = $"(ansi default_underline)($company.name)(ansi reset)"
+    let join_date = $"(ansi default_underline)($company.join_date | format date '%a, %d %b %Y')(ansi reset)"
+    print $"You began your career at ($company_name) on ($join_date)"
+    print $"It has been ($company.join_date | date humanize)"
 
-fn birthdays() -> anyhow::Result<()> {
-    let people: [Person; 3] = [
-        Person {
-            name: String::from("John Doe"),
-            dob: date(1985, 6, 15)?,
-        },
-        Person {
-            name: String::from("Jane Smith"),
-            dob: date(1990, 12, 2)?,
-        },
-        Person {
-            name: String::from("Baby Doe"),
-            dob: date(2021, 1, 20)?,
-        },
-    ];
-
-    for (index, person) in people.iter().enumerate() {
-        birthday(person)?;
-        // don't print new line for the last person
-        if index != people.len() - 1 {
-            println!();
-        }
+    # don't print new line for the last person
+    if not ($company == ($companies | last)) {
+      print ""
     }
-    Ok(())
+  }
 }
 
-fn birthday(person: &Person) -> anyhow::Result<()> {
-    println!("{}", format!("👶🏼 {} age", person.name).magenta().bold());
-
-    let age = today() - person.dob;
-
-    println!("Born at: {}", format_date(person.dob).underline());
-    println!(
-        "Age: {age} ({days} days)",
-        age = humanize(age),
-        days = format_number(age.num_days())?
-    );
-    Ok(())
+def main [] {
+  birthdays
+  marriage
+  jobs
 }
-
-fn marriage() -> anyhow::Result<()> {
-    println!("{}", "💍 Marriage".magenta().bold());
-
-    let date = date(2015, 6, 10)?;
-    let duration = today() - date;
-
-    println!("You got married on {}", format_date(date).underline());
-    println!(
-        "It has been {} ({days} days)",
-        humanize(duration),
-        days = format_number(duration.num_days())?
-    );
-
-    Ok(())
-}
-
-fn jobs() -> anyhow::Result<()> {
-    let companies: [Company; 2] = [
-        Company {
-            name: String::from("Acme Corp"),
-            join_date: date(2010, 4, 15)?,
-        },
-        Company {
-            name: String::from("Globex Inc."),
-            join_date: date(2018, 9, 1)?,
-        },
-    ];
-
-    for company in companies {
-        job(&company)?
-    }
-
-    Ok(())
-}
-
-fn job(company: &Company) -> anyhow::Result<()> {
-    println!("{}", "🛠  Work️".magenta().bold());
-
-    let duration = today() - company.join_date;
-    println!(
-        "You began your career at {company_name} on {join_date}",
-        company_name = company.name.underline(),
-        join_date = format_date(company.join_date).underline()
-    );
-    println!("It has been {}", humanize(duration));
-
-    Ok(())
-}
-
-// Create a chrono's Date
-fn date(year: i32, month: u32, day: u32) -> anyhow::Result<Date> {
-    chrono::NaiveDate::from_ymd_opt(year, month, day).ok_or(anyhow::anyhow!("Invalid date"))
-}
-
-// Today's date
-pub fn today() -> Date {
-    chrono::Local::now().date_naive()
-}
-
-// Formats the given time into a custom string format.
-fn format_date(date: Date) -> String {
-    // https://docs.rs/chrono/latest/chrono/format/strftime/
-    date.format("%a, %d %b %Y").to_string()
-}
-
-// Turn duration into human readable format
-fn humanize(delta: chrono::TimeDelta) -> String {
-    let ht = humanize::HumanTime::from(delta);
-    ht.to_text_en(humanize::Accuracy::Precise, humanize::Tense::Present)
-}
-
-// Format the days into groups of three
-fn format_number(number: i64) -> anyhow::Result<String> {
-    let format = num_format::CustomFormat::builder()
-        .grouping(num_format::Grouping::Standard)
-        .separator(".")
-        .build()?;
-
-    let mut buf = num_format::Buffer::new();
-    buf.write_formatted(&number, &format);
-    Ok(buf.as_str().to_owned())
-}
-
-// vim: ft=rust
