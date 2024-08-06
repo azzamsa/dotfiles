@@ -1,9 +1,10 @@
 #!/usr/bin/env nu
 
 def show_time (description: string, timezone: string ) {
-    let now = (date now)
-    let time = $now | date to-timezone $timezone | format date "%H:%M"
-    let hour = ($time | str substring ..1) | into int
+    let now = (date now) | date to-timezone $timezone
+    let hour = $now | format date "%H" | into int
+    # I need 12H format, that why I have do it it twice
+    let time = $now | format date "%I:%M %p"
 
     # Red is non working hour time
     let time = if $hour >= 23 or $hour < 8 {
@@ -12,7 +13,7 @@ def show_time (description: string, timezone: string ) {
         $'(ansi green)($time)(ansi reset)'
 
     }
-    print $"(ansi white_bold)($description)(ansi reset): ($time)"
+    print $"(ansi default_bold)($description)(ansi reset): ($time)"
 
 
 }
