@@ -74,6 +74,9 @@ depends = ["shell"]
 
 #
 # Utils
+[gnupg.files]
+"utils/gnupg" = "~/.gnupg"
+
 [starship.files]
 "utils/starship/starship.toml" = "~/.config/starship.toml"
 
