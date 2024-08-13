@@ -1,8 +1,21 @@
 #!/usr/bin/env nu
 
+def "main docker" [
+  --all (-a) # Clean everything!
+] {
+    if $all {
+      let images = (docker images --all --quiet | lines)
+      for image in $images {
+        docker rmi --force $image
+      }
+    } else {
+      docker system prune
+    }
+}
+
 def main [] {
+  main docker
   kondo --older 2w --ignored-dirs ~/opt/nodebin/ --all
-  docker system prune
   podman system prune
   sudo dnf autoremove
   cargo cache --autoclean
