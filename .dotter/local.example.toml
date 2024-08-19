@@ -30,6 +30,7 @@ packages = [
     "gnupg",
     "zellij",
     "yazi",
+    "eget",
     #
     # Browsers
     "tridactyl",
