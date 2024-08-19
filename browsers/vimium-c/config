@@ -21,8 +21,10 @@ map G scrollToBottom
 map d scrollPageDown
 map u scrollPageUp
 map r reload
-map R hardReload
+map R reload hard
 map yy copyCurrentUrl
+map ym copyWindowInfo type="tab" format="[${title}](${url})"
+map yM LinkHints.activateCopyLinkText access="[${innerText}](${href})"
 map p openCopiedUrlInCurrentTab
 map P openCopiedUrlInNewTab
 
