@@ -14,5 +14,5 @@ def open_terminal [
   cwd: string, # Target path
   ] {
     print $"Opening terminal in ($cwd)"
-    zellij action new-tab --layout default --cwd $cwd
+    wezterm cli spawn --window-id 0 --cwd $cwd
 }
