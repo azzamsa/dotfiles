@@ -12,4 +12,6 @@
 # This file needs to be a BASH script. Fish doesn't work.
 # Maybe because it is executed from /usr/share/applications/org.flameshot.Flameshot.desktop
 
-flameshot "$@"
+def main [] {
+  flameshot "$@"
+}

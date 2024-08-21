@@ -2,4 +2,6 @@
 
 # Get My current public IP
 
-curl ifconfig.me
+def main [] {
+  curl ifconfig.me
+}
