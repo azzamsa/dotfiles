@@ -1,24 +1,29 @@
 #!/usr/bin/env nu
 
 def "main cargo" [] {
-  print "📥 Upgrading cargo apps"
+  print "📥 Upgrading Cargo apps"
   cargo install-update -a
 }
 
+def "main rust" [] {
+  print "📥 Upgrading Rust toolchain"
+  rustup update stable
+}
+
 def "main flatpak" [] {
-  print "📥 Upgrading flatpak apps"
+  print "📥 Upgrading Flatpak apps"
   flatpak update
 }
 
 def "main node" [] {
-  print "📥 Upgrading node apps"
+  print "📥 Upgrading Node apps"
   cd ~/opt/nodebin
   npx taze major --write
   npm install
 }
 
 def "main system" [] {
-  print "📥 Upgrading system apps"
+  print "📥 Upgrading System apps"
   sudo dnf upgrade
 }
 
@@ -32,5 +37,6 @@ def main [] {
   print ""
   # Most of the time, I don't want to update my kernel
   do --ignore-errors { main system }
-
+  print ""
+  main rust
 }
