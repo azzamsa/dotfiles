@@ -3,3 +3,4 @@ search_mode = "skim" # default: fuzzy
 # inline_height = 20 # default: 0
 # If enabled, upon hitting enter Atuin will immediately execute the command.
 enter_accept = true # default: false
+sync_frequency = "12h" # default: 1h
