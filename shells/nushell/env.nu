@@ -30,7 +30,6 @@ source themes/tokyo_moon.nu
 #
 # Extras
 #
-source extras/git_gone.nu
 source extras/pwds.nu
 
 #

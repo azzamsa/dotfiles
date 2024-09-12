@@ -1,0 +1,20 @@
+#!/usr/bin/env nu
+
+# Attempt to gently delete merged branches, while excluding the currently checked-out one.
+# source: https://github.com/nushell/nu_scripts/blob/main/sourced/cool-oneliners/git_gone.nu
+def "main rm_merged_branch" [] {
+  git branch --merged | lines | where $it !~ '\*' | str trim
+  | where $it not-in ['master', 'main', 'dev', 'devel']
+  | each { |it| gt branch -d $it }
+}
+
+def "main prune" [] {
+  git remote | lines | each { |remote| git fetch $remote --prune } | ignore
+}
+
+def main [] {
+  print "::: Removing merged branch"
+  main rm_merged_branch
+  print "::: Removing outdated references"
+  main prune
+}
