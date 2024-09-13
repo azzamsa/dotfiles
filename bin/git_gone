@@ -5,7 +5,7 @@
 def "main rm_merged_branch" [] {
   git branch --merged | lines | where $it !~ '\*' | str trim
   | where $it not-in ['master', 'main', 'dev', 'devel']
-  | each { |it| gt branch -d $it }
+  | each { |it| git branch -d $it }
 }
 
 def "main prune" [] {
