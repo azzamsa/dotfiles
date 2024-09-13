@@ -1,26 +1,68 @@
 #!/usr/bin/env nu
 
-def show_time (description: string, timezone: string ) {
-    let now = (date now) | date to-timezone $timezone
-    let hour = $now | format date "%H" | into int
-    # I need 12H format, that why I have do it it twice
-    let time = $now | format date "%I:%M %p"
+def get_current_hour (now?: datetime) -> int {
+    if $now != null {
+      $now | format date "%H" | into int
+    } else {
+      let now = (date now)
+      $now | format date "%H" | into int
+    }
+}
 
-    # Red is non working hour time
-    let time = if $hour >= 23 or $hour < 8 {
+def working_time_icon (current_hour: int, working_hours?: record) -> string {
+    let working_hours = if $working_hours != null {
+        $working_hours
+    } else {
+        { start: 9, end: 17 }
+    }
+
+    if $current_hour >= $working_hours.start and $current_hour <= $working_hours.end {
+        "🧑🏻‍💻"
+    } else {
+        "🏖️"
+    }
+}
+
+# Since people sometimes work outside regular hours,
+# knowing if a location is still in daylight can indicate that someone is still awake.
+def is_night (current_hour: int) -> bool {
+    # Westeners sleep around 11 pm - 8 am
+    if $current_hour < 8 or $current_hour >= 23 {
+        true
+    } else {
+        false
+    }
+}
+
+def get_time (now_zoned: datetime, working_hours?: record) -> string {
+    let current_hour = get_current_hour $now_zoned
+    let is_night = is_night $current_hour
+
+    # Prettify time
+    let time = $now_zoned | format date "%H:%M"
+    if $is_night {
+        # night time
         $'(ansi red)($time)(ansi reset)'
     } else {
         $'(ansi green)($time)(ansi reset)'
-
     }
-    print $"(ansi default_bold)($description)(ansi reset): ($time)"
-
-
 }
+
+def show_status (friend: record, working_hours?: record) {
+    let now_zoned = (date now) | date to-timezone $friend.tz
+    let current_hour = $now_zoned | format date "%H" | into int
+
+    let working_icon = working_time_icon $current_hour $working_hours
+
+    let time = get_time $now_zoned
+
+    print $"(ansi default_bold)($friend.name)(ansi reset): ($friend.loc). ($time) [($working_icon)]"
+}
+
 def main [] {
-    # https://time.is/Norway (UTC+2)
-    show_time "Oslo, Norway (UTC+2)" "Europe/Oslo"
-    # https://time.is/California (UTC-7)
-    show_time "California, US (UTC-7)" "America/Phoenix"
+    # https://time.is/Paris (UTC+2)
+    show_status {"name": "Gandalf", "loc": "Paris, France (UTC+2)", "tz": "Europe/Paris"}
+    # https://time.is/New_York (UTC-4)
+    show_status {"name": "Aragorn", "loc": "New York, US (UTC-4)", "tz": "America/New_York"}
 }
 
