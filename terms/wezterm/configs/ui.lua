@@ -78,7 +78,7 @@ function M.append(config)
 
         -- Tab Bar Options
         -- GTK tab-bar is looking awful.
-        use_fancy_tab_bar = false, -- default: true
+        use_fancy_tab_bar = true, -- default: true
 
         -- Hiding the tab-bar also means hiding the right status
         -- Means you lose viseal feedback of sticky keys.
@@ -88,6 +88,11 @@ function M.append(config)
         inactive_pane_hsb = {
             saturation = 0.70,
             brightness = 0.70,
+        },
+
+        window_frame = {
+            -- The size of the font in the tab bar.
+            font_size = 14.0, -- default: 12.0
         },
     }
 

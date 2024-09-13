@@ -3,17 +3,6 @@ local act = wezterm.action
 
 local M = {}
 
--- Disabled: Make the status always flashing
---
--- Show which key table is active in the status area
--- wezterm.on("update-right-status", function(window, _)
---     local message = ""
---     if window:leader_is_active() then
---         message = "⌛"
---     end
---     window:set_right_status(message)
--- end)
-
 -- Show which key table is active in the status area
 wezterm.on("update-right-status", function(window, _)
     local name = window:active_key_table()
@@ -75,12 +64,16 @@ function M.append(config)
         --
         keys = {
             { key = "y", mods = "CTRL", action = act({ PasteFrom = "Clipboard" }) },
+            { key = "x", mods = "CTRL|SHIFT", action = act({ CloseCurrentTab = { confirm = true } }) },
             { key = "s", mods = "CTRL|SHIFT", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
             {
                 key = "s",
                 mods = "CTRL|SHIFT|ALT",
                 action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
             },
+            --
+            -- Pane
+            { key = "x", mods = "CTRL|SHIFT|ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
             {
                 key = "Tab",
                 mods = "CTRL|ALT",
