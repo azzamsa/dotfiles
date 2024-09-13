@@ -42,6 +42,7 @@ alias j just
 alias x nyazi
 
 abbr --add crg cargo
+abbr --add hld hledger
 
 #
 # Apps
@@ -86,17 +87,6 @@ function nyazi
     rm -f -- "$tmp"
 end
 
-
-#
-# toolbox
-function box
-    if test -z $argv
-        toolbox enter daily
-    else
-        toolbox enter $argv[1]
-    end
-end
-
 #
 # toor
 function r # root
@@ -112,13 +102,6 @@ function r # root
 end
 
 #
-# Hurl with pretty printed JSON
-function hurlj
-    hurl $argv | jaq
-end
-
-
-#
 # Create and cd to new dir
 function take
     mkdir -p "$argv[1]"
@@ -127,8 +110,7 @@ end
 
 #
 # Clone any repo then cd into it.
-# `gcl` stands for `git clone`
-function gcl
+function clone
     if test (count $argv) -ne 1
         echo "Usage: gcl <repository-url>"
         return 1
