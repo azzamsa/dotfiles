@@ -1,0 +1,51 @@
+live_config_reload = true
+
+import = ["~/.config/alacritty/themes/modus_vivendi.toml", "~/.config/alacritty/keymap.toml"]
+
+[shell]
+program = "fish" # Default: $SHELL
+
+[env]
+TERM = "xterm-256color"
+
+[cursor]
+
+[cursor.style]
+shape = "Beam" # Default: "Block"
+blinking = "Always" # Default: "Off"
+
+[font]
+size = 22.0
+
+[font.bold]
+family = "custom-font"
+style = "Heavy"
+
+[font.bold_italic]
+family = "custom-font"
+style = "Heavy Italic"
+
+[font.italic]
+family = "custom-font"
+style = "Medium Italic"
+
+[font.normal]
+family = "custom-font"
+style = "Medium"
+
+[window]
+decorations = "buttonless"
+title = ""
+# Don't mess with my terminal title!
+dynamic_title = false # Default: true
+
+[[hints.enabled]]
+command = "xdg-open"
+hyperlinks = true
+post_processing = true
+persist = true # Default: false
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
