@@ -117,7 +117,7 @@ function clone
     end
 
     set repo_url $argv[1]
-    set repo_name (basename $repo_url .git)
+    set repo_name (basename $repo_url)
 
     git clone --depth 1 $repo_url
     cd $repo_name
@@ -127,4 +127,4 @@ end
 # Theme
 #
 
-source ~/.config/fish/themes/tokyonight_moon_folke.fish
+source ~/.config/fish/themes/modus_vivendi.fish
