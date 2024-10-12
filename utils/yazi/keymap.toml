@@ -23,6 +23,21 @@ prepend_keymap = [
     # Operation
     { on = ["<Enter>"], run = ["enter", "escape --visual --select"], desc = "Enter the child directory" },
     { on = ["<C-Enter>"], run = "open --interactive", desc = "Open the selected files interactively" },
+
+    # Goto
+    { on = ["g", "g"], run = "arrow -99999999", desc = "Go to top" },
+    { on = "G", run = "arrow 99999999", desc = "Go to bottom" },
+
+    { on = ["g", "h"], run = "cd ~", desc = "~/" },
+    { on = ["g", "c"], run = "cd ~/.config", desc = "~/.config" },
+    { on = ["g", "d"], run = "cd ~/Downloads", desc = "~/Downloads" },
+    { on = ["g", "<Space>"], run = "cd --interactive", desc = "Jump to" },
+
+    # Find
+    { on = "/", run = "find --smart", desc = "Find next file" },
+    { on = "?", run = "find --previous --smart", desc = "Find previous file" },
+    { on = "k", run = "find_arrow", desc = "Go to the next found" },
+    { on = "K", run = "find_arrow --previous", desc = "Go to the previous found" },
 ]
 
 [tasks]
