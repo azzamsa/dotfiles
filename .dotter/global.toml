@@ -74,6 +74,9 @@ depends = ["shell"]
 
 #
 # Utils
+[fontconfig.files]
+"utils/fontconfig" = "~/.config/fontconfig"
+
 [gnupg.files]
 "utils/gnupg" = "~/.gnupg"
 
