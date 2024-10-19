@@ -3,7 +3,7 @@ live_config_reload = true
 import = ["~/.config/alacritty/themes/modus_vivendi.toml", "~/.config/alacritty/keymap.toml"]
 
 [shell]
-program = "fish" # Default: $SHELL
+program = "zellij" # Default: $SHELL
 
 [env]
 TERM = "xterm-256color"
