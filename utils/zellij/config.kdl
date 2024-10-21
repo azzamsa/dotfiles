@@ -170,7 +170,6 @@ ui {
 }
 
 // https://zellij.dev/documentation/theme-gallery
-// theme "tokyonight_moon_folke"
-theme "modus_vivendi"
+theme "catppuccin-mocha-mine"
 
 

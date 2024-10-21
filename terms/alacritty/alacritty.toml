@@ -1,6 +1,9 @@
 live_config_reload = true
 
-import = ["~/.config/alacritty/themes/modus_vivendi.toml", "~/.config/alacritty/keymap.toml"]
+import = [
+    "~/.config/alacritty/themes/catppuccin_mocha.toml",
+    "~/.config/alacritty/keymap.toml",
+]
 
 [shell]
 program = "zellij" # Default: $SHELL
@@ -15,7 +18,7 @@ shape = "Beam" # Default: "Block"
 blinking = "Always" # Default: "Off"
 
 [font]
-size = 22.0
+size = 22.5
 
 [font.bold]
 family = "custom-font"

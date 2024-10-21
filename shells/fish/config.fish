@@ -127,4 +127,4 @@ end
 # Theme
 #
 
-source ~/.config/fish/themes/modus_vivendi.fish
+source ~/.config/fish/themes/catppuccin_mocha.fish

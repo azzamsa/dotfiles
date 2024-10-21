@@ -1,0 +1,15 @@
+themes {
+  catppuccin-mocha-mine {
+    bg "#585b70" // default: Surface2
+    fg "#cdd6f4" // Text
+    red "#f38ba8"
+    green "#a6e3a1"
+    blue "#89b4fa"
+    yellow "#f9e2af"
+    magenta "#f5c2e7" // Pink
+    orange "#fab387" // Peach
+    cyan "#89dceb" // Sky
+    black "#1e1e2e" // default: Mantle
+    white "#cdd6f4" // Text
+  }
+}
