@@ -6,8 +6,7 @@ themes {
     tokyonight_moon {
         fg "#c8d3f5"
         bg "#2f334d"
-        // Modified
-        // Black should match the wezterm background color
+        // Black should match the terminal background color
         // This ensures the top and bottom bars are transparent
         black "#222436"
         red "#ff757f"
@@ -20,3 +19,4 @@ themes {
         orange "#ff966c"
     }
 }
+

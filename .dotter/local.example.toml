@@ -43,7 +43,7 @@ packages = [
 
 [variables]
 shell = "fish"
-# modus_vivendi, catppuccin_mocha
-theme = "modus_vivendi"
-# Modus Vivendi, Catppuccin Mocha
-theme_name = "Modus Vivendi"
+# modus_vivendi, catppuccin_mocha, tokyonight_moon
+theme = "tokyonight_moon"
+# Modus Vivendi, Catppuccin Mocha, Tokyonight Moon
+theme_name = "Tokyonight Moon"

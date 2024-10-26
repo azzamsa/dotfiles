@@ -1,3 +1,6 @@
 .dotter/local.toml
 .dotter/cache.toml
 .dotter/cache
+
+# It just a link
+utils/yazi/theme.toml

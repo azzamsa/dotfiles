@@ -1,6 +1,3 @@
-# Modified version of Tokyo Night Moon by Folke
-# https://github.com/folke/tokyonight.nvim/blob/main/extras/fish/tokyonight_moon.fish
-
 # TokyoNight Color Palette
 set -l foreground c8d3f5
 set -l selection 2d3f76
