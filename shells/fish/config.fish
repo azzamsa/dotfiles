@@ -127,4 +127,4 @@ end
 # Theme
 #
 
-source ~/.config/fish/themes/catppuccin_mocha.fish
+source ~/.config/fish/themes/{{ theme }}.fish

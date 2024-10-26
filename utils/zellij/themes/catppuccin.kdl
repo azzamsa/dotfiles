@@ -1,6 +1,6 @@
 themes {
-  catppuccin-mocha-mine {
-    bg "#585b70" // default: Surface2
+  catppuccin_mocha {
+    bg "#313244" // default: Surface2
     fg "#cdd6f4" // Text
     red "#f38ba8"
     green "#a6e3a1"

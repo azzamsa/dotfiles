@@ -170,6 +170,6 @@ ui {
 }
 
 // https://zellij.dev/documentation/theme-gallery
-theme "catppuccin-mocha-mine"
+theme "{{ theme }}"
 
 

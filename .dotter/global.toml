@@ -94,8 +94,8 @@ depends = ["shell"]
 
 [yazi.files]
 "utils/yazi" = "~/.config/yazi"
+# Will be overridden by `post_deploy.sh`
 "utils/yazi/theme.toml" = { target = "~/.config/yazi/theme.toml", type = "symbolic" }
-"utils/yazi/_themes" = { target = "~/.config/yazi/themes", type = "symbolic" }
 
 [eget.files]
 "utils/eget" = "~/.config/eget"

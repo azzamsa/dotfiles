@@ -9,6 +9,7 @@ packages = [
     #
     # Terminals
     "wezterm",
+    "alacritty",
     "starship",
     "atuin",
     #
@@ -27,6 +28,7 @@ packages = [
     "jj",
     #
     # Utils
+    "fontconfig",
     "gnupg",
     "zellij",
     "yazi",
@@ -41,3 +43,7 @@ packages = [
 
 [variables]
 shell = "fish"
+# modus_vivendi, catppuccin_mocha
+theme = "modus_vivendi"
+# Modus Vivendi, Catppuccin Mocha
+theme_name = "Modus Vivendi"

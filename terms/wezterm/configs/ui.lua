@@ -67,7 +67,7 @@ function M.append(config)
         font_size = 22, -- default: 12.0
         font = wezterm.font_with_fallback({ "JetBrainsMono Nerd Font", "Noto Color Emoji" }),
 
-        color_scheme = "Catppuccin Mocha",
+        color_scheme = "{{ theme_name }}",
 
         enable_scroll_bar = true, --default: false
         scrollback_lines = 10000, --default: 3500

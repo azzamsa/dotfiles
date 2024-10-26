@@ -1,7 +1,7 @@
 live_config_reload = true
 
 import = [
-    "~/.config/alacritty/themes/catppuccin_mocha.toml",
+    "~/.config/alacritty/themes/{{ theme }}.toml",
     "~/.config/alacritty/keymap.toml",
 ]
 
