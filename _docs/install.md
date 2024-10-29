@@ -283,10 +283,9 @@ sudo dnf install --assumeyes papirus-icon-theme
 
 Fonts:
 
-- Interface Text: "JetBrains Mono Nerd Font Regular 13"
-- Document Text: "JetBrains Mono Nerd Font Regular 12"
-- Monospace Text: "JetBrains Mono Nerd Font Regular 12"
-- Legacy Window Titles: "Cantarell Bold 12"
+- Interface Text: "JetBrains Mono Nerd Font Medium 13"
+- Document Text: "JetBrains Mono Nerd Font Medium 13"
+- Monospace Text: "JetBrains Mono Nerd Font Medium 13"
 - Hinting : Slight
 - Antialiasing: Standard (greyscale)
 - Scaling Factor: 1.00
@@ -294,7 +293,6 @@ Fonts:
 Appearance:
 
 - Cursor: Bibata-Modern-Classic
-- Icons: Papirus-Dark
 
 Startup Applications:
 
