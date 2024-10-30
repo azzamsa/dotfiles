@@ -127,4 +127,4 @@ end
 # Theme
 #
 
-source ~/.config/fish/themes/{{ theme }}.fish
+source ~/.config/fish/_themes/{{ theme }}.fish

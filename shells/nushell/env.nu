@@ -25,7 +25,7 @@ carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 #
 # Themes
 #
-source themes/tokyo_moon.nu
+source _themes/{{ theme }}.nu
 
 #
 # Extras
