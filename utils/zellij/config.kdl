@@ -1,9 +1,5 @@
 default_shell "{{ shell }}"
 copy_command "wl-copy" // I am using Wayland
-// Without the frames, it is hard to distinguish the boundary between the content (command output)
-// and the footer tooltip. I need some space between them.
-pane_frames true
-simplified_ui true
 default_layout "no-tips"
 
 keybinds clear-defaults=true {
