@@ -2,7 +2,7 @@ themes {
   catppuccin_mocha {
     bg "#313244" // default: Surface2
     fg "#cdd6f4" // Text
-    red "#f38ba8"
+    red "#d20f39" // default: red. it is not readable (1.6:1)
     green "#a6e3a1"
     blue "#89b4fa"
     yellow "#f9e2af"
