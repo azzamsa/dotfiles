@@ -6,7 +6,7 @@ import = [
 ]
 
 [shell]
-program = "zellij" # Default: $SHELL
+program = "{{ default_terminal_app }}" # Default: $SHELL
 
 [env]
 TERM = "xterm-256color"
