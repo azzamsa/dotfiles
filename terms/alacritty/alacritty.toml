@@ -1,11 +1,12 @@
-live_config_reload = true
-
+[general]
 import = [
-    "~/.config/alacritty/themes/{{ theme }}.toml",
+    "~/.config/alacritty/_themes/{{ theme }}.toml",
     "~/.config/alacritty/keymap.toml",
 ]
 
-[shell]
+live_config_reload = true
+
+[terminal.shell]
 program = "{{ default_terminal_app }}" # Default: $SHELL
 
 [env]
