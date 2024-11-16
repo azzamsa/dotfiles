@@ -19,7 +19,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 #
 
 export PATH
-export PATH=~/opt/pbin:~/.local/bin:~/.cargo/bin:$PATH
+export PATH=~/opt/pbin:~/opt/appimages:~/.local/bin:~/.cargo/bin:$PATH
 export PATH=~/opt/nodebin/node_modules/.bin:$PATH
 
 export VISUAL='neovide'
