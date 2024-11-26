@@ -22,8 +22,8 @@ export PATH
 export PATH=~/opt/pbin:~/opt/appimages:~/.local/bin:~/.cargo/bin:$PATH
 export PATH=~/opt/nodebin/node_modules/.bin:$PATH
 
-export VISUAL='neovide'
-export EDITOR='neovide'
+export VISUAL="{{ editor }}"
+export EDITOR="{{ editor }}"
 # Nvim complaints about missing $TERM variable
 export TERM='xterm-256color'
 

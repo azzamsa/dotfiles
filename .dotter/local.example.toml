@@ -42,7 +42,12 @@ packages = [
 ]
 
 [variables]
+# neovide
+editor = "neovide"
+# fish
 shell = "fish"
+# zellij, fish
+default_terminal_app = "zellij"
 # JetBrainsMono Nerd Font, 0xProto Nerd Font
 font = "0xProto Nerd Font"
 # modus_vivendi, catppuccin_mocha, tokyonight_moon
