@@ -35,6 +35,9 @@ source "$HOME/.rye/env"
 source "$HOME"/.config/meta/env
 eval "$(fnm env --use-on-cd)"
 
+# Ensure Qt apps respect GNOME settings
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 # Use plists for lsp-mode deserialization.
 export LSP_USE_PLISTS=true
 
