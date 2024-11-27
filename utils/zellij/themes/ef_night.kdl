@@ -1,0 +1,18 @@
+themes {
+    ef_night {
+        fg "#ffffff"
+        // The background color is used for text highlighting and should be different from the black value
+        bg "#253146"
+        // Black should match the terminal background color
+        // This ensures the top and bottom bars are transparent
+        black "#000e17"
+        red "#ef656a"
+        green "#1fa526"
+        yellow "#c48502"
+        blue "#379cf6"
+        magenta "#d570af"
+        cyan "#4fb0cf"
+        white "#ffffff"
+        orange "#e6832f"
+    }
+}

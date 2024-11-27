@@ -51,6 +51,4 @@ default_terminal_app = "zellij"
 # JetBrainsMono Nerd Font, 0xProto Nerd Font
 font = "0xProto Nerd Font"
 # modus_vivendi, catppuccin_mocha, tokyonight_moon
-theme = "catppuccin_mocha"
-# Modus Vivendi, Catppuccin Mocha, Tokyonight Moon
-theme_name = "Catppuccin Mocha"
+theme = "ef_night"

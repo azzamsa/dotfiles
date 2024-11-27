@@ -1,0 +1,32 @@
+[colors]
+ansi = [
+    '#1a202b',
+    '#ef656a',
+    '#1fa526',
+    '#c48502',
+    '#379cf6',
+    '#d570af',
+    '#4fb0cf',
+    '#afbcbf',
+]
+brights = [
+    '#444e59',
+    '#ef798f',
+    '#00a972',
+    '#df8f6f',
+    '#029fff',
+    '#af8aff',
+    '#3dc0b0',
+    '#70819f',
+]
+cursor_bg = '#00ccff'
+cursor_border = '#00ccff'
+cursor_fg = '#000e17'
+background = '#000e17'
+foreground = '#afbcbf'
+selection_bg = '#253146'
+selection_fg = '#afbcbf'
+
+[metadata]
+author = 'anhsirk0'
+origin_url = 'https://github.com/protesilaos/ef-themes/blob/main/ef-night-theme.el'
