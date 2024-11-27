@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/.config/alacritty/_themes/{{ theme }}.toml",
+    "~/.config/alacritty/themes/{{ theme }}.toml",
     "~/.config/alacritty/keymap.toml",
 ]
 

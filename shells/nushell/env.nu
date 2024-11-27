@@ -25,7 +25,7 @@ carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 #
 # Themes
 #
-source _themes/{{ theme }}.nu
+source themes/{{ theme }}.nu
 
 #
 # Extras

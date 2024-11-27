@@ -4,4 +4,4 @@
 theme=$(grep '^theme = ' ~/dotfiles/.dotter/local.toml | cut -d '"' -f2)
 
 # Copy the theme file to the desired location
-cp -f ~/dotfiles/utils/yazi/_themes/"$theme".toml ~/.config/yazi/theme.toml
+cp -f ~/dotfiles/utils/yazi/themes/"$theme".toml ~/.config/yazi/theme.toml
