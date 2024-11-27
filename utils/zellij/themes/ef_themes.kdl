@@ -15,4 +15,20 @@ themes {
         white "#ffffff"
         orange "#e6832f"
     }
+    ef_dark {
+        fg "#ffffff"
+        // The background color is used for text highlighting and should be different from the black value
+        bg "#253146"
+        // Black should match the terminal background color
+        // This ensures the top and bottom bars are transparent
+        black "#000000"
+        red "#ef6560"
+        green "#0faa26"
+        yellow "#bf9032"
+        blue "#3f95f6"
+        magenta "#d369af"
+        cyan "#4fbaef"
+        white "#ffffff"
+        orange "#d1843f"
+    }
 }

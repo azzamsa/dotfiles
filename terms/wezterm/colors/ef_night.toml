@@ -1,3 +1,5 @@
+# https://github.com/anhsirk0/wezterm-themes/blob/main/colors/ef-night.toml
+
 [colors]
 ansi = [
     '#1a202b',
@@ -26,6 +28,7 @@ background = '#000e17'
 foreground = '#afbcbf'
 selection_bg = '#253146'
 selection_fg = '#afbcbf'
+scrollbar_thumb = "#9f9f9f"
 
 [metadata]
 author = 'anhsirk0'

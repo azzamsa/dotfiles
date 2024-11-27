@@ -1,0 +1,32 @@
+[colors]
+ansi = [
+    '#1a1a1a',
+    '#ef6560',
+    '#0faa26',
+    '#bf9032',
+    '#3f95f6',
+    '#d369af',
+    '#4fbaef',
+    '#d0d0d0'
+]
+brights = [
+    '#4b4b4b',
+    '#ff5a7a',
+    '#00a692',
+    '#df8a5a',
+    '#029fff',
+    '#af85ff',
+    '#1dbfcf',
+    '#857f8f'
+]
+cursor_bg = '#ff76ff'
+cursor_border = '#ff76ff'
+cursor_fg = '#000000'
+background = '#000000'
+foreground = '#d0d0d0'
+selection_bg = '#2a234a'
+selection_fg = '#d0d0d0'
+scrollbar_thumb = "#4f4f5f"
+
+[metadata]
+author = 'anhsirk0'
