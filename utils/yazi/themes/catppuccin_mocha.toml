@@ -1,9 +1,11 @@
+# https://raw.githubusercontent.com/catppuccin/yazi/refs/heads/main/themes/mocha/catppuccin-mocha-blue.toml
+
 [manager]
 cwd = { fg = "#94e2d5" }
 
 # Hovered
 hovered = { fg = "#1e1e2e", bg = "#89b4fa" }
-preview_hovered = { underline = true }
+preview_hovered = { fg = "#1e1e2e", bg = "#cdd6f4" }
 
 # Find
 find_keyword = { fg = "#f9e2af", italic = true }
