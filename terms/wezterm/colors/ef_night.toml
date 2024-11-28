@@ -32,4 +32,4 @@ scrollbar_thumb = "#9f9f9f"
 
 [metadata]
 author = 'anhsirk0'
-origin_url = 'https://github.com/protesilaos/ef-themes/blob/main/ef-night-theme.el'
+name = "ef_night"
