@@ -61,13 +61,24 @@ wezterm.on("format-tab-title", function(tab, _, _, _, _, _)
     }
 end)
 
+-- Converts an internal theme name to the format used by WezTerm.
+-- For example, converts `foo_theme` to `Foo Theme`.
+-- This helper function ensures consistency and avoids code duplication.
+function M.color_scheme_name(name)
+    -- Replace underscores with spaces and capitalize each word
+    local transformed = name:gsub("_", " "):gsub("(%a)(%w*)", function(first, rest)
+        return first:upper() .. rest:lower()
+    end)
+    return transformed
+end
+
 function M.append(config)
     local options = {
         default_cursor_style = "BlinkingBar", -- default: 'SteadyBlock'
         font_size = 22, -- default: 12.0
         font = wezterm.font_with_fallback({ "{{ font }}", "Noto Color Emoji" }),
 
-        color_scheme = "{{ theme }}",
+        color_scheme = M.color_scheme_name("{{ theme }}"),
 
         enable_scroll_bar = true, --default: false
         scrollback_lines = 10000, --default: 3500
