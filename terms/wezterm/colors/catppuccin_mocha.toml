@@ -1,24 +1,24 @@
 [colors]
 ansi = [
-  '#45475a',
-  '#f38ba8',
-  '#a6e3a1',
-  '#f9e2af',
-  '#89b4fa',
-  '#f5c2e7',
-  '#94e2d5',
-  '#bac2de',
+    '#45475a',
+    '#f38ba8',
+    '#a6e3a1',
+    '#f9e2af',
+    '#89b4fa',
+    '#f5c2e7',
+    '#94e2d5',
+    '#bac2de',
 ]
-background = '#000000'
+background = '#1e1e2e'
 brights = [
-  '#585b70',
-  '#f38ba8',
-  '#a6e3a1',
-  '#f9e2af',
-  '#89b4fa',
-  '#f5c2e7',
-  '#94e2d5',
-  '#a6adc8',
+    '#585b70',
+    '#f38ba8',
+    '#a6e3a1',
+    '#f9e2af',
+    '#89b4fa',
+    '#f5c2e7',
+    '#94e2d5',
+    '#a6adc8',
 ]
 compose_cursor = '#f2cdcd'
 cursor_bg = '#f5e0dc'
@@ -28,7 +28,9 @@ foreground = '#cdd6f4'
 scrollbar_thumb = '#585b70'
 selection_bg = '#585b70'
 selection_fg = '#cdd6f4'
-split = '#6c7086'
+# `split` default value is `overlay0`.
+# overlay0 is too dim, I changed to overlay1
+split = '#7f849c'
 visual_bell = '#313244'
 
 [colors.indexed]
@@ -81,5 +83,6 @@ underline = 'None'
 
 [metadata]
 aliases = []
+# Some parts are modified by me (azzamsa)
 author = 'Catppuccin Org'
-name = 'catppuccin_black'
+name = 'catppuccin_mocha'
