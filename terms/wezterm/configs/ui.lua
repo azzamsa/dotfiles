@@ -75,6 +75,7 @@ end
 function M.append(config)
     local options = {
         default_cursor_style = "BlinkingBar", -- default: 'SteadyBlock'
+        cursor_thickness = 2,
         font_size = 22, -- default: 12.0
         font = wezterm.font_with_fallback({ "{{ font }}", "Noto Color Emoji" }),
 
