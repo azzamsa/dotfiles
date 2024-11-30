@@ -39,7 +39,7 @@ tl;dr
 - [Fedora Silverblue][fedora-silverblue], 2023.
 - [Debian][current-os], 2023.
 - [Fedora Workstation][current-os], 2023.
-- [cargo-scripts][cargo-scripts].
+- [More...](BOOKMARKS.md)
 
 <div align="center">
 -== ❧ ==-
@@ -85,4 +85,3 @@ Emacs Configuration
 [fedora-silverblue]: https://github.com/azzamsa/dotfiles/tree/4543ab38b5834cd1e4ba549436220c02310264dd
 [debian-gnome]: https://github.com/azzamsa/dotfiles/tree/241d0c322a1511daa7253fea934c072cd05e68c5
 [current-os]: https://github.com/azzamsa/dotfiles
-[cargo-scripts]: https://github.com/azzamsa/dotfiles/tree/d385c1f52aff4b282e3fd00dd7ab91a8ad794698
