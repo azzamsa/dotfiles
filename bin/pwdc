@@ -1,5 +1,3 @@
-#!/usr/bin/env nu
+#!/usr/bin/env bash
 
-def main [] {
-    pwd | wl-copy
-}
+pwd | wl-copy

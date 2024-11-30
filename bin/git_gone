@@ -1,20 +1,47 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+---
+[package]
+edition = "2021"
 
-# Attempt to gently delete merged branches, while excluding the currently checked-out one.
-# source: https://github.com/nushell/nu_scripts/blob/main/sourced/cool-oneliners/git_gone.nu
-def "main rm_merged_branch" [] {
-  git branch --merged | lines | where $it !~ '\*' | str trim
-  | where $it not-in ['master', 'main', 'dev', 'devel']
-  | each { |it| git branch -d $it }
+[dependencies]
+duct = "0.13"
+anyhow = "1.0"
+---
+
+use duct::cmd;
+
+fn main() -> anyhow::Result<()> {
+    // Remove merged branch
+    remove_merged_branch()?;
+    // Remove outdated references
+    prune()?;
+    Ok(())
 }
 
-def "main prune" [] {
-  git remote | lines | each { |remote| git fetch $remote --prune } | ignore
+fn remove_merged_branch() -> anyhow::Result<()> {
+    let branches = cmd!("git", "branch", "--merged").read()?;
+    let branches: Vec<_> = branches
+        .lines()
+        // Exclude current branch
+        .filter(|branch| !branch.starts_with('*'))
+        // Exclude protected branches
+        .filter(|branch| !["master", "main", "dev", "devel"].contains(branch))
+        .collect();
+    for branch in branches {
+        cmd!("git", "branch", "-d", branch).run()?;
+    }
+    Ok(())
 }
 
-def main [] {
-  print "::: Removing merged branch"
-  main rm_merged_branch
-  print "::: Removing outdated references"
-  main prune
+fn prune() -> anyhow::Result<()> {
+    let remotes = cmd!("git", "remote").read()?;
+    let remotes = remotes.lines();
+    for remote in remotes {
+        cmd!("git", "fetch", remote, "--prune").run()?;
+    }
+    Ok(())
 }
+
+// Local Variables:
+// mode: rust-ts
+// End:

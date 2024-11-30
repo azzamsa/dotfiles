@@ -19,7 +19,7 @@ jobs:
     - uses: taiki-e/install-action@dprint
     - uses: taiki-e/install-action@v2
       with:
-        tool: typos-cli,stylua,selene,nu
+        tool: typos-cli,stylua,selene
 
     - uses: actions/setup-node@v4
       with:

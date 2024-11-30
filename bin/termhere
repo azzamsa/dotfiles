@@ -1,18 +1,44 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+---
+[package]
+edition = "2021"
 
-def main [
-  cwd?: string, # Current working directory
-  ] {
-    if ($cwd | is-empty) {
-      open_terminal $env.HOME
-    } else {
-      open_terminal $cwd
-    }
+[dependencies]
+duct = "0.13"
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+---
+
+use std::env;
+
+use clap::Parser;
+use duct::cmd;
+
+#[derive(Parser)]
+pub struct Opts {
+    /// Current working directory
+    pub cwd: Option<String>,
 }
 
-def open_terminal [
-  cwd: string, # Target path
-  ] {
-    print $"Opening terminal in ($cwd)"
-    wezterm cli spawn --window-id 0 --cwd $cwd
+fn main() -> anyhow::Result<()> {
+    let home = env::var("HOME")?;
+
+    let opts = Opts::parse();
+    match opts.cwd {
+        None => here(&home)?,
+        Some(cwd) => here(&cwd)?,
+    };
+
+    Ok(())
 }
+
+fn here(cwd: &str) -> anyhow::Result<()> {
+    println!("Opening terminal in `{cwd}`");
+    // cmd!("zellij", "action", "new-tab", "--layout", "default", "--cwd", cwd).run()?;
+    cmd!("wezterm", "cli", "spawn", "--window-id", "0", "--cwd", cwd).run()?;
+    Ok(())
+}
+
+// Local Variables:
+// mode: rust-ts
+// End:

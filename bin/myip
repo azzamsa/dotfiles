@@ -1,7 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env bash
 
 # Get My current public IP
-
-def main [] {
-  curl ifconfig.me
-}
+curl ifconfig.me

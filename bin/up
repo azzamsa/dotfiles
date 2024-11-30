@@ -1,42 +1,93 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+---
+[package]
+edition = "2021"
 
-def "main cargo" [] {
-  print "📥 Upgrading Cargo apps"
-  cargo install-update -a
+[dependencies]
+duct = "0.13"
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+---
+
+use std::env;
+
+use clap::{Parser, ValueEnum};
+use duct::cmd;
+
+#[derive(Parser)]
+pub struct Opts {
+    /// Tasks name
+    #[arg(value_enum)]
+    pub tasks: Option<Vec<Task>>,
 }
 
-def "main rust" [] {
-  print "📥 Upgrading Rust toolchain"
-  rustup update stable
+#[derive(Debug, Clone, ValueEnum)]
+pub enum Task {
+    Cargo,
+    Flatpak,
+    System,
+    Node,
 }
 
-def "main flatpak" [] {
-  print "📥 Upgrading Flatpak apps"
-  flatpak update
+fn main() -> anyhow::Result<()> {
+    let opts = Opts::parse();
+
+    match opts.tasks {
+        None => run_all()?,
+        Some(tasks) => run_some(tasks)?,
+    }
+
+    println!("\n✨ You have a new shiny machine!");
+    Ok(())
 }
 
-def "main node" [] {
-  print "📥 Upgrading Node apps"
-  cd ~/opt/nodebin
-  npx taze major --write
-  npm install
+fn run_all() -> anyhow::Result<()> {
+    flatpak()?;
+    cargo()?;
+    node()?;
+    system()?;
+    Ok(())
 }
 
-def "main system" [] {
-  print "📥 Upgrading System apps"
-  sudo dnf upgrade
+fn run_some(modules: Vec<Task>) -> anyhow::Result<()> {
+    for module in modules {
+        match module {
+            Task::Flatpak => flatpak()?,
+            Task::Cargo => cargo()?,
+            Task::Node => node()?,
+            Task::System => system()?,
+        }
+    }
+    Ok(())
 }
 
-def main [] {
-  main cargo
-  print ""
-  # Most of the time, I don't want to pull huge chunks of upgrades
-  do --ignore-errors { main flatpak }
-  print ""
-  main node
-  print ""
-  # Most of the time, I don't want to update my kernel
-  do --ignore-errors { main system }
-  print ""
-  main rust
+fn flatpak() -> anyhow::Result<()> {
+    println!("📥 Upgrading Flatpak apps");
+    cmd!("flatpak", "update").run()?;
+    Ok(())
 }
+
+fn cargo() -> anyhow::Result<()> {
+    println!("🦀 Upgrading Cargo apps");
+    cmd!("cargo", "install-update", "-a").run()?;
+    cmd!("rustup", "update", "stable").run()?;
+    Ok(())
+}
+
+fn system() -> anyhow::Result<()> {
+    println!("📥 Upgrading System apps");
+    cmd!("sudo", "dnf", "update").run()?;
+    Ok(())
+}
+
+fn node() -> anyhow::Result<()> {
+    println!("📥 Upgrading Node apps");
+    let dir = format!("{}/opt/nodebin", env::var("HOME")?);
+    cmd!("npx", "taze", "major", "--write").dir(&dir).run()?;
+    cmd!("npm", "install").dir(&dir).run()?;
+    Ok(())
+}
+
+// Local Variables:
+// mode: rust-ts
+// End:

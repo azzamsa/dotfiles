@@ -31,15 +31,10 @@ fmt-check:
     prettier . --check --log-level error
 
 # Lint the codebase.
-lint: _lint_nu
+lint:
     typos
     selene . --quiet
 
 # Create a new release. Example `just release v2.2.0`
 release version:
     ./release {{ version }}
-
-# Lint the Nushell codebase.
-_lint_nu:
-    #!/usr/bin/env nu
-    ls bin/ | each { |f| nu -c $'use ($f.name)' } | ignore

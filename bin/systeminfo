@@ -1,15 +1,3 @@
-#!/usr/bin/env nu
+#!/usr/bin/env bash
 
-def main [] {
-  let nvim_version = (nvim -v | lines | first)
-  print $"nvim: ($nvim_version)"
-
-  # let neovide_version = (neovide --version | lines | first)
-  # echo $"neovide: ($neovide_version)"
-
-  let wezterm_version = (wezterm --version | lines | first)
-  print $"wezterm: ($wezterm_version)"
-
-  print "---"
-  fastfetch -c ~/.config/fastfetch/themes/ci.jsonc
-}
+ fastfetch -c ~/.config/fastfetch/themes/ci.jsonc

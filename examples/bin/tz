@@ -1,68 +1,124 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+---
+[package]
+edition = "2021"
 
-def get_current_hour (now?: datetime) -> int {
-    if $now != null {
-      $now | format date "%H" | into int
+[dependencies]
+jiff = "0.1"
+owo-colors = "4.0"
+anyhow = "1.0"
+---
+
+//! Timezones
+//!
+//! Shows the timezones of my friends and companies.
+//!
+//! Usage:
+//!
+//! Just run it as normal executable file:
+//!
+//! ```shell
+//! $ ./tz
+//! ```
+//!
+//! Development:
+//!
+//! ```
+//! $ rustfmt tz
+//! ```
+
+use jiff::{Unit, Zoned};
+use owo_colors::OwoColorize;
+
+struct Person {
+    name: String,
+    description: String,
+    tz: String,
+    working_hours: Option<WorkingHours>,
+}
+
+struct WorkingHours {
+    start: i8,
+    end: i8,
+}
+
+fn main() -> anyhow::Result<()> {
+    let people = [
+        Person {
+            name: "Gandalf".to_string(),
+            description: "Paris, France (UTC+2)".to_string(),
+            // https://time.is/Paris (UTC+2)
+            tz: "Europe/Paris".to_string(),
+            working_hours: None,
+        },
+        Person {
+            name: "Aragorn".to_string(),
+            description: "Denver, US (UTC-7)".to_string(),
+            // https://time.is/Denver (UTC-7)
+            tz: "America/Denver".to_string(),
+            working_hours: Some(WorkingHours { start: 8, end: 21 }),
+        },
+    ];
+
+    for person in people {
+        show_status(person)?;
+    }
+
+    Ok(())
+}
+
+fn show_status(person: Person) -> anyhow::Result<()> {
+    let now = Zoned::now().round(Unit::Second)?;
+    let now = now.intz(&person.tz)?;
+
+    let status_icon = status_icon(now.hour(), person.working_hours);
+
+    let is_night_time = is_night_time(now.hour());
+    let current_time = if is_night_time {
+        format!("{}", now.time().to_string().red())
     } else {
-      let now = (date now)
-      $now | format date "%H" | into int
+        format!("{}", now.time().to_string().green())
+    };
+
+    let status = format!(
+        "{name}. {description}. {current_time}",
+        name = person.name.bold(),
+        description = person.description,
+        current_time = current_time
+    );
+
+    let status = if is_night_time {
+        status
+    } else {
+        format!(
+            "{status} [{status_icon}]",
+            status = status,
+            status_icon = status_icon
+        )
+    };
+    println!("{}", status);
+
+    Ok(())
+}
+
+/// Determine the working time icon based on the current hour and working hours
+fn status_icon(current_hour: i8, working_hours: Option<WorkingHours>) -> String {
+    let working_hours = working_hours.unwrap_or(WorkingHours { start: 9, end: 17 });
+    if current_hour >= working_hours.start && current_hour <= working_hours.end {
+        "💻‍".to_string()
+    } else {
+        "🏖️".to_string()
     }
 }
 
-def working_time_icon (current_hour: int, working_hours?: record) -> string {
-    let working_hours = if $working_hours != null {
-        $working_hours
-    } else {
-        { start: 9, end: 17 }
-    }
-
-    if $current_hour >= $working_hours.start and $current_hour <= $working_hours.end {
-        "🧑🏻‍💻"
-    } else {
-        "🏖️"
-    }
+// Since people sometimes work outside regular hours,
+// knowing if a location is still in daylight can indicate that someone is still awake.
+fn is_night_time(current_hour: i8) -> bool {
+    current_hour < 8 || current_hour >= 23
 }
 
-# Since people sometimes work outside regular hours,
-# knowing if a location is still in daylight can indicate that someone is still awake.
-def is_night (current_hour: int) -> bool {
-    # Westeners sleep around 11 pm - 8 am
-    if $current_hour < 8 or $current_hour >= 23 {
-        true
-    } else {
-        false
-    }
-}
+// vim: ft=rust
 
-def get_time (now_zoned: datetime, working_hours?: record) -> string {
-    let current_hour = get_current_hour $now_zoned
-    let is_night = is_night $current_hour
-
-    # Prettify time
-    let time = $now_zoned | format date "%H:%M"
-    if $is_night {
-        # night time
-        $'(ansi red)($time)(ansi reset)'
-    } else {
-        $'(ansi green)($time)(ansi reset)'
-    }
-}
-
-def show_status (friend: record, working_hours?: record) {
-    let now_zoned = (date now) | date to-timezone $friend.tz
-    let current_hour = $now_zoned | format date "%H" | into int
-
-    let working_icon = working_time_icon $current_hour $working_hours
-
-    let time = get_time $now_zoned
-
-    print $"(ansi default_bold)($friend.name)(ansi reset): ($friend.loc). ($time) [($working_icon)]"
-}
-
-def main [] {
-    # https://time.is/Paris (UTC+2)
-    show_status {"name": "Gandalf", "loc": "Paris, France (UTC+2)", "tz": "Europe/Paris"}
-    # https://time.is/New_York (UTC-4)
-    show_status {"name": "Aragorn", "loc": "New York, US (UTC-4)", "tz": "America/New_York"}
-}
-
+// Local Variables:
+// mode: rust-ts
+// End:

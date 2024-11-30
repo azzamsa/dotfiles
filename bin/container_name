@@ -1,18 +1,33 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+---
+[package]
+edition = "2021"
 
-# Get current toolbox container name for shell prompt
-def main [] {
-  let file_path = "/run/.containerenv"
+[dependencies]
+anyhow = "1.0"
+toml = "0.8.19"
+---
 
-  if not ($file_path | path exists) {
-    print "Exiting. Not inside a container"
-    exit 1
-  }
+use std::fs;
+use std::path::Path;
 
-  open ~/containerenv | from toml | get name
+use toml::Table;
 
-  # other approaches
-  #  open $file_path | lines | parse '{key}="{value}"' | where key == 'name' | get value.0
-  # open $file_path | lines | split column "=" | where column1 == 'name' | get column2.0 | str trim --char '"'
-  # with-env (open $file_path | lines | parse '{env_key}="{env_value}"' | transpose -rd) { $env.name }
+fn main() -> anyhow::Result<()> {
+    let container_env = Path::new("/run/.containerenv");
+
+    // Check if the file exists
+    if !container_env.exists() {
+        anyhow::bail!("Exiting. Not inside a container");
+    }
+
+    let content = fs::read_to_string(container_env)?;
+    let value = content.parse::<Table>()?;
+    println!("{}", value["name"].as_str().unwrap_or(""));
+
+    Ok(())
 }
+
+// Local Variables:
+// mode: rust-ts
+// End:
