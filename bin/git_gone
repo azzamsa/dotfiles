@@ -22,6 +22,7 @@ fn remove_merged_branch() -> anyhow::Result<()> {
     let branches = cmd!("git", "branch", "--merged").read()?;
     let branches: Vec<_> = branches
         .lines()
+        .map(str::trim)
         // Exclude current branch
         .filter(|branch| !branch.starts_with('*'))
         // Exclude protected branches
