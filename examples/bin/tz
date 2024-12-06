@@ -75,9 +75,9 @@ fn show_status(person: Person) -> anyhow::Result<()> {
 
     let is_night_time = is_night_time(now.hour());
     let current_time = if is_night_time {
-        format!("{}", now.time().to_string().red())
+        format!("{}", now.time().to_string().dimmed())
     } else {
-        format!("{}", now.time().to_string().green())
+        format!("{}", now.time().to_string().yellow())
     };
 
     let status = format!(
