@@ -76,7 +76,7 @@ fn cargo() -> anyhow::Result<()> {
 
 fn system() -> anyhow::Result<()> {
     println!("🐧 Upgrading System apps");
-    // Use `unchecked()` to allow the next command to run even if `No` is choosen at the prompt.
+    // Use `unchecked()` to allow the next command to run even if `No` is chosen at the prompt.
     cmd!("sudo", "dnf", "update").unchecked().run()?;
     Ok(())
 }
