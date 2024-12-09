@@ -1,0 +1,30 @@
+[colors]
+ansi = [
+    '#223249',
+    '#d27e99',
+    '#98bb6c',
+    '#e6c384',
+    '#ffa066',
+    '#a18cc0',
+    '#7e9cd8',
+    '#7fb4ca',
+]
+brights = [
+    '#223249',
+    '#d27e99',
+    '#98bb6c',
+    '#e6c384',
+    '#ffa066',
+    '#a18cc0',
+    '#7e9cd8',
+    '#7fb4ca',
+]
+foreground = '#dcd7ba'
+background = '#000000'
+cursor_bg = '#dcd7ba'
+scrollbar_thumb = '#727169'
+
+
+[metadata]
+aliases = []
+name = 'Kanagawa'

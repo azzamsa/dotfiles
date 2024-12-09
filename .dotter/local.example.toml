@@ -41,9 +41,11 @@ packages = [
     "cargo",
 ]
 
+# ⚠️ This is example file!
 [variables]
 editor = "neovide"
 shell = "fish"
 default_terminal_app = "zellij"
 font = "0xProto Nerd Font"
-theme = "catppuccin_mocha"
+# Available theme can be found in shells/fish/themes/
+theme = "monokai_pro"

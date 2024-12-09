@@ -1,0 +1,31 @@
+[colors]
+ansi = [
+    '#2f334d',
+    '#ff6188',
+    '#a9dc76',
+    '#ffd866',
+    '#fc9867',
+    '#ab9df2',
+    '#78dce8',
+    '#81a2be',
+]
+brights = [
+    '#2f334d',
+    '#ff6188',
+    '#a9dc76',
+    '#ffd866',
+    '#fc9867',
+    '#ab9df2',
+    '#78dce8',
+    '#81a2be',
+]
+foreground = '#fcfcfa'
+background = '#000000'
+cursor_bg = '#fcfcfa'
+scrollbar_thumb = '#4C4A4D'
+
+
+[metadata]
+aliases = []
+# Some parts are modified by me (azzamsa)
+name = 'Monokai Pro'

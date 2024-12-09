@@ -1,0 +1,22 @@
+[colors]
+foreground = "#c8d3f5"
+background = "#000000"
+cursor_bg = "#c8d3f5"
+cursor_border = "#c8d3f5"
+cursor_fg = "#222436"
+selection_bg = "#2d3f76"
+selection_fg = "#c8d3f5"
+split = "#82aaff"
+compose_cursor = "#ff966c"
+scrollbar_thumb = "#2f334d"
+
+ansi = ["#1b1d2b", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#828bb8"]
+# Use same color for `brights`. I want a holistic exeperience.
+brights = ["#1b1d2b", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#828bb8"]
+
+
+[metadata]
+aliases = []
+# Some parts modified by me (azzamsa)
+author = "folke"
+name = "Tokyonight Moon"

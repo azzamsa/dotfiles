@@ -1,0 +1,30 @@
+[colors]
+ansi = [
+    '#858fa5',
+    '#ff8080',
+    '#95ffa4',
+    '#ffe9aa',
+    '#f6c177',
+    '#c991e1',
+    '#aaffe4',
+    '#91ddff',
+]
+brights = [
+    '#858fa5',
+    '#ff8080',
+    '#95ffa4',
+    '#ffe9aa',
+    '#f6c177',
+    '#c991e1',
+    '#aaffe4',
+    '#91ddff',
+]
+foreground = '#cbe3e7'
+background = '#000000'
+cursor_bg = '#cbe3e7'
+scrollbar_thumb = '#858fa5'
+
+
+[metadata]
+aliases = []
+name = 'Challenger Deep'

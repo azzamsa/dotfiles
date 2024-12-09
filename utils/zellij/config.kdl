@@ -167,5 +167,3 @@ ui {
 
 // https://zellij.dev/documentation/theme-gallery
 theme "{{ theme }}"
-
-
