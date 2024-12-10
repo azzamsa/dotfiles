@@ -3,5 +3,5 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [manager]
-sort_by = "modified" # default: "alphabetical"
+sort_by = "mtime" # default: "alphabetical"
 sort_reverse = true # default: false

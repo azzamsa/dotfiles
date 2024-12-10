@@ -14,7 +14,6 @@ ansi = ["#1b1d2b", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1
 # Use same color for `brights`. I want a holistic exeperience.
 brights = ["#1b1d2b", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#828bb8"]
 
-
 [metadata]
 aliases = []
 # Some parts modified by me (azzamsa)

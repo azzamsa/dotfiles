@@ -24,7 +24,6 @@ background = '#000000'
 cursor_bg = '#eceff4'
 scrollbar_thumb = '#4C4A4D'
 
-
 [metadata]
 aliases = []
 name = 'Nordic'

@@ -24,7 +24,6 @@ background = '#000000'
 cursor_bg = '#e6e1cf'
 scrollbar_thumb = '#5c6773'
 
-
 [metadata]
 aliases = []
 name = 'Ayu'

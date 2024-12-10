@@ -33,7 +33,6 @@ selection_fg = '#cdd6f4'
 split = '#7f849c'
 visual_bell = '#313244'
 
-
 [metadata]
 aliases = []
 name = 'Gruvbox'

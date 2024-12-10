@@ -71,13 +71,16 @@ themes {
    bg "#282a36"
    black "#000000"
    red "#ff5555"
-   green "#50fa7b"
+   // Updated from `#50fa7b`.
+   // It is too harsh for something that occopies the entire screen.
+   // Swapped with `orange`
+   green "#ffb86c"
    yellow "#f1fa8c"
    blue "#6272a4"
    magenta "#ff79c6"
    cyan "#8be9fd"
    white "#f8f8f2"
-   orange "#ffb86c"
+   orange "#50fa7b"
  }
  nordic {
    fg "#eceff4"
