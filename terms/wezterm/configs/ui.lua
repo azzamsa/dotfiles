@@ -86,7 +86,7 @@ function M.append(config)
 
         -- Padding
         -- Tab bar can't have padding https://github.com/wez/wezterm/issues/3077
-        window_padding = { left = 10, right = 10, top = 10, bottom = 10 },
+        window_padding = { left = 10, right = 10, top = 0, bottom = 0 },
 
         -- Tab Bar Options
         -- GTK tab-bar is looking awful.

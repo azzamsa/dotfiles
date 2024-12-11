@@ -20,9 +20,9 @@ brights = [
     '#8be9fd',
     '#f8f8f2',
 ]
-compose_cursor = '#bd93f9'
-cursor_bg = '#f8f8f2'
-cursor_border = '#f8f8f2'
+compose_cursor = '#f8f8f2'
+cursor_bg = '#bd93f9'
+cursor_border = '#bd93f9'
 cursor_fg = '#282a36'
 foreground = '#f8f8f2'
 scrollbar_thumb = '#44475a'

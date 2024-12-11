@@ -1,6 +1,8 @@
 default_shell "{{ shell }}"
 copy_command "wl-copy" // I am using Wayland
 default_layout "no-tips"
+simplified_ui true
+pane_frames false
 
 keybinds clear-defaults=true {
     normal {
