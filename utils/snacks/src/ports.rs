@@ -1,14 +1,3 @@
-#!/usr/bin/env -S cargo +nightly -Zscript --quiet
----
-[package]
-edition = "2021"
-
-[dependencies]
-duct = "0.13"
-anyhow = "1.0"
-clap = { version = "4.5", features = ["derive"] }
----
-
 use clap::Parser;
 use duct::cmd;
 
@@ -22,7 +11,7 @@ pub struct Opts {
     pub kill: bool,
 }
 
-fn main() -> anyhow::Result<()> {
+pub(crate) fn run() -> anyhow::Result<()> {
     let opts = Opts::parse();
 
     if opts.kill {
@@ -49,7 +38,3 @@ fn kill(port: &str) -> anyhow::Result<()> {
 
     Ok(())
 }
-
-// Local Variables:
-// mode: rust-ts
-// End:

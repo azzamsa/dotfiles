@@ -1,16 +1,6 @@
-#!/usr/bin/env -S cargo +nightly -Zscript --quiet
----
-[package]
-edition = "2021"
-
-[dependencies]
-duct = "0.13"
-anyhow = "1.0"
----
-
 use duct::cmd;
 
-fn main() -> anyhow::Result<()> {
+pub(crate) fn run() -> anyhow::Result<()> {
     // Remove merged branch
     remove_merged_branch()?;
     // Remove outdated references
@@ -42,7 +32,3 @@ fn prune() -> anyhow::Result<()> {
     }
     Ok(())
 }
-
-// Local Variables:
-// mode: rust-ts
-// End:

@@ -14,9 +14,11 @@ setup:
 
 # Tasks to make the code-base comply with the rules. Mostly used in git hooks.
 comply: fmt lint
+  just --justfile utils/snacks/justfile comply
 
 # Check if the repository comply with the rules and ready to be pushed.
 check: fmt-check lint
+  just --justfile utils/snacks/justfile check
 
 # Format the codebase.
 fmt:

@@ -1,14 +1,3 @@
-#!/usr/bin/env -S cargo +nightly -Zscript --quiet
----
-[package]
-edition = "2021"
-
-[dependencies]
-duct = "0.13"
-anyhow = "1.0"
-clap = { version = "4.5", features = ["derive"] }
----
-
 use std::env;
 
 use clap::{Parser, ValueEnum};
@@ -31,7 +20,7 @@ pub enum Task {
     Cargo,
 }
 
-fn main() -> anyhow::Result<()> {
+pub(crate) fn run() -> anyhow::Result<()> {
     let opts = Opts::parse();
 
     match opts.tasks {
@@ -107,7 +96,3 @@ fn container() -> anyhow::Result<()> {
     cmd!("docker", "system", "prune").unchecked().run()?;
     Ok(())
 }
-
-// Local Variables:
-// mode: rust-ts
-// End:

@@ -1,31 +1,3 @@
-#!/usr/bin/env -S cargo +nightly -Zscript --quiet
----
-[package]
-edition = "2021"
+#!/usr/bin/env bash
 
-[dependencies]
-duct = "0.13"
-anyhow = "1.0"
-clap = { version = "4.5", features = ["derive"] }
----
-
-use clap::Parser;
-use duct::cmd;
-
-#[derive(Parser)]
-pub struct Opts {
-    /// Word
-    pub word: String,
-}
-
-fn main() -> anyhow::Result<()> {
-    let opts = Opts::parse();
-    cmd!("fsays", opts.word)
-        .pipe(cmd!("lolcrab", "--gradient", "warm"))
-        .run()?;
-    Ok(())
-}
-
-// Local Variables:
-// mode: rust-ts
-// End:
+fsays $1 | lolcrab --gradient warm

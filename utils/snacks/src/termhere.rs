@@ -1,14 +1,3 @@
-#!/usr/bin/env -S cargo +nightly -Zscript --quiet
----
-[package]
-edition = "2021"
-
-[dependencies]
-duct = "0.13"
-anyhow = "1.0"
-clap = { version = "4.5", features = ["derive"] }
----
-
 use std::env;
 
 use clap::Parser;
@@ -20,7 +9,7 @@ pub struct Opts {
     pub cwd: Option<String>,
 }
 
-fn main() -> anyhow::Result<()> {
+pub(crate) fn run() -> anyhow::Result<()> {
     let home = env::var("HOME")?;
 
     let opts = Opts::parse();
@@ -38,7 +27,3 @@ fn here(cwd: &str) -> anyhow::Result<()> {
     cmd!("wezterm", "cli", "spawn", "--window-id", "0", "--cwd", cwd).run()?;
     Ok(())
 }
-
-// Local Variables:
-// mode: rust-ts
-// End:

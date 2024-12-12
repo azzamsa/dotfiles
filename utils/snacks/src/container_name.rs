@@ -1,19 +1,9 @@
-#!/usr/bin/env -S cargo +nightly -Zscript --quiet
----
-[package]
-edition = "2021"
-
-[dependencies]
-anyhow = "1.0"
-toml = "0.8.19"
----
-
 use std::fs;
 use std::path::Path;
 
 use toml::Table;
 
-fn main() -> anyhow::Result<()> {
+pub(crate) fn run() -> anyhow::Result<()> {
     let container_env = Path::new("/run/.containerenv");
 
     // Check if the file exists
@@ -27,7 +17,3 @@ fn main() -> anyhow::Result<()> {
 
     Ok(())
 }
-
-// Local Variables:
-// mode: rust-ts
-// End:
