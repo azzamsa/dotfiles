@@ -1,6 +1,6 @@
-use rand::Rng;
-
 use clap::{Parser, ValueEnum};
+
+use crate::utils;
 
 static ADJECTIVES: &[&str] = &[
     "ambitious",
@@ -133,26 +133,21 @@ pub(crate) fn run() -> anyhow::Result<()> {
 fn print(figure: Figure, with_adjective: bool) -> anyhow::Result<()> {
     let noun = match figure {
         Figure::Islamic => {
-            let index = get_random_number(ISLAMIC.len());
+            let index = utils::get_random_number(ISLAMIC.len());
             ISLAMIC[index]
         }
         Figure::Lotr => {
-            let index = get_random_number(LOTR.len());
+            let index = utils::get_random_number(LOTR.len());
             LOTR[index]
         }
     };
     let name = match with_adjective {
         false => noun.to_owned(),
         true => {
-            let index = get_random_number(ADJECTIVES.len());
+            let index = utils::get_random_number(ADJECTIVES.len());
             format!("{}-{}", ADJECTIVES[index], noun)
         }
     };
     println!("{}", name);
     Ok(())
-}
-
-fn get_random_number(length: usize) -> usize {
-    let mut rng = rand::thread_rng();
-    rng.gen_range(0..length)
 }

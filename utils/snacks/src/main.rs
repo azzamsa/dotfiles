@@ -6,6 +6,7 @@ mod names;
 mod ports;
 mod termhere;
 mod up;
+mod utils;
 
 type Tools<'a> = &'a [(&'a str, fn() -> anyhow::Result<()>)];
 const TOOLS: Tools = &[
