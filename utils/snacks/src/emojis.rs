@@ -1,5 +1,3 @@
-use std::io::Write;
-
 use clap::{Parser, ValueEnum};
 
 use crate::utils;
@@ -168,7 +166,7 @@ pub(crate) fn run() -> anyhow::Result<()> {
             merged[index]
         }
     };
-    writeln!(std::io::stdout(), "{}", emoji).ok();
+    utils::stdout(emoji);
 
     Ok(())
 }

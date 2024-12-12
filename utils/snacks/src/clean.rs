@@ -3,6 +3,8 @@ use std::env;
 use clap::{Parser, ValueEnum};
 use duct::cmd;
 
+use crate::utils;
+
 #[derive(Parser)]
 pub struct Opts {
     /// Task
@@ -28,7 +30,7 @@ pub(crate) fn run() -> anyhow::Result<()> {
         Some(tasks) => run_some(tasks)?,
     }
 
-    println!("✨ You have a new shiny machine!");
+    utils::stdout("✨ You have a new shiny machine!");
     Ok(())
 }
 
@@ -57,7 +59,7 @@ fn run_all() -> anyhow::Result<()> {
 fn kondo() -> anyhow::Result<()> {
     let home = env::var("HOME")?;
 
-    println!("🧽 Cleaning dependencies and build artifacts");
+    utils::stdout("🧽 Cleaning dependencies and build artifacts");
     cmd!(
         "kondo",
         &home,
@@ -73,25 +75,25 @@ fn kondo() -> anyhow::Result<()> {
 }
 
 fn package_manager() -> anyhow::Result<()> {
-    println!("🧽 Cleaning package manager cache");
+    utils::stdout("🧽 Cleaning package manager cache");
     cmd!("sudo", "dnf", "autoremove").run()?;
     Ok(())
 }
 
 fn flatpak() -> anyhow::Result<()> {
-    println!("🧽 Cleaning unused flatpak package");
+    utils::stdout("🧽 Cleaning unused flatpak package");
     cmd!("flatpak", "uninstall", "--unused").unchecked().run()?;
     Ok(())
 }
 
 fn cargo() -> anyhow::Result<()> {
-    println!("🧽 Cleaning cargo cache");
+    utils::stdout("🧽 Cleaning cargo cache");
     cmd!("cargo", "cache", "--autoclean").unchecked().run()?;
     Ok(())
 }
 
 fn container() -> anyhow::Result<()> {
-    println!("🧽 Cleaning container cache");
+    utils::stdout("🧽 Cleaning container cache");
     cmd!("podman", "system", "prune").unchecked().run()?;
     cmd!("docker", "system", "prune").unchecked().run()?;
     Ok(())

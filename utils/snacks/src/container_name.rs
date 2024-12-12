@@ -3,6 +3,8 @@ use std::path::Path;
 
 use toml::Table;
 
+use crate::utils;
+
 pub(crate) fn run() -> anyhow::Result<()> {
     let container_env = Path::new("/run/.containerenv");
 
@@ -13,7 +15,7 @@ pub(crate) fn run() -> anyhow::Result<()> {
 
     let content = fs::read_to_string(container_env)?;
     let value = content.parse::<Table>()?;
-    println!("{}", value["name"].as_str().unwrap_or(""));
+    utils::stdout(value["name"].as_str().unwrap_or(""));
 
     Ok(())
 }

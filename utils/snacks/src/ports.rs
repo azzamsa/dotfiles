@@ -1,6 +1,8 @@
 use clap::Parser;
 use duct::cmd;
 
+use crate::utils;
+
 #[derive(Parser)]
 pub struct Opts {
     /// Port number
@@ -31,7 +33,7 @@ fn proc_name(port: &str) -> anyhow::Result<()> {
 }
 
 fn kill(port: &str) -> anyhow::Result<()> {
-    println!("Killing process at port {}", &port);
+    utils::stdout(&format!("Killing process at port {}", port));
     let port = format!("-i:{}", port);
     let pid = cmd!("lsof", "-t", port).read()?;
     cmd!("kill", pid).run()?;

@@ -3,6 +3,8 @@ use std::env;
 use clap::Parser;
 use duct::cmd;
 
+use crate::utils;
+
 #[derive(Parser)]
 pub struct Opts {
     /// Current working directory
@@ -22,7 +24,7 @@ pub(crate) fn run() -> anyhow::Result<()> {
 }
 
 fn here(cwd: &str) -> anyhow::Result<()> {
-    println!("Opening terminal in `{cwd}`");
+    utils::stdout("Opening terminal in `{cwd}`");
     // cmd!("zellij", "action", "new-tab", "--layout", "default", "--cwd", cwd).run()?;
     cmd!("wezterm", "cli", "spawn", "--window-id", "0", "--cwd", cwd).run()?;
     Ok(())

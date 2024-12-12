@@ -148,6 +148,6 @@ fn print(figure: Figure, with_adjective: bool) -> anyhow::Result<()> {
             format!("{}-{}", ADJECTIVES[index], noun)
         }
     };
-    println!("{}", name);
+    utils::stdout(&name);
     Ok(())
 }
