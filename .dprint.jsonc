@@ -3,9 +3,7 @@
     "toml": {
         "indentWidth": 4,
     },
-    "json": {
-        "indentWidth": 4,
-    },
+    "json": {},
     "includes": ["**/*.{md,toml}"],
     "excludes": ["CHANGELOG.md"],
     "plugins": [
