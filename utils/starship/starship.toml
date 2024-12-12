@@ -2,6 +2,13 @@
 
 command_timeout = 700 # default: 500
 
+[custom.emoji]
+description = "Displays a (pseudo) random emoji for each prompt"
+command = "emojis"
+when = "true"
+# shell = ["bash", "--noprofile", "--norc"]
+format = "$output"
+
 [character]
 success_symbol = '[🦄](bold green)'
 error_symbol = '[🙊](bold red)'
