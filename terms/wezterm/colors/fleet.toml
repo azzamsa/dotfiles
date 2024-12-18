@@ -1,0 +1,29 @@
+[colors]
+ansi = [
+    '#898989',
+    '#cc7c8a',
+    '#a8cc7c',
+    '#ebc88d',
+    '#e09b70',
+    '#e394dc',
+    '#87c3ff',
+    '#82d2ce',
+]
+brights = [
+    '#898989',
+    '#cc7c8a',
+    '#a8cc7c',
+    '#ebc88d',
+    '#e09b70',
+    '#e394dc',
+    '#87c3ff',
+    '#82d2ce',
+]
+foreground = '#ffffff'
+background = '#000000'
+cursor_bg = '#ffffff'
+scrollbar_thumb = '#163764'
+
+[metadata]
+aliases = []
+name = 'Fleet'

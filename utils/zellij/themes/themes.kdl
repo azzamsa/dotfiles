@@ -132,4 +132,17 @@ themes {
    white "#ffffff"
    orange "#fec43f"
  }
+ fleet {
+   fg "#ffffff"
+   bg "#163764"
+   black "#000000"
+   red "#cc7c8a"
+   green "#a8cc7c"
+   yellow "#ebc88d"
+   blue "#87c3ff"
+   magenta "#e394dc"
+   cyan "#82d2ce"
+   white "#ffffff"
+   orange "#e09b70"
+ }
 }
