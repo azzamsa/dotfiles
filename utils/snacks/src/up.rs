@@ -60,7 +60,9 @@ fn flatpak() -> anyhow::Result<()> {
 
 fn cargo() -> anyhow::Result<()> {
     utils::stdout("🦀 Upgrading Cargo apps");
-    cmd!("cargo", "install-update", "-a").run()?;
+    cmd!("cargo", "install-update", "-a")
+        .pipe(cmd!("grep", "-v", "No"))
+        .run()?;
     cmd!("rustup", "update", "stable").run()?;
     Ok(())
 }
