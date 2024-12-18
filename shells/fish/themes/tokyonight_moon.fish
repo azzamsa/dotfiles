@@ -2,7 +2,9 @@
 # Source:
 # - https://github.com/folke/tokyonight.nvim/blob/main/extras/fish/tokyonight_moon.fish
 
-set -g foreground c8d3f5 # 14.47:1, #c8d3f5
+# set -g foreground c8d3f5 # 14.47:1, #c8d3f5 (default)
+# set -g foreground f8f8f2 # 19.7:1, #f8f8f2 (dracula)
+set -g foreground eceff4 # 18.21:1, #eceff4 (nordic)
 set -g selection 2d3f76 # 2.08:1
 set -g comment 636da6 # 4.26:1, #636da6
 

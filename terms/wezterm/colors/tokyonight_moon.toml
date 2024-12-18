@@ -1,8 +1,8 @@
 [colors]
-foreground = "#c8d3f5"
+foreground = "#eceff4"
 background = "#000000"
-cursor_bg = "#c8d3f5"
-cursor_border = "#c8d3f5"
+cursor_bg = "#86e1fc"
+cursor_border = "#86e1fc"
 cursor_fg = "#222436"
 selection_bg = "#2d3f76"
 selection_fg = "#c8d3f5"

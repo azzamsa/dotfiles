@@ -15,7 +15,7 @@ themes {
     white "#cdd6f4" // Text
   }
   tokyonight_moon {
-    fg "#c8d3f5"
+    fg "#ffffff"
     bg "#2f334d"
     black "#000000"
     red "#ff757f"
@@ -24,7 +24,7 @@ themes {
     blue "#82aaff"
     magenta "#c099ff"
     cyan "#86e1fc"
-    white "#828bb8"
+    white "#ffffff"
     orange "#ff966c"
  }
  monokai_pro {
