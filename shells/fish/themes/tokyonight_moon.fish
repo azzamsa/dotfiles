@@ -6,7 +6,8 @@
 # set -g foreground f8f8f2 # 19.7:1, #f8f8f2 (dracula)
 set -g foreground eceff4 # 18.21:1, #eceff4 (nordic)
 set -g selection 2d3f76 # 2.08:1
-set -g comment 636da6 # 4.26:1, #636da6
+# set -g comment 636da6 # 4.26:1, #636da6 (default)
+set -g comment 9099c0 # 7.5:1, #9099c0 (doom-brighter-comment)
 
 set -g red ff757f # 8.1:1, #ff757f
 set -g orange ff966c # 9.83:1, #ff966c
