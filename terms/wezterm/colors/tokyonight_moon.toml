@@ -10,9 +10,9 @@ split = "#82aaff"
 compose_cursor = "#ff966c"
 scrollbar_thumb = "#2f334d"
 
-ansi = ["#1b1d2b", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#828bb8"]
+ansi = ["#737aa2", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#828bb8"]
 # Use same color for `brights`. I want a holistic exeperience.
-brights = ["#1b1d2b", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#828bb8"]
+brights = ["#737aa2", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#828bb8"]
 
 [metadata]
 aliases = []
