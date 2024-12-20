@@ -1,6 +1,10 @@
 [user]
 name = "Azzam S.A"
-email = "noreply@azzamsa.com"
+email = "vcs@azzamsa.com"
 
 [template-aliases]
 'format_short_signature(signature)' = 'signature.username()' # default: 'signature.email()'
+
+[aliases]
+l = ["log", "-n", "5"]
+ll = ["log", "-n", "5", "-r", "..@"]
