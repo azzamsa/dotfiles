@@ -80,6 +80,8 @@ Y = "yank_main_selection_to_clipboard"
 W = ":write"
 Q = ":quit"
 
+o = "file_picker_in_current_buffer_directory"
+
 [keys.select]
 #
 # Movement
