@@ -3,7 +3,7 @@ name = "Azzam S.A"
 email = "vcs@azzamsa.com"
 
 [template-aliases]
-'format_short_signature(signature)' = 'signature.username()' # default: 'signature.email()'
+'format_short_signature(signature)' = 'signature.name()' # default: 'signature.email()'
 
 [aliases]
 l = ["log", "-n", "5"]
