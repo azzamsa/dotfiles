@@ -9,7 +9,7 @@ packages = [
     #
     # Terminals
     "wezterm",
-    "alacritty",
+    # "alacritty",
     "starship",
     "atuin",
     #
@@ -43,9 +43,9 @@ packages = [
 
 # ⚠️ This is example file!
 [variables]
-editor = "neovide"
+editor = "nvim"
 shell = "fish"
 default_terminal_app = "zellij"
-font = "0xProto Nerd Font"
+font = "Maple Mono NF"
 # Available theme can be found in shells/fish/themes/
-theme = "monokai_pro"
+theme = "tokyonight_moon"
