@@ -40,3 +40,8 @@ lint:
 # Create a new release. Example `just release v2.2.0`
 release version:
     ./release {{ version }}
+
+[doc('Check dependencies health. Pass `--write` to upgrade dependencies')]
+up arg="":
+    #!/usr/bin/env bash
+    dprint config update
