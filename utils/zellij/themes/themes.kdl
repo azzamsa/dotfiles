@@ -145,4 +145,18 @@ themes {
    white "#ffffff"
    orange "#e09b70"
  }
+ // https://github.com/EdenEast/nightfox.nvim/blob/main/extra/zellij/nightfox.kdl
+ oxocarbon {
+   fg "#f2f4f8"
+   bg "#2a2a2a"
+   black "#000000"
+   red "#ee5396"
+   green "#25be6a"
+   yellow "#08bdba"
+   blue "#78a9ff"
+   magenta "#be95ff"
+   cyan "#33b1ff"
+   white "#dfdfe0"
+   orange "#3ddbd9"
+ }
 }

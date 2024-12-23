@@ -1,0 +1,15 @@
+# https://github.com/EdenEast/nightfox.nvim/blob/main/extra/carbonfox/wezterm.toml
+
+[colors]
+ansi = ["#282828", "#ee5396", "#25be6a", "#08bdba", "#78a9ff", "#be95ff", "#33b1ff", "#dfdfe0"]
+brights = ["#484848", "#f16da6", "#46c880", "#2dc7c4", "#8cb6ff", "#c8a5ff", "#52bdff", "#e4e4e5"]
+
+foreground = '#f2f4f8'
+background = '#000000'
+cursor_bg = '#f2f4f8'
+scrollbar_thumb = '#7b7c7e'
+split = "#0c0c0c"
+
+[metadata]
+aliases = []
+name = 'Oxocarbon'
