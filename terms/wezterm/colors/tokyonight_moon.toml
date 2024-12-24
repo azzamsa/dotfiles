@@ -1,3 +1,5 @@
+# https://github.com/folke/tokyonight.nvim/blob/main/extras/wezterm/tokyonight_moon.toml
+
 [colors]
 foreground = "#eceff4"
 background = "#000000"
