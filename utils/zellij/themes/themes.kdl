@@ -159,4 +159,17 @@ themes {
    white "#dfdfe0"
    orange "#3ddbd9"
  }
+ aura {
+   fg "#f2f4f8"
+   bg "#2a2a2a"
+   black "#000000"
+   red "#ff6767"
+   green "#61ffca"
+   yellow "#ffca85"
+   blue "#82e2ff"
+   magenta "#f694ff"
+   cyan "#82e2ff"
+   white "#edecee"
+   orange "#ffca85"
+ }
 }

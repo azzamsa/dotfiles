@@ -1,0 +1,29 @@
+[colors]
+ansi = [
+    '#110f18',
+    '#ff6767',
+    '#61ffca',
+    '#ffca85',
+    '#82e2ff',
+    '#a277ff',
+    '#f694ff',
+    '#edecee',
+]
+brights = [
+    '#110f18',
+    '#ff6767',
+    '#61ffca',
+    '#ffca85',
+    '#82e2ff',
+    '#a277ff',
+    '#f694ff',
+    '#edecee',
+]
+foreground = '#edecee'
+background = '#000000'
+cursor_bg = '#a277ff'
+scrollbar_thumb = '#5c6773'
+
+[metadata]
+aliases = []
+name = 'Aura'
