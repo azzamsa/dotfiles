@@ -1,0 +1,29 @@
+[colors]
+ansi = [
+    '#26233a',
+    '#eb6f92',
+    '#3e8fb0',
+    '#f6c177',
+    '#9ccfd8',
+    '#c4a7e7',
+    '#ebbcba',
+    '#e0def4',
+]
+brights = [
+    '#26233a',
+    '#eb6f92',
+    '#3e8fb0',
+    '#f6c177',
+    '#9ccfd8',
+    '#c4a7e7',
+    '#ebbcba',
+    '#e0def4',
+]
+foreground = '#e0def4'
+background = '#000000'
+cursor_bg = '#e0def4'
+scrollbar_thumb = '#2a283e'
+
+[metadata]
+aliases = []
+name = 'Rosepine'
