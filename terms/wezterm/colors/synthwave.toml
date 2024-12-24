@@ -1,0 +1,29 @@
+[colors]
+ansi = [
+    '#262335',
+    '#fe4450',
+    '#72f1b8',
+    '#f3e70f',
+    '#ff8b39',
+    '#03edf9',
+    '#ff7edb',
+    '#03edf9',
+]
+brights = [
+    '#262335',
+    '#fe4450',
+    '#72f1b8',
+    '#f3e70f',
+    '#ff8b39',
+    '#03edf9',
+    '#ff7edb',
+    '#03edf9',
+]
+foreground = '#ffffff'
+background = '#000000'
+cursor_bg = '#e6e1cf'
+scrollbar_thumb = '#5c6773'
+
+[metadata]
+aliases = []
+name = 'Synthwave'

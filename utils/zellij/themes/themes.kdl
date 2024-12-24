@@ -172,4 +172,17 @@ themes {
    white "#edecee"
    orange "#ffca85"
  }
+ synthwave {
+   fg "#f2f4f8"
+   bg "#2a2a2a"
+   black "#000000"
+   red "#fe4450"
+   green "#72f1b8"
+   yellow "#f3e70f"
+   blue "#03edf9"
+   magenta "#ff7edb"
+   cyan "#03edf9"
+   white "#ffffff"
+   orange "#ff8b39"
+ }
 }
