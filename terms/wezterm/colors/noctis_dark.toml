@@ -1,0 +1,29 @@
+[colors]
+ansi = [
+    '#110f18',
+    '#ff669c',
+    '#00cc76',
+    '#ff7039',
+    '#99f3ff',
+    '#a000ff',
+    '#00a0ff',
+    '#edecee',
+]
+brights = [
+    '#110f18',
+    '#ff669c',
+    '#00cc76',
+    '#ff7039',
+    '#99f3ff',
+    '#a000ff',
+    '#00a0ff',
+    '#edecee',
+]
+foreground = '#edecee'
+background = '#000000'
+cursor_bg = '#a277ff'
+scrollbar_thumb = '#5c6773'
+
+[metadata]
+aliases = []
+name = 'Noctis Dark'
