@@ -198,4 +198,17 @@ themes {
 	black "#000000"
 	white "#e0def4"
  }
+ material {
+	bg "#343b51"
+	fg "#eeffff"
+	red "#f07178"
+	green "#c3e88d"
+	blue "#89ddff"
+	yellow "#ffcb6b"
+	magenta "#c792ea"
+	orange "#f78c6c"
+	cyan "#89ddff"
+	black "#000000"
+	white "#eeffff"
+ }
 }

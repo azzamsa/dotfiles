@@ -1,0 +1,29 @@
+[colors]
+ansi = [
+    '#959DCB',
+    '#f07178',
+    '#c3e88d',
+    '#ffcb6b',
+    '#82AAFF',
+    '#C792EA',
+    '#89DDFF',
+    '#32374D',
+]
+brights = [
+    '#959DCB',
+    '#f07178',
+    '#c3e88d',
+    '#ffcb6b',
+    '#82AAFF',
+    '#C792EA',
+    '#89DDFF',
+    '#32374D',
+]
+foreground = '#eeffff'
+background = '#000000'
+cursor_bg = '#ffcc00'
+scrollbar_thumb = '#545454'
+
+[metadata]
+aliases = []
+name = 'Material'
