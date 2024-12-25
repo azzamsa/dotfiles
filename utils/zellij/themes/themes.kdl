@@ -9,12 +9,39 @@ themes {
         magenta "#ff6ac1"
         orange "#ffb86c"
         cyan "#9aedfe"
+
         // All the colors below are kept accross theme.
         // Mostly taken from https://catppuccin.com/palette mocha.
         bg "#313244"
         fg "#ffffff"
         black "#000000"
         white "#ffffff"
+    }
+    dracula {
+        fg "#f8f8f2"
+        bg "#282a36"
+        black "#000000"
+        red "#ff5555"
+        green "#50fa7b"
+        yellow "#f1fa8c"
+        blue "#6272a4"
+        magenta "#ff79c6"
+        cyan "#8be9fd"
+        white "#f8f8f2"
+        orange "#ffb86c"
+    }
+    tokyonight_moon {
+        fg "#ffffff"
+        bg "#2f334d"
+        black "#000000"
+        red "#ff757f"
+        green "#c3e88d"
+        yellow "#ffc777"
+        blue "#82aaff"
+        magenta "#c099ff"
+        cyan "#86e1fc"
+        white "#ffffff"
+        orange "#ff966c"
     }
     catppuccin_mocha {
         bg "#313244"
@@ -29,18 +56,18 @@ themes {
         black "#000000"
         white "#cdd6f4"
     }
-    tokyonight_moon {
+    modus_vivendi {
         fg "#ffffff"
-        bg "#2f334d"
+        bg "#2f3849"
         black "#000000"
-        red "#ff757f"
-        green "#c3e88d"
-        yellow "#ffc777"
-        blue "#82aaff"
-        magenta "#c099ff"
-        cyan "#86e1fc"
+        red "#ff5f59"
+        green "#44bc44"
+        yellow "#d0bc00"
+        blue "#2fafff"
+        magenta "#feacd0"
+        cyan "#00d3d0"
         white "#ffffff"
-        orange "#ff966c"
+        orange "#fec43f"
     }
     monokai_pro {
         fg "#fcfcfa"
@@ -81,19 +108,6 @@ themes {
         white "#cbe3e7"
         orange "#f6c177"
     }
-    dracula {
-        fg "#f8f8f2"
-        bg "#282a36"
-        black "#000000"
-        red "#ff5555"
-        green "#50fa7b"
-        yellow "#f1fa8c"
-        blue "#6272a4"
-        magenta "#ff79c6"
-        cyan "#8be9fd"
-        white "#f8f8f2"
-        orange "#ffb86c"
-    }
     nordic {
         fg "#eceff4"
         bg "#282a36"
@@ -133,19 +147,6 @@ themes {
         cyan "#7fb4ca"
         white "#dcd7ba"
         orange "#ffa066"
-    }
-    modus_vivendi {
-        fg "#ffffff"
-        bg "#2f3849"
-        black "#000000"
-        red "#ff5f59"
-        green "#44bc44"
-        yellow "#d0bc00"
-        blue "#2fafff"
-        magenta "#feacd0"
-        cyan "#00d3d0"
-        white "#ffffff"
-        orange "#fec43f"
     }
     fleet {
         fg "#ffffff"

@@ -1,6 +1,6 @@
 [colors]
 ansi = [
-    '#110f18',
+    '#7f849c',
     '#ff6767',
     '#61ffca',
     '#ffca85',
@@ -10,7 +10,7 @@ ansi = [
     '#edecee',
 ]
 brights = [
-    '#110f18',
+    '#7f849c',
     '#ff6767',
     '#61ffca',
     '#ffca85',
@@ -19,10 +19,13 @@ brights = [
     '#f694ff',
     '#edecee',
 ]
-foreground = '#edecee'
-background = '#000000'
 cursor_bg = '#a277ff'
-scrollbar_thumb = '#5c6773'
+
+# All the colors below are kept across theme.
+# Mostly taken from https://catppuccin.com/palette mocha.
+foreground = '#ffffff'
+background = '#000000'
+scrollbar_thumb = '#7f849c'
 
 [metadata]
 aliases = []

@@ -1,30 +1,32 @@
 [colors]
 ansi = [
-    '#2f334d',
+    '#7f849c',
     '#ff6188',
     '#a9dc76',
     '#ffd866',
     '#fc9867',
     '#ab9df2',
     '#78dce8',
-    '#81a2be',
+    '#ffffff',
 ]
 brights = [
-    '#2f334d',
+    '#7f849c',
     '#ff6188',
     '#a9dc76',
     '#ffd866',
     '#fc9867',
     '#ab9df2',
     '#78dce8',
-    '#81a2be',
+    '#ffffff',
 ]
-foreground = '#fcfcfa'
+cursor_bg = '#ffd866'
+
+# All the colors below are kept across theme.
+# Mostly taken from https://catppuccin.com/palette mocha.
+foreground = '#ffffff'
 background = '#000000'
-cursor_bg = '#fcfcfa'
-scrollbar_thumb = '#4C4A4D'
+scrollbar_thumb = '#7f849c'
 
 [metadata]
 aliases = []
-# Some parts are modified by me (azzamsa)
 name = 'Monokai Pro'

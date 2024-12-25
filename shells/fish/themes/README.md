@@ -6,3 +6,4 @@ Ranked by preference.
 - Dracula
 - Tokyonight Moon
 - Catppuccin Mocha
+- Modus Vivendi

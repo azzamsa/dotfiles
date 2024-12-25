@@ -1,28 +1,32 @@
 [colors]
 ansi = [
-    '#26233a',
+    '#7f849c',
     '#eb6f92',
     '#3e8fb0',
     '#f6c177',
     '#9ccfd8',
     '#c4a7e7',
     '#ebbcba',
-    '#e0def4',
+    '#ffffff',
 ]
 brights = [
-    '#26233a',
+    '#7f849c',
     '#eb6f92',
     '#3e8fb0',
     '#f6c177',
     '#9ccfd8',
     '#c4a7e7',
     '#ebbcba',
-    '#e0def4',
+    '#ffffff',
 ]
-foreground = '#e0def4'
+# the OG accent (#3e8fb0) is too dark
+cursor_bg = '#ffffff'
+
+# All the colors below are kept across theme.
+# Mostly taken from https://catppuccin.com/palette mocha.
+foreground = '#ffffff'
 background = '#000000'
-cursor_bg = '#e0def4'
-scrollbar_thumb = '#2a283e'
+scrollbar_thumb = '#7f849c'
 
 [metadata]
 aliases = []

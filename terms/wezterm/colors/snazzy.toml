@@ -7,7 +7,7 @@ ansi = [
     '#57c7ff', # files: directories, atuin time
     '#ff6ac1', # prompt: git branch
     '#9aedfe', # prompt: dir/project name
-    '#828bb8',
+    '#ffffff',
 ]
 brights = [
     '#7f849c',
@@ -17,7 +17,7 @@ brights = [
     '#57c7ff',
     '#ff6ac1',
     '#9aedfe',
-    '#828bb8',
+    '#ffffff',
 ]
 cursor_bg = '#ff6ac1'
 
