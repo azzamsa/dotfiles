@@ -56,18 +56,19 @@ themes {
         black "#000000"
         white "#cdd6f4"
     }
-    modus_vivendi {
+    noctis_dark {
+        red "#ff669c"
+        green "#00cc76"
+        yellow "#e6ac00"
+        blue "#00a0ff"
+        magenta "#a000ff"
+        cyan "#99f3ff"
+        orange "#ff7039"
+
+        bg "#313244"
         fg "#ffffff"
-        bg "#2f3849"
         black "#000000"
-        red "#ff5f59"
-        green "#44bc44"
-        yellow "#d0bc00"
-        blue "#2fafff"
-        magenta "#feacd0"
-        cyan "#00d3d0"
         white "#ffffff"
-        orange "#fec43f"
     }
     monokai_pro {
         fg "#fcfcfa"

@@ -3,6 +3,7 @@
 # Source:
 # - https://github.com/ntpeters/base16-materialtheme-scheme/blob/master/material-palenight.yaml
 # - https://github.com/kaicataldo/material.vim/blob/main/colors/material.vim
+# - https://github.com/drewtempelmeyer/palenight.vim/blob/master/autoload/palenight.vim
 
 set -g red ff5370 # 6.72:1 (AA), #ff5370
 set -g orange f78c6c # 8.92:1, #f78c6c
