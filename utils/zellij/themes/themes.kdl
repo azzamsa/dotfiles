@@ -17,6 +17,20 @@ themes {
         black "#000000"
         white "#ffffff"
     }
+    modus_vivendi {
+        red "#ff7f86"
+        green "#00c06f"
+        yellow "#dfaf7a"
+        blue "#00bcff"
+        magenta "#b6a0ff"
+        cyan "#00d3d0"
+        orange "#feacd0"
+
+        bg "#313244"
+        fg "#ffffff"
+        black "#000000"
+        white "#ffffff"
+    }
     dracula {
         fg "#f8f8f2"
         bg "#282a36"
