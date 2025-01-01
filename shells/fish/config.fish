@@ -29,6 +29,9 @@ alias cat bat
 alias in '{{ install }}'
 alias out '{{ uninstall }}'
 
+alias cin "cargo binstall --no-confirm --no-symlinks --secure"
+alias cout "cargo remove"
+
 # Safe Versions of rm, cp, mv, and mkdir
 alias rm 'rm -i'
 alias cp 'cp -i'
