@@ -1,4 +1,6 @@
-# Tested on black background
+# Dracula
+#
+# License: MIT
 # Source:
 # - https://github.com/dracula/fish/blob/master/themes/Dracula%20Official.theme
 

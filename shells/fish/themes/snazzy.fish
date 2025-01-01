@@ -1,4 +1,6 @@
-# Tested on black background
+# Snazzy
+#
+# License: MIT
 # Source:
 # - https://github.com/doomemacs/themes/blob/master/themes/doom-snazzy-theme.el
 # - https://github.com/sindresorhus/hyper-snazzy/blob/main/index.js

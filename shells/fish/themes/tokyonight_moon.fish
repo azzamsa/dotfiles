@@ -1,4 +1,6 @@
-# Tested on black background
+# Tokyonight Moon
+#
+# License: Apache 2.0
 # Source:
 # - https://github.com/folke/tokyonight.nvim/blob/main/extras/fish/tokyonight_moon.fish
 

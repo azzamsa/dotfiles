@@ -1,4 +1,6 @@
-# Tested on black background
+#  Catppuccin Mocha
+#
+# License: MIT
 # Source:
 # - https://catppuccin.com/palette
 

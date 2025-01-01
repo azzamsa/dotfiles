@@ -2,8 +2,6 @@
 
 Ranked by preference.
 
-- Snazzy
-- Dracula
-- Tokyonight Moon
-- Catppuccin Mocha
-- Modus Vivendi
+- Snazzy, Dracula
+- Modus Vivendi (cooler)
+- Tokyonight Moon, Catppuccin Mocha

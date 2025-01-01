@@ -2,12 +2,12 @@
 ansi = [
     '#7f849c', # comments: jj comment,
     '#ff5c57', # error
-    '#5af78e', # executables (filee), jj bookmark, atuin duration
+    '#5af78e', # executables (files), jj bookmark, atuin duration
     '#ff9f43', # specific files, prompt duration, jj author
     '#57c7ff', # directories (file), atuin time
     '#ff6ac1', # prompt: git branch
     '#9aedfe', # prompt: dir/project name
-    '#ffffff',
+    '#ffffff', # fallback files lla,
 ]
 brights = [
     '#7f849c',

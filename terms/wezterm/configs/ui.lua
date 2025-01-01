@@ -79,7 +79,8 @@ function M.append(config)
         font_size = 22, -- default: 12.0
         font = wezterm.font_with_fallback({ "{{ font }}", "Noto Color Emoji" }),
 
-        color_scheme = M.color_scheme_name("{{ theme }}"),
+        color_scheme = "{{ theme }}",
+        -- color_scheme = M.color_scheme_name("{{ theme }}"),
 
         enable_scroll_bar = true, --default: false
         scrollback_lines = 10000, --default: 3500
