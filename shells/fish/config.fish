@@ -63,19 +63,19 @@ jj util completion fish | source
 #
 # ls
 function l
-    eza --group-directories-first --git $argv
+    lla --grid --filter "NOT glob:.*" $argv
 end
 
 function ls
-    eza --group-directories-first --git $argv
+    l
 end
 
 function la
-    eza --group-directories-first --git --all --octal-permissions --long $argv
+    lla --table $argv
 end
 
 function tree
-    eza --tree $argv
+    lla --tree $argv
 end
 
 
