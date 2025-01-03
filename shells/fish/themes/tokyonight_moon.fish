@@ -4,14 +4,6 @@
 # Source:
 # - https://github.com/folke/tokyonight.nvim/blob/main/extras/fish/tokyonight_moon.fish
 
-# set -g foreground c8d3f5 # 14.47:1, #c8d3f5 (default)
-# set -g foreground f8f8f2 # 19.7:1, #f8f8f2 (dracula)
-set -g foreground eceff4 # 18.21:1, #eceff4 (nordic)
-set -g selection 2d3f76 # 2.08:1
-# set -g comment 636da6 # 4.26:1, #636da6 (default)
-# set -g comment 9099c0 # 7.5:1, #9099c0 (doom-brighter-comment)
-set -g comment 737aa2 # 5.03:1, #737aa2 (dark5)
-
 set -g red ff757f # 8.1:1, #ff757f
 set -g orange ff966c # 9.83:1, #ff966c
 set -g yellow ffc777 # 13.68:1, #ffc777
@@ -19,3 +11,10 @@ set -g green c3e88d # 15.24:1, #c3e88d
 set -g purple fca7ea # 11.85:1, #fca7ea
 set -g cyan 86e1fc # 14.18:1, #86e1fc
 set -g pink c099ff # 9.24:1, #c099ff
+
+# All the colors below are kept accross theme.
+# Mostly taken from https://catppuccin.com/palette mocha.
+set -g selection 313244 #, #313244 (surface0)
+# OG Catppuccin Mocha uses overlay0
+set -g comment 7f849c # 5.68:1, #7f849c (overlay1)
+set -g foreground ffffff # 21:1, #ffffff
