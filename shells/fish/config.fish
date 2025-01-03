@@ -67,7 +67,7 @@ function l
 end
 
 function ls
-    l
+    l $argv
 end
 
 function la
