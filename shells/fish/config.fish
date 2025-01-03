@@ -130,7 +130,8 @@ end
 # Theme
 #
 
-source ~/.config/fish/themes/{{ theme }}.fish
+set -g theme "{{ theme }}"
+source ~/.config/fish/colors.fish
 
 # Syntax Highlighting Colors
 # See https://fishshell.com/docs/current/interactive.html#syntax-highlighting-variables

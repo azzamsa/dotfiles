@@ -1,2 +1,2 @@
 [files]
-extend-exclude = ["CHANGELOG.md", "**/*themes/**"]
+extend-exclude = ["CHANGELOG.md", "colors.fish"]
