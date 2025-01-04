@@ -61,13 +61,13 @@ else if [ $theme = modus_vivendi ]
     # - https://github.com/miikanissi/modus-themes.nvim/blob/master/extras/fish/modus_vivendi.fish
     # - https://github.com/protesilaos/modus-themes/blob/main/modus-vivendi-theme.el
 
-    set -g red ff7f86 # 8.63:1, #ff7f86 (red cooler)
-    set -g yellow dfaf7a # 10.55:1 #dfaf7a (yellow cooler)
-    set -g green 6ae4b9 # 13.41:1, #6ae4b9 (cyan cooler)
-    set -g orange 00bcff # 9.63:1, #00bcff (blue cooler)
-    set -g purple f78fe7 #10.03:1, #f78fe7 (magenta warmer)
-    set -g pink feacd0 # 12.02:1, #feacd0 (magenta)
-    set -g cyan 4ae2f0 # 13.42:1, #4ae2f0
+    set -g red ff7f86 # 8.63:1, #ff7f86 (red cooler), (preprocessor)
+    set -g green feacd0 # 13.41:1, #feacd0 (cyan cooler), (type)
+    set -g yellow b6a0ff # 10.55:1 #b6a0ff (yellow cooler)
+    set -g orange 00bcff # 9.63:1, #00bcff (blue cooler), (constant)
+    set -g purple f78fe7 # 10.03:1, #f78fe7 (magenta warmer), (built-in)
+    set -g pink 6ae4b9 # 12.02:1, #6ae4b9 (magenta), (function)
+    set -g cyan 00d3d0 # 13.42:1, #00d3d0 (cyan), (variable)
 
 else if [ $theme = material ]
     # License: Apache-2.0
