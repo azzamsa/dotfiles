@@ -43,6 +43,9 @@ depends = ["shell"]
 [alacritty.files]
 "terms/alacritty" = "~/.config/alacritty"
 
+[ghostty.files]
+"terms/ghostty" = "~/.config/ghostty"
+
 #
 # Fetchers
 [fastfetch.files]

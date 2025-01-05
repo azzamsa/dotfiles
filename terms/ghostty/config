@@ -1,0 +1,21 @@
+command = zellij
+cursor-style = bar
+adjust-cursor-thickness = 200%
+
+# Fonts
+font-family = "Maple Mono NF"
+font-size = 22
+
+# Theme
+theme = tokyonight_moon
+
+# Keybindings
+keybind = clear
+keybind = ctrl+w=copy_to_clipboard
+keybind = ctrl+y=paste_from_clipboard
+
+# Window
+title = " "
+
+# Mouse
+mouse-hide-while-typing = true

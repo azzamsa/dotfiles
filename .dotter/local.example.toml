@@ -10,6 +10,7 @@ packages = [
     # Terminals
     "wezterm",
     # "alacritty",
+    "ghostty",
     "starship",
     "atuin",
     #
