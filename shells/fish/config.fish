@@ -63,7 +63,7 @@ jj util completion fish | source
 #
 # ls
 function l
-    lla --grid --filter "NOT glob:.*" $argv
+    eza --icons --git $argv
 end
 
 function ls
@@ -71,11 +71,11 @@ function ls
 end
 
 function la
-    lla --table $argv
+    eza --icons --git --all --octal-permissions --long $argv
 end
 
 function tree
-    lla --tree $argv
+    eza --icons --tree $argv
 end
 
 

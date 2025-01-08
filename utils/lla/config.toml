@@ -46,6 +46,14 @@ no_dotfiles = true # default: false
 # Maximum number of entries to display in tree view
 max_lines = 20000
 
+# Grid formatter configuration
+[formatters.grid]
+# Whether to ignore terminal width by default
+ignore_width = false
+# Maximum width for grid view when ignore_width is true
+# Default: 200 columns
+max_width = 200
+
 # Lister-specific configurations
 [listers.recursive]
 # Maximum number of entries to process in recursive listing
