@@ -25,14 +25,15 @@ map R reload hard
 map yy copyCurrentUrl
 map ym copyWindowInfo type="tab" format="[${title}](${url})"
 map yM LinkHints.activateCopyLinkText access="[${innerText}](${href})"
+map yt copyWindowInfo type="tab" format="${title}"
 map p openCopiedUrlInCurrentTab
 map P openCopiedUrlInNewTab
 
 # Link hints
-map f LinkHints.activateMode
-map F LinkHints.activateModeToOpenInNewTab
-map <a-f> LinkHints.activateModeWithQueue
-map yf LinkHints.activateModeToCopyLinkUrl
+map f LinkHints.activate
+map F LinkHints.activateOpenInNewTab
+map <a-f> LinkHints.activateWithQueue
+map yf LinkHints.activateCopyLinkUrl
 
 # Using find
 map / enterFindMode
@@ -64,7 +65,6 @@ map g0 firstTab
 map g$ lastTab
 map W moveTabToNewWindow
 map t createTab
-map yt duplicateTab
 map x removeTab
 map X restoreTab
 map <a-p> togglePinTab
@@ -77,4 +77,3 @@ map ` Marks.activateGotoMode
 # Misc
 map ? showHelp
 map gs toggleViewSource
-
