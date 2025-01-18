@@ -60,12 +60,12 @@ themes {
         white "#ffffff"
     }
     modus_vivendi {
-        red "#ff7f86"
+        red "#ff5f59"
         green "#6ae4b9"
-        yellow "#dfaf7a"
-        blue "#00bcff"
+        yellow "#fec43f"
+        blue "#2fafff"
         magenta "#feacd0"
-        cyan "#4ae2f0"
+        cyan "#00d3d0"
         orange "#f78fe7"
 
         bg "#313244"

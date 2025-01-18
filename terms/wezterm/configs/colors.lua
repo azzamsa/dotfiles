@@ -33,8 +33,8 @@ M.color_schemes = {
         cursor_bg = "#86e1fc",
     },
     ["modus_vivendi"] = {
-        ansi = { "#989898", "#ff6b55", "#6ae4b9", "#f78fe7", "#00bcff", "#feacd0", "#00d3d0", "#ffffff" },
-        brights = { "#989898", "#ff6b55", "#6ae4b9", "#f78fe7", "#00bcff", "#feacd0", "#00d3d0", "#ffffff" },
+        ansi = { "#989898", "#ff7f86", "#6ae4b9", "#b6a0ff", "#00bcff", "#feacd0", "#00d3d0", "#ffffff" },
+        brights = { "#989898", "#ff7f86", "#6ae4b9", "#b6a0ff", "#00bcff", "#feacd0", "#00d3d0", "#ffffff" },
         cursor_bg = "#ff66ff", -- (magenta intense)
     },
     ["material"] = {

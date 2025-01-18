@@ -1,3 +1,7 @@
+#
+# Bookmarks
+# - https://github.com/azzamsa/dotfiles/tree/925cf2f92360a3132291230e8054ac755aacc6d7/shells/fish/themes
+
 if [ $theme = snazzy ]
     # License: MIT
     # Source:
@@ -60,14 +64,13 @@ else if [ $theme = modus_vivendi ]
     # Source:
     # - https://github.com/miikanissi/modus-themes.nvim/blob/master/extras/fish/modus_vivendi.fish
     # - https://github.com/protesilaos/modus-themes/blob/main/modus-vivendi-theme.el
-
-    set -g red ff7f86 # 8.63:1, #ff7f86 (red cooler), (preprocessor)
-    set -g green feacd0 # 13.41:1, #feacd0 (cyan cooler), (type)
-    set -g yellow b6a0ff # 10.55:1 #b6a0ff (yellow cooler)
-    set -g orange 00bcff # 9.63:1, #00bcff (blue cooler), (constant)
-    set -g purple f78fe7 # 10.03:1, #f78fe7 (magenta warmer), (built-in)
-    set -g pink 6ae4b9 # 12.02:1, #6ae4b9 (magenta), (function)
-    set -g cyan 00d3d0 # 13.42:1, #00d3d0 (cyan), (variable)
+    set -g red ff5f59 # 8.63:1, #ff5f59
+    set -g green 6ae4b9 # 13.41:1, #6ae4b9
+    set -g yellow f78fe7 # 10.55:1 #f78fe7
+    set -g orange 2fafff # 9.63:1, #2fafff
+    set -g purple b6a0ff # 10.03:1, #b6a0ff
+    set -g pink feacd0 # 12.02:1, #feacd0
+    set -g cyan 00d3d0 # 13.42:1, #00d3d0
 
 else if [ $theme = material ]
     # License: Apache-2.0
