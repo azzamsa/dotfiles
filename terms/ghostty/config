@@ -14,6 +14,10 @@ keybind = clear
 keybind = ctrl+w=copy_to_clipboard
 keybind = ctrl+y=paste_from_clipboard
 
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+equal=reset_font_size
+
 # Window
 title = " "
 

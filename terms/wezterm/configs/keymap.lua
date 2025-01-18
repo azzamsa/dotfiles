@@ -71,6 +71,10 @@ function M.append(config)
                 mods = "CTRL|SHIFT|ALT",
                 action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
             },
+
+            { key = "+", mods = "CTRL", action = act.IncreaseFontSize },
+            { key = "-", mods = "CTRL", action = act.DecreaseFontSize },
+            { key = "=", mods = "CTRL", action = act.ResetFontSize },
             --
             -- Pane
             { key = "x", mods = "CTRL|SHIFT|ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
