@@ -7,7 +7,7 @@ font-family = "Maple Mono NF"
 font-size = 22
 
 # Theme
-theme = modus_vivendi
+theme = {{ theme }}
 
 # Keybindings
 keybind = clear
