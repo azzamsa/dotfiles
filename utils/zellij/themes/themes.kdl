@@ -61,11 +61,11 @@ themes {
     }
     modus_vivendi {
         red "#ff5f59"
-        green "#6ae4b9"
+        green "#00d3d0"
         yellow "#fec43f"
         blue "#2fafff"
         magenta "#feacd0"
-        cyan "#00d3d0"
+        cyan "#6ae4b9"
         orange "#f78fe7"
 
         bg "#313244"

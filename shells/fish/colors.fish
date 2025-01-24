@@ -64,13 +64,13 @@ else if [ $theme = modus_vivendi ]
     # Source:
     # - https://github.com/miikanissi/modus-themes.nvim/blob/master/extras/fish/modus_vivendi.fish
     # - https://github.com/protesilaos/modus-themes/blob/main/modus-vivendi-theme.el
-    set -g red ff5f59 # 8.63:1, #ff5f59
+    set -g red ff6b55 # 7.48:1, #ff6b55
     set -g green 6ae4b9 # 13.41:1, #6ae4b9
-    set -g yellow f78fe7 # 10.55:1 #f78fe7
-    set -g orange 2fafff # 9.63:1, #2fafff
-    set -g purple b6a0ff # 10.03:1, #b6a0ff
+    set -g yellow f78fe7 # 10.05:1 #f78fe7
+    set -g orange 79a8ff # 8.85:1, #79a8ff
+    set -g purple b6a0ff # 9.46:1, #b6a0ff
     set -g pink feacd0 # 12.02:1, #feacd0
-    set -g cyan 00d3d0 # 13.42:1, #00d3d0
+    set -g cyan 4ae2f0 # 13.42:1, #4ae2f0
 
 else if [ $theme = material ]
     # License: Apache-2.0
@@ -109,5 +109,6 @@ end
 set -g selection 313244 #, #313244 (surface0)
 # OG Catppuccin Mocha uses overlay0
 # set -g comment 7f849c # 5.68:1, #7f849c (overlay1)
-set -g comment 9399b2 # 7.43:1, #9399b2 (overlay2)
+# set -g comment 9399b2 # 7.43:1, #9399b2 (overlay2)
+set -g comment 989898 # 7.27:1, #989898 (fg-dim modus-vivendi)
 set -g foreground ffffff # 21:1, #ffffff
