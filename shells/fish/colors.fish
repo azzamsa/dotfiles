@@ -64,6 +64,17 @@ else if [ $theme = modus_vivendi ]
     # Source:
     # - https://github.com/miikanissi/modus-themes.nvim/blob/master/extras/fish/modus_vivendi.fish
     # - https://github.com/protesilaos/modus-themes/blob/main/modus-vivendi-theme.el
+    set -g red ff5f59 # 7.48:1, #ff5f59
+    set -g green 44bc44 # 13.41:1, #44bc44
+    set -g yellow fec43f # 10.05:1 #fec43f
+    set -g orange 2fafff # 8.85:1, #2fafff
+    set -g purple b6a0ff # 9.46:1, #b6a0ff
+    set -g pink feacd0 # 12.02:1, #feacd0
+    set -g cyan 00d3d0 # 13.42:1, #00d3d0
+
+else if [ $theme = modus_vivendi1 ]
+    # Opinionated color choice
+
     set -g red ff6b55 # 7.48:1, #ff6b55
     set -g green 6ae4b9 # 13.41:1, #6ae4b9
     set -g yellow f78fe7 # 10.05:1 #f78fe7
@@ -101,6 +112,55 @@ else if [ $theme = monokai_pro ]
     set -g purple ab9df2 # 8.83:1, #ab9df2
     set -g cyan 78dce8 # 13.2:1, #78dce8
     set -g pink 81a2be # 7.84:1, #81a2be
+
+else if [ $theme = everforest ]
+    # Source:
+    # - https://github.com/sainnhe/everforest
+
+    set -g red e67e80 # 7.31:1, #e67e80
+    set -g orange dbbc7f # 9.82:1, #dbbc7f
+    set -g yellow d3c6aa # 15.26:1, #d3c6aa
+    set -g green a7c080 # 13.18:1, #a7c080
+    set -g purple 83c092 # 8.83:1, #83c092
+    set -g cyan 7fbbb3 # 13.2:1, #7fbbb3
+    set -g pink d699b6 # 7.84:1, #d699b6
+
+else if [ $theme = gruvbox_material ]
+    # Source:
+    # - https://github.com/sainnhe/gruvbox-material
+
+    set -g red ea6962 # 7.31:1, #ea6962
+    set -g orange d8a657 # 9.82:1, #d8a657
+    set -g yellow d4be98 # 15.26:1, #d4be98
+    set -g green a9b665 # 13.18:1, #a9b665
+    set -g purple 89b482 # 8.83:1, #89b482
+    set -g cyan 7daea3 # 13.2:1, #7daea3
+    set -g pink d3869b # 7.84:1, #d3869b
+
+else if [ $theme = tokyodark ]
+    # Source:
+    # - https://github.com/tiagovla/tokyodark.nvim
+
+    set -g red ee6d85 # 7.31:1, #ee6d85
+    set -g orange f6955b # 9.82:1, #f6955b
+    set -g yellow d7a65f # 15.26:1, #d7a65f
+    set -g green 95c561 # 13.18:1, #95c561
+    set -g purple 38a89d # 8.83:1, #38a89d
+    set -g cyan a485dd # 13.2:1, #a485dd
+    set -g pink 7199ee # 7.84:1, #7199ee
+
+else if [ $theme = onedark ]
+    # variant: dark
+    # Source:
+    # - https://github.com/navarasu/onedark.nvim
+
+    set -g red e86671 # 7.31:1, #e86671
+    set -g orange d19a66 # 9.82:1, #d19a66
+    set -g yellow e5c07b # 15.26:1, #e5c07b
+    set -g green 98c379 # 13.18:1, #98c379
+    set -g purple c678dd # 8.83:1, #c678dd
+    set -g cyan 56b6c2 # 13.2:1, #56b6c2
+    set -g pink 61afef # 7.84:1, #61afef
 
 end
 

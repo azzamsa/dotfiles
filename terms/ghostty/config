@@ -1,5 +1,8 @@
-command = zellij
+command = fish
+# I wanted to have zero-config, but block cursor signals my brain that I am in Visual mode.
+# as I am using modal editor all the time.
 cursor-style = bar
+# The default is to thin
 adjust-cursor-thickness = 200%
 
 # Fonts
@@ -8,18 +11,3 @@ font-size = 22
 
 # Theme
 theme = {{ theme }}
-
-# Keybindings
-keybind = clear
-keybind = ctrl+w=copy_to_clipboard
-keybind = ctrl+y=paste_from_clipboard
-
-keybind = ctrl+plus=increase_font_size:1
-keybind = ctrl+minus=decrease_font_size:1
-keybind = ctrl+equal=reset_font_size
-
-# Window
-title = " "
-
-# Mouse
-mouse-hide-while-typing = true
