@@ -14,11 +14,11 @@ palette = 12=#2fafff
 palette = 13=#feacd0
 palette = 14=#00d3d0
 palette = 15=#989898
+
+cursor-color = #ff66ff
+
+# All the colors below are kept across theme.
 background = #000000
 foreground = #ffffff
-# Modus Vivendi Tinted uses `magenta-intense` as cursor color.
-# Otherwise, use `fg-main`.
-cursor-color = #ff66ff
-# Taken from Catppuccin Mocha surface0
 selection-background = #313244
 selection-foreground = #ffffff

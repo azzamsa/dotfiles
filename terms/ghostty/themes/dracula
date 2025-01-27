@@ -14,9 +14,11 @@ palette = 12=#bd93f9
 palette = 13=#ff79c6
 palette = 14=#8be9fd
 palette = 15=#ffffff
+
+cursor-color = #ff79c6
+
+# All the colors below are kept across theme.
 background = #000000
 foreground = #ffffff
-cursor-color = #ff79c6
-cursor-text = #ffffff
-selection-background = #44475a
+selection-background = #313244
 selection-foreground = #ffffff

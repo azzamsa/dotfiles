@@ -1,1 +1,1 @@
-((nil . ((conf-mode))))
+((auto-mode-alist . (("."        . conf-mode))))

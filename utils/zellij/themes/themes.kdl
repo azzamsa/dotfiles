@@ -87,18 +87,4 @@ themes {
         black "#000000"
         white "#ffffff"
     }
-    monokai_pro {
-        red "#ff6188"
-        green "#a9dc76"
-        yellow "#ffd866"
-        blue "#81a2be"
-        magenta "#ab9df2"
-        cyan "#78dce8"
-        orange "#fc9867"
-
-        bg "#313244"
-        fg "#ffffff"
-        black "#000000"
-        white "#ffffff"
-    }
 }

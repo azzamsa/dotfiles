@@ -10,4 +10,5 @@ font-family = "Maple Mono NF"
 font-size = 22
 
 # Theme
+# Take a look at https://github.com/mbadolato/iTerm2-Color-Schemes
 theme = {{ theme }}

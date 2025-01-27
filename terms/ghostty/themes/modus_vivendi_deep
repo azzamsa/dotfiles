@@ -14,9 +14,11 @@ palette = 12=#79a8ff
 palette = 13=#feacd0
 palette = 14=#4ae2f0
 palette = 15=#989898
+
+cursor-color = #ff66ff
+
+# All the colors below are kept across theme.
 background = #000000
 foreground = #ffffff
-cursor-color = #ffffff
-# Taken from Catppuccin Mocha surface0
 selection-background = #313244
 selection-foreground = #ffffff
