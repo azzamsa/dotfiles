@@ -14,5 +14,5 @@ panic = "abort"
 anyhow = "1"
 clap = { version = "4.5", features = ["derive"] }
 duct = "0.13.7"
-rand = "0.8"
+rand = "0.9"
 toml = "0.8"
