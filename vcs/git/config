@@ -62,7 +62,7 @@
 
 # The `**/office/name/**` path must points
 # to specific office directory
-[includeIf "gitdir:**/office/bgn/**"]
+[includeIf "gitdir:**/canteen/bgn/**"]
 	path = ~/.config/git/config.bgn
 
 [core]
