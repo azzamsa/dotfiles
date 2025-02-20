@@ -4,10 +4,8 @@
 edition = "2021"
 
 [dependencies]
-chrono = "0.4.34"
-chrono-humanize = "0.2.3"
+jiff = "0.2.1"
 owo-colors = "4.0"
-num-format = "0.4"
 anyhow = "1.0"
 ---
 
@@ -29,53 +27,54 @@ anyhow = "1.0"
 //! $ rustfmt +nightly age
 //! ```
 
-use chrono_humanize as humanize;
+use jiff::{
+    civil::Date,
+    fmt::friendly::{Designator, SpanPrinter},
+    fmt::strtime,
+    Unit, Zoned,
+};
 use owo_colors::OwoColorize;
-
-// Use internal type. Chrono API changes very often
-pub type Date = chrono::NaiveDate;
-pub type DateTime = chrono::NaiveDateTime;
 
 struct Person {
     name: String,
-    dob: chrono::naive::NaiveDate,
+    dob: Date,
 }
 
 struct Company {
     name: String,
-    join_date: chrono::naive::NaiveDate,
+    join_date: Date,
 }
 
 fn main() -> anyhow::Result<()> {
     let people = [
         Person {
             name: String::from("Aragorn II Elessar"),
-            dob: date(1985, 6, 15)?,
+            dob: "1985-06-15".parse()?,
         },
         Person {
             name: String::from("Arwen Undómiel"),
-            dob: date(1990, 12, 2)?,
+            dob: "1990-12-02".parse()?,
         },
         Person {
             name: String::from("Eldarion Telcontar"),
-            dob: date(2021, 1, 20)?,
+            dob: "2021-01-20".parse()?,
         },
     ];
     birthdays(&people)?;
     println!();
 
-    let marriage_date = date(2015, 6, 10)?;
+    let marriage_date: Date = "2015-06-10".parse()?;
     marriage(marriage_date)?;
     println!();
 
     let companies = [
         Company {
             name: String::from("Rivendell Holdings"),
-            join_date: date(2010, 4, 15)?,
+            join_date: "2010-04-15".parse()?,
         },
         Company {
             name: String::from("Shire Goods Co."),
-            join_date: date(2018, 9, 1)?,
+            join_date: "2018-09-01".parse()?,
         },
     ];
     jobs(&companies)?;
@@ -97,27 +96,19 @@ fn birthdays(people: &[Person]) -> anyhow::Result<()> {
 fn birthday(person: &Person) -> anyhow::Result<()> {
     println!("{}", format!("👶🏼 {} age", person.name).magenta().bold());
 
-    let age = today() - person.dob;
+    let span = Zoned::now().date().since((Unit::Year, person.dob))?;
 
-    println!("Born at: {}", format_date(person.dob).underline());
-    println!(
-        "Age: {age} ({days} days)",
-        age = humanize(age),
-        days = format_number(age.num_days())?
-    );
+    println!("Born at: {}", format_date(person.dob)?.underline());
+    println!("Age: {age}", age = humanize(span),);
     Ok(())
 }
 
 fn marriage(date: Date) -> anyhow::Result<()> {
     println!("{}", "💍 Marriage".magenta().bold());
-    let duration = today() - date;
+    let span = Zoned::now().date().since((Unit::Year, date))?;
 
-    println!("You got married on {}", format_date(date).underline());
-    println!(
-        "It has been {} ({days} days)",
-        humanize(duration),
-        days = format_number(duration.num_days())?
-    );
+    println!("You got married on {}", format_date(date)?.underline());
+    println!("It has been {}", format!("{span:#}"),);
 
     Ok(())
 }
@@ -133,49 +124,27 @@ fn jobs(companies: &[Company]) -> anyhow::Result<()> {
 fn job(company: &Company) -> anyhow::Result<()> {
     println!("{}", "🛠  Work️".magenta().bold());
 
-    let duration = today() - company.join_date;
+    let span = Zoned::now().date().since((Unit::Year, company.join_date))?;
+
     println!(
         "You began your career at {company_name} on {join_date}",
         company_name = company.name.underline(),
-        join_date = format_date(company.join_date).underline()
+        join_date = format_date(company.join_date)?.underline()
     );
-    println!("It has been {}", humanize(duration));
+    println!("It has been {}", humanize(span));
 
     Ok(())
 }
 
-// Create a chrono's Date
-fn date(year: i32, month: u32, day: u32) -> anyhow::Result<Date> {
-    chrono::NaiveDate::from_ymd_opt(year, month, day).ok_or(anyhow::anyhow!("Invalid date"))
-}
-
-// Today's date
-fn today() -> Date {
-    chrono::Local::now().date_naive()
-}
-
 // Formats the given time into a custom string format.
-fn format_date(date: Date) -> String {
-    // https://docs.rs/chrono/latest/chrono/format/strftime/
-    date.format("%a, %d %b %Y").to_string()
+fn format_date(date: Date) -> anyhow::Result<String> {
+    Ok(strtime::format("%a, %d %b %Y", date)?)
 }
 
 // Turn duration into human readable format
-fn humanize(delta: chrono::TimeDelta) -> String {
-    let ht = humanize::HumanTime::from(delta);
-    ht.to_text_en(humanize::Accuracy::Precise, humanize::Tense::Present)
-}
-
-// Format the days into groups of three
-fn format_number(number: i64) -> anyhow::Result<String> {
-    let format = num_format::CustomFormat::builder()
-        .grouping(num_format::Grouping::Standard)
-        .separator(".")
-        .build()?;
-
-    let mut buf = num_format::Buffer::new();
-    buf.write_formatted(&number, &format);
-    Ok(buf.as_str().to_owned())
+fn humanize(span: jiff::Span) -> String {
+    let printer = SpanPrinter::new().designator(Designator::HumanTime);
+    printer.span_to_string(&span)
 }
 
 // vim: ft=rust
