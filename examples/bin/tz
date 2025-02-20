@@ -4,7 +4,7 @@
 edition = "2021"
 
 [dependencies]
-jiff = "0.1"
+jiff = "0.2"
 owo-colors = "4.0"
 anyhow = "1.0"
 ---
@@ -69,7 +69,7 @@ fn main() -> anyhow::Result<()> {
 
 fn show_status(person: Person) -> anyhow::Result<()> {
     let now = Zoned::now().round(Unit::Second)?;
-    let now = now.intz(&person.tz)?;
+    let now = now.in_tz(&person.tz)?;
 
     let status_icon = status_icon(now.hour(), person.working_hours);
 
