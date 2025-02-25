@@ -13,7 +13,7 @@ const TOOLS: Tools = &[
     ("clean", clean::run),
     ("container_name", container_name::run),
     ("emojis", emojis::run),
-    ("git_gone", git_gone::run),
+    ("git-gone", git_gone::run),
     ("names", names::run),
     ("ports", ports::run),
     ("termhere", termhere::run),
