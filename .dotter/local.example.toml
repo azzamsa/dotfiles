@@ -8,7 +8,7 @@ packages = [
     "nushell",
     #
     # Terminals
-    "wezterm",
+    # "wezterm",
     # "alacritty",
     "ghostty",
     "starship",
@@ -31,7 +31,7 @@ packages = [
     # Utils
     "fontconfig",
     "gnupg",
-    "zellij",
+    # "zellij",
     "yazi",
     "lla",
     "eget",
@@ -49,5 +49,7 @@ editor = "nvim"
 shell = "fish"
 default_terminal_app = "zellij"
 font = "Maple Mono NF"
-# Available theme can be found in shells/fish/themes/
-theme = "tokyonight_moon"
+
+# Available theme can be found in shells/fish/colors.fish
+theme = "modus_vivendi"
+# theme = "material_palenight"
