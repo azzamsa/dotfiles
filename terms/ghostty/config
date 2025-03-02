@@ -5,6 +5,8 @@ cursor-style = bar
 # The default is to thin
 adjust-cursor-thickness = 200%
 
+maximize = true
+
 # Fonts
 font-family = "Maple Mono NF"
 font-size = 22
@@ -12,3 +14,9 @@ font-size = 22
 # Theme
 # Take a look at https://github.com/mbadolato/iTerm2-Color-Schemes
 theme = {{ theme }}
+
+# Keybindings
+
+# Maintain consistency with my other apps: nvim, emacs
+keybind = alt+w=copy_to_clipboard
+keybind = ctrl+y=paste_from_clipboard
