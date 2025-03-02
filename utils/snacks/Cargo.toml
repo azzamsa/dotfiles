@@ -1,7 +1,7 @@
 [package]
 name = "snacks"
 version = "0.0.0"
-edition = "2021"
+edition = "2024"
 description = "🍿 A collection of small QoL scripts"
 
 [profile.dev]
