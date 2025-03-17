@@ -41,6 +41,16 @@ else if [ $theme = tokyonight_moon ]
     set -g cyan 86e1fc # 14.18:1, #86e1fc
     set -g pink c099ff # 9.24:1, #c099ff
 
+else if [ $theme = tokyonight_night ]
+
+    set -g red ff757f # 8.1:1, #f7768e
+    set -g orange ff966c # 9.83:1, #ff9e64
+    set -g yellow ffc777 # 13.68:1, #e0af68
+    set -g green c3e88d # 15.24:1, #9ece6a
+    set -g purple fca7ea # 11.85:1, #9d7cd8
+    set -g cyan 86e1fc # 14.18:1, #7dcfff
+    set -g pink c099ff # 9.24:1, #bb9af7
+
 else if [ $theme = material_palenight ]
     # Material Palenight HC
     #
