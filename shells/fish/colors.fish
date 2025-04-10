@@ -192,6 +192,15 @@ else if [ $theme = oxocarbon ]
     set -g cyan 3ddbd9 # 10.12:1, #3ddbd9
     set -g pink ff7eb6 # 7.84:1, #ff7eb6
 
+else if [ $theme = laserwave_high_contrast ]
+
+    set -g red ff5f59 # 6.22:1, #ff5f59
+    set -g orange ffb85b # 12.25:1, #ffb85b
+    set -g yellow ffe97b # 16.3:1, #ffe97b
+    set -g green 3feabf # 13.73:1, #3feabf
+    set -g purple d887f5 # 8.7:1, #d887f5
+    set -g cyan ed60ba # 14.55:1, #ed60ba
+    set -g pink acdfef # 6.98:1, #acdfef
 end
 
 # All the colors below are kept across theme.
