@@ -21,6 +21,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export PATH
 export PATH=~/opt/pbin:~/opt/appimages:~/.local/bin:~/.cargo/bin:$PATH
 export PATH=~/opt/nodebin/node_modules/.bin:$PATH
+export PATH=~/.local/share/go/bin:$PATH
 
 export VISUAL="{{ editor }}"
 export EDITOR="{{ editor }}"
@@ -45,9 +46,9 @@ export ZDOTDIR=~/.config/zsh
 
 # If inside toolbx do something
 if [[ "$(hostname)" = "toolbox" ]]; then
-  # I don't change my default $SHELL
-  # So I need to run my preferred shell at toolbx startup
-  zsh
+    # I don't change my default $SHELL
+    # So I need to run my preferred shell at toolbx startup
+    zsh
 fi
 
 #
@@ -72,6 +73,7 @@ export VIRTUALFISH_HOME="$XDG_DATA_HOME"/virtualfish
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo
 
+export GOPATH="$XDG_DATA_HOME"/go
 #
 #
 #
