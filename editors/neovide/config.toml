@@ -1,1 +1,4 @@
 maximized = true # default: false
+
+[box-drawing]
+mode = "selected-native"

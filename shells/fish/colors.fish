@@ -201,6 +201,26 @@ else if [ $theme = laserwave_high_contrast ]
     set -g purple d887f5 # 8.7:1, #d887f5
     set -g cyan ed60ba # 14.55:1, #ed60ba
     set -g pink acdfef # 6.98:1, #acdfef
+
+else if [ $theme = nord ]
+
+    set -g red ff5f59 # 6.22:1, #bf616a
+    set -g orange ffb85b # 12.25:1, #d08770
+    set -g yellow ffe97b # 16.3:1, #ebcb8b
+    set -g green 3feabf # 13.73:1, #a3be8c
+    set -g purple d887f5 # 8.7:1, #b48ead
+    set -g cyan ed60ba # 14.55:1, #88c0d0
+    set -g pink acdfef # 6.98:1, #5e81ac
+
+else if [ $theme = ayu_mirage ]
+
+    set -g red ed8274 # 8.04:1, #ed8274
+    set -g orange ffae57 # 11.44:1, #ffae57
+    set -g yellow ffd57f # 15.07:1, #ffd57f
+    set -g green bbe67e # 14.73:1, #bbe67e
+    set -g purple d4bfff # 12.69:1, #d4bfff
+    set -g cyan 95e6cb # 14.45:1, #95e6cb
+    set -g pink 5ccfe6 # 11.52:1, #5ccfe6
 end
 
 # All the colors below are kept across theme.
