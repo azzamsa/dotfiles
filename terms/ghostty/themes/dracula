@@ -7,7 +7,8 @@ palette = 5=#ff79c6
 palette = 6=#8be9fd
 palette = 7=#ffffff
 # Atuin comment header
-palette = 8=#989898 # Modus Vivendi
+# Modus Vivendi
+palette = 8=#989898
 palette = 9=#ff5555
 palette = 10=#50fa7b
 palette = 11=#f1fa8c

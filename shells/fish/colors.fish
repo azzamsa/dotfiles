@@ -11,7 +11,7 @@ if [ $theme = modus_vivendi ]
 
     set -g red ff5f59 # 7.48:1, #ff5f59
     set -g green 44bc44 # 13.41:1, #44bc44
-    set -g yellow fec43f # 10.05:1 #fec43f
+    set -g yellow fec43f # 13.18:1 #fec43f
     set -g orange 2fafff # 8.85:1, #2fafff
     set -g purple b6a0ff # 9.46:1, #b6a0ff
     set -g pink feacd0 # 12.02:1, #feacd0

@@ -1,7 +1,9 @@
+# Source: https://github.com/miikanissi/modus-themes.nvim/blob/master/extras/ghostty/modus_vivendi_tinted
+
 palette = 0=#000000
 palette = 1=#ff5f59
 palette = 2=#44bc44
-palette = 3=#fec43f
+palette = 3=#d0bc00
 palette = 4=#2fafff
 palette = 5=#feacd0
 palette = 6=#00d3d0
@@ -9,7 +11,7 @@ palette = 7=#ffffff
 palette = 8=#989898
 palette = 9=#ff5f59
 palette = 10=#44bc44
-palette = 11=#fec43f
+palette = 11=#d0bc00
 palette = 12=#2fafff
 palette = 13=#feacd0
 palette = 14=#00d3d0
@@ -22,3 +24,7 @@ background = #000000
 foreground = #ffffff
 selection-background = #313244
 selection-foreground = #ffffff
+
+# Modus Themes for Ghostty
+# Auto generated with https://github.com/miikanissi/modus-themes.nvim/blob/master/lua/modus-themes/extras/ghostty.lua
+
