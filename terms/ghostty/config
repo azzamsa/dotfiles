@@ -8,7 +8,7 @@ adjust-cursor-thickness = 200%
 maximize = true
 
 # Fonts
-font-family = {{ theme }}
+font-family = {{ font }}
 font-size = 22
 
 # Theme
@@ -20,3 +20,7 @@ theme = {{ theme }}
 # Maintain consistency with my other apps: nvim, emacs
 keybind = alt+w=copy_to_clipboard
 keybind = ctrl+y=paste_from_clipboard
+
+# UI
+window-padding-x = 10
+window-padding-y = 10
