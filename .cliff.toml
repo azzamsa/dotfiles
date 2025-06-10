@@ -48,12 +48,18 @@ conventional_commits = true
 # regex for parsing and grouping commits
 commit_parsers = [
     # Distro, theme migrations
-    { message = "^migrate", group = "<!-- 0 --> 🚚 Migrations" },
-    { message = "^feat", group = "<!-- 1 -->⛰️ Features" },
-    { message = "^fix", group = "<!-- 2 -->🐛 Bug Fixes" },
-    { message = "^perf", group = "<!-- 3 -->⚡ Performance" },
+    { message = "^migrate", group = "<!-- 1 --> 🚚 Migrations" },
     # Ditching or replacing an app
-    { message = "^rm", group = "<!-- 4 -->🧹 Cleanup" },
+    { message = "^rm", group = "<!-- 2 -->🧹 Cleanup" },
+    { message = "^feat", group = "<!-- 3 -->🚀 Features" },
+    { message = "^fix", group = "<!-- 4 -->🐛 Bug Fixes" },
+    { message = "^refactor", group = "<!-- 5 -->🚜 Refactor" },
+    { message = "^docs", group = "<!-- 6 -->📚 Documentation" },
+    { message = "^perf", group = "<!-- 7 -->⚡ Performance" },
+    { message = "^style", group = "<!-- 8 -->🎨 Styling" },
+    { message = "^test", group = "<!-- 9 -->🧪 Testing" },
+    { message = "^ci", group = "<!-- 10 -->⚙️ Miscellaneous Tasks" },
+    { message = ".*", group = "<!-- 15 -->💼 Other" },
 ]
 # filter out the commits that are not matched by commit parsers
 filter_commits = true
