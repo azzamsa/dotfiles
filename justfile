@@ -12,6 +12,10 @@ _default:
 # Setup the repository
 setup:
 
+[doc('deploy the binaries')]
+deploy:
+    dotter deploy
+
 # Tasks to make the code-base comply with the rules. Mostly used in git hooks.
 comply: fmt lint
   just --justfile utils/snacks/justfile comply

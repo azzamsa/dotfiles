@@ -40,8 +40,8 @@ sudo dnf install --assumeyes bash git fish
 Populate the dotfiles.
 
 ```bash
-cd ~/dotfiles
-dotter deploy
+cd ~/projects/dotfiles
+j deploy
 ```
 
 Make sure bash doesn't fail to load.
@@ -101,22 +101,19 @@ I think I will just use mutable OS an immutable way!
 
 ```bash
 # Main
-flatpak install flathub --assumeyes com.github.tchx84.Flatseal org.gnome.seahorse.Application org.keepassxc.KeePassXC
+flatpak install flathub --assumeyes  app.zen_browser.zen com.brave.Browser com.github.tchx84.Flatseal org.keepassxc.KeePassXC
 
 # Productivity tools
-flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate com.logseq.Logseq
+flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate
 
 # Work
-flatpak install flathub --assumeyes org.gnome.Evolution org.mozilla.Thunderbird com.usebruno.Bruno io.dbeaver.DBeaverCommunity rest.insomnia.Insomnia
+flatpak install flathub --assumeyes org.gnome.Evolution org.mozilla.Thunderbird com.usebruno.Bruno io.dbeaver.DBeaverCommunity
 
 # Utilities
 flatpak install flathub --assumeyes com.github.finefindus.eyedropper com.github.huluti.Curtail com.github.qarmin.czkawka com.github.tenderowl.frog com.gitlab.newsflash fr.romainvigier.MetadataCleaner io.github.adrienverge.PhotoCollage io.github.flattool.Warehouse com.dec05eba.gpu_screen_recorder net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gnome.Fractal org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.telegram.desktop org.videolan.VLC
 
 # Office
 flatpak install flathub --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
-
-# Emergency
-flatpak install flathub --assumeyes com.brave.Browser
 ```
 
 ## Setup Power Management
@@ -172,7 +169,7 @@ toolbox run -c daily sudo dnf install --assumeyes yt-dlp ffmpeg
 ```bash
 sudo dnf install --assumeyes aspell-id gnome-tweaks workrave
 
-sudo dnf install --assumeyes jq podman-compose telnet
+sudo dnf install --assumeyes jq telnet
 
 # More codecs
 sudo dnf config-manager --set-enabled fedora-cisco-openh264
@@ -186,7 +183,7 @@ fnm use <version> # To get LTS version, see https://endoflife.date/nodejs
 
 ```bash
 # Development tool
-cargo binstall --no-confirm --no-symlinks cargo-edit cargo-nextest cargo-outdated cargo-tarpaulin dprint git-cliff git-cliff hurl just selene stylua tokei typos-cli watchexec-cli rye
+cargo binstall --no-confirm --no-symlinks cargo-edit cargo-nextest cargo-outdated cargo-tarpaulin dprint git-cliff hurl just selene stylua tokei typos-cli watchexec-cli rye
 
 # Utilities
 cargo binstall --no-confirm --no-symlinks bandwhich bat dua-cli kondo yazi-fm
@@ -215,7 +212,6 @@ Install `eget` from https://github.com/zyedidia/eget/releases
 
 ```bash
 eget junegunn/fzf --to ~/.local/bin
-eget rui314/mold --to ~/.local/bin
 eget getzola/zola --to ~/.local/bin
 eget neovide/neovide --to ~/.local/bin/neovide --asset "neovide.AppImage"
 ```
@@ -275,17 +271,14 @@ On laptop.
 ### Tweaks
 
 ```bash
-# https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/
-sudo dnf install --assumeyes papirus-icon-theme
-
 # https://github.com/ful1e5/Bibata_Cursor
 ```
 
 Fonts:
 
-- Interface Text: "JetBrains Mono Nerd Font Medium 13"
-- Document Text: "JetBrains Mono Nerd Font Medium 13"
-- Monospace Text: "JetBrains Mono Nerd Font Medium 13"
+- Interface Text: "Maple Mono NF 13"
+- Document Text: "Maple Mono NF 13"
+- Monospace Text: "Maple Mono NF 13"
 - Hinting : Slight
 - Antialiasing: Standard (greyscale)
 - Scaling Factor: 1.00
@@ -334,11 +327,6 @@ To prevent Apps to move to the Laptop monitor during suspension, go to `Display`
 ## Polish
 
 ### Setup apps
-
-```bash
-broot --install
-br
-```
 
 ```bash
 atuin gen-completions --shell fish --out-dir ~/.config/fish/completions/
