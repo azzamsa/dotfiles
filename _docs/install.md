@@ -213,10 +213,24 @@ Install `eget` from https://github.com/zyedidia/eget/releases
 ```bash
 eget junegunn/fzf --to ~/.local/bin
 eget getzola/zola --to ~/.local/bin
-eget neovide/neovide --to ~/.local/bin/neovide --asset "neovide.AppImage"
 ```
 
 ## Setup Apps
+
+## Emacs
+
+```
+sudo dnf install emacs
+git clone git@github.com:azzamsa/camp.d.git ~/.config/emacs
+```
+
+## Nvim
+
+```
+sudo dnf install nvim
+git clone git@github.com:azzamsa/roof.git ~/.config/nvim
+eget neovide/neovide --to ~/.local/bin/neovide --asset "neovide.AppImage"
+```
 
 ## Firefox
 
