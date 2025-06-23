@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   ci:
     name: Check code quality
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
 
@@ -15,26 +15,12 @@ jobs:
 
       - uses: taiki-e/install-action@just
       - uses: taiki-e/install-action@dprint
-      - uses: taiki-e/install-action@v2
-        with:
-          tool: typos-cli,stylua,selene
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
-
-      - name: Install prerequisites
-        run: |
-          just setup
-
-          npm install -g prettier
+      - uses: taiki-e/install-action@typos
 
       - name: Show version information
         shell: bash
         run: |
           dprint --version
-          stylua --version
-          prettier --version
 
       - name: Check
         run: |

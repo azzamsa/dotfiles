@@ -80,7 +80,7 @@ rustup default stable
 sudo dnf install --assumeyes clang
 
 cargo install cargo-binstall
-cargo binstall --no-confirm --no-symlinks atuin fnm starship zellij zoxide
+cargo binstall --no-confirm --no-symlinks atuin dotter fnm starship zellij zoxide
 ```
 
 ## I hate brightness
