@@ -43,4 +43,6 @@ release version:
 [doc('Check dependencies health. Pass `--write` to upgrade dependencies')]
 up arg="":
     #!/usr/bin/env bash
+    cargo upgrade --incompatible --recursive --verbose
+    cargo update
     dprint config update
