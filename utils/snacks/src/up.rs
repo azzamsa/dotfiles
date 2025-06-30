@@ -15,6 +15,7 @@ pub struct Opts {
 #[derive(Debug, Clone, ValueEnum)]
 pub enum Task {
     Cargo,
+    Golang,
     Flatpak,
     System,
     Node,
@@ -35,6 +36,7 @@ pub(crate) fn run() -> anyhow::Result<()> {
 fn run_all() -> anyhow::Result<()> {
     flatpak()?;
     cargo()?;
+    golang()?;
     system()?;
     node()?;
     Ok(())
@@ -45,6 +47,7 @@ fn run_some(modules: Vec<Task>) -> anyhow::Result<()> {
         match module {
             Task::Flatpak => flatpak()?,
             Task::Cargo => cargo()?,
+            Task::Golang => golang()?,
             Task::System => system()?,
             Task::Node => node()?,
         }
@@ -64,6 +67,12 @@ fn cargo() -> anyhow::Result<()> {
         .pipe(cmd!("grep", "-v", "No"))
         .run()?;
     cmd!("rustup", "update", "stable").run()?;
+    Ok(())
+}
+
+fn golang() -> anyhow::Result<()> {
+    utils::stdout("🐹 Upgrading Go apps");
+    cmd!("gup", "update").run()?;
     Ok(())
 }
 
