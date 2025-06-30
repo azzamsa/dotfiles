@@ -18,7 +18,7 @@ pub(crate) fn run() -> anyhow::Result<()> {
     match opts.cwd {
         None => here(&home)?,
         Some(cwd) => here(&cwd)?,
-    };
+    }
 
     Ok(())
 }

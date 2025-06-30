@@ -141,12 +141,11 @@ fn print(figure: Figure, with_adjective: bool) -> anyhow::Result<()> {
             LOTR[index]
         }
     };
-    let name = match with_adjective {
-        false => noun.to_owned(),
-        true => {
-            let index = utils::get_random_number(ADJECTIVES.len());
-            format!("{}-{}", ADJECTIVES[index], noun)
-        }
+    let name = if with_adjective {
+        let index = utils::get_random_number(ADJECTIVES.len());
+        format!("{}-{}", ADJECTIVES[index], noun)
+    } else {
+        noun.to_owned()
     };
     utils::stdout(&name);
     Ok(())
