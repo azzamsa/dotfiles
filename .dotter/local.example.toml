@@ -47,7 +47,7 @@ packages = [
 [variables]
 editor = "nvim"
 shell = "fish"
-default_terminal_app = "zellij"
+terminal_command = "fish"
 font = "Maple Mono NF"
 
 # Available theme can be found in shells/fish/colors.fish
