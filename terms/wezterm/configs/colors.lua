@@ -54,6 +54,8 @@ function M.append(config)
             foreground = "#ffffff",
             background = "#000000",
             scrollbar_thumb = "#7f849c",
+            --  #1e1e2e (Catpuccin Mocha Base)
+            selection_bg = "#1e1e2e",
         },
     }
 

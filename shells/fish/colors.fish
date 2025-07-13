@@ -224,6 +224,6 @@ else if [ $theme = ayu_mirage ]
 end
 
 # All the colors below are kept across theme.
-set -g selection 313244 #, #313244 (Catpuccin surface0)
+set -g selection 1e1e2e #, #1e1e2e (Catpuccin Mocha Base)
 set -g comment 989898 # 7.27:1, #989898 (modus-vivendi fg-dim)
 set -g foreground ffffff # 21:1, #ffffff
