@@ -38,9 +38,6 @@ alias cp 'cp -i'
 alias mv 'mv -i'
 alias mkdir 'mkdir -pv'
 
-# Display PATH with each directory on a new line
-alias path 'echo -e $PATH | tr ":" "\\n"'
-
 alias j just
 alias x nyazi
 
@@ -77,7 +74,6 @@ end
 function tree
     eza --icons --tree $argv
 end
-
 
 # Changing working directory when exiting Yazi
 # https://yazi-rs.github.io/docs/quick-start/#changing-working-directory-when-exiting-yazi
