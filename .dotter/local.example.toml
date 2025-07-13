@@ -47,9 +47,7 @@ packages = [
 [variables]
 editor = "nvim"
 shell = "fish"
-terminal_command = "fish"
+# the only font that doesn’t stare at me — coding feels good.
 font = "Maple Mono NF"
-
 # Available theme can be found in shells/fish/colors.fish
-theme = "modus_vivendi"
-# theme = "material_palenight"
+theme = "tokyonight_moon"
