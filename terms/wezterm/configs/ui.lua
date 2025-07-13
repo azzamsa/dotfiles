@@ -2,65 +2,6 @@ local wezterm = require("wezterm")
 
 local M = {}
 
--- Hide window title
-wezterm.on("format-window-title", function(_, _, _, _, _)
-    -- Hyprland doesn't have an Alt-tab previewer, so you can get lost easily.
-    -- You need to add a title to the app.
-    -- return "Wezterm"
-    return ""
-end)
-
--- This function returns the suggested title for a tab.
--- It prefers the title that was set via `tab:set_title()`
--- or `wezterm cli set-tab-title`, but falls back to the
--- default title.
-function M.tab_title(tab)
-    local title = tab.tab_title
-    -- if the tab title is explicitly set, take that
-    if title and #title > 0 then
-        return title
-    end
-    -- Otherwise, use the default title.
-    return "  " .. tab.tab_index + 1 .. "  "
-end
-
-wezterm.on("format-tab-title", function(tab, _, _, _, _, _)
-    local solid_left_arrow = ""
-    local solid_right_arrow = ""
-    local bg_color = "#222436"
-    local bg_active_color = "#2f334d"
-    local fg_color = "#c8d3f5"
-    local fg_active_color = "#82aaff"
-
-    -- Edge icon color
-    local edge_icon_bg = bg_color
-    local edge_icon_fg = bg_color
-
-    -- Inactive tab
-    local tab_bg_color = bg_active_color
-    local tab_fg_color = fg_color
-
-    if tab.is_active then
-        tab_bg_color = fg_active_color
-        tab_fg_color = bg_color
-    end
-
-    edge_icon_fg = tab_bg_color
-    local title = M.tab_title(tab)
-
-    return {
-        { Background = { Color = edge_icon_bg } },
-        { Foreground = { Color = edge_icon_fg } },
-        { Text = solid_left_arrow },
-        { Background = { Color = tab_bg_color } },
-        { Foreground = { Color = tab_fg_color } },
-        { Text = title },
-        { Background = { Color = edge_icon_bg } },
-        { Foreground = { Color = edge_icon_fg } },
-        { Text = solid_right_arrow },
-    }
-end)
-
 function M.append(config)
     local options = {
         default_cursor_style = "BlinkingBar", -- default: 'SteadyBlock'

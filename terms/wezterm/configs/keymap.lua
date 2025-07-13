@@ -64,25 +64,10 @@ function M.append(config)
         --
         keys = {
             { key = "y", mods = "CTRL", action = act({ PasteFrom = "Clipboard" }) },
-            { key = "x", mods = "CTRL|SHIFT", action = act({ CloseCurrentTab = { confirm = true } }) },
-            { key = "s", mods = "CTRL|SHIFT", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
-            {
-                key = "s",
-                mods = "CTRL|SHIFT|ALT",
-                action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
-            },
 
             { key = "+", mods = "CTRL", action = act.IncreaseFontSize },
             { key = "-", mods = "CTRL", action = act.DecreaseFontSize },
             { key = "=", mods = "CTRL", action = act.ResetFontSize },
-            --
-            -- Pane
-            { key = "x", mods = "CTRL|SHIFT|ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
-            {
-                key = "Tab",
-                mods = "CTRL|ALT",
-                action = act.PaneSelect({ alphabet = "arstg" }),
-            },
         },
     }
 
