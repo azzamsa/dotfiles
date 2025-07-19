@@ -9,7 +9,7 @@ maximize = true
 
 # Fonts
 font-family = {{ font }}
-font-size = 22
+font-size = 20
 
 # Theme
 # Take a look at https://github.com/mbadolato/iTerm2-Color-Schemes
