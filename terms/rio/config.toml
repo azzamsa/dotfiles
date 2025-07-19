@@ -1,0 +1,11 @@
+[shell]
+program = "/bin/fish"
+
+[cursor]
+blinking = true
+shape = 'beam'
+
+[fonts]
+size = 32
+family = "Maple Mono NF"
+features = []
