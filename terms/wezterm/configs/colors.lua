@@ -17,11 +17,6 @@ M.color_schemes = {
         brights = { "#989898", "#ff5f59", "#44bc44", "#fec43f", "#b6a0ff", "#feacd0", "#00d3d0", "#ffffff" },
         cursor_bg = "#ff66ff",
     },
-    ["modus_vivendi_deep"] = {
-        ansi = { "#989898", "#ff6b55", "#6ae4b9", "#f78fe7", "#79a8ff", "#feacd0", "#4ae2f0", "#ffffff" },
-        brights = { "#989898", "#ff7f86", "#6ae4b9", "#f78fe7", "#79a8ff", "#feacd0", "#4ae2f0", "#ffffff" },
-        cursor_bg = "#ff66ff",
-    },
     ["tokyonight_moon"] = {
         ansi = { "#9399b2", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#ffffff" },
         brights = { "#9399b2", "#ff757f", "#c3e88d", "#ffc777", "#82aaff", "#c099ff", "#86e1fc", "#ffffff" },
