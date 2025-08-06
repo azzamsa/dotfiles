@@ -1,5 +1,8 @@
 # This is a global .gitignore
 
+# Scratch
+TODO.tmp.md
+
 # Emacs
 .projectile
 .projectile.el
