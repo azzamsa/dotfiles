@@ -1,74 +1,450 @@
 {
   "git.openRepositoryInParentFolders": "never",
-  "workbench.colorTheme": "Tokyo Night",
   "editor.fontFamily": "Maple Mono NF",
   "terminal.integrated.fontSize": 18,
-  "window.zoomLevel": 1.5,
-  "editor.fontSize": 17,
-  "files.autoSave": "onFocusChange",
+  "window.zoomLevel": 2.5,
+  "editor.fontSize": 14.5,
+  "files.autoSave": "afterDelay",
   "editor.formatOnSave": true,
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     // prettier-ignore
-    { "before": ["n"], "after": ["h"] },
-    { "before": ["e"], "after": ["j"] },
-    { "before": ["i"], "after": ["k"] },
-    { "before": ["o"], "after": ["l"] },
-    { "before": ["k"], "after": ["n"] },
-    { "before": ["K"], "after": ["N"] },
-    { "before": ["u"], "after": ["i"] },
-    { "before": ["U"], "after": ["I"] },
-    { "before": ["l"], "after": ["u"] },
-    { "before": ["N"], "after": ["J"] },
-    { "before": ["E"], "after": ["K"] },
-    { "before": ["I"], "after": ["L"] },
-    { "before": ["L"], "after": ["U"] },
-    { "before": ["f"], "after": ["e"] },
-    { "before": ["F"], "after": ["E"] },
-    { "before": ["t"], "after": ["f"] },
-    { "before": ["T"], "after": ["F"] },
-    { "before": ["j"], "after": ["t"] },
-    { "before": ["J"], "after": ["T"] },
-    { "before": ["m"], "after": ["o"] },
-    { "before": ["M"], "after": ["O"] }
+    {
+      "before": [
+        "n"
+      ],
+      "after": [
+        "h"
+      ]
+    },
+    {
+      "before": [
+        "e"
+      ],
+      "after": [
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "i"
+      ],
+      "after": [
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "o"
+      ],
+      "after": [
+        "l"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "n"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "after": [
+        "N"
+      ]
+    },
+    {
+      "before": [
+        "u"
+      ],
+      "after": [
+        "i"
+      ]
+    },
+    {
+      "before": [
+        "U"
+      ],
+      "after": [
+        "I"
+      ]
+    },
+    {
+      "before": [
+        "l"
+      ],
+      "after": [
+        "u"
+      ]
+    },
+    {
+      "before": [
+        "N"
+      ],
+      "after": [
+        "J"
+      ]
+    },
+    {
+      "before": [
+        "E"
+      ],
+      "after": [
+        "K"
+      ]
+    },
+    {
+      "before": [
+        "I"
+      ],
+      "after": [
+        "L"
+      ]
+    },
+    {
+      "before": [
+        "L"
+      ],
+      "after": [
+        "U"
+      ]
+    },
+    {
+      "before": [
+        "f"
+      ],
+      "after": [
+        "e"
+      ]
+    },
+    {
+      "before": [
+        "F"
+      ],
+      "after": [
+        "E"
+      ]
+    },
+    {
+      "before": [
+        "t"
+      ],
+      "after": [
+        "f"
+      ]
+    },
+    {
+      "before": [
+        "T"
+      ],
+      "after": [
+        "F"
+      ]
+    },
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "t"
+      ]
+    },
+    {
+      "before": [
+        "J"
+      ],
+      "after": [
+        "T"
+      ]
+    },
+    {
+      "before": [
+        "m"
+      ],
+      "after": [
+        "o"
+      ]
+    },
+    {
+      "before": [
+        "M"
+      ],
+      "after": [
+        "O"
+      ]
+    }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     // prettier-ignore
-    { "before": ["n"], "after": ["h"] },
-    { "before": ["e"], "after": ["j"] },
-    { "before": ["i"], "after": ["k"] },
-    { "before": ["o"], "after": ["l"] },
-    { "before": ["k"], "after": ["n"] },
-    { "before": ["K"], "after": ["N"] },
-    { "before": ["u"], "after": ["i"] },
-    { "before": ["U"], "after": ["I"] },
-    { "before": ["l"], "after": ["u"] },
-    { "before": ["N"], "after": ["J"] },
-    { "before": ["E"], "after": ["K"] },
-    { "before": ["I"], "after": ["L"] },
-    { "before": ["L"], "after": ["U"] },
-    { "before": ["f"], "after": ["e"] },
-    { "before": ["F"], "after": ["E"] },
-    { "before": ["t"], "after": ["f"] },
-    { "before": ["T"], "after": ["F"] },
-    { "before": ["j"], "after": ["t"] },
-    { "before": ["J"], "after": ["T"] },
-    { "before": ["m"], "after": ["o"] },
-    { "before": ["M"], "after": ["O"] }
+    {
+      "before": [
+        "n"
+      ],
+      "after": [
+        "h"
+      ]
+    },
+    {
+      "before": [
+        "e"
+      ],
+      "after": [
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "i"
+      ],
+      "after": [
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "o"
+      ],
+      "after": [
+        "l"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "n"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "after": [
+        "N"
+      ]
+    },
+    {
+      "before": [
+        "u"
+      ],
+      "after": [
+        "i"
+      ]
+    },
+    {
+      "before": [
+        "U"
+      ],
+      "after": [
+        "I"
+      ]
+    },
+    {
+      "before": [
+        "l"
+      ],
+      "after": [
+        "u"
+      ]
+    },
+    {
+      "before": [
+        "N"
+      ],
+      "after": [
+        "J"
+      ]
+    },
+    {
+      "before": [
+        "E"
+      ],
+      "after": [
+        "K"
+      ]
+    },
+    {
+      "before": [
+        "I"
+      ],
+      "after": [
+        "L"
+      ]
+    },
+    {
+      "before": [
+        "L"
+      ],
+      "after": [
+        "U"
+      ]
+    },
+    {
+      "before": [
+        "f"
+      ],
+      "after": [
+        "e"
+      ]
+    },
+    {
+      "before": [
+        "F"
+      ],
+      "after": [
+        "E"
+      ]
+    },
+    {
+      "before": [
+        "t"
+      ],
+      "after": [
+        "f"
+      ]
+    },
+    {
+      "before": [
+        "T"
+      ],
+      "after": [
+        "F"
+      ]
+    },
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "t"
+      ]
+    },
+    {
+      "before": [
+        "J"
+      ],
+      "after": [
+        "T"
+      ]
+    },
+    {
+      "before": [
+        "m"
+      ],
+      "after": [
+        "o"
+      ]
+    },
+    {
+      "before": [
+        "M"
+      ],
+      "after": [
+        "O"
+      ]
+    }
   ],
   "vim.operatorPendingModeKeyBindingsNonRecursive": [
     // prettier-ignore
-    { "before": ["n"], "after": ["h"] },
-    { "before": ["e"], "after": ["j"] },
-    { "before": ["i"], "after": ["k"] },
-    { "before": ["o"], "after": ["l"] },
-    { "before": ["f"], "after": ["e"] },
-    { "before": ["F"], "after": ["E"] },
-    { "before": ["t"], "after": ["f"] },
-    { "before": ["T"], "after": ["F"] },
-    { "before": ["j"], "after": ["t"] },
-    { "before": ["J"], "after": ["T"] }
+    {
+      "before": [
+        "n"
+      ],
+      "after": [
+        "h"
+      ]
+    },
+    {
+      "before": [
+        "e"
+      ],
+      "after": [
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "i"
+      ],
+      "after": [
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "o"
+      ],
+      "after": [
+        "l"
+      ]
+    },
+    {
+      "before": [
+        "f"
+      ],
+      "after": [
+        "e"
+      ]
+    },
+    {
+      "before": [
+        "F"
+      ],
+      "after": [
+        "E"
+      ]
+    },
+    {
+      "before": [
+        "t"
+      ],
+      "after": [
+        "f"
+      ]
+    },
+    {
+      "before": [
+        "T"
+      ],
+      "after": [
+        "F"
+      ]
+    },
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "t"
+      ]
+    },
+    {
+      "before": [
+        "J"
+      ],
+      "after": [
+        "T"
+      ]
+    }
   ],
   "terminal.integrated.defaultProfile.linux": "fish",
-  "go.toolsManagement.autoUpdate": true
+  "go.toolsManagement.autoUpdate": true,
+  "svelte.enable-ts-plugin": true,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "terminal.integrated.cursorStyle": "line",
+  "files.autoSaveDelay": 2000,
+  "workbench.iconTheme": "catppuccin-mocha",
+  "catppuccin.colorOverrides": {
+    // make Mocha "OLEDppuccin" - use black editor background
+    "mocha": {
+      "base": "#000000",
+      "mantle": "#010101",
+      "crust": "#020202",
+    },
+  },
 }
