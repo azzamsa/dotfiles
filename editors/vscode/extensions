@@ -1,8 +1,20 @@
-eamodio.gitlens
-enkia.tokyo-night
-fill-labs.dependi
+# codium --list-extensions
+
+# Languages
 golang.go
+graphql.vscode-graphql
+graphql.vscode-graphql-syntax
+nefrob.vscode-just-syntax
 rust-lang.rust-analyzer
+svelte.svelte-vscode
 tamasfe.even-better-toml
 usernamehw.errorlens
-vscodevim.vim
+
+# UI
+catppuccin.catppuccin-vsc
+catppuccin.catppuccin-vsc-icons
+
+## Utils
+eamodio.gitlens
+editorconfig.editorconfig
+fill-labs.dependi
