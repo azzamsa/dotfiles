@@ -71,6 +71,18 @@ else if [ $theme = catppuccin_mocha ]
     set -g cyan 94e2d5 # 14.09:1, #94e2d5
     set -g pink f5c2e7 # 13.75:1, #f5c2e7
 
+else if [ $theme = github ]
+    # Github Dark Default
+    # https://github.com/primer/primitives/blob/main/src/tokens/base/color/dark/dark.json5
+
+    set -g red ff7b72 # 9.06:1, #ff7b72
+    set -g orange ffa657 # 11.86:1, #ffa657
+    set -g yellow f2cc60 # 16.52:1, #f2cc60
+    set -g green 7ee787 # 14.12:1, #7ee787
+    set -g purple d2a8ff # 10.33:1, #d2a8ff
+    set -g cyan 79c0ff # 14.09:1, #79c0ff
+    set -g pink ffbedd # 13.75:1, #ffbedd
+
 end
 
 # All the colors below are kept across theme.
