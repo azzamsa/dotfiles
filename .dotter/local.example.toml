@@ -1,3 +1,4 @@
+
 includes = [".dotter/include/fedora.toml"]
 
 packages = [
@@ -45,9 +46,9 @@ packages = [
 
 # ⚠️ This is example file!
 [variables]
-editor = "nvim"
+editor = "hx"
 shell = "fish"
-# the only font that doesn’t stare at me — coding feels good.
-font = "Maple Mono NF"
+terminal_font_size = 20
+font = "Maple Mono NF" # the only font that doesn't stare at me. I feel happy coding.
 # Available theme can be found in shells/fish/colors.fish
-theme = "tokyonight_moon"
+theme = "dracula"
