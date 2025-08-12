@@ -4,6 +4,7 @@ mod emojis;
 mod git_gone;
 mod names;
 mod ports;
+mod quotes;
 mod termhere;
 mod up;
 mod utils;
@@ -16,6 +17,7 @@ const TOOLS: Tools = &[
     ("git-gone", git_gone::run),
     ("names", names::run),
     ("ports", ports::run),
+    ("quotes", quotes::run),
     ("termhere", termhere::run),
     ("up", up::run),
 ];
