@@ -5,38 +5,38 @@ alias l := lint
 alias c := comply
 alias k := check
 
-# List available commands.
+[doc('List available commands')]
 _default:
     just --list --unsorted
 
-# Setup the repository
+[doc('Set up the repository')]
 setup:
 
-[doc('deploy the binaries')]
+[doc('Deploy the binaries')]
 deploy:
     dotter deploy
 
-# Tasks to make the code-base comply with the rules. Mostly used in git hooks.
+[doc('Make the codebase comply with formatting and linting rules (used in git hooks)')]
 comply: fmt lint
-  just --justfile utils/snacks/justfile comply
+    just --justfile utils/snacks/justfile comply
 
-# Check if the repository comply with the rules and ready to be pushed.
+[doc('Check if the repository complies with rules and is ready to push')]
 check: fmt-check lint
-  just --justfile utils/snacks/justfile check
+    just --justfile utils/snacks/justfile check
 
-# Format the codebase.
+[doc('Format the codebase')]
 fmt:
     dprint fmt
 
-# Check is the codebase properly formatted.
+[doc('Check if the codebase is properly formatted')]
 fmt-check:
     dprint check
 
-# Lint the codebase.
+[doc('Lint the codebase')]
 lint:
     typos
 
-# Create a new release. Example `just release v2.2.0`
+[doc('Create a new release. Example: just release v2.2.0')]
 release version:
     ./release {{ version }}
 
