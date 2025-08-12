@@ -1,4 +1,3 @@
-
 includes = [".dotter/include/fedora.toml"]
 
 packages = [
