@@ -15,13 +15,18 @@ unmapAll
 
 # Navigating the current page
 map e scrollDown
-map i scrollUp
-map gg scrollToTop
+map d scrollDown
+map E scrollPageDown
 map G scrollToBottom
-map d scrollPageDown
-map u scrollPageUp
+
+map i scrollUp
+map u scrollUp
+map I scrollPageUp
+map gg scrollToTop
+
 map r reload
 map R reload hard
+
 map yy copyCurrentUrl
 map ym copyWindowInfo type="tab" format="[${title}](${url})"
 map yM LinkHints.activateCopyLinkText access="[${innerText}](${href})"
