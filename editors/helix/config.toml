@@ -42,13 +42,9 @@ f = "move_next_word_end"
 F = "move_next_long_word_end"
 
 # f
-t = "find_next_char"
+j = "find_next_char"
 # F
-T = "find_prev_char"
-# t
-j = "find_till_char"
-# T
-J = "till_prev_char"
+J = "find_prev_char"
 
 #
 # Changes
