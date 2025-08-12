@@ -44,6 +44,8 @@ export LSP_USE_PLISTS=true
 
 export ZDOTDIR=~/.config/zsh
 
+export HELIX_RUNTIME=~/.config/helix/
+
 # If inside toolbx do something
 if [[ "$(hostname)" = "toolbox" ]]; then
     # I don't change my default $SHELL
