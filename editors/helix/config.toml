@@ -5,6 +5,7 @@ mouse = false
 line-number = "relative"
 bufferline = "multiple"
 auto-save = true
+rulers = []
 
 [editor.cursor-shape]
 insert = "bar"
