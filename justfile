@@ -4,6 +4,7 @@ alias f := fmt
 alias l := lint
 alias c := comply
 alias k := check
+alias p := deploy
 
 [doc('List available commands')]
 _default:
@@ -12,7 +13,7 @@ _default:
 [doc('Set up the repository')]
 setup:
 
-[doc('Deploy the binaries')]
+[doc('Publish the binaries')]
 deploy:
     dotter deploy
 
