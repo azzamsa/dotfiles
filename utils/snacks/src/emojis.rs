@@ -141,8 +141,13 @@ pub enum Category {
 
 pub(crate) fn run() -> anyhow::Result<()> {
     let opts = Opts::parse();
+    let emoji = emoji(opts.category);
+    utils::stdout(&emoji);
+    Ok(())
+}
 
-    let emoji = match opts.category {
+pub fn emoji(category: Option<Category>) -> String {
+    let emoji = match category {
         Some(Category::Animals) => {
             let index = utils::get_random_number(ANIMALS.len());
             ANIMALS[index]
@@ -166,7 +171,5 @@ pub(crate) fn run() -> anyhow::Result<()> {
             merged[index]
         }
     };
-    utils::stdout(emoji);
-
-    Ok(())
+    emoji.to_string()
 }

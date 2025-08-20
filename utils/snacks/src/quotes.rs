@@ -1,5 +1,6 @@
 use clap::Parser;
 
+use crate::emojis;
 use crate::utils;
 
 static QUOTES: &[&str] = &[
@@ -24,6 +25,9 @@ pub struct Opts {
     /// End with dot.
     #[arg(short, long)]
     pub period: bool,
+    /// Prefix with emoji.
+    #[arg(short, long)]
+    pub emoji: bool,
 }
 
 pub(crate) fn run() -> anyhow::Result<()> {
@@ -38,6 +42,11 @@ pub(crate) fn run() -> anyhow::Result<()> {
 
     if opts.quoted {
         quote = format!(r#""{quote}""#);
+    }
+
+    if opts.emoji {
+        let emoji = emojis::emoji(None);
+        quote = format!("{emoji} {quote}");
     }
 
     utils::stdout(&quote);
