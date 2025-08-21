@@ -29,9 +29,12 @@ prepend_keymap = [
     { on = "G", run = "arrow bottom", desc = "Go to bottom" },
 
     { on = ["g", "h"], run = "cd ~", desc = "~/" },
+    { on = ["g", "p"], run = "cd ~/projects", desc = "~/projects" },
+    { on = ["g", "e"], run = "cd ~/canteen", desc = "~/canteen" },
     { on = ["g", "c"], run = "cd ~/.config", desc = "~/.config" },
     { on = ["g", "l"], run = "cd ~/.local", desc = "~/.local" },
     { on = ["g", "d"], run = "cd ~/Downloads", desc = "~/Downloads" },
+    { on = ["g", "t"], run = "cd /tmp", desc = "/tmp" },
     { on = ["g", "<Space>"], run = "cd --interactive", desc = "Jump to" },
 
     # Find
