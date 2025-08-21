@@ -19,10 +19,16 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 #
 
 export PATH
-# pbin stands for `private binaries`.
-export PATH=~/opt/pbin:~/.local/bin/appimages:~/.local/bin:~/.cargo/bin:$PATH
-export PATH=~/opt/nodebin/node_modules/.bin:$PATH
+ # pbin stands for `private binaries`.
+export PATH=~/opt/pbin:~/.local/bin:$PATH
+# Rust
+export PATH=~/.local/share/cargo/bin:~/.cargo/bin:$PATH
+# Go
 export PATH=~/.local/share/go/bin:$PATH
+# Node
+export PATH=~/opt/nodebin/node_modules/.bin:$PATH
+# AppImages
+export PATH=~/.local/bin/appimages:$PATH
 
 export VISUAL="{{ editor }}"
 export EDITOR="{{ editor }}"
@@ -56,10 +62,12 @@ fi
 
 #
 # Don't pollute home directory
-#
+# Thanks to `b3nj5m1n/xdg-ninja`
 
 # ⚠ Never change the default cargo and rustup directory
 # It will make lsp-mode and eglot rebuild the entire project after each changes!
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 
 export EMACSDIR="$XDG_CONFIG_HOME"/emacs
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
