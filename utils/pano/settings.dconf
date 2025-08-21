@@ -1,0 +1,43 @@
+[/]
+active-item-border-color='rgb(255,102,255)'
+global-shortcut=['<Super>y']
+history-length=400
+hovered-item-border-color='rgb(247,143,231)'
+incognito-shortcut=['<Shift><Control>y']
+item-date-font-family='Maple Mono NF'
+item-date-font-size=11
+item-title-font-family='Maple Mono NF'
+item-title-font-size=20
+keep-search-entry=false
+paste-on-select=false
+search-bar-font-family='Maple Mono NF'
+search-bar-font-size=14
+send-notification-on-copy=false
+sync-primary=true
+watch-exclusion-list=false
+window-position=uint32 3
+
+[code-item]
+body-bg-color='rgb(0,0,0)'
+body-font-family='Maple Mono NF'
+body-font-size=13
+header-bg-color='rgb(30,30,46)'
+header-color='rgb(166,227,161)'
+
+[color-item]
+header-bg-color='rgb(30,30,46)'
+header-color='rgb(148,226,213)'
+
+[image-item]
+header-bg-color='rgb(30,30,46)'
+header-color='rgb(243,139,168)'
+
+[link-item]
+header-bg-color='rgb(30,30,46)'
+header-color='rgb(116,199,236)'
+
+[text-item]
+body-bg-color='rgb(0,0,0)'
+body-color='rgb(255,255,255)'
+header-bg-color='rgb(30,30,46)'
+header-color='rgb(205,214,244)'
