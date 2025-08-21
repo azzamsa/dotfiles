@@ -100,7 +100,10 @@ N = "join_selections"
 # A-J
 A-N = "join_selections_space"
 
-#
+[editor.auto-save]
+focus-lost = true # default: false
+after-delay.enable = true # default: false
+
 # Picker
 #
 
