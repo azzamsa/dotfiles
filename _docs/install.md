@@ -259,6 +259,14 @@ git clone git@github.com:azzamsa/roof.git ~/.config/nvim
 eget neovide/neovide --to ~/.local/bin/neovide --asset "neovide.AppImage"
 ```
 
+### Helix
+
+The flatpak version depends on huge `org.freedesktop.Sdk` library.
+Use the binary instead.
+
+Take the `helix-<version>-x86_64-linux.tar.xz` from the [release](https://github.com/helix-editor/helix/releases) page.
+Unpack, then put `hx` in `~/.local/bin`, `hx.fish` in `~/.config/fish/completions/`, and `runtime` in `~/.config/helix`
+
 ### Fish
 
 ```bash
@@ -286,6 +294,8 @@ flatpak permission-set screenshot screenshot org.flameshot.Flameshot yes
 # Check if it's working as intended.
 flatpak run --command=flameshot org.flameshot.Flameshot gui
 ```
+
+Disable `Show Tray Icon`.
 
 ### KeePassXC
 
@@ -335,6 +345,13 @@ Top Bar:
 Set time, paper size, and units in British.
 
 Go to `Settings` -> `Region and Languages`. Set format to `United Kingdom`.
+
+### Date & Time
+
+`Settings` -> `Date & Time`.
+
+Enable `Automatic Time Zone`.
+Set `Time Format` to `AM/PM`.
 
 ### Shortcut / Keymap
 
