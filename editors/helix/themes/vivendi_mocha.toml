@@ -1,0 +1,29 @@
+# A mix of `Modus Viviendi Tinted` and `Catppuccin Mocha`
+inherits = "modus_vivendi_tinted"
+
+# Syntax highlighting
+# -------------------
+"comment" = "subtext0"
+
+# User Interface
+# --------------
+"ui.background" = { bg = "bg-main" }
+
+"ui.linenr" = { fg = "overlay2", bg = "crust" }
+"ui.linenr.selected" = { fg = "magenta-intense", bg = "crust" }
+
+"ui.gutter" = { bg = "crust" }
+
+[palette]
+# Catppuccin Mocha palette
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay0 = "#7f849c"
+surface0 = "#313244"
+base = "#1e1e2e"
+crust = "#11111b"
+
+# Basic values
+bg-main = "#000000"
