@@ -70,7 +70,7 @@ rustup default stable
 
 ```bash
 # failed to compile without these
-sudo nala install --assumeyes clang mold
+sudo nala install --assumeyes clang mold libssl-dev
 
 sudo nala install --assumeyes zoxide wl-clipboard
 
@@ -114,10 +114,15 @@ I need this early to have smooth access to brightness control and clipboard.
 📻 Flatpak apps won’t appear in the desktop menu until after a restart.
 
 ```bash
-sudo nala install flatpak gnome-software-plugin-flatpak
+in flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 flatpak install flathub --assumeyes com.mattjakeman.ExtensionManager
+
+# brightness
+in ddcutil
+# pano
+in --assumeyes gir1.2-gda-5.0 gir1.2-gsound-1.0
 ```
 
 Login to https://extensions.gnome.org/extension/ and click `install`. It should open Extension Manager App.
@@ -163,11 +168,10 @@ Cargo:
 
 ```bash
 # Development tool
-cin cargo-edit cargo-outdated cargo-tarpaulin bacon dprint git-cliff hurl selene stylua tokei typos-cli watchexec-cli rye
-cin --locked cargo-nextest
+cin cargo-edit cargo-outdated cargo-tarpaulin bacon dprint git-cliff hurl selene stylua tokei typos-cli watchexec-cli rye cargo-nextest
 
 # Utilities
-cin bandwhich bat dua-cli kondo yazi-fm eza
+cin bandwhich bat dua-cli kondo yazi-fm eza typstyle typst-cli
 
 # Flex
 cin lolcrab macchina
@@ -176,8 +180,11 @@ cin lolcrab macchina
 System:
 
 ```bash
-in --assumeyes gnome-tweaks bibata-cursor-theme gnome-shell-pomodoro telnet
-in --assumeyes jq fd-find ripgrep fzf
+in --assumeyes gnome-tweaks bibata-cursor-theme gnome-shell-pomodoro
+# pandoc will pull a whopping `199.2 MB` deps, because it so powerful it pull latex and everything.
+in --assumeyes jq fd-find ripgrep fzf telnet pandoc podman
+# appimage
+in --assumeyes libfuse-dev
 
 # emacs, jinx
 in --assumeyes aspell-id libenchant-2-dev
@@ -185,9 +192,6 @@ cin emacs-lsp-booster
 
 # yazi
 in --assumeyes ffmpeg 7zip poppler-utils imagemagick
-
-# pano
-in --assumeyes gir1.2-gda-5.0 gir1.2-gsound-1.0
 ```
 
 Python:
@@ -223,6 +227,7 @@ flatpak install flathub --assumeyes it.mijorus.gearleve
 
 - https://github.com/neovide/neovide/releases
 - https://github.com/neovim/neovim/releases
+- https://yaak.app/download
 
 ## Setup Apps
 
@@ -248,13 +253,20 @@ atuin sync
 
 ```bash
 in emacs
+eget rust-lang/rust-analyzer --asset "rust-analyzer-x86_64-unknown-linux-gnu.gz"
 git clone git@github.com:azzamsa/camp.d.git ~/.config/emacs
+
+# Those files are unnecessary and occasionally cause me to misclick.
+cd /usr/share/applications/
+sudo rm emacs-term.desktop emacs-mail.desktop emacsclient-mail.desktop emacsclient.desktop
 ```
 
-### Nvim
+### Neovim
 
 ```bash
 in nvim
+cin toor
+
 git clone git@github.com:azzamsa/roof.git ~/.config/nvim
 eget neovide/neovide --to ~/.local/bin/neovide --asset "neovide.AppImage"
 ```
@@ -440,3 +452,9 @@ Start `TLP`.
 sudo tlp start
 sudo tlp-stat -s -c -b
 ```
+
+## Setting Up Docker
+
+[Debian | Docker Docs](https://docs.docker.com/engine/install/debian/#uninstall-old-versions)
+
+The version on official repo is too old.
