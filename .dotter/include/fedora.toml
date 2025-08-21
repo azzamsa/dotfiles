@@ -1,3 +1,4 @@
 [shell.variables]
+pkg = "sudo dnf"
 install = "sudo dnf install"
 uninstall = "sudo dnf remove"
