@@ -19,7 +19,8 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 #
 
 export PATH
-export PATH=~/opt/pbin:~/opt/appimages:~/.local/bin:~/.cargo/bin:$PATH
+# pbin stands for `private binaries`.
+export PATH=~/opt/pbin:~/.local/bin/appimages:~/.local/bin:~/.cargo/bin:$PATH
 export PATH=~/opt/nodebin/node_modules/.bin:$PATH
 export PATH=~/.local/share/go/bin:$PATH
 

@@ -33,7 +33,7 @@ packages = [
     "gnupg",
     # "zellij",
     "yazi",
-    "lla",
+    # "lla",
     "eget",
     #
     # Browsers
@@ -45,7 +45,7 @@ packages = [
 
 # ⚠️ This is example file!
 [variables]
-editor = "hx"
+editor = "nvim"
 shell = "fish"
 terminal_font_size = 20
 font = "Maple Mono NF" # the only font that doesn't stare at me. I feel happy coding.

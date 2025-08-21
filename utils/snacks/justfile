@@ -14,7 +14,7 @@ _default:
 setup:
     just _cargo-install 'cargo-outdated bacon'
 
-[doc('deploy the binaries')]
+[doc('Publish the binaries')]
 deploy: check
     cargo test
 

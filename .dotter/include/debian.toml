@@ -1,0 +1,3 @@
+[shell.variables]
+install = "sudo nala install"
+uninstall = "sudo nala purge"

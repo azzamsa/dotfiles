@@ -15,6 +15,7 @@ setup:
 
 [doc('Publish the binaries')]
 deploy:
+    just --justfile utils/snacks/justfile deploy
     dotter deploy
 
 [doc('Make the codebase comply with formatting and linting rules (used in git hooks)')]
