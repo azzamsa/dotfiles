@@ -1,2 +1,6 @@
 [files]
 extend-exclude = ["CHANGELOG.md", "**/*themes/**", "colors.fish"]
+
+[default.extend-words]
+# GObject Introspection
+gir = "gir"
