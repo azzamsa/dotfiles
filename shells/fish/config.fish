@@ -22,6 +22,7 @@ alias ... 'cd ../..'
 
 alias c clear
 alias g git
+alias gcl 'git clone --depth 1'
 alias sudo 'sudo '
 
 alias cat bat
