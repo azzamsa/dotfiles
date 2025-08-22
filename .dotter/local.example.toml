@@ -1,4 +1,4 @@
-includes = [".dotter/include/fedora.toml"]
+includes = [".dotter/include/debian.toml"]
 
 packages = [
     #
@@ -35,6 +35,7 @@ packages = [
     "yazi",
     # "lla",
     "eget",
+    "jjui",
     #
     # Browsers
     "tridactyl",
@@ -50,4 +51,4 @@ shell = "fish"
 terminal_font_size = 20
 font = "Maple Mono NF" # the only font that doesn't stare at me. I feel happy coding.
 # Available theme can be found in shells/fish/colors.fish
-theme = "dracula"
+theme = "github"

@@ -101,6 +101,9 @@ depends = ["shell"]
 [eget.files]
 "utils/eget" = "~/.config/eget"
 
+[jjui.files]
+"utils/jjui" = "~/.config/jjui"
+
 #
 # Browsers
 [tridactyl.files]

@@ -1,0 +1,8 @@
+[ui.colors]
+# The default was too bright, making underlying text almost unreadable
+"selected" = { bg = "#1e1e2e" }
+"revisions details selected" = { bg = "#1e1e2e" }
+
+[preview]
+# Coming from Magit status, 50.0 is too small
+width_percentage = 85.0 # default: 50.0
