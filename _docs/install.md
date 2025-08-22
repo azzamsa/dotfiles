@@ -423,6 +423,7 @@ sudo nala autoremove && sudo nala autopurge
 
 Orbit trackball: press the DPI button 3s to enter the pair mode.
 VXE: press the all tree buttons 3s to enter the pair mode.
+Soundcore V20i: it activates pair mode automatically everytime it went out of it case.
 
 ## Setup Power Management
 
