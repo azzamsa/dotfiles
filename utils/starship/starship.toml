@@ -1,7 +1,5 @@
 # https://starship.rs/config
 
-command_timeout = 700 # default: 500
-
 [character]
 success_symbol = '[🦄](bold green)'
 error_symbol = '[🙊](bold red)'
