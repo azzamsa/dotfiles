@@ -168,7 +168,7 @@ Cargo:
 
 ```bash
 # Development tool
-cin cargo-edit cargo-outdated cargo-tarpaulin bacon dprint git-cliff hurl selene stylua tokei typos-cli watchexec-cli rye cargo-nextest
+cin cargo-edit cargo-outdated cargo-tarpaulin bacon dprint git-cliff hurl selene stylua tokei typos-cli watchexec-cli rye cargo-nextest git-cliff
 
 # Utilities
 cin bandwhich bat dua-cli kondo yazi-fm eza typstyle typst-cli
@@ -180,7 +180,7 @@ cin lolcrab macchina
 System:
 
 ```bash
-in --assumeyes gnome-tweaks bibata-cursor-theme gnome-shell-pomodoro
+in --assumeyes gnome-tweaks bibata-cursor-theme gnome-shell-pomodoro fastfetch
 # pandoc will pull a whopping `199.2 MB` deps, because it so powerful it pull latex and everything.
 in --assumeyes jq fd-find ripgrep fzf telnet pandoc podman
 # appimage
