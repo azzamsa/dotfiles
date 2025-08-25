@@ -4,12 +4,11 @@ The steps I need to install Debian GNU/Linux on my machine.
 
 ## Current Machine
 
-- Debian + GNOME
+- EndeavourOS + GNOME
 
 ## Preparing The ISO image
 
-Go to the distro’s website and download the **GNOME-flavored LIVE ISO**, then copy it to your Ventoy USB stick.
-Make sure you grab the **LIVE ISO**, as the Calamares installer is only available there.
+Go to the distro’s website and download the **LIVE ISO**, then copy it to your Ventoy USB stick.
 
 Whenever possible, use the provided _torrent_ file to reduce load on the server. Wait until the copying process is **fully** finished.
 Otherwise, the file may end up corrupted. After that, verify the checksum:
@@ -34,21 +33,7 @@ Stick with the defaults for everything, including locales, to avoid running into
 
 ## Upgrade The Os
 
-```bash
-sudo apt install --assume-yes nala
-```
-
-Choose the fastest mirrors.
-
-```bash
-sudo nala fetch
-```
-
-```bash
-sudo nala update && sudo nala upgrade
-```
-
-Also, use `software center` to upgrade other components.
+Use the Endeavour `welcome assistant` helper tool.
 
 ## Setting Up Terminal
 
@@ -58,34 +43,10 @@ Copy important files to new machine `~/dot`, `~/.local/share/atuin/`, `~/.local/
 Later, you need to move more directory, See `~/.config/meta/backup.include`
 
 ```bash
-sudo nala install --assumeyes bash git fish
+sudo pacman -S bash git fish
 ```
 
-Prompt Tools needs some Rust based tools.
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup default stable
-```
-
-```bash
-# failed to compile without these
-sudo nala install --assumeyes clang mold libssl-dev
-
-sudo nala install --assumeyes zoxide wl-clipboard
-
-cargo install cargo-binstall
-cargo binstall --no-confirm --no-symlinks atuin dotter fnm starship just
-```
-
-Populate the dotfiles.
-
-```bash
-cd ~/dot
-just deploy # or j p
-```
-
-Make sure bash doesn't fail to load.
+Respect XDG.
 
 ```bash
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -102,27 +63,58 @@ mkdir -p "$HOME"/.config/meta
 touch "$HOME"/.config/meta/env
 ```
 
-Load `bash`.
+Prompt Tools needs some Rust based tools.
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup default stable
+rustup component add rust-analyzer
+```
+
+```bash
+sudo pacman -S clang mold openssl wl-clipboard
+
+cargo install cargo-binstall
+cargo binstall --no-confirm --no-symlinks atuin dotter fnm starship just zoxide
+```
+
+Populate the dotfiles.
+
+```bash
+cd ~/dot
+just deploy # or j p
+```
+
+Load the shell.
 
 ```bash
 bash # Yes, type `bash`!
+fish
+```
+
+## Setup Bluetooth
+
+```bash
+sudo systemctl start bluetooth
+sudo systemctl enable bluetooth
 ```
 
 ## Setup GNOME Extensions
 
 I need this early to have smooth access to brightness control and clipboard.
+
 📻 Flatpak apps won’t appear in the desktop menu until after a restart.
 
+Or you can just copy the whole `~/.local/share/gnome-shell/extensions` to the new system, then re-login.
+
 ```bash
-in flatpak gnome-software-plugin-flatpak
+in flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 flatpak install flathub --assumeyes com.mattjakeman.ExtensionManager
 
-# brightness
-in ddcutil
-# pano
-in --assumeyes gir1.2-gda-5.0 gir1.2-gsound-1.0
+# brightness & pano
+in ddcutil libgda6
 ```
 
 Login to https://extensions.gnome.org/extension/ and click `install`. It should open Extension Manager App.
@@ -149,26 +141,31 @@ Flatpaks:
 
 ```bash
 # Main
-flatpak install flathub --assumeyes app.zen_browser.zen dev.vencord.Vesktop com.brave.Browser com.github.tchx84.Flatseal org.keepassxc.KeePassXC
+flatpak install flathub --assumeyes app.zen_browser.zen dev.vencord.Vesktop com.brave.Browser com.github.tchx84.Flatseal org.keepassxc.KeePassXC org.flameshot.Flameshot
 
 # Productivity tools
-flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate
+flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate io.github.AllanChain.sane-break
 
 # Work
 flatpak install flathub --assumeyes org.gnome.Evolution org.mozilla.Thunderbird com.usebruno.Bruno io.dbeaver.DBeaverCommunity
 
 # Utilities
-flatpak install flathub --assumeyes com.github.finefindus.eyedropper com.github.huluti.Curtail com.github.qarmin.czkawka com.github.tenderowl.frog com.gitlab.newsflash fr.romainvigier.MetadataCleaner io.github.adrienverge.PhotoCollage io.github.flattool.Warehouse com.dec05eba.gpu_screen_recorder net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.bleachbit.BleachBit org.gimp.GIMP org.gnome.Firmware org.gramps_project.Gramps org.inkscape.Inkscape org.kde.okular org.telegram.desktop org.videolan.VLC
+flatpak install flathub --assumeyes com.github.finefindus.eyedropper  com.github.qarmin.czkawka io.gitlab.news_flash.NewsFlash io.github.flattool.Warehouse com.dec05eba.gpu_screen_recorder net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.gimp.GIMP org.gnome.Firmware org.inkscape.Inkscape org.kde.okular org.telegram.desktop
 
 # Office
 flatpak install flathub --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
+
+# Optionals
+flatpak install flathub --assumeyes org.bleachbit.BleachBit fr.romainvigier.MetadataCleaner com.github.huluti.Curtail
 ```
 
 Cargo:
 
 ```bash
 # Development tool
-cin cargo-edit cargo-outdated cargo-tarpaulin bacon dprint git-cliff hurl selene stylua tokei typos-cli watchexec-cli rye cargo-nextest git-cliff
+cin cargo-edit cargo-outdated cargo-tarpaulin bacon dprint git-cliff hurl selene stylua tokei typos-cli watchexec-cli cargo-nextest git-cliff dprint typos-cli
+
+curl -sSf https://rye.astral.sh/get | bash
 
 # Utilities
 cin bandwhich bat dua-cli kondo yazi-fm eza typstyle typst-cli
@@ -180,18 +177,17 @@ cin lolcrab macchina
 System:
 
 ```bash
-in --assumeyes gnome-tweaks bibata-cursor-theme gnome-shell-pomodoro fastfetch
-# pandoc will pull a whopping `199.2 MB` deps, because it so powerful it pull latex and everything.
-in --assumeyes jq fd-find ripgrep fzf telnet pandoc podman
+# yazi
+in yazi ffmpeg 7zip jq poppler fd ripgrep fzf resvg imagemagick
+in bibata-cursor-theme fastfetch
+in telnet pandoc podman
+
 # appimage
-in --assumeyes libfuse-dev
+in libfuse-dev
 
 # emacs, jinx
-in --assumeyes aspell-id libenchant-2-dev
+in aspell enchant
 cin emacs-lsp-booster
-
-# yazi
-in --assumeyes ffmpeg 7zip poppler-utils imagemagick
 ```
 
 Python:
@@ -203,8 +199,8 @@ rye install qmk grip poetry
 Javascript:
 
 ```bash
-fnm use <version> # To get LTS version, see https://endoflife.date/nodejs
 cd ~/opt/nodebin
+fnm use <version> # To get LTS version, see https://endoflife.date/nodejs
 npm install
 ```
 
@@ -213,16 +209,15 @@ Binaries:
 Install `eget` from https://github.com/zyedidia/eget/releases
 
 ```bash
-# need explicit destination.
 eget idursun/jjui --to ~/.local/bin/jjui
-
+eget kayrus/gof5
 eget getzola/zola
 ```
 
 AppImages:
 
 ```bash
-flatpak install flathub --assumeyes it.mijorus.gearleve
+flatpak install flathub --assumeyes it.mijorus.gearlever
 ```
 
 - https://github.com/neovide/neovide/releases
@@ -235,11 +230,7 @@ flatpak install flathub --assumeyes it.mijorus.gearleve
 
 ```bash
 # This get both `ya` and `yazi `
-eget sxyazi/yazi
 ya pkg add yazi-rs/flavors:catppuccin-mocha
-
-# remove the duplicate `yazi`
-rm ~/.local/bin/yazi
 ```
 
 ### Atuin
@@ -287,10 +278,12 @@ just --completions fish > ~/.config/fish/completions/just.fish
 rg --generate complete-fish > ~/.config/fish/completions/rg.fish
 ```
 
-### Discord / Vestop
+### Discord / Vesktop (Vencord)
 
 Change the default chat scale.
 Then zoom using `Ctrl +`
+
+Enable plugins: `BetterFolders`, `AnonymizeFileName`, `NoReplyMention`, `NoServerEmoji`.
 
 ### Firefox
 
@@ -373,8 +366,12 @@ Custom shortcut:
 
 - Flameshot
   - name: `Flameshot`
-  - command: `flatpak run --command=flameshot org.flameshot.Flameshot gui`
+  - command: `bash -c "flatpak run --command=flameshot org.flameshot.Flameshot gui --raw | wl-copy"`
   - shortcut: `PrtScn`
+- Flameshot Screen
+  - name: `Flameshot`
+  - command: flatpak run --command=flameshot org.flameshot.Flameshot screen
+  - shortcut: `Shitf + PrtScn`
 
 Navigations:
 

@@ -8,7 +8,8 @@
 - Fedora Silverblue GNOME, [Jul 6, 2023][fedora-silverblue-start] - Jul 17, 2023 (11 days).
 - Debian GNOME, [Jul 17, 2023][debian-2023-start] - Aug 5, 2023 (19 days).
 - Fedora GNOME, [Aug 5, 2023][fedora-2023-start] - Aug 21, 2025 (2 years 16 days).
-- Debian GNOME, [Aug 21, 2025][debian-2025-start] - now.
+- Debian GNOME, [Aug 21, 2025][debian-2025-start] - Aug 25, 2025 (4 days).
+- Endeavour GNOME, [Aug 25, 2025][endeavour-2025-start] - now.
 - [More...](BOOKMARKS.md)
 
 ## Ubuntu (2 years) -> Debian
@@ -63,6 +64,11 @@ Also, It froze occasionally, and GNOME logged me out for no reason.
 
 I never had issues like that in my ~6 years with Debian.
 I guess I’m okay with that ugly LUKS password prompt in Debian 🤷🏼.
+
+## Debian (4 Days) -> Endeavour OS
+
+I feel like desktop users are not a first-class citizen in Debian 🥲.
+I’ve been using GNU/Linux for 12 years, and I wanted to try an Arch-based distro at least once.
 
 [fedora-2022-start]: https://github.com/azzamsa/dotfiles/commit/4c5ccdc51e63a552c73113753687e6d9aa5e70fd
 [fedora-2023-start]: https://github.com/azzamsa/dotfiles/commit/f09550c399e67f223fa41c4517b15b1772e56847

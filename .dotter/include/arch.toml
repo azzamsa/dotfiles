@@ -1,0 +1,4 @@
+[shell.variables]
+pkg = "paru"
+install = "paru -S"
+uninstall = "paru -Rns"
