@@ -19,7 +19,7 @@ deploy:
     dotter deploy
 
 [doc('Make the codebase comply with formatting and linting rules (used in git hooks)')]
-comply: fmt lint
+comply: fmt lint _update-example
     just --justfile utils/snacks/justfile comply
 
 [doc('Check if the repository complies with rules and is ready to push')]
@@ -48,3 +48,7 @@ up arg="":
     cargo upgrade --incompatible --recursive --verbose
     cargo update
     dprint config update
+
+[doc('Keep example up-to-date.')]
+_update-example:
+    cp -f .dotter/local.toml .dotter/local.example.toml

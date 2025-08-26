@@ -1,4 +1,4 @@
-includes = [".dotter/include/debian.toml"]
+includes = [".dotter/include/arch.toml"]
 
 packages = [
     #
@@ -44,11 +44,10 @@ packages = [
     "cargo",
 ]
 
-# ⚠️ This is example file!
 [variables]
 editor = "nvim"
 shell = "fish"
-terminal_font_size = 20
+terminal_font_size = 21
 font = "Maple Mono NF" # the only font that doesn't stare at me. I feel happy coding.
 # Available theme can be found in shells/fish/colors.fish
 theme = "github"
