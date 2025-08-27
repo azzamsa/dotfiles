@@ -19,7 +19,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 #
 
 export PATH
- # pbin stands for `private binaries`.
+# pbin stands for `private binaries`.
 export PATH=~/opt/pbin:~/.local/bin:$PATH
 # Rust
 export PATH=~/.local/share/cargo/bin:~/.cargo/bin:$PATH
@@ -55,9 +55,9 @@ export HELIX_RUNTIME=~/.config/helix/
 
 # If inside toolbx do something
 if [[ "$(hostname)" = "toolbox" ]]; then
-    # I don't change my default $SHELL
-    # So I need to run my preferred shell at toolbx startup
-    zsh
+	# I don't change my default $SHELL
+	# So I need to run my preferred shell at toolbx startup
+	zsh
 fi
 
 #
