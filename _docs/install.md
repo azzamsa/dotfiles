@@ -163,7 +163,8 @@ Cargo:
 
 ```bash
 # Development tool
-cin cargo-edit cargo-outdated cargo-tarpaulin bacon dprint git-cliff hurl selene stylua tokei typos-cli watchexec-cli cargo-nextest git-cliff dprint typos-cli
+cin cargo-edit cargo-outdated cargo-tarpaulin bacon dprint git-cliff hurl selene stylua tokei typos-cli watchexec-cli git-cliff dprint typos-cli
+cargo install --locked cargo-nextest
 
 curl -sSf https://rye.astral.sh/get | bash
 
@@ -179,8 +180,8 @@ System:
 ```bash
 # yazi
 in yazi ffmpeg 7zip jq poppler fd ripgrep fzf resvg imagemagick
-in bibata-cursor-theme fastfetch
-in telnet pandoc podman
+in bibata-cursor-theme-bin fastfetch
+in telnet pandoc podman podman-docker podman-compose shfmt
 
 # appimage
 in libfuse-dev
@@ -248,8 +249,11 @@ eget rust-lang/rust-analyzer --asset "rust-analyzer-x86_64-unknown-linux-gnu.gz"
 git clone git@github.com:azzamsa/camp.d.git ~/.config/emacs
 
 # Those files are unnecessary and occasionally cause me to misclick.
-cd /usr/share/applications/
-sudo rm emacs-term.desktop emacs-mail.desktop emacsclient-mail.desktop emacsclient.desktop
+sudo rm -f \
+  /usr/share/applications/emacs-term.desktop \
+  /usr/share/applications/emacs-mail.desktop \
+  /usr/share/applications/emacsclient-mail.desktop \
+  /usr/share/applications/emacsclient.desktop
 ```
 
 ### Neovim
@@ -401,6 +405,15 @@ For more, see [keymaps.conf](https://github.com/azzamsa/dotfiles/blob/master/wm/
 
 To prevent Apps to move to the Laptop monitor during suspension, go to `Display` and set it to `Mirror`.
 
+### Startup
+
+- Emacs
+- VeskTop
+- Ghostty
+- Zen Browser
+- SilverBullet
+- Sane Break
+
 ### Text Editor
 
 - Disable "Restore session"
@@ -449,6 +462,14 @@ Start `TLP`.
 ```bash
 sudo tlp start
 sudo tlp-stat -s -c -b
+```
+
+## Add More Locales
+
+```bash
+sudo vim /etc/locale.gen
+# Uncomment `en_GB.UTF-8`
+sudo locale-gen
 ```
 
 ## Setting Up Docker
