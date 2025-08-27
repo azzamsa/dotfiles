@@ -477,3 +477,36 @@ sudo locale-gen
 [Debian | Docker Docs](https://docs.docker.com/engine/install/debian/#uninstall-old-versions)
 
 The version on official repo is too old.
+
+## Setting Up `GNOME Keyring`
+
+[GNOME/Keyring - ArchWiki](https://wiki.archlinux.org/title/GNOME/Keyring)
+
+```bash
+in gnome-keyring seahorse
+
+systemctl --user enable gnome-keyring-daemon.service
+systemctl --user start  gnome-keyring-daemon.service
+
+systemctl --user enable gcr-ssh-agent.socket
+systemctl --user start  gcr-ssh-agent.socket
+
+$ # Check, you should see `discover_other_daemon`
+$ gnome-keyring-daemon --start
+discover_other_daemon: 1
+
+$ # Use GUI app to invoke the `GNOME3 Pinentry`.
+$ # Open Emacs -> Magit -> Git push
+```
+
+If you get the error below.
+
+```
+gnome-keyring-daemon: insufficient process capabilities, unsecure memory might get used
+```
+
+You need to run.
+
+```bash
+bash -c "sudo setcap cap_ipc_lock=+ep `which gnome-keyring-daemon`"
+```
