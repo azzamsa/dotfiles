@@ -1,4 +1,4 @@
-use std::env;
+use std::{env, fs, path::PathBuf};
 
 use clap::{Parser, ValueEnum};
 use duct::cmd;
@@ -20,6 +20,7 @@ pub enum Task {
     Flatpak,
     Container,
     Cargo,
+    Dirs,
 }
 
 pub(crate) fn run() -> anyhow::Result<()> {
@@ -42,6 +43,7 @@ fn run_some(tasks: Vec<Task>) -> anyhow::Result<()> {
             Task::Flatpak => flatpak()?,
             Task::Container => container()?,
             Task::Cargo => cargo()?,
+            Task::Dirs => dirs()?,
         }
     }
     Ok(())
@@ -53,6 +55,7 @@ fn run_all() -> anyhow::Result<()> {
     flatpak()?;
     container()?;
     cargo()?;
+    dirs()?;
     Ok(())
 }
 
@@ -97,4 +100,25 @@ fn container() -> anyhow::Result<()> {
     cmd!("podman", "system", "prune").unchecked().run()?;
     cmd!("docker", "system", "prune").unchecked().run()?;
     Ok(())
+}
+
+fn dirs() -> anyhow::Result<()> {
+    println!("🧽 Cleaning `~/Downloads`, `~/Pictures/Screenshot` dirs");
+    let mut all_paths: Vec<PathBuf> = Vec::new();
+    let home = env::var("HOME").unwrap();
+
+    all_paths.extend(get_paths(&format!("{home}/Downloads")));
+    all_paths.extend(get_paths(&format!("{home}/Pictures/Screenshots")));
+
+    for path in all_paths {
+        cmd!("rm", "-rf", path).run()?;
+    }
+    Ok(())
+}
+
+fn get_paths(dir: &str) -> Vec<PathBuf> {
+    fs::read_dir(dir)
+        .unwrap()
+        .map(|p| p.unwrap().path())
+        .collect::<Vec<PathBuf>>()
 }
