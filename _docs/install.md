@@ -32,87 +32,15 @@ I also use symlinks to my larger SSD so applications still see everything under 
 
 Stick with the defaults for everything, including locales, to avoid running into edge cases. You can always change the locale later in GNOME settings.
 
-## Upgrade The Os
+## Setting Up Shell Prompt
 
-```bash
-sudo apt install --assume-yes nala
-```
-
-Choose the fastest mirrors.
-
-```bash
-sudo nala fetch
-```
-
-```bash
-sudo nala update && sudo nala upgrade
-```
-
-Also, use `software center` to upgrade other components.
-
-## Setting Up Terminal
-
-I hate leaving my prompt.
-
-Copy important files to new machine `~/dot`, `~/.local/share/atuin/`, `~/.local/share/fonts`.
+⚠️  Copy important files to new machine `~/dot`, `~/.local/share/atuin/`, `~/.local/share/fonts`.
 Later, you need to move more directory, See `~/.config/meta/backup.include`
 
 ```bash
-sudo nala install --assume-yes bash git fish
-```
+./init.sh
 
-Respect XDG.
-
-```bash
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
-
-mkdir -p "$XDG_DATA_HOME"
-mkdir -p "$XDG_CONFIG_HOME"
-mkdir -p "$XDG_STATE_HOME"
-mkdir -p "$XDG_CACHE_HOME"
-
-mkdir -p "$HOME"/.config/meta
-touch "$HOME"/.config/meta/env
-
-mkdir -p "$XDG_STATE_HOME"/bash
-touch "$XDG_STATE_HOME"/bash/history
-```
-
-Prompt Tools needs some Rust based tools.
-
-```bash
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup default stable
-rustup component add rust-analyzer
-```
-
-```bash
-# failed to compile without these
-sudo nala install --assume-yes clang mold libssl-dev
-
-sudo nala install --assume-yes zoxide wl-clipboard
-
-cargo install cargo-binstall
-cargo binstall --no-confirm --no-symlinks atuin dotter fnm starship just jj-cli
-```
-
-Populate the dotfiles.
-
-```bash
-cd ~/dot
-just deploy # or j p
-```
-
-Load `bash`.
-
-```bash
-bash # Yes, type `bash`!
+./prompt.sh
 ```
 
 ## Setup GNOME Extensions
@@ -120,31 +48,11 @@ bash # Yes, type `bash`!
 I need this early to have smooth access to brightness control and clipboard.
 📻 Flatpak apps won’t appear in the desktop menu until after a restart.
 
+Copy backup to `~/.local/share/gnome-shell/extensions`.
+
 ```bash
-in flatpak gnome-software-plugin-flatpak
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-flatpak install flathub --assume-yes com.mattjakeman.ExtensionManager
-
-# brightness
-in --assume-yes ddcutil
-# pano
-in --assume-yes gir1.2-gda-5.0 gir1.2-gsound-1.0
+./flatpak.sh
 ```
-
-Login to https://extensions.gnome.org/extension/ and click `install`. It should open Extension Manager App.
-It is easier than searching manually inside the Extension manager App.
-
-- [Brightness control using ddcutil](https://extensions.gnome.org/extension/2645/brightness-control-using-ddcutil/).
-- [Pano - Clipboard Manager](https://extensions.gnome.org/extension/5278/pano/)
-- [Internet Speed Meter](https://extensions.gnome.org/extension/2980/internet-speed-meter/)
-- [Lock Keys](https://extensions.gnome.org/extension/36/lock-keys/)
-- [AppIndicator and KStatusNotifierItem Support](https://extensions.gnome.org/extension/615/appindicator-support/)
-- [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
-- [Burn My Windows](https://extensions.gnome.org/extension/4679/burn-my-windows/)
-- [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/)
-- [Bluetooth Battery Meter](https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/)
-- [Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/)
 
 ## Install Apps
 
@@ -152,78 +60,13 @@ It is easier than searching manually inside the Extension manager App.
 
 I think I will just use mutable OS an immutable way!
 
-Flatpaks:
+⚠️ Copy `eget` and `ya (yazi)`  to `~/.local/bin`.
 
 ```bash
-# Main
-flatpak install flathub --assumeyes app.zen_browser.zen dev.vencord.Vesktop com.brave.Browser com.github.tchx84.Flatseal org.keepassxc.KeePassXC org.flameshot.Flameshot
-
-# Productivity tools
-flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate
-
-# Work
-flatpak install flathub --assumeyes org.gnome.Evolution org.mozilla.Thunderbird com.usebruno.Bruno io.dbeaver.DBeaverCommunity
-
-# Utilities
-flatpak install flathub --assumeyes com.github.finefindus.eyedropper com.github.qarmin.czkawka io.gitlab.news_flash.NewsFlash io.github.flattool.Warehouse com.dec05eba.gpu_screen_recorder net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.gimp.GIMP org.gnome.Firmware org.inkscape.Inkscape org.kde.okular org.telegram.desktop
-
-# Office
-flatpak install flathub --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
-
-# Optionals
-flatpak install flathub --assumeyes org.bleachbit.BleachBit fr.romainvigier.MetadataCleaner com.github.huluti.Curtail org.gramps_project.Gramps org.gnome.World.PikaBackup
-```
-
-Cargo:
-
-```bash
-# Development tool
-cin cargo-update cargo-edit cargo-outdated cargo-tarpaulin bacon dprint git-cliff hurl selene stylua tokei typos-cli watchexec-cli git-cliff dprint typos-cli jaq
-cargo install --locked cargo-nextest
-
-curl -sSf https://rye.astral.sh/get | bash
-
-# Utilities
-cin bandwhich bat dua-cli kondo yazi-fm eza typstyle typst-cli
-
-# Flex
-cin lolcrab macchina
-```
-
-System:
-
-```bash
-in --assume-yes gnome-tweaks bibata-cursor-theme gnome-shell-pomodoro fastfetch
-    # pandoc will pull a whopping `199.2 MB` deps, because it so powerful it pull latex and everything.
-in --assume-yes jq fd-find ripgrep fzf telnet pandoc podman podman-compose shfmt
-# appimage
-in --assume-yes libfuse-dev
-
-# emacs, jinx
-in --assume-yes aspell libenchant-2-dev
-cin emacs-lsp-booster
-
-# yazi
-in --assume-yes ffmpeg 7zip poppler-utils imagemagick
-```
-
-Python:
-
-```bash
-rye install qmk grip poetry
-```
-
-Javascript:
-
-```bash
-fnm use <version> # To get LTS version, see https://endoflife.date/nodejs
-cd ~/opt/nodebin
-npm install
+./packages.sh
 ```
 
 Binaries:
-
-Install `eget` from https://github.com/zyedidia/eget/releases
 
 ```bash
 # need explicit destination.
@@ -233,10 +76,6 @@ eget getzola/zola
 ```
 
 AppImages:
-
-```bash
-flatpak install flathub --assumeyes it.mijorus.gearlever
-```
 
 - https://github.com/neovide/neovide/releases
 - https://github.com/neovim/neovim/releases

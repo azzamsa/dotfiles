@@ -1,9 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
 #
 # Setup Nala
+
 sudo apt install --assume-yes nala
+# Find the fastest mirrors.
 sudo nala fetch
+# Upgrade The Os
 sudo nala update && sudo nala upgrade
 
 #
@@ -30,6 +33,7 @@ touch "$XDG_STATE_HOME"/bash/history
 
 #
 # Setup Rust
+# Prompt Tools needs some Rust based tools.
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -46,5 +50,6 @@ sudo nala install --assume-yes zoxide wl-clipboard
 cargo install cargo-binstall
 cargo binstall --no-confirm --no-symlinks atuin dotter fnm starship just jj-cli
 
+# Populate the dotfiles.
 cd ~/dot
 just deploy
