@@ -1,4 +1,5 @@
-command = {{ shell }}
+command = TERM=xterm-256color /usr/bin/fish
+
 # I wanted to have zero-config, but block cursor signals my brain that I am in Visual mode.
 # as I am using modal editor all the time.
 cursor-style = bar

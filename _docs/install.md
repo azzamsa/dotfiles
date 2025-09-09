@@ -4,11 +4,12 @@ The steps I need to install Debian GNU/Linux on my machine.
 
 ## Current Machine
 
-- EndeavourOS + GNOME
+- Debian + GNOME
 
 ## Preparing The ISO image
 
-Go to the distro’s website and download the **LIVE ISO**, then copy it to your Ventoy USB stick.
+Go to the distro’s website and download the **GNOME-flavored LIVE ISO**, then copy it to your Ventoy USB stick.
+Make sure you grab the **LIVE ISO**, as the Calamares installer is only available there.
 
 Whenever possible, use the provided _torrent_ file to reduce load on the server. Wait until the copying process is **fully** finished.
 Otherwise, the file may end up corrupted. After that, verify the checksum:
@@ -33,7 +34,21 @@ Stick with the defaults for everything, including locales, to avoid running into
 
 ## Upgrade The Os
 
-Use the Endeavour `welcome assistant` helper tool.
+```bash
+sudo apt install --assume-yes nala
+```
+
+Choose the fastest mirrors.
+
+```bash
+sudo nala fetch
+```
+
+```bash
+sudo nala update && sudo nala upgrade
+```
+
+Also, use `software center` to upgrade other components.
 
 ## Setting Up Terminal
 
@@ -43,7 +58,7 @@ Copy important files to new machine `~/dot`, `~/.local/share/atuin/`, `~/.local/
 Later, you need to move more directory, See `~/.config/meta/backup.include`
 
 ```bash
-sudo pacman -S bash git fish
+sudo nala install --assume-yes bash git fish
 ```
 
 Respect XDG.
@@ -61,21 +76,30 @@ mkdir -p "$XDG_CACHE_HOME"
 
 mkdir -p "$HOME"/.config/meta
 touch "$HOME"/.config/meta/env
+
+mkdir -p "$XDG_STATE_HOME"/bash
+touch "$XDG_STATE_HOME"/bash/history
 ```
 
 Prompt Tools needs some Rust based tools.
 
 ```bash
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup default stable
 rustup component add rust-analyzer
 ```
 
 ```bash
-sudo pacman -S clang mold openssl wl-clipboard
+# failed to compile without these
+sudo nala install --assume-yes clang mold libssl-dev
+
+sudo nala install --assume-yes zoxide wl-clipboard
 
 cargo install cargo-binstall
-cargo binstall --no-confirm --no-symlinks atuin dotter fnm starship just zoxide
+cargo binstall --no-confirm --no-symlinks atuin dotter fnm starship just jj-cli
 ```
 
 Populate the dotfiles.
@@ -85,36 +109,27 @@ cd ~/dot
 just deploy # or j p
 ```
 
-Load the shell.
+Load `bash`.
 
 ```bash
 bash # Yes, type `bash`!
-fish
-```
-
-## Setup Bluetooth
-
-```bash
-sudo systemctl start bluetooth
-sudo systemctl enable bluetooth
 ```
 
 ## Setup GNOME Extensions
 
 I need this early to have smooth access to brightness control and clipboard.
-
 📻 Flatpak apps won’t appear in the desktop menu until after a restart.
 
-Or you can just copy the whole `~/.local/share/gnome-shell/extensions` to the new system, then re-login.
-
 ```bash
-in flatpak
+in flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak install flathub --assumeyes com.mattjakeman.ExtensionManager
+flatpak install flathub --assume-yes com.mattjakeman.ExtensionManager
 
-# brightness & pano
-in ddcutil libgda6
+# brightness
+in --assume-yes ddcutil
+# pano
+in --assume-yes gir1.2-gda-5.0 gir1.2-gsound-1.0
 ```
 
 Login to https://extensions.gnome.org/extension/ and click `install`. It should open Extension Manager App.
@@ -144,7 +159,7 @@ Flatpaks:
 flatpak install flathub --assumeyes app.zen_browser.zen dev.vencord.Vesktop com.brave.Browser com.github.tchx84.Flatseal org.keepassxc.KeePassXC org.flameshot.Flameshot
 
 # Productivity tools
-flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate io.github.AllanChain.sane-break
+flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate
 
 # Work
 flatpak install flathub --assumeyes org.gnome.Evolution org.mozilla.Thunderbird com.usebruno.Bruno io.dbeaver.DBeaverCommunity
@@ -178,17 +193,18 @@ cin lolcrab macchina
 System:
 
 ```bash
-# yazi
-in yazi ffmpeg 7zip jq poppler fd ripgrep fzf resvg imagemagick
-in bibata-cursor-theme-bin fastfetch
-in telnet pandoc podman podman-docker podman-compose shfmt
-
+in --assume-yes gnome-tweaks bibata-cursor-theme gnome-shell-pomodoro fastfetch
+    # pandoc will pull a whopping `199.2 MB` deps, because it so powerful it pull latex and everything.
+in --assume-yes jq fd-find ripgrep fzf telnet pandoc podman podman-compose shfmt
 # appimage
-in libfuse-dev
+in --assume-yes libfuse-dev
 
 # emacs, jinx
-in aspell enchant
+in --assume-yes aspell libenchant-2-dev
 cin emacs-lsp-booster
+
+# yazi
+in --assume-yes ffmpeg 7zip poppler-utils imagemagick
 ```
 
 Python:
@@ -200,8 +216,8 @@ rye install qmk grip poetry
 Javascript:
 
 ```bash
-cd ~/opt/nodebin
 fnm use <version> # To get LTS version, see https://endoflife.date/nodejs
+cd ~/opt/nodebin
 npm install
 ```
 
@@ -210,8 +226,9 @@ Binaries:
 Install `eget` from https://github.com/zyedidia/eget/releases
 
 ```bash
+# need explicit destination.
 eget idursun/jjui --to ~/.local/bin/jjui
-eget kayrus/gof5
+
 eget getzola/zola
 ```
 
@@ -231,7 +248,11 @@ flatpak install flathub --assumeyes it.mijorus.gearlever
 
 ```bash
 # This get both `ya` and `yazi `
+eget sxyazi/yazi
 ya pkg add yazi-rs/flavors:catppuccin-mocha
+
+# remove the duplicate `yazi`
+rm ~/.local/bin/yazi
 ```
 
 ### Atuin
@@ -244,8 +265,6 @@ atuin sync
 ### Emacs
 
 ```bash
-in emacs
-eget rust-lang/rust-analyzer --asset "rust-analyzer-x86_64-unknown-linux-gnu.gz"
 git clone git@github.com:azzamsa/camp.d.git ~/.config/emacs
 
 # Those files are unnecessary and occasionally cause me to misclick.
@@ -259,7 +278,6 @@ sudo rm -f \
 ### Neovim
 
 ```bash
-in nvim
 cin toor
 
 git clone git@github.com:azzamsa/roof.git ~/.config/nvim
@@ -282,12 +300,10 @@ just --completions fish > ~/.config/fish/completions/just.fish
 rg --generate complete-fish > ~/.config/fish/completions/rg.fish
 ```
 
-### Discord / Vesktop (Vencord)
+### Discord / Vestop
 
 Change the default chat scale.
 Then zoom using `Ctrl +`
-
-Enable plugins: `BetterFolders`, `AnonymizeFileName`, `NoReplyMention`, `NoServerEmoji`.
 
 ### Firefox
 
@@ -374,7 +390,7 @@ Custom shortcut:
   - shortcut: `PrtScn`
 - Flameshot Screen
   - name: `Flameshot`
-  - command: flatpak run --command=flameshot org.flameshot.Flameshot screen
+  - command: `flatpak run --command=flameshot org.flameshot.Flameshot screen`
   - shortcut: `Shitf + PrtScn`
 
 Navigations:
@@ -423,7 +439,7 @@ To prevent Apps to move to the Laptop monitor during suspension, go to `Display`
 Remove bloatware.
 
 ```bash
-out rhythmbox xiterm+thai goldendict hdate-applet fcitx mozc-utils-gui firefox-esr
+out rhythmbox xiterm+thai goldendict-ng hdate-applet fcitx5 mozc-utils-gui firefox-esr
 sudo nala autoremove && sudo nala autopurge
 ```
 
@@ -464,49 +480,8 @@ sudo tlp start
 sudo tlp-stat -s -c -b
 ```
 
-## Add More Locales
-
-```bash
-sudo vim /etc/locale.gen
-# Uncomment `en_GB.UTF-8`
-sudo locale-gen
-```
-
 ## Setting Up Docker
 
 [Debian | Docker Docs](https://docs.docker.com/engine/install/debian/#uninstall-old-versions)
 
 The version on official repo is too old.
-
-## Setting Up `GNOME Keyring`
-
-[GNOME/Keyring - ArchWiki](https://wiki.archlinux.org/title/GNOME/Keyring)
-
-```bash
-in gnome-keyring seahorse
-
-systemctl --user enable gnome-keyring-daemon.service
-systemctl --user start  gnome-keyring-daemon.service
-
-systemctl --user enable gcr-ssh-agent.socket
-systemctl --user start  gcr-ssh-agent.socket
-
-$ # Check, you should see `discover_other_daemon`
-$ gnome-keyring-daemon --start
-discover_other_daemon: 1
-
-$ # Use GUI app to invoke the `GNOME3 Pinentry`.
-$ # Open Emacs -> Magit -> Git push
-```
-
-If you get the error below.
-
-```
-gnome-keyring-daemon: insufficient process capabilities, unsecure memory might get used
-```
-
-You need to run.
-
-```bash
-bash -c "sudo setcap cap_ipc_lock=+ep `which gnome-keyring-daemon`"
-```

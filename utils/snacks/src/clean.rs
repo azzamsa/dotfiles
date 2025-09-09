@@ -98,7 +98,7 @@ fn cargo() -> anyhow::Result<()> {
 fn container() -> anyhow::Result<()> {
     utils::stdout("🧽 Cleaning container cache");
     cmd!("podman", "system", "prune").unchecked().run()?;
-    cmd!("docker", "system", "prune").unchecked().run()?;
+    // cmd!("docker", "system", "prune").unchecked().run()?;
     Ok(())
 }
 
