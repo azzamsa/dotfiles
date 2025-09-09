@@ -51,5 +51,4 @@ cargo install cargo-binstall
 cargo binstall --no-confirm --no-symlinks atuin dotter fnm starship just jj-cli
 
 # Populate the dotfiles.
-cd ~/dot
-just deploy
+just --justfile ~/dot/justfile deploy

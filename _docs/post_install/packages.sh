@@ -50,5 +50,4 @@ rm ~/.local/bin/yazi
 # Node
 fnm use v24
 # To get LTS version, see https://endoflife.date/nodejs
-cd ~/opt/nodebin
-npm install
+npm install --prefix ~/opt/nodebin
