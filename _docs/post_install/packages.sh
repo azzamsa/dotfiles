@@ -25,13 +25,26 @@ in --assume-yes jq fd-find ripgrep fzf telnet pandoc podman podman-compose shfmt
 # appimage
 in --assume-yes libfuse-dev
 
-# emacs, jinx
+# nvim
 in --assume-yes vim neovim
+
+#
+# emacs, jinx
 in --assume-yes emacs aspell libenchant-2-dev
 cin emacs-lsp-booster
+# Those files are unnecessary and occasionally cause me to misclick.
+sudo rm -f \
+    /usr/share/applications/emacs-term.desktop \
+    /usr/share/applications/emacs-mail.desktop \
+    /usr/share/applications/emacsclient-mail.desktop \
+    /usr/share/applications/emacsclient.desktop
 
+#
 # yazi
 in --assume-yes ffmpeg 7zip poppler-utils imagemagick
+ya pkg add yazi-rs/flavors:catppuccin-mocha
+# remove the (in case) duplicate `yazi`
+rm ~/.local/bin/yazi
 
 #
 # Node

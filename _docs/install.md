@@ -6,6 +6,10 @@ The steps I need to install Debian GNU/Linux on my machine.
 
 - Debian + GNOME
 
+## ⚠️ Before Migration
+
+Look for what to backup in your notes. See "What To Backup?".
+
 ## Preparing The ISO image
 
 Go to the distro’s website and download the **GNOME-flavored LIVE ISO**, then copy it to your Ventoy USB stick.
@@ -34,8 +38,8 @@ Stick with the defaults for everything, including locales, to avoid running into
 
 ## Setting Up Shell Prompt
 
-⚠️  Copy important files to new machine `~/dot`, `~/.local/share/atuin/`, `~/.local/share/fonts`.
-Later, you need to move more directory, See `~/.config/meta/backup.include`
+⚠️ Copy important files to new machine `~/dot`, `~/.local/share/atuin/`, `~/.local/share/fonts`, etc.
+See "What To Backup?" note.
 
 ```bash
 ./init.sh
@@ -46,7 +50,7 @@ Later, you need to move more directory, See `~/.config/meta/backup.include`
 ## Setup GNOME Extensions
 
 I need this early to have smooth access to brightness control and clipboard.
-📻 Flatpak apps won’t appear in the desktop menu until after a restart.
+💡 Flatpak apps won’t appear in the desktop menu until after a restart.
 
 Copy backup to `~/.local/share/gnome-shell/extensions`.
 
@@ -60,83 +64,24 @@ Copy backup to `~/.local/share/gnome-shell/extensions`.
 
 I think I will just use mutable OS an immutable way!
 
-⚠️ Copy `eget` and `ya (yazi)`  to `~/.local/bin`.
+⚠️ Copy `eget` and `ya (yazi)` to `~/.local/bin`.
 
 ```bash
 ./packages.sh
 ```
 
-Binaries:
-
-```bash
-# need explicit destination.
-eget idursun/jjui --to ~/.local/bin/jjui
-
-eget getzola/zola
-```
-
 AppImages:
 
 - https://github.com/neovide/neovide/releases
-- https://github.com/neovim/neovim/releases
 - https://yaak.app/download
 
 ## Setup Apps
-
-### Yazi
-
-```bash
-# This get both `ya` and `yazi `
-eget sxyazi/yazi
-ya pkg add yazi-rs/flavors:catppuccin-mocha
-
-# remove the duplicate `yazi`
-rm ~/.local/bin/yazi
-```
 
 ### Atuin
 
 ```bash
 atuin login
 atuin sync
-```
-
-### Emacs
-
-```bash
-git clone git@github.com:azzamsa/camp.d.git ~/.config/emacs
-
-# Those files are unnecessary and occasionally cause me to misclick.
-sudo rm -f \
-  /usr/share/applications/emacs-term.desktop \
-  /usr/share/applications/emacs-mail.desktop \
-  /usr/share/applications/emacsclient-mail.desktop \
-  /usr/share/applications/emacsclient.desktop
-```
-
-### Neovim
-
-```bash
-cin toor
-
-git clone git@github.com:azzamsa/roof.git ~/.config/nvim
-eget neovide/neovide --to ~/.local/bin/neovide --asset "neovide.AppImage"
-```
-
-### Helix
-
-The flatpak version depends on huge `org.freedesktop.Sdk` library.
-Use the binary instead.
-
-Take the `helix-<version>-x86_64-linux.tar.xz` from the [release](https://github.com/helix-editor/helix/releases) page.
-Unpack, then put `hx` in `~/.local/bin`, `hx.fish` in `~/.config/fish/completions/`, and `runtime` in `~/.config/helix`
-
-### Fish
-
-```bash
-atuin gen-completions --shell fish --out-dir ~/.config/fish/completions/
-just --completions fish > ~/.config/fish/completions/just.fish
-rg --generate complete-fish > ~/.config/fish/completions/rg.fish
 ```
 
 ### Discord / Vestop
@@ -152,9 +97,6 @@ Change the default scale to 130%.
 ### Flameshot
 
 ```bash
-# allow Flatpak Flameshot to take screenshots
-flatpak permission-set screenshot screenshot org.flameshot.Flameshot yes
-
 # Check if it's working as intended.
 flatpak run --command=flameshot org.flameshot.Flameshot gui
 ```
@@ -286,13 +228,14 @@ sudo nala autoremove && sudo nala autopurge
 
 ### Bluetooth
 
-Orbit trackball: press the DPI button 3s to enter the pair mode.
-VXE: press the all tree buttons 3s to enter the pair mode.
-Soundcore V20i: it activates pair mode automatically everytime it went out of it case.
+- Orbit trackball: press the DPI button 3s to enter the pair mode.
+- VXE: press the all tree buttons 3s to enter the pair mode.
+- Soundcore V20i: it activates pair mode automatically everytime it went out of it case.
+- JBL Go: press the pair button.
 
 ## Setup Power Management
 
-⚠ Skip this step if you are on PC.
+⚠️ Skip this step if you are on PC.
 
 ```bash
 out power-profiles-daemon
@@ -324,3 +267,7 @@ sudo tlp-stat -s -c -b
 [Debian | Docker Docs](https://docs.docker.com/engine/install/debian/#uninstall-old-versions)
 
 The version on official repo is too old.
+
+## Finish 🎉
+
+Go to `opt/pbin` and run `post_install.sh`
