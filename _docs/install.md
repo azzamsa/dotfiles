@@ -215,15 +215,6 @@ To prevent Apps to move to the Laptop monitor during suspension, go to `Display`
 
 - Disable "Restore session"
 
-## Clean Up
-
-Remove bloatware.
-
-```bash
-out rhythmbox xiterm+thai goldendict-ng hdate-applet fcitx5 mozc-utils-gui firefox-esr
-sudo nala autoremove && sudo nala autopurge
-```
-
 ## Setup Hardware
 
 ### Bluetooth

@@ -23,3 +23,16 @@ rg --generate complete-fish >~/.config/fish/completions/rg.fish
 eget idursun/jjui --to ~/.local/bin/jjui
 
 eget getzola/zola
+
+#
+# Clean up
+
+# Remove ImageMagick From Dash
+sudo rm /usr/share/applications/display-im7.q16.desktop
+
+# Remove bloatware.
+out rhythmbox xiterm+thai goldendict-ng hdate-applet fcitx5 mozc-utils-gui firefox-esr thunderbird anthy
+# Dictionaries
+out wbrazilian witalian wfrench wspanish wswedish wcatalan wbulgarian wdanish wngerman wpolish wportuguese
+
+sudo nala autoremove && sudo nala autopurge
