@@ -42,8 +42,6 @@ Stick with the defaults for everything, including locales, to avoid running into
 See "What To Backup?" note.
 
 ```bash
-./init.sh
-
 ./prompt.sh
 ```
 

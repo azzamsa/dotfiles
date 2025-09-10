@@ -1,4 +1,4 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
 
 #
 # ddcutil
@@ -31,7 +31,7 @@ eget getzola/zola
 sudo rm /usr/share/applications/display-im7.q16.desktop
 
 # Remove bloatware.
-out rhythmbox xiterm+thai goldendict-ng hdate-applet fcitx5 mozc-utils-gui firefox-esr thunderbird anthy
+out rhythmbox xiterm+thai goldendict-ng hdate-applet fcitx5 mozc-utils-gui firefox-esr thunderbird anthy*
 # Dictionaries
 out wbrazilian witalian wfrench wspanish wswedish wcatalan wbulgarian wdanish wngerman wpolish wportuguese
 

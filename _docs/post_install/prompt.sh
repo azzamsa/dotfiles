@@ -1,4 +1,20 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
+
+in() {
+	sudo nala install "$@"
+}
+
+out() {
+	sudo nala purge "$@"
+}
+
+cin() {
+	cargo binstall --no-confirm --no-symlinks --secure "$@"
+}
+
+cout() {
+	cargo remove "$@"
+}
 
 #
 # Setup Nala
