@@ -9,7 +9,8 @@
 - Debian GNOME, [Jul 17, 2023][debian-2023-start] - Aug 5, 2023 (19 days).
 - Fedora GNOME, [Aug 5, 2023][fedora-2023-start] - Aug 21, 2025 (2 years 16 days).
 - Debian GNOME, [Aug 21, 2025][debian-2025-start] - Aug 25, 2025 (4 days).
-- Endeavour GNOME, [Aug 25, 2025][endeavour-2025-start] - now.
+- Endeavour GNOME, [Aug 25, 2025][endeavour-2025-start] - Sep 10, 2025 (16 days).
+- Debian GNOME, [Sep 10, 2025][debian-2025-start-1] - now.
 - [More...](BOOKMARKS.md)
 
 ## Ubuntu (2 years) -> Debian
@@ -70,9 +71,22 @@ I guess I’m okay with that ugly LUKS password prompt in Debian 🤷🏼.
 I feel like desktop users are not a first-class citizen in Debian 🥲.
 I’ve been using GNU/Linux for 12 years, and I wanted to try an Arch-based distro at least once.
 
+## Endeavour OS -> Debian (16 days)
+
+I live in a rural area, so I don’t want to constantly download large updates just to keep my system running smoothly.
+
+I don’t need bleeding-edge packages — maybe just Emacs, but I’m fine sticking with the current release.
+I’m okay with an older Tree-sitter ABI too; I can adjust my Emacs config to use older versions if needed.
+Honestly, I don’t need any of the latest features. I can get all my work done with older software.
+
+I also don’t need anything fancy when it comes to the filesystem, bootloader, or window manager.
+
+Lastly, I don’t need a fancy LUKS password prompt either. It asks for the password right after I press the power button, and the system boots so quickly that I don’t even get to see the Plymouth animation anyway.
+
 [fedora-2022-start]: https://github.com/azzamsa/dotfiles/commit/4c5ccdc51e63a552c73113753687e6d9aa5e70fd
 [fedora-2023-start]: https://github.com/azzamsa/dotfiles/commit/f09550c399e67f223fa41c4517b15b1772e56847
 [debian-2023-start]: https://github.com/azzamsa/dotfiles/commit/61513966e5b6c1697af94e68e22a6caffb0c64dc
 [fedora-silverblue-start]: https://github.com/azzamsa/dotfiles/commit/d2d3d2e0b4f83362488a407155149d581122d361
 [debian-2025-start]: https://github.com/azzamsa/dotfiles/commit/1584afb8202e2e2a227ff0daff10c102bee07188
+[debian-2025-start-1]: https://github.com/azzamsa/dotfiles/tree/16864b33eac61ff8b557d2cbce6187e0291a7d44
 [current-os]: https://github.com/azzamsa/dotfiles
