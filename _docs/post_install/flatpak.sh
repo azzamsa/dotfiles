@@ -1,30 +1,23 @@
 #!/usr/bin/env fish
 
-in flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak install flathub --assumeyes com.mattjakeman.ExtensionManager
-
-# brightness
-in --assume-yes ddcutil
-# pano
-in --assume-yes gir1.2-gda-5.0 gir1.2-gsound-1.0
-
 #
-# Install Main Packages
-flatpak install flathub --assumeyes app.zen_browser.zen dev.vencord.Vesktop com.brave.Browser com.github.tchx84.Flatseal org.keepassxc.KeePassXC org.flameshot.Flameshot it.mijorus.gearlever ca.desrt.dconf-editor io.github.pieterdd.StretchBreak
+# Setup Core Packages
+set -l pkgs \
+    app.zen_browser.zen ca.desrt.dconf-editor com.audacityteam.Audacity com.brave.Browser \
+    com.calibre_ebook.calibre com.dec05eba.gpu_screen_recorder com.github.IsmaelMartinez.teams_for_linux \
+    com.github.finefindus.eyedropper com.github.johnfactotum.Foliate com.github.qarmin.czkawka \
+    com.github.tchx84.Flatseal com.mattjakeman.ExtensionManager com.usebruno.Bruno \
+    dev.vencord.Vesktop io.dbeaver.DBeaverCommunity io.github.flattool.Warehouse \
+    io.github.pieterdd.StretchBreak io.gitlab.news_flash.NewsFlash it.mijorus.gearlever \
+    net.nokyan.Resources org.atheme.audacious org.flameshot.Flameshot org.gimp.GIMP \
+    org.gnome.Evolution org.gnome.Firmware org.gnome.World.PikaBackup org.inkscape.Inkscape \
+    org.keepassxc.KeePassXC org.kde.okular org.mozilla.Thunderbird org.telegram.desktop us.zoom.Zoom
 
-# Productivity tools
-flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate
-
-# Work
-flatpak install flathub --assumeyes org.gnome.Evolution org.mozilla.Thunderbird com.usebruno.Bruno io.dbeaver.DBeaverCommunity
-
-# Utilities
-flatpak install flathub --assumeyes com.github.finefindus.eyedropper com.github.qarmin.czkawka io.gitlab.news_flash.NewsFlash io.github.flattool.Warehouse com.dec05eba.gpu_screen_recorder net.nokyan.Resources org.atheme.audacious org.audacityteam.Audacity org.gimp.GIMP org.gnome.Firmware org.inkscape.Inkscape org.kde.okular org.telegram.desktop org.gnome.World.PikaBackup org.gramps_project.Gramps
-
-# Office
-flatpak install flathub --assumeyes com.github.IsmaelMartinez.teams_for_linux us.zoom.Zoom
+for pkg in $pkgs
+    flatpak install flathub --assumeyes $pkg
+end
 
 # Optionals
-# flatpak install flathub --assumeyes org.bleachbit.BleachBit fr.romainvigier.MetadataCleaner com.github.huluti.Curtail
+# org.gramps_project.Gramps org.bleachbit.BleachBit fr.romainvigier.MetadataCleaner com.github.huluti.Curtail

@@ -7,6 +7,7 @@ depends = ["global"]
 # Will always be the default shell,
 # otherwise cause unpopular app to breaks!
 "shells/bash/bashrc" = "~/.bashrc"
+"shells/bash/exports" = "~/.exports"
 "shells/bash/bash_profile" = "~/.bash_profile"
 
 [shell.variables]

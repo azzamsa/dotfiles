@@ -1,56 +1,34 @@
 #!/usr/bin/env fish
 
 #
-# Cargo
-cargo install --locked cargo-nextest
+# Setup Nala
 
-cin cargo-update cargo-edit cargo-outdated cargo-tarpaulin bacon dprint git-cliff hurl selene stylua tokei typos-cli watchexec-cli git-cliff dprint typos-cli jaq
+# I prefer to work with `fish` than `bash`
+sudo apt install --assume-yes nala fish flatpak gnome-software-plugin-flatpak
 
-# Utilities
-cin bandwhich bat dua-cli kondo yazi-fm eza typstyle typst-cli
-
-# Flex
-cin lolcrab macchina
-
-#
-# System
-in --assume-yes gnome-tweaks bibata-cursor-theme gnome-shell-pomodoro fastfetch
-# pandoc will pull a whopping `199.2 MB` deps, because it so powerful it pull latex and everything.
-in --assume-yes jq fd-find ripgrep fzf telnet pandoc podman podman-compose shfmt
-# appimage
-in --assume-yes libfuse-dev
-
-# nvim
-in --assume-yes vim neovim
-cin toor
+# Find the fastest mirrors.
+sudo nala fetch
+# Upgrade The Os
+sudo nala update && sudo nala upgrade
 
 #
-# emacs, jinx
-in --assume-yes emacs aspell libenchant-2-dev
-cin emacs-lsp-booster
-# Those files are unnecessary and occasionally cause me to misclick.
-sudo rm -f \
-    /usr/share/applications/emacs-term.desktop \
-    /usr/share/applications/emacs-mail.desktop \
-    /usr/share/applications/emacsclient-mail.desktop \
-    /usr/share/applications/emacsclient.desktop
-# Debian use `Emacs (GUI)`
-sudo sed -i 's/^Name=Emacs (GUI)$/Name=Emacs/' /usr/share/applications/emacs.desktop
+# Setup Core Packages
+set -l pkgs bash git fish curl wl-clipboard \
+    emacs aspell libenchant-2-dev \
+    vim neovim \
+    # Rust
+    clang mold libssl-dev \
+    # Prompt
+    zoxide fmpeg 7zip poppler-utils imagemagick \
+    # Extensions
+    ddcutil gir1.2-gda-5.0 gir1.2-gsound-1.0 \
+    # Polish
+    gnome-tweaks bibata-cursor-theme gnome-shell-pomodoro fastfetch \
+    # pandoc will pull a whopping `199.2 MB` deps, because it so powerful it pull latex and everything.
+    jq fd-find ripgrep fzf telnet pandoc podman podman-compose shfmt \
+    # appimage
+    libfuse-dev
 
-#
-# yazi
-in --assume-yes ffmpeg 7zip poppler-utils imagemagick
-ya pkg add yazi-rs/flavors:catppuccin-mocha
-# remove the (in case) duplicate `yazi`
-rm ~/.local/bin/yazi
-
-#
-# Node
-fnm use v24
-# To get LTS version, see https://endoflife.date/nodejs
-npm install --prefix ~/opt/nodebin
-
-#
-# Python
-curl -sSf https://rye.astral.sh/get | bash
-rye install qmk grip poetry
+for pkg in $pkgs
+    sudo nala install --assume-yes $pkg
+end

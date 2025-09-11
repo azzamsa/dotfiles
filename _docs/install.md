@@ -36,38 +36,22 @@ I also use symlinks to my larger SSD so applications still see everything under 
 
 Stick with the defaults for everything, including locales, to avoid running into edge cases. You can always change the locale later in GNOME settings.
 
-## Setting Up Shell Prompt
+## Setting Up Core Packages
 
-⚠️ Copy important files to new machine `~/dot`, `~/.local/share/atuin/`, `~/.local/share/fonts`, etc.
+⚠️ Restore your previous backup.
 See "What To Backup?" note.
 
 ```bash
-./init.sh
+# Setup XDG
+$ cd ~/dot && source shells/bash/exports
 
-./prompt.sh
-```
+$ ./packages.sh
 
-## Setup GNOME Extensions
+$ # Wait until flatpak installed,
+Then in new terminal
+$ ./flatpak.sh
 
-I need this early to have smooth access to brightness control and clipboard.
-💡 Flatpak apps won’t appear in the desktop menu until after a restart.
-
-Copy backup to `~/.local/share/gnome-shell/extensions`.
-
-```bash
-./flatpak.sh
-```
-
-## Install Apps
-
-💡 I don't want to pollute my base system. Using Flatpak, I can freely remove applications without worrying my system will be broken.
-
-I think I will just use mutable OS an immutable way!
-
-⚠️ Copy `eget` and `ya (yazi)` to `~/.local/bin`.
-
-```bash
-./packages.sh
+$ ./cargo.sh
 ```
 
 AppImages:
@@ -75,19 +59,12 @@ AppImages:
 - https://github.com/neovide/neovide/releases
 - https://yaak.app/download
 
-## Setup Apps
+## Configure Apps
 
 
 ```bash
-./setup.sh
+./configure.sh
 ./dconf.sh
-```
-
-### Atuin
-
-```bash
-atuin login
-atuin sync
 ```
 
 ### Discord / Vestop
@@ -99,15 +76,6 @@ Then zoom using `Ctrl +`
 
 Copy the content from previous machine to `/ect/host` to be able to access certain websites.
 Change the default scale to 130%.
-
-### Flameshot
-
-```bash
-# Check if it's working as intended.
-flatpak run --command=flameshot org.flameshot.Flameshot gui
-```
-
-Disable `Show Tray Icon`.
 
 ### KeePassXC
 
@@ -133,24 +101,9 @@ On laptop.
 
 Fonts:
 
-- Interface Text: "Maple Mono NF 13"
-- Document Text: "Maple Mono NF 13"
-- Monospace Text: "Maple Mono NF 13"
 - Hinting : Slight
 - Antialiasing: Standard (greyscale)
 - Scaling Factor: 1.00
-
-Appearance:
-
-- Cursor: Bibata-Modern-Classic
-
-Startup Applications:
-
-- You know what to add!
-
-Top Bar:
-
-- Only show hour
 
 ### Locale
 
@@ -180,26 +133,6 @@ Custom shortcut:
   - command: `flatpak run --command=flameshot org.flameshot.Flameshot screen`
   - shortcut: `Shitf + PrtScn`
 
-Navigations:
-
-Using numbers feels slower and less comfortable given the size of my keyboard
-
-```
-Switch to workspace 1    Super+X
-Switch to workspace 2    Super+C
-Switch to workspace 3    Super+D
-Switch to workspace 4    Super+A
-```
-
-Alt-Tab per Workspace:
-
-```
-Switch Windows           Alt+TAB
-Switch Applications      Disabled
-```
-
-For more, see [keymaps.conf](https://github.com/azzamsa/dotfiles/blob/master/wm/hypr/keymaps.conf)
-
 ### Multitasking
 
 - Workspace: Fixed number. 4 workspaces.
@@ -208,62 +141,9 @@ For more, see [keymaps.conf](https://github.com/azzamsa/dotfiles/blob/master/wm/
 
 To prevent Apps to move to the Laptop monitor during suspension, go to `Display` and set it to `Mirror`.
 
-### Startup
-
-- Emacs
-- VeskTop
-- Ghostty
-- Zen Browser
-- SilverBullet
-- Sane Break
-
 ### Text Editor
 
 - Disable "Restore session"
-
-## Setup Hardware
-
-### Bluetooth
-
-- Orbit trackball: press the DPI button 3s to enter the pair mode.
-- VXE: press the all tree buttons 3s to enter the pair mode.
-- Soundcore V20i: it activates pair mode automatically everytime it went out of it case.
-- JBL Go: press the pair button.
-
-## Setup Power Management
-
-⚠️ Skip this step if you are on PC.
-
-```bash
-out power-profiles-daemon
-```
-
-```bash
-in tlp tlp-rdw
-
-sudo systemctl enable tlp.service
-sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
-```
-
-Configure `/etc/tlp.conf`.
-
-```diff
--STOP_CHARGE_THRESH_BAT0=60
-+STOP_CHARGE_THRESH_BAT0="1"
-```
-
-Start `TLP`.
-
-```bash
-sudo tlp start
-sudo tlp-stat -s -c -b
-```
-
-## Setting Up Docker
-
-[Debian | Docker Docs](https://docs.docker.com/engine/install/debian/#uninstall-old-versions)
-
-The version on official repo is too old.
 
 ## Finish 🎉
 

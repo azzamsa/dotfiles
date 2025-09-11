@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+
+# XDG Base Dirs
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# History
+export HISTFILE="${XDG_STATE_HOME}/bash/history"
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTCONTROL="ignoreboth"
+
+# Paths
+export PATH=~/opt/pbin:~/.local/bin:$PATH
+export PATH=~/.local/share/cargo/bin:~/.cargo/bin:$PATH
+export PATH=~/.local/share/go/bin:$PATH
+export PATH=~/opt/nodebin/node_modules/.bin:$PATH
+export PATH=~/.local/bin/appimages:$PATH
+
+# Editors
+export VISUAL="{{ editor }}"
+export EDITOR="{{ editor }}"
+export TERM='xterm-256color'
+
+# Apps
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export LSP_USE_PLISTS=true
+export ZDOTDIR=~/.config/zsh
+export HELIX_RUNTIME=~/.config/helix/
+
+# XDG for tools
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export EMACSDIR="$XDG_CONFIG_HOME/emacs"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export GRIPHOME="$XDG_CONFIG_HOME/grip"
+export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
+export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
+export WINEPREFIX="$XDG_DATA_HOME/wine"
+export LESSHISTFILE="$XDG_STATE_HOME/less/history"
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+export VIRTUALFISH_HOME="$XDG_DATA_HOME/virtualfish"
+export TERMINFO="$XDG_DATA_HOME/terminfo"
+export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo"
+export GOPATH="$XDG_DATA_HOME/go"
