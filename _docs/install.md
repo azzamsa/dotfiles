@@ -61,7 +61,6 @@ AppImages:
 
 ## Configure Apps
 
-
 ```bash
 ./configure.sh
 ./dconf.sh

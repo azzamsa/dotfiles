@@ -12,6 +12,7 @@ _default:
 
 [doc('Set up the repository')]
 setup:
+    cp -n _scripts/hooks/pre-commit .git/hooks/
 
 [doc('Publish the binaries')]
 deploy:
