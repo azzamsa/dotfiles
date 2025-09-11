@@ -1,9 +1,4 @@
-#!/usr/bin/env bash
-
-#
-# Python
-curl -sSf https://rye.astral.sh/get | bash
-rye install qmk grip poetry
+#!/usr/bin/env fish
 
 #
 # Cargo
@@ -27,6 +22,7 @@ in --assume-yes libfuse-dev
 
 # nvim
 in --assume-yes vim neovim
+cin toor
 
 #
 # emacs, jinx
@@ -38,6 +34,8 @@ sudo rm -f \
     /usr/share/applications/emacs-mail.desktop \
     /usr/share/applications/emacsclient-mail.desktop \
     /usr/share/applications/emacsclient.desktop
+# Debian use `Emacs (GUI)`
+sudo sed -i 's/^Name=Emacs (GUI)$/Name=Emacs/' /usr/share/applications/emacs.desktop
 
 #
 # yazi
@@ -51,3 +49,8 @@ rm ~/.local/bin/yazi
 fnm use v24
 # To get LTS version, see https://endoflife.date/nodejs
 npm install --prefix ~/opt/nodebin
+
+#
+# Python
+curl -sSf https://rye.astral.sh/get | bash
+rye install qmk grip poetry

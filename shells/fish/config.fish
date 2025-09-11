@@ -28,7 +28,6 @@ alias sudo 'sudo '
 alias cat bat
 
 # I don’t want to replace my commands each time I move to a different Linux distro.
-alias pkg '{{ pkg }}'
 alias in '{{ install }}'
 alias out '{{ uninstall }}'
 

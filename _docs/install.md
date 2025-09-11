@@ -42,6 +42,8 @@ Stick with the defaults for everything, including locales, to avoid running into
 See "What To Backup?" note.
 
 ```bash
+./init.sh
+
 ./prompt.sh
 ```
 
@@ -74,6 +76,12 @@ AppImages:
 - https://yaak.app/download
 
 ## Setup Apps
+
+
+```bash
+./setup.sh
+./dconf.sh
+```
 
 ### Atuin
 

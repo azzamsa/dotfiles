@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
 in flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak install flathub --assume-yes com.mattjakeman.ExtensionManager
+flatpak install flathub --assumeyes com.mattjakeman.ExtensionManager
 
 # brightness
 in --assume-yes ddcutil
@@ -12,7 +12,7 @@ in --assume-yes gir1.2-gda-5.0 gir1.2-gsound-1.0
 
 #
 # Install Main Packages
-flatpak install flathub --assumeyes app.zen_browser.zen dev.vencord.Vesktop com.brave.Browser com.github.tchx84.Flatseal org.keepassxc.KeePassXC org.flameshot.Flameshot it.mijorus.gearlever
+flatpak install flathub --assumeyes app.zen_browser.zen dev.vencord.Vesktop com.brave.Browser com.github.tchx84.Flatseal org.keepassxc.KeePassXC org.flameshot.Flameshot it.mijorus.gearlever ca.desrt.dconf-editor io.github.pieterdd.StretchBreak
 
 # Productivity tools
 flatpak install flathub --assumeyes com.calibre_ebook.calibre com.github.johnfactotum.Foliate

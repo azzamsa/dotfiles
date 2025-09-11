@@ -1,20 +1,4 @@
-#!/usr/bin/env bash
-
-in() {
-	sudo nala install "$@"
-}
-
-out() {
-	sudo nala purge "$@"
-}
-
-cin() {
-	cargo binstall --no-confirm --no-symlinks --secure "$@"
-}
-
-cout() {
-	cargo remove "$@"
-}
+#!/usr/bin/env fish
 
 #
 # Setup Nala
@@ -27,7 +11,7 @@ sudo nala update && sudo nala upgrade
 
 #
 # Setup Core Packages
-sudo nala install --assume-yes bash git fish
+sudo nala install --assume-yes bash git fish curl
 
 #
 # Setup XDG
@@ -50,12 +34,13 @@ touch "$XDG_STATE_HOME"/bash/history
 #
 # Setup Rust
 # Prompt Tools needs some Rust based tools.
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup default stable
 rustup component add rust-analyzer
-. .local/share/cargo/env
+. "/home/azzamsa/.local/share/cargo/env"
 
 #
 # Setup Prompt
